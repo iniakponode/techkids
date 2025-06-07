@@ -15,6 +15,7 @@ router = APIRouter(prefix="/admin/payments", tags=["Admin Payments"])
 def list_payments(
     page: int = 1,
     limit: int = 10,
+    search: str | None = None,
     db: Session = Depends(get_db),
     current_user: User = Depends(get_current_user),
 ):
@@ -22,7 +23,10 @@ def list_payments(
     if current_user.role != "admin":
         raise HTTPException(status_code=403, detail="Admin access required")
     skip = (page - 1) * limit
-    payments = crud_payment.get_all(db, skip=skip, limit=limit)
+    query = db.query(crud_payment.model)
+    if search:
+        query = query.filter(crud_payment.model.transaction_id.ilike(f"%{search}%"))
+    payments = query.offset(skip).limit(limit).all()
     return [
         {
             "id": p.id,

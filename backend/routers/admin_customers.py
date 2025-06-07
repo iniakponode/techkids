@@ -15,6 +15,7 @@ router = APIRouter(prefix="/admin/customers", tags=["Admin Customers"])
 async def list_customers(
     page: int = 1,
     limit: int = 10,
+    search: str | None = None,
     db: Session = Depends(get_db),
     current_user: User = Depends(get_current_user),
 ):
@@ -22,7 +23,10 @@ async def list_customers(
     if current_user.role != "admin":
         raise HTTPException(status_code=403, detail="Admin access required")
     skip = (page - 1) * limit
-    return crud_user.get_all(db, skip=skip, limit=limit)
+    query = db.query(User)
+    if search:
+        query = query.filter(User.email.ilike(f"%{search}%"))
+    return query.offset(skip).limit(limit).all()
 
 
 @router.delete("/delete/{user_id}", status_code=status.HTTP_204_NO_CONTENT)

@@ -16,6 +16,7 @@ router = APIRouter(prefix="/admin/registrations", tags=["Admin Registrations"])
 def list_registrations(
     page: int = 1,
     limit: int = 10,
+    search: str | None = None,
     db: Session = Depends(get_db),
     current_user: User = Depends(get_current_user),
 ):
@@ -23,7 +24,10 @@ def list_registrations(
     if current_user.role != "admin":
         raise HTTPException(status_code=403, detail="Admin access required")
     skip = (page - 1) * limit
-    regs = crud_registration.get_all(db, skip=skip, limit=limit)
+    query = db.query(crud_registration.model)
+    if search:
+        query = query.filter(crud_registration.model.fullName.ilike(f"%{search}%"))
+    regs = query.offset(skip).limit(limit).all()
     result = []
     for reg in regs:
         payment = db.query(Payment).filter(Payment.order_id == reg.order_id).first()
