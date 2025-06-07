@@ -9,6 +9,7 @@ from backend.models.user import User
 from backend.models.payment import Payment
 from backend.models.registration import Registration
 from backend.models.order import Order
+from backend.models.course import Course
 from backend.routers.auth import get_current_user
 
 router = APIRouter()
@@ -158,6 +159,7 @@ async def manage_registrations_page(
                 "id": reg.id,
                 "fullName": reg.fullName,
                 "phone": reg.phone,
+                "user_id": reg.user_id,
                 "course_id": reg.course_id,
                 "order_id": reg.order_id,
                 "courses_count": courses_count,
@@ -174,6 +176,49 @@ async def manage_registrations_page(
             "page": page,
             "limit": limit,
             "has_next": has_next,
+        },
+    )
+
+
+@router.get("/admin/customer-courses/{user_id}", name="customer_courses")
+async def customer_courses_page(
+    request: Request,
+    user_id: int,
+    user: User = Depends(get_current_user),
+    db: Session = Depends(get_db),
+):
+    """Display all courses a customer registered for."""
+    if user.role != "admin":
+        raise HTTPException(status_code=403, detail="Admin access required")
+
+    customer = db.query(User).filter(User.id == user_id).first()
+    if not customer:
+        raise HTTPException(status_code=404, detail="Customer not found")
+
+    regs = db.query(Registration).filter(Registration.user_id == user_id).all()
+    courses = []
+    total_amount = 0.0
+    for reg in regs:
+        course = db.query(Course).filter(Course.id == reg.course_id).first()
+        if course:
+            courses.append(
+                {
+                    "name": course.title,
+                    "course_id": course.id,
+                    "registered_at": reg.registered_at,
+                    "price": course.price,
+                }
+            )
+            total_amount += course.price
+
+    return templates.TemplateResponse(
+        "admin/customer_courses.html",
+        {
+            "request": request,
+            "customer": customer,
+            "courses": courses,
+            "total_amount": total_amount,
+            "current_user": user,
         },
     )
 

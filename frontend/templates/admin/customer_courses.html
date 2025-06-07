@@ -1,0 +1,31 @@
+{% extends "layout/base.html" %}
+
+{% block title %}Customer Courses{% endblock %}
+{% block content %}
+<div class="container mt-5">
+    <h1>Courses for {{ customer.email }}</h1>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Course Name</th>
+                <th>Course ID</th>
+                <th>Date Registered</th>
+                <th>Amount</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for c in courses %}
+            <tr>
+                <td>{{ c.name }}</td>
+                <td>{{ c.course_id }}</td>
+                <td>{{ c.registered_at }}</td>
+                <td>{{ c.price }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    <div class="text-end fw-bold">
+        Total Amount: {{ total_amount }}
+    </div>
+</div>
+{% endblock %}
