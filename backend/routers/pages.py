@@ -106,20 +106,45 @@ async def admin_dashboard(request: Request, user: User = Depends(get_current_use
     return templates.TemplateResponse("admin/dashboard.html", {"request": request, "user": user, "current_user": user})
 
 @router.get("/admin/manage-courses", name="manage_courses")
-async def manage_courses_page(request: Request, user: User = Depends(get_current_user), db: Session = Depends(get_db)):
+async def manage_courses_page(
+    request: Request,
+    user: User = Depends(get_current_user),
+    db: Session = Depends(get_db),
+    page: int = 1,
+    limit: int = 10,
+):
     """Render the 'Manage Courses' page for admin."""
     if user.role != "admin":
         raise HTTPException(status_code=403, detail="Admin access required")
-    courses = crud_course.get_all(db=db)
-    return templates.TemplateResponse("admin/manage_courses.html", {"request": request, "courses": courses, "current_user": user})
+    skip = (page - 1) * limit
+    courses = crud_course.get_all(db=db, skip=skip, limit=limit)
+    has_next = len(courses) == limit
+    return templates.TemplateResponse(
+        "admin/manage_courses.html",
+        {
+            "request": request,
+            "courses": courses,
+            "current_user": user,
+            "page": page,
+            "limit": limit,
+            "has_next": has_next,
+        },
+    )
 
 
 @router.get("/admin/manage-registrations", name="manage_registrations")
-async def manage_registrations_page(request: Request, user: User = Depends(get_current_user), db: Session = Depends(get_db)):
+async def manage_registrations_page(
+    request: Request,
+    user: User = Depends(get_current_user),
+    db: Session = Depends(get_db),
+    page: int = 1,
+    limit: int = 10,
+):
     """Render the 'Manage Registrations' page for admin."""
     if user.role != "admin":
         raise HTTPException(status_code=403, detail="Admin access required")
-    regs = crud_registration.get_all(db=db)
+    skip = (page - 1) * limit
+    regs = crud_registration.get_all(db=db, skip=skip, limit=limit)
     registrations = []
     for reg in regs:
         payment = db.query(Payment).filter(Payment.order_id == reg.order_id).first()
@@ -139,7 +164,18 @@ async def manage_registrations_page(request: Request, user: User = Depends(get_c
                 "payment_status": payment.status if payment else "pending",
             }
         )
-    return templates.TemplateResponse("admin/manage_registrations.html", {"request": request, "registrations": registrations, "current_user": user})
+    has_next = len(registrations) == limit
+    return templates.TemplateResponse(
+        "admin/manage_registrations.html",
+        {
+            "request": request,
+            "registrations": registrations,
+            "current_user": user,
+            "page": page,
+            "limit": limit,
+            "has_next": has_next,
+        },
+    )
 
 
 @router.get("/admin/manage-payments", name="manage_payments")
@@ -148,15 +184,18 @@ async def manage_payments_page(
     user: User = Depends(get_current_user),
     db: Session = Depends(get_db),
     order: int | None = None,
+    page: int = 1,
+    limit: int = 10,
 ):
     """Render the 'Manage Payments' page for admin."""
     if user.role != "admin":
         raise HTTPException(status_code=403, detail="Admin access required")
 
+    skip = (page - 1) * limit
     query = db.query(Payment)
     if order:
         query = query.filter(Payment.order_id == order)
-    payments_db = query.all()
+    payments_db = query.offset(skip).limit(limit).all()
 
     payments = []
     for p in payments_db:
@@ -181,19 +220,45 @@ async def manage_payments_page(
             }
         )
 
+    has_next = len(payments) == limit
     return templates.TemplateResponse(
         "admin/manage_payments.html",
-        {"request": request, "payments": payments, "current_user": user},
+        {
+            "request": request,
+            "payments": payments,
+            "current_user": user,
+            "page": page,
+            "limit": limit,
+            "has_next": has_next,
+        },
     )
 
 
 @router.get("/admin/manage-customers", name="manage_customers")
-async def manage_customers_page(request: Request, user: User = Depends(get_current_user), db: Session = Depends(get_db)):
+async def manage_customers_page(
+    request: Request,
+    user: User = Depends(get_current_user),
+    db: Session = Depends(get_db),
+    page: int = 1,
+    limit: int = 10,
+):
     """Render the 'Manage Customers' page for admin."""
     if user.role != "admin":
         raise HTTPException(status_code=403, detail="Admin access required")
-    customers = crud_user.get_all(db=db)
-    return templates.TemplateResponse("admin/manage_customers.html", {"request": request, "customers": customers, "current_user": user})
+    skip = (page - 1) * limit
+    customers = crud_user.get_all(db=db, skip=skip, limit=limit)
+    has_next = len(customers) == limit
+    return templates.TemplateResponse(
+        "admin/manage_customers.html",
+        {
+            "request": request,
+            "customers": customers,
+            "current_user": user,
+            "page": page,
+            "limit": limit,
+            "has_next": has_next,
+        },
+    )
 
 @router.get("/admin/add-course", name="add_course_form")
 async def add_course_page(request: Request, user: User = Depends(get_current_user)):

@@ -13,12 +13,16 @@ router = APIRouter(prefix="/admin/customers", tags=["Admin Customers"])
 
 @router.get("/", response_model=List[UserResponse])
 async def list_customers(
+    page: int = 1,
+    limit: int = 10,
     db: Session = Depends(get_db),
-    current_user: User = Depends(get_current_user)
+    current_user: User = Depends(get_current_user),
 ):
+    """Return a paginated list of customers."""
     if current_user.role != "admin":
         raise HTTPException(status_code=403, detail="Admin access required")
-    return crud_user.get_all(db)
+    skip = (page - 1) * limit
+    return crud_user.get_all(db, skip=skip, limit=limit)
 
 
 @router.delete("/delete/{user_id}", status_code=status.HTTP_204_NO_CONTENT)
