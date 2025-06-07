@@ -62,8 +62,12 @@ def test_social_media_posts():
 
 def test_create_social_media_post():
     """Test creating a social media post."""
-    data = {"platform": "twitter", "content": "Hello"}
-    response = client.post("/admin/social-posts/", json=data)
+    data = {
+        "platform": "x",
+        "content": "Hello",
+        "content_type": "Post",
+    }
+    response = client.post("/admin/social-posts/", data=data)
     assert response.status_code in (201, 403, 401)
 
 
@@ -72,9 +76,10 @@ def test_create_scheduled_post():
     data = {
         "platform": "facebook",
         "content": "Scheduled",
+        "content_type": "Feed",
         "scheduled_at": "2030-01-01T10:00:00",
     }
-    response = client.post("/admin/social-posts/", json=data)
+    response = client.post("/admin/social-posts/", data=data)
     assert response.status_code in (201, 403, 401)
 
 

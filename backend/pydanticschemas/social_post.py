@@ -4,6 +4,9 @@ from pydantic import BaseModel, Field
 class SocialMediaPostBase(BaseModel):
     platform: str = Field(..., max_length=50)
     content: str
+    content_type: str
+    image_url: str | None = None
+    video_url: str | None = None
     scheduled_at: datetime | None = None
     status: str = "draft"
 

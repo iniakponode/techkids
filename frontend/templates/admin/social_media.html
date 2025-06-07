@@ -9,14 +9,33 @@
 {% block content %}
 <div class="container mt-5">
     <h1>Social Media Management</h1>
-    <form id="post-form" class="mb-4">
+    <form id="post-form" class="mb-4" enctype="multipart/form-data">
         <div class="mb-3">
             <label class="form-label">Platform</label>
-            <input type="text" name="platform" class="form-control" required>
+            <select id="platform" name="platform" class="form-select" required>
+                <option value="facebook">Facebook</option>
+                <option value="instagram">Instagram</option>
+                <option value="whatsapp">Whatsapp</option>
+                <option value="x">X</option>
+                <option value="threads">Threads</option>
+                <option value="telegram">Telegram</option>
+            </select>
+        </div>
+        <div class="mb-3">
+            <label class="form-label">Content Type</label>
+            <select id="content_type" name="content_type" class="form-select" required></select>
         </div>
         <div class="mb-3">
             <label class="form-label">Content</label>
             <textarea name="content" class="form-control" rows="3" required></textarea>
+        </div>
+        <div id="image-field" class="mb-3">
+            <label class="form-label">Image</label>
+            <input type="file" name="image" accept="image/*" class="form-control">
+        </div>
+        <div id="video-field" class="mb-3">
+            <label class="form-label">Video</label>
+            <input type="file" name="video" accept="video/*" class="form-control">
         </div>
         <div class="mb-3">
             <label class="form-label">Schedule Time</label>
@@ -29,7 +48,9 @@
         <thead>
             <tr>
                 <th>Platform</th>
+                <th>Type</th>
                 <th>Content</th>
+                <th>Media</th>
                 <th>Scheduled</th>
                 <th>Status</th>
                 <th>Created</th>
@@ -40,7 +61,15 @@
             {% for p in posts %}
             <tr>
                 <td>{{ p.platform }}</td>
+                <td>{{ p.content_type }}</td>
                 <td>{{ p.content }}</td>
+                <td>
+                    {% if p.image_url %}
+                        <img src="{{ p.image_url }}" alt="image" style="max-height:40px;">
+                    {% elif p.video_url %}
+                        <a href="{{ p.video_url }}" target="_blank">Video</a>
+                    {% else %}-{% endif %}
+                </td>
                 <td>{{ p.scheduled_at.strftime('%Y-%m-%d %H:%M') if p.scheduled_at else '-' }}</td>
                 <td>{{ p.status }}</td>
                 <td>{{ p.created_at.strftime('%Y-%m-%d') }}</td>
