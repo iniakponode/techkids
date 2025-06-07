@@ -12,6 +12,7 @@ import uvicorn
 import uvicorn
 from backend.middleware import blacklist_middleware
 from backend.routers import api_router, pages_router
+from backend.services.social_scheduler import start_scheduler
 
 logging.basicConfig(
     level=logging.INFO,
@@ -64,6 +65,12 @@ app.include_router(api_router, prefix="/api")
 
 # Include the pages router for frontend routes
 app.include_router(pages_router)
+
+
+@app.on_event("startup")
+def start_background_tasks() -> None:
+    """Start recurring schedulers."""
+    start_scheduler()
 
 
 

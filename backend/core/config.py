@@ -12,6 +12,10 @@ class Settings(BaseSettings):
     EMAIL_SENDER: str
     EMAIL_HOST: str
     EMAIL_PORT: int
+    POST_SCHEDULER_INTERVAL: int = 60
+    FACEBOOK_API_TOKEN: str | None = None
+    X_API_TOKEN: str | None = None
+    INSTAGRAM_API_TOKEN: str | None = None
     # If you have more config variables, add them here.
 
     # Pydantic 2.x style config
