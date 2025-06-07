@@ -31,6 +31,7 @@ def list_registrations(
             "id": reg.id,
             "fullName": reg.fullName,
             "phone": reg.phone,
+            "user_id": reg.user_id,
             "course_id": reg.course_id,
             "order_id": reg.order_id,
             "status": reg.status,

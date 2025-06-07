@@ -29,6 +29,7 @@
                 <td>{{ reg.courses_count }}</td>
                 <td>{{ reg.payment_status }}</td>
                 <td>
+                    <a href="/admin/customer-courses/{{ reg.user_id }}" class="btn btn-sm btn-secondary">See Courses</a>
                     {% if reg.payment_status == 'completed' %}
                     <a href="/admin/manage-payments?order={{ reg.order_id }}" class="btn btn-sm btn-info">See Payment</a>
                     {% endif %}
