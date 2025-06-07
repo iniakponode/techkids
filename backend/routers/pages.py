@@ -184,7 +184,6 @@ async def manage_registrations_page(
                 "fullName": reg.fullName,
                 "phone": reg.phone,
                 "user_id": reg.user_id,
-                "course_id": reg.course_id,
                 "order_id": reg.order_id,
                 "courses_count": courses_count,
                 "payment_status": payment.status if payment else "pending",
@@ -399,6 +398,20 @@ async def edit_customer_page(
     return templates.TemplateResponse(
         "admin/admin_edit_customer.html",
         {"request": request, "customer": customer, "current_user": user},
+    )
+
+
+@router.get("/admin/social-media", name="social_media")
+async def social_media_page(
+    request: Request,
+    user: User = Depends(get_current_user),
+):
+    """Render the Social Media Management page."""
+    if user.role != "admin":
+        raise HTTPException(status_code=403, detail="Admin access required")
+    return templates.TemplateResponse(
+        "admin/social_media.html",
+        {"request": request, "current_user": user},
     )
 
 @router.get("/admin/coming_soon", response_class=HTMLResponse)
