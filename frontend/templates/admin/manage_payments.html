@@ -1,0 +1,37 @@
+{% extends "layout/base.html" %}
+
+{% block title %}Manage Payments{% endblock %}
+{% block extra_head %}
+{{ super() }}
+<script src="/static/js/pages/manage_payments.js" defer></script>
+{% endblock %}
+
+{% block content %}
+<div class="container mt-5">
+    <h1>Manage Payments</h1>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Transaction</th>
+                <th>Amount</th>
+                <th>Status</th>
+                <th>Date</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for p in payments %}
+            <tr>
+                <td>{{ p.transaction_id }}</td>
+                <td>{{ p.amount }}</td>
+                <td>{{ p.status }}</td>
+                <td>{{ p.payment_date }}</td>
+                <td>
+                    <a href="" class="btn btn-sm btn-danger delete-payment" data-payment-id="{{ p.id }}">Delete</a>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endblock %}
