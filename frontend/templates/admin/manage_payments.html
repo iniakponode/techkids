@@ -14,6 +14,9 @@
             <tr>
                 <th>Transaction</th>
                 <th>Amount</th>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Courses</th>
                 <th>Status</th>
                 <th>Date</th>
                 <th>Actions</th>
@@ -24,6 +27,9 @@
             <tr>
                 <td>{{ p.transaction_id }}</td>
                 <td>{{ p.amount }}</td>
+                <td>{{ p.customer_name }}</td>
+                <td>{{ p.customer_email }}</td>
+                <td>{{ p.courses_count }}</td>
                 <td>{{ p.status }}</td>
                 <td>{{ p.payment_date }}</td>
                 <td>

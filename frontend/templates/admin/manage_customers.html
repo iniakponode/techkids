@@ -23,6 +23,7 @@
                 <td>{{ customer.email }}</td>
                 <td>{{ customer.role }}</td>
                 <td>
+                    <a href="/admin/edit-customer/{{ customer.id }}" class="btn btn-sm btn-secondary">Edit</a>
                     <a href="" class="btn btn-sm btn-danger delete-customer" data-customer-id="{{ customer.id }}">Delete</a>
                 </td>
             </tr>

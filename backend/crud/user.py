@@ -66,10 +66,9 @@ class CRUDUser:
 
         hashed_password = bcrypt.hash(obj_in.password)
         new_user = self.model(
-            username=obj_in.username,
             email=obj_in.email,
             password_hash=hashed_password,
-            role="student",
+            role=obj_in.role if obj_in.role else "student",
         )
         db.add(new_user)
         try:
@@ -117,8 +116,8 @@ class CRUDUser:
         if not user:
             raise HTTPException(status_code=404, detail=f"User with ID {user_id} not found.")
 
-        user.username = obj_in.username
         user.email = obj_in.email
+        user.role = obj_in.role if obj_in.role else user.role
         user.password_hash = bcrypt.hash(obj_in.password)
         db.add(user)
         try:

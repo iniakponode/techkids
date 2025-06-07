@@ -22,13 +22,13 @@ def test_get_users():
 def test_create_user():
     """Test creating a new user"""
     user_data = {
-        "username": "testuser",
         "email": "test@example.com",
-        "password": "password123"
+        "password": "password123",
+        "role": "student"
     }
     response = client.post("/users/", json=user_data)
     assert response.status_code == 201
-    assert response.json()["username"] == "testuser"
+    assert response.json()["email"] == "test@example.com"
 
 
 def test_get_courses():

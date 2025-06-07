@@ -15,6 +15,7 @@
                 <th>Name</th>
                 <th>Phone</th>
                 <th>Course ID</th>
+                <th>Courses Registered</th>
                 <th>Payment Status</th>
                 <th>Actions</th>
             </tr>
@@ -25,8 +26,12 @@
                 <td>{{ reg.fullName }}</td>
                 <td>{{ reg.phone }}</td>
                 <td>{{ reg.course_id }}</td>
+                <td>{{ reg.courses_count }}</td>
                 <td>{{ reg.payment_status }}</td>
                 <td>
+                    {% if reg.payment_status == 'completed' %}
+                    <a href="/admin/manage-payments?order={{ reg.order_id }}" class="btn btn-sm btn-info">See Payment</a>
+                    {% endif %}
                     <a href="" class="btn btn-sm btn-danger delete-registration" data-reg-id="{{ reg.id }}">Delete</a>
                 </td>
             </tr>
