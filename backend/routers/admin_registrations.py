@@ -14,12 +14,16 @@ router = APIRouter(prefix="/admin/registrations", tags=["Admin Registrations"])
 
 @router.get("/", response_model=List[dict])
 def list_registrations(
+    page: int = 1,
+    limit: int = 10,
     db: Session = Depends(get_db),
     current_user: User = Depends(get_current_user),
 ):
+    """Return a paginated list of registrations."""
     if current_user.role != "admin":
         raise HTTPException(status_code=403, detail="Admin access required")
-    regs = crud_registration.get_all(db)
+    skip = (page - 1) * limit
+    regs = crud_registration.get_all(db, skip=skip, limit=limit)
     result = []
     for reg in regs:
         payment = db.query(Payment).filter(Payment.order_id == reg.order_id).first()
