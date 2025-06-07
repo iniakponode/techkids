@@ -1,0 +1,71 @@
+{% extends "layout/base.html" %}
+
+{% block title %}Edit Course{% endblock %}
+
+{% block extra_head %}
+<script src="/static/js/pages/admin_edit_course.js" defer></script>
+{% endblock %}
+
+{% block content %}
+<div class="container mt-5">
+    <div class="card">
+        <div class="card-header">
+            <h1>Edit Course</h1>
+        </div>
+        <div class="card-body">
+            <div id="editCourseMessage" class="mb-3"></div>
+            <form id="editCourseForm" enctype="multipart/form-data">
+                <div class="mb-3">
+                    <label for="title" class="form-label">Title</label>
+                    <input type="text" class="form-control" id="title" name="title" value="{{ course.title }}" required>
+                </div>
+                <div class="mb-3">
+                    <label for="image" class="form-label">Course Image</label>
+                    {% if course.image_url %}
+                    <img src="{{ course.image_url }}" alt="Current Course Image" style="max-width: 200px; margin-bottom: 10px;">
+                    {% endif %}
+                    <input type="file" class="form-control" id="image" name="image">
+                </div>
+                <div class="mb-3">
+                    <label for="description" class="form-label">Description</label>
+                    <textarea class="form-control" id="description" name="description" rows="4" required>{{ course.description }}</textarea>
+                </div>
+                <div class="row">
+                    <div class="col-md-6 mb-3">
+                        <label for="price" class="form-label">Price(₦)</label>
+                        <div class="input-group">
+                            <span class="input-group-text">₦</span>
+                            <input type="number" class="form-control" id="price" name="price" value="{{ course.price }}" required>
+                        </div>
+                    </div>
+                    <div class="col-md-6 mb-3">
+                        <label for="ageGroup" class="form-label">Age Group</label>
+                        <input type="text" class="form-control" id="ageGroup" name="age_group" value="{{ course.age_group }}" required>
+                    </div>
+                </div>
+                <div class="mb-3">
+                    <label for="duration" class="form-label">Duration</label>
+                    <input type="text" class="form-control" id="duration" name="duration" value="{{ course.duration }}" required>
+                </div>
+                <button type="submit" class="btn btn-primary" id="editCourse" data-loading-text="Updating Course Details...">Update Course</button>
+            </form>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="updateCourseModal" tabindex="-1" aria-labelledby="updateCourseModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="updateCourseModalLabel">Update Result</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body" id="updateCourseModalBody">
+                </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,40 @@
+<!-- Updated Signup Form Column -->
+<div class="col-md-6 h-100 d-flex align-items-center justify-content-center">
+    <div class="card shadow p-4 w-100" style="max-width: 500px;">
+      <h3 class="text-center mb-4">Sign Up</h3>
+      <form method="post" action="/signup">
+        <div class="mb-3">
+          <label for="firstName" class="form-label">First Name</label>
+          <input type="text" class="form-control" id="firstName" name="first_name" placeholder="Enter your first name" required>
+        </div>
+        <div class="mb-3">
+          <label for="lastName" class="form-label">Last Name</label>
+          <input type="text" class="form-control" id="lastName" name="last_name" placeholder="Enter your last name" required>
+        </div>
+        <div class="mb-3">
+          <label for="email" class="form-label">Email</label>
+          <input type="email" class="form-control" id="email" name="email" placeholder="Enter your email" required>
+        </div>
+        <div class="mb-3">
+          <label for="password" class="form-label">Password</label>
+          <input type="password" class="form-control" id="password" name="password" placeholder="Enter your password" required>
+        </div>
+        <div class="mb-3">
+          <label for="confirmPassword" class="form-label">Confirm Password</label>
+          <input type="password" class="form-control" id="confirmPassword" name="confirm_password" placeholder="Confirm your password" required>
+        </div>
+        <div class="mb-3">
+          <label for="courses" class="form-label">Select Courses</label>
+          <select class="form-select" id="courses" name="courses" multiple required>
+            {% for course in courses %}
+              <option value="{{ course.id }}">{{ course.title }}</option>
+            {% endfor %}
+          </select>
+          <div class="form-text">
+            Hold down the Ctrl (Windows) or Command (Mac) button to select multiple options.
+          </div>
+        </div>
+        <button type="submit" class="btn btn-primary w-100">Sign Up</button>
+      </form>
+    </div>
+  </div>  

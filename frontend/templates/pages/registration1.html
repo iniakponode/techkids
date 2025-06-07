@@ -1,0 +1,156 @@
+{% extends "layout/base.html" %}
+
+{% block title %}TechKids | Registration{% endblock %}
+
+{% block extra_head %}
+<script src="/static/js/pages/registration.js" defer></script>
+<!-- Ensure bootstrap.min.js is loaded for modals -->
+{% endblock %}
+
+{% block content %}
+<div class="container py-4">
+  <div class="row justify-content-center">
+    <div class="col-md-8">
+      <h1 class="mb-4">Course Registration</h1>
+
+  
+    <!-- Payment Success Modal -->
+    <div class="modal fade" id="paymentSuccessModal" tabindex="-1" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h1 class="modal-title fs-5" id="paymentSuccessModalLabel">Payment Successful</h1>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body" id="paymentSuccessBody">
+            <!-- Dynamically populated content will go here -->
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          </div>
+        </div>
+      </div>
+    </div>
+      <!-- Payment Success Modal end-->
+
+      <!-- Payment Error Modal -->
+      <div class="modal fade" id="paymentErrorModal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h1 class="modal-title fs-5" id="paymentErrorModalLabel">Payment Error</h1>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body" id="paymentErrorBody">
+              <!-- Dynamic error details will be inserted here -->
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-body">
+          {% include "partials/registration_form.html" %}
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% if request.query_params.get("payment_success") == "true" %}
+<script>
+  document.addEventListener("DOMContentLoaded", function() {
+    const urlParams = new URLSearchParams(window.location.search);
+
+    const paymentSuccess = urlParams.get("payment_success") === "true";
+    const orderId = urlParams.get("order_id") || "N/A";
+    const amount = urlParams.get("amount") || "N/A";
+    const paymentDate = urlParams.get("payment_date") || "N/A";
+    const coursesParam = urlParams.get("courses");
+
+    if (paymentSuccess && coursesParam) {
+        try {
+            // Decode the URL-encoded courses parameter and parse it into a JSON array
+            const decodedCourses = decodeURIComponent(coursesParam);
+            const courses = JSON.parse(decodedCourses);
+
+            const modalBody = document.getElementById("paymentSuccessBody");
+            if (modalBody) {
+                modalBody.innerHTML = `
+                    <p>Your payment for Order #${orderId} was processed successfully!</p>
+                    <p>Amount Paid: ₦${amount}</p>
+                    <p>Payment Date: ${paymentDate}</p>
+                    <p>Courses Registered:</p>
+                    <ul>
+                        ${courses.map(course => `<li><strong>${course.title}</strong> - ₦${course.price}</li>`).join('')}
+                    </ul>
+                    <p>Thank you for your purchase! You can register for more courses or continue exploring our site.</p>
+                `;
+            }
+
+            var successModal = new bootstrap.Modal(document.getElementById("paymentSuccessModal"));
+            successModal.show();
+        } catch (error) {
+            console.error("Error parsing courses data:", error);
+            alert("There was an issue displaying your courses.");
+        }
+    }
+});
+
+</script>
+{% elif request.query_params.get("payment_success") == "false" %}
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+  const urlParams = new URLSearchParams(window.location.search);
+
+  const paymentSuccess = urlParams.get("payment_success");
+  const orderId = urlParams.get("order_id");
+  const amount = urlParams.get("amount");
+  const paymentDate = urlParams.get("payment_date");
+  const coursesParam = urlParams.get("courses");
+
+  // If payment was successful
+  if (paymentSuccess === "true") {
+    const courses = JSON.parse(decodeURIComponent(coursesParam));  // Decode the URL-encoded courses string
+
+    const modalBody = document.getElementById("paymentSuccessBody");
+    if (modalBody) {
+      let coursesHtml = '';
+      courses.forEach(course => {
+        coursesHtml += `
+          <p><strong>${course.title}</strong> - ₦${course.price}</p>
+        `;
+      });
+
+      modalBody.innerHTML = `
+        <p>Your payment for Order #${orderId} was processed successfully!</p>
+        <p>Amount Paid: ₦${amount}</p>
+        <p>Payment Date: ${paymentDate}</p>
+        <h5>Courses Registered:</h5>
+        ${coursesHtml}
+        <p>Thank you for your purchase! You can register for more courses or continue exploring our site.</p>
+      `;
+    }
+
+    var successModal = new bootstrap.Modal(document.getElementById("paymentSuccessModal"));
+    successModal.show();
+  }
+});
+</script>
+{% elif request.query_params.get("payment_error") %}
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+  const errorMsg = new URLSearchParams(window.location.search).get("payment_error") || "An unknown error occurred during payment.";
+  const modalBody = document.getElementById("paymentErrorBody");
+  if (modalBody) {
+    modalBody.innerHTML = `<p>${errorMsg}</p>`;
+  }
+  var errorModal = new bootstrap.Modal(document.getElementById("paymentErrorModal"));
+  errorModal.show();
+});
+</script>
+{% endif %}
+{% endblock %}

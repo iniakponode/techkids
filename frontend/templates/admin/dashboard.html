@@ -1,0 +1,39 @@
+{% extends "layout/base.html" %}
+
+{% block title %}Admin Dashboard{% endblock %}
+
+{% block content %}
+<div class="container mt-5">
+    <h1>Admin Dashboard</h1>
+    <p>Welcome, Admin!</p>
+    <div class="row">
+        <div class="col-md-4">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Manage Customers</h5>
+                    <p class="card-text">View and manage customer accounts.</p>
+                    <a href="#" class="btn btn-primary">Go to Customers</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Manage Courses</h5>
+                    <p class="card-text">Add, edit, and remove courses.</p>
+                    <a href="/admin/manage-courses" class="btn btn-primary">Go to Courses</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Manage Payments</h5>
+                    <p class="card-text">View and track payment information.</p>
+                    <a href="#" class="btn btn-primary">Go to Payments</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

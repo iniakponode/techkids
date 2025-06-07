@@ -1,0 +1,115 @@
+/* ---------------------------------
+   Global Styles
+---------------------------------- */
+
+/* Body and Typography */
+body {
+    background-color: #f8f9fa;
+    font-family: "Poppins", sans-serif;
+  }
+  
+  /* Links */
+  a {
+    text-decoration: none;
+  }
+  a:hover {
+    text-decoration: none;
+  }
+  
+  /* ---------------------------------
+     Carousel Styles
+  ---------------------------------- */
+  
+  /* Carousel Image */
+  .carousel-img {
+    height: 650px;
+    object-fit: cover;
+  }
+
+  /* Ensure signup section columns are at least the same height as the carousel images */
+#signup > .col-md-6 {
+  min-height: 650px;
+}
+
+  /* .c-img{
+    opacity: -0.6;
+  } */
+  
+  .carousel-caption h2 {
+    margin-top: -30% !important;
+
+  }
+
+  /* Carousel Captions */
+  .carousel-caption h2 {
+    font-size: 2.5rem !important;
+    color: #fff;
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.8);
+  }
+  
+  .carousel-caption p {
+    font-size: 1.25rem;
+    color: #e0e0e0;
+    text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.8);
+  }
+  
+  .carousel-caption a.btn {
+    font-size: 1rem;
+  }
+
+  /* Copied */
+
+  /* .carousel-caption h2 {
+    font-size: 2.5rem;
+    color: #fff;
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.8);
+  }
+  .carousel-caption p {
+    font-size: 1.25rem;
+    color: #e0e0e0;
+    text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.8);
+  } */
+  
+  /* ---------------------------------
+     About Section
+  ---------------------------------- */
+  .about-section {
+    background: #e2e2fe;
+    color: #333;
+    min-height: 400px;
+  }
+  
+  .about-section h2 {
+    font-weight: 700;
+    color: #4b4b4b;
+  }
+  
+  .about-section p {
+    line-height: 1.7;
+  }
+  
+  /* ---------------------------------
+     Course List
+  ---------------------------------- */
+  .course-card {
+    border-radius: 8px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  .course-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* ---------------------------------
+     Contact Section
+  ---------------------------------- */
+  .contact-section {
+    background: linear-gradient(to right, #0066ff, #00c6ff);
+    color: #fff;
+  }
+  
+  .contact-link {
+    color: #fff;
+    text-decoration: underline;
+  }  

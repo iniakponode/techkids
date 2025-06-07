@@ -1,0 +1,3934 @@
+[
+    {
+        "label": "Sequence",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "Union",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "Sequence",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "Union",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "Sequence",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "Union",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "Sequence",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "Union",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "Sequence",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "Union",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "Sequence",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "Union",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "Sequence",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "Union",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "Sequence",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "Union",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "Sequence",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "Union",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "List",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "Optional",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "Optional",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "List",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "List",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "Optional",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "List",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "Optional",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "List",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "Optional",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "Optional",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "List",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "Optional",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "Optional",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "List",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "Optional",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "Optional",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "Optional",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "List",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "List",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "List",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "List",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "Optional",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "op",
+        "importPath": "alembic",
+        "description": "alembic",
+        "isExtraImport": true,
+        "detail": "alembic",
+        "documentation": {}
+    },
+    {
+        "label": "op",
+        "importPath": "alembic",
+        "description": "alembic",
+        "isExtraImport": true,
+        "detail": "alembic",
+        "documentation": {}
+    },
+    {
+        "label": "op",
+        "importPath": "alembic",
+        "description": "alembic",
+        "isExtraImport": true,
+        "detail": "alembic",
+        "documentation": {}
+    },
+    {
+        "label": "op",
+        "importPath": "alembic",
+        "description": "alembic",
+        "isExtraImport": true,
+        "detail": "alembic",
+        "documentation": {}
+    },
+    {
+        "label": "op",
+        "importPath": "alembic",
+        "description": "alembic",
+        "isExtraImport": true,
+        "detail": "alembic",
+        "documentation": {}
+    },
+    {
+        "label": "op",
+        "importPath": "alembic",
+        "description": "alembic",
+        "isExtraImport": true,
+        "detail": "alembic",
+        "documentation": {}
+    },
+    {
+        "label": "op",
+        "importPath": "alembic",
+        "description": "alembic",
+        "isExtraImport": true,
+        "detail": "alembic",
+        "documentation": {}
+    },
+    {
+        "label": "op",
+        "importPath": "alembic",
+        "description": "alembic",
+        "isExtraImport": true,
+        "detail": "alembic",
+        "documentation": {}
+    },
+    {
+        "label": "op",
+        "importPath": "alembic",
+        "description": "alembic",
+        "isExtraImport": true,
+        "detail": "alembic",
+        "documentation": {}
+    },
+    {
+        "label": "context",
+        "importPath": "alembic",
+        "description": "alembic",
+        "isExtraImport": true,
+        "detail": "alembic",
+        "documentation": {}
+    },
+    {
+        "label": "sqlalchemy",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "sqlalchemy",
+        "description": "sqlalchemy",
+        "detail": "sqlalchemy",
+        "documentation": {}
+    },
+    {
+        "label": "engine_from_config",
+        "importPath": "sqlalchemy",
+        "description": "sqlalchemy",
+        "isExtraImport": true,
+        "detail": "sqlalchemy",
+        "documentation": {}
+    },
+    {
+        "label": "pool",
+        "importPath": "sqlalchemy",
+        "description": "sqlalchemy",
+        "isExtraImport": true,
+        "detail": "sqlalchemy",
+        "documentation": {}
+    },
+    {
+        "label": "create_engine",
+        "importPath": "sqlalchemy",
+        "description": "sqlalchemy",
+        "isExtraImport": true,
+        "detail": "sqlalchemy",
+        "documentation": {}
+    },
+    {
+        "label": "Column",
+        "importPath": "sqlalchemy",
+        "description": "sqlalchemy",
+        "isExtraImport": true,
+        "detail": "sqlalchemy",
+        "documentation": {}
+    },
+    {
+        "label": "DateTime",
+        "importPath": "sqlalchemy",
+        "description": "sqlalchemy",
+        "isExtraImport": true,
+        "detail": "sqlalchemy",
+        "documentation": {}
+    },
+    {
+        "label": "Integer",
+        "importPath": "sqlalchemy",
+        "description": "sqlalchemy",
+        "isExtraImport": true,
+        "detail": "sqlalchemy",
+        "documentation": {}
+    },
+    {
+        "label": "String",
+        "importPath": "sqlalchemy",
+        "description": "sqlalchemy",
+        "isExtraImport": true,
+        "detail": "sqlalchemy",
+        "documentation": {}
+    },
+    {
+        "label": "Float",
+        "importPath": "sqlalchemy",
+        "description": "sqlalchemy",
+        "isExtraImport": true,
+        "detail": "sqlalchemy",
+        "documentation": {}
+    },
+    {
+        "label": "Text",
+        "importPath": "sqlalchemy",
+        "description": "sqlalchemy",
+        "isExtraImport": true,
+        "detail": "sqlalchemy",
+        "documentation": {}
+    },
+    {
+        "label": "Column",
+        "importPath": "sqlalchemy",
+        "description": "sqlalchemy",
+        "isExtraImport": true,
+        "detail": "sqlalchemy",
+        "documentation": {}
+    },
+    {
+        "label": "Integer",
+        "importPath": "sqlalchemy",
+        "description": "sqlalchemy",
+        "isExtraImport": true,
+        "detail": "sqlalchemy",
+        "documentation": {}
+    },
+    {
+        "label": "String",
+        "importPath": "sqlalchemy",
+        "description": "sqlalchemy",
+        "isExtraImport": true,
+        "detail": "sqlalchemy",
+        "documentation": {}
+    },
+    {
+        "label": "Float",
+        "importPath": "sqlalchemy",
+        "description": "sqlalchemy",
+        "isExtraImport": true,
+        "detail": "sqlalchemy",
+        "documentation": {}
+    },
+    {
+        "label": "Text",
+        "importPath": "sqlalchemy",
+        "description": "sqlalchemy",
+        "isExtraImport": true,
+        "detail": "sqlalchemy",
+        "documentation": {}
+    },
+    {
+        "label": "Column",
+        "importPath": "sqlalchemy",
+        "description": "sqlalchemy",
+        "isExtraImport": true,
+        "detail": "sqlalchemy",
+        "documentation": {}
+    },
+    {
+        "label": "Integer",
+        "importPath": "sqlalchemy",
+        "description": "sqlalchemy",
+        "isExtraImport": true,
+        "detail": "sqlalchemy",
+        "documentation": {}
+    },
+    {
+        "label": "String",
+        "importPath": "sqlalchemy",
+        "description": "sqlalchemy",
+        "isExtraImport": true,
+        "detail": "sqlalchemy",
+        "documentation": {}
+    },
+    {
+        "label": "ForeignKey",
+        "importPath": "sqlalchemy",
+        "description": "sqlalchemy",
+        "isExtraImport": true,
+        "detail": "sqlalchemy",
+        "documentation": {}
+    },
+    {
+        "label": "Float",
+        "importPath": "sqlalchemy",
+        "description": "sqlalchemy",
+        "isExtraImport": true,
+        "detail": "sqlalchemy",
+        "documentation": {}
+    },
+    {
+        "label": "DateTime",
+        "importPath": "sqlalchemy",
+        "description": "sqlalchemy",
+        "isExtraImport": true,
+        "detail": "sqlalchemy",
+        "documentation": {}
+    },
+    {
+        "label": "Column",
+        "importPath": "sqlalchemy",
+        "description": "sqlalchemy",
+        "isExtraImport": true,
+        "detail": "sqlalchemy",
+        "documentation": {}
+    },
+    {
+        "label": "Integer",
+        "importPath": "sqlalchemy",
+        "description": "sqlalchemy",
+        "isExtraImport": true,
+        "detail": "sqlalchemy",
+        "documentation": {}
+    },
+    {
+        "label": "Float",
+        "importPath": "sqlalchemy",
+        "description": "sqlalchemy",
+        "isExtraImport": true,
+        "detail": "sqlalchemy",
+        "documentation": {}
+    },
+    {
+        "label": "String",
+        "importPath": "sqlalchemy",
+        "description": "sqlalchemy",
+        "isExtraImport": true,
+        "detail": "sqlalchemy",
+        "documentation": {}
+    },
+    {
+        "label": "DateTime",
+        "importPath": "sqlalchemy",
+        "description": "sqlalchemy",
+        "isExtraImport": true,
+        "detail": "sqlalchemy",
+        "documentation": {}
+    },
+    {
+        "label": "ForeignKey",
+        "importPath": "sqlalchemy",
+        "description": "sqlalchemy",
+        "isExtraImport": true,
+        "detail": "sqlalchemy",
+        "documentation": {}
+    },
+    {
+        "label": "Column",
+        "importPath": "sqlalchemy",
+        "description": "sqlalchemy",
+        "isExtraImport": true,
+        "detail": "sqlalchemy",
+        "documentation": {}
+    },
+    {
+        "label": "Integer",
+        "importPath": "sqlalchemy",
+        "description": "sqlalchemy",
+        "isExtraImport": true,
+        "detail": "sqlalchemy",
+        "documentation": {}
+    },
+    {
+        "label": "ForeignKey",
+        "importPath": "sqlalchemy",
+        "description": "sqlalchemy",
+        "isExtraImport": true,
+        "detail": "sqlalchemy",
+        "documentation": {}
+    },
+    {
+        "label": "DateTime",
+        "importPath": "sqlalchemy",
+        "description": "sqlalchemy",
+        "isExtraImport": true,
+        "detail": "sqlalchemy",
+        "documentation": {}
+    },
+    {
+        "label": "String",
+        "importPath": "sqlalchemy",
+        "description": "sqlalchemy",
+        "isExtraImport": true,
+        "detail": "sqlalchemy",
+        "documentation": {}
+    },
+    {
+        "label": "Column",
+        "importPath": "sqlalchemy",
+        "description": "sqlalchemy",
+        "isExtraImport": true,
+        "detail": "sqlalchemy",
+        "documentation": {}
+    },
+    {
+        "label": "Integer",
+        "importPath": "sqlalchemy",
+        "description": "sqlalchemy",
+        "isExtraImport": true,
+        "detail": "sqlalchemy",
+        "documentation": {}
+    },
+    {
+        "label": "String",
+        "importPath": "sqlalchemy",
+        "description": "sqlalchemy",
+        "isExtraImport": true,
+        "detail": "sqlalchemy",
+        "documentation": {}
+    },
+    {
+        "label": "Boolean",
+        "importPath": "sqlalchemy",
+        "description": "sqlalchemy",
+        "isExtraImport": true,
+        "detail": "sqlalchemy",
+        "documentation": {}
+    },
+    {
+        "label": "DateTime",
+        "importPath": "sqlalchemy",
+        "description": "sqlalchemy",
+        "isExtraImport": true,
+        "detail": "sqlalchemy",
+        "documentation": {}
+    },
+    {
+        "label": "mysql",
+        "importPath": "sqlalchemy.dialects",
+        "description": "sqlalchemy.dialects",
+        "isExtraImport": true,
+        "detail": "sqlalchemy.dialects",
+        "documentation": {}
+    },
+    {
+        "label": "sys",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "sys",
+        "description": "sys",
+        "detail": "sys",
+        "documentation": {}
+    },
+    {
+        "label": "os",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "os",
+        "description": "os",
+        "detail": "os",
+        "documentation": {}
+    },
+    {
+        "label": "fileConfig",
+        "importPath": "logging.config",
+        "description": "logging.config",
+        "isExtraImport": true,
+        "detail": "logging.config",
+        "documentation": {}
+    },
+    {
+        "label": "Base",
+        "importPath": "backend.core.database",
+        "description": "backend.core.database",
+        "isExtraImport": true,
+        "detail": "backend.core.database",
+        "documentation": {}
+    },
+    {
+        "label": "Base",
+        "importPath": "backend.core.database",
+        "description": "backend.core.database",
+        "isExtraImport": true,
+        "detail": "backend.core.database",
+        "documentation": {}
+    },
+    {
+        "label": "Base",
+        "importPath": "backend.core.database",
+        "description": "backend.core.database",
+        "isExtraImport": true,
+        "detail": "backend.core.database",
+        "documentation": {}
+    },
+    {
+        "label": "Base",
+        "importPath": "backend.core.database",
+        "description": "backend.core.database",
+        "isExtraImport": true,
+        "detail": "backend.core.database",
+        "documentation": {}
+    },
+    {
+        "label": "Base",
+        "importPath": "backend.core.database",
+        "description": "backend.core.database",
+        "isExtraImport": true,
+        "detail": "backend.core.database",
+        "documentation": {}
+    },
+    {
+        "label": "Base",
+        "importPath": "backend.core.database",
+        "description": "backend.core.database",
+        "isExtraImport": true,
+        "detail": "backend.core.database",
+        "documentation": {}
+    },
+    {
+        "label": "Base",
+        "importPath": "backend.core.database",
+        "description": "backend.core.database",
+        "isExtraImport": true,
+        "detail": "backend.core.database",
+        "documentation": {}
+    },
+    {
+        "label": "get_db",
+        "importPath": "backend.core.database",
+        "description": "backend.core.database",
+        "isExtraImport": true,
+        "detail": "backend.core.database",
+        "documentation": {}
+    },
+    {
+        "label": "get_db",
+        "importPath": "backend.core.database",
+        "description": "backend.core.database",
+        "isExtraImport": true,
+        "detail": "backend.core.database",
+        "documentation": {}
+    },
+    {
+        "label": "get_db",
+        "importPath": "backend.core.database",
+        "description": "backend.core.database",
+        "isExtraImport": true,
+        "detail": "backend.core.database",
+        "documentation": {}
+    },
+    {
+        "label": "get_db",
+        "importPath": "backend.core.database",
+        "description": "backend.core.database",
+        "isExtraImport": true,
+        "detail": "backend.core.database",
+        "documentation": {}
+    },
+    {
+        "label": "get_db",
+        "importPath": "backend.core.database",
+        "description": "backend.core.database",
+        "isExtraImport": true,
+        "detail": "backend.core.database",
+        "documentation": {}
+    },
+    {
+        "label": "get_db",
+        "importPath": "backend.core.database",
+        "description": "backend.core.database",
+        "isExtraImport": true,
+        "detail": "backend.core.database",
+        "documentation": {}
+    },
+    {
+        "label": "get_db",
+        "importPath": "backend.core.database",
+        "description": "backend.core.database",
+        "isExtraImport": true,
+        "detail": "backend.core.database",
+        "documentation": {}
+    },
+    {
+        "label": "get_db",
+        "importPath": "backend.core.database",
+        "description": "backend.core.database",
+        "isExtraImport": true,
+        "detail": "backend.core.database",
+        "documentation": {}
+    },
+    {
+        "label": "get_db",
+        "importPath": "backend.core.database",
+        "description": "backend.core.database",
+        "isExtraImport": true,
+        "detail": "backend.core.database",
+        "documentation": {}
+    },
+    {
+        "label": "SessionLocal",
+        "importPath": "backend.core.database",
+        "description": "backend.core.database",
+        "isExtraImport": true,
+        "detail": "backend.core.database",
+        "documentation": {}
+    },
+    {
+        "label": "SessionLocal",
+        "importPath": "backend.core.database",
+        "description": "backend.core.database",
+        "isExtraImport": true,
+        "detail": "backend.core.database",
+        "documentation": {}
+    },
+    {
+        "label": "*",
+        "importPath": "backend.models",
+        "description": "backend.models",
+        "isExtraImport": true,
+        "detail": "backend.models",
+        "documentation": {}
+    },
+    {
+        "label": "BaseSettings",
+        "importPath": "pydantic_settings",
+        "description": "pydantic_settings",
+        "isExtraImport": true,
+        "detail": "pydantic_settings",
+        "documentation": {}
+    },
+    {
+        "label": "SettingsConfigDict",
+        "importPath": "pydantic_settings",
+        "description": "pydantic_settings",
+        "isExtraImport": true,
+        "detail": "pydantic_settings",
+        "documentation": {}
+    },
+    {
+        "label": "sessionmaker",
+        "importPath": "sqlalchemy.orm",
+        "description": "sqlalchemy.orm",
+        "isExtraImport": true,
+        "detail": "sqlalchemy.orm",
+        "documentation": {}
+    },
+    {
+        "label": "declarative_base",
+        "importPath": "sqlalchemy.orm",
+        "description": "sqlalchemy.orm",
+        "isExtraImport": true,
+        "detail": "sqlalchemy.orm",
+        "documentation": {}
+    },
+    {
+        "label": "Session",
+        "importPath": "sqlalchemy.orm",
+        "description": "sqlalchemy.orm",
+        "isExtraImport": true,
+        "detail": "sqlalchemy.orm",
+        "documentation": {}
+    },
+    {
+        "label": "Session",
+        "importPath": "sqlalchemy.orm",
+        "description": "sqlalchemy.orm",
+        "isExtraImport": true,
+        "detail": "sqlalchemy.orm",
+        "documentation": {}
+    },
+    {
+        "label": "Session",
+        "importPath": "sqlalchemy.orm",
+        "description": "sqlalchemy.orm",
+        "isExtraImport": true,
+        "detail": "sqlalchemy.orm",
+        "documentation": {}
+    },
+    {
+        "label": "Session",
+        "importPath": "sqlalchemy.orm",
+        "description": "sqlalchemy.orm",
+        "isExtraImport": true,
+        "detail": "sqlalchemy.orm",
+        "documentation": {}
+    },
+    {
+        "label": "Session",
+        "importPath": "sqlalchemy.orm",
+        "description": "sqlalchemy.orm",
+        "isExtraImport": true,
+        "detail": "sqlalchemy.orm",
+        "documentation": {}
+    },
+    {
+        "label": "relationship",
+        "importPath": "sqlalchemy.orm",
+        "description": "sqlalchemy.orm",
+        "isExtraImport": true,
+        "detail": "sqlalchemy.orm",
+        "documentation": {}
+    },
+    {
+        "label": "relationship",
+        "importPath": "sqlalchemy.orm",
+        "description": "sqlalchemy.orm",
+        "isExtraImport": true,
+        "detail": "sqlalchemy.orm",
+        "documentation": {}
+    },
+    {
+        "label": "relationship",
+        "importPath": "sqlalchemy.orm",
+        "description": "sqlalchemy.orm",
+        "isExtraImport": true,
+        "detail": "sqlalchemy.orm",
+        "documentation": {}
+    },
+    {
+        "label": "relationship",
+        "importPath": "sqlalchemy.orm",
+        "description": "sqlalchemy.orm",
+        "isExtraImport": true,
+        "detail": "sqlalchemy.orm",
+        "documentation": {}
+    },
+    {
+        "label": "relationship",
+        "importPath": "sqlalchemy.orm",
+        "description": "sqlalchemy.orm",
+        "isExtraImport": true,
+        "detail": "sqlalchemy.orm",
+        "documentation": {}
+    },
+    {
+        "label": "relationship",
+        "importPath": "sqlalchemy.orm",
+        "description": "sqlalchemy.orm",
+        "isExtraImport": true,
+        "detail": "sqlalchemy.orm",
+        "documentation": {}
+    },
+    {
+        "label": "Session",
+        "importPath": "sqlalchemy.orm",
+        "description": "sqlalchemy.orm",
+        "isExtraImport": true,
+        "detail": "sqlalchemy.orm",
+        "documentation": {}
+    },
+    {
+        "label": "Session",
+        "importPath": "sqlalchemy.orm",
+        "description": "sqlalchemy.orm",
+        "isExtraImport": true,
+        "detail": "sqlalchemy.orm",
+        "documentation": {}
+    },
+    {
+        "label": "Session",
+        "importPath": "sqlalchemy.orm",
+        "description": "sqlalchemy.orm",
+        "isExtraImport": true,
+        "detail": "sqlalchemy.orm",
+        "documentation": {}
+    },
+    {
+        "label": "Session",
+        "importPath": "sqlalchemy.orm",
+        "description": "sqlalchemy.orm",
+        "isExtraImport": true,
+        "detail": "sqlalchemy.orm",
+        "documentation": {}
+    },
+    {
+        "label": "Session",
+        "importPath": "sqlalchemy.orm",
+        "description": "sqlalchemy.orm",
+        "isExtraImport": true,
+        "detail": "sqlalchemy.orm",
+        "documentation": {}
+    },
+    {
+        "label": "Session",
+        "importPath": "sqlalchemy.orm",
+        "description": "sqlalchemy.orm",
+        "isExtraImport": true,
+        "detail": "sqlalchemy.orm",
+        "documentation": {}
+    },
+    {
+        "label": "Session",
+        "importPath": "sqlalchemy.orm",
+        "description": "sqlalchemy.orm",
+        "isExtraImport": true,
+        "detail": "sqlalchemy.orm",
+        "documentation": {}
+    },
+    {
+        "label": "Session",
+        "importPath": "sqlalchemy.orm",
+        "description": "sqlalchemy.orm",
+        "isExtraImport": true,
+        "detail": "sqlalchemy.orm",
+        "documentation": {}
+    },
+    {
+        "label": "Session",
+        "importPath": "sqlalchemy.orm",
+        "description": "sqlalchemy.orm",
+        "isExtraImport": true,
+        "detail": "sqlalchemy.orm",
+        "documentation": {}
+    },
+    {
+        "label": "Session",
+        "importPath": "sqlalchemy.orm",
+        "description": "sqlalchemy.orm",
+        "isExtraImport": true,
+        "detail": "sqlalchemy.orm",
+        "documentation": {}
+    },
+    {
+        "label": "HTTPException",
+        "importPath": "fastapi",
+        "description": "fastapi",
+        "isExtraImport": true,
+        "detail": "fastapi",
+        "documentation": {}
+    },
+    {
+        "label": "HTTPException",
+        "importPath": "fastapi",
+        "description": "fastapi",
+        "isExtraImport": true,
+        "detail": "fastapi",
+        "documentation": {}
+    },
+    {
+        "label": "status",
+        "importPath": "fastapi",
+        "description": "fastapi",
+        "isExtraImport": true,
+        "detail": "fastapi",
+        "documentation": {}
+    },
+    {
+        "label": "HTTPException",
+        "importPath": "fastapi",
+        "description": "fastapi",
+        "isExtraImport": true,
+        "detail": "fastapi",
+        "documentation": {}
+    },
+    {
+        "label": "HTTPException",
+        "importPath": "fastapi",
+        "description": "fastapi",
+        "isExtraImport": true,
+        "detail": "fastapi",
+        "documentation": {}
+    },
+    {
+        "label": "HTTPException",
+        "importPath": "fastapi",
+        "description": "fastapi",
+        "isExtraImport": true,
+        "detail": "fastapi",
+        "documentation": {}
+    },
+    {
+        "label": "Depends",
+        "importPath": "fastapi",
+        "description": "fastapi",
+        "isExtraImport": true,
+        "detail": "fastapi",
+        "documentation": {}
+    },
+    {
+        "label": "HTTPException",
+        "importPath": "fastapi",
+        "description": "fastapi",
+        "isExtraImport": true,
+        "detail": "fastapi",
+        "documentation": {}
+    },
+    {
+        "label": "status",
+        "importPath": "fastapi",
+        "description": "fastapi",
+        "isExtraImport": true,
+        "detail": "fastapi",
+        "documentation": {}
+    },
+    {
+        "label": "APIRouter",
+        "importPath": "fastapi",
+        "description": "fastapi",
+        "isExtraImport": true,
+        "detail": "fastapi",
+        "documentation": {}
+    },
+    {
+        "label": "Depends",
+        "importPath": "fastapi",
+        "description": "fastapi",
+        "isExtraImport": true,
+        "detail": "fastapi",
+        "documentation": {}
+    },
+    {
+        "label": "HTTPException",
+        "importPath": "fastapi",
+        "description": "fastapi",
+        "isExtraImport": true,
+        "detail": "fastapi",
+        "documentation": {}
+    },
+    {
+        "label": "UploadFile",
+        "importPath": "fastapi",
+        "description": "fastapi",
+        "isExtraImport": true,
+        "detail": "fastapi",
+        "documentation": {}
+    },
+    {
+        "label": "File",
+        "importPath": "fastapi",
+        "description": "fastapi",
+        "isExtraImport": true,
+        "detail": "fastapi",
+        "documentation": {}
+    },
+    {
+        "label": "Form",
+        "importPath": "fastapi",
+        "description": "fastapi",
+        "isExtraImport": true,
+        "detail": "fastapi",
+        "documentation": {}
+    },
+    {
+        "label": "APIRouter",
+        "importPath": "fastapi",
+        "description": "fastapi",
+        "isExtraImport": true,
+        "detail": "fastapi",
+        "documentation": {}
+    },
+    {
+        "label": "Depends",
+        "importPath": "fastapi",
+        "description": "fastapi",
+        "isExtraImport": true,
+        "detail": "fastapi",
+        "documentation": {}
+    },
+    {
+        "label": "HTTPException",
+        "importPath": "fastapi",
+        "description": "fastapi",
+        "isExtraImport": true,
+        "detail": "fastapi",
+        "documentation": {}
+    },
+    {
+        "label": "status",
+        "importPath": "fastapi",
+        "description": "fastapi",
+        "isExtraImport": true,
+        "detail": "fastapi",
+        "documentation": {}
+    },
+    {
+        "label": "Response",
+        "importPath": "fastapi",
+        "description": "fastapi",
+        "isExtraImport": true,
+        "detail": "fastapi",
+        "documentation": {}
+    },
+    {
+        "label": "Request",
+        "importPath": "fastapi",
+        "description": "fastapi",
+        "isExtraImport": true,
+        "detail": "fastapi",
+        "documentation": {}
+    },
+    {
+        "label": "APIRouter",
+        "importPath": "fastapi",
+        "description": "fastapi",
+        "isExtraImport": true,
+        "detail": "fastapi",
+        "documentation": {}
+    },
+    {
+        "label": "Depends",
+        "importPath": "fastapi",
+        "description": "fastapi",
+        "isExtraImport": true,
+        "detail": "fastapi",
+        "documentation": {}
+    },
+    {
+        "label": "HTTPException",
+        "importPath": "fastapi",
+        "description": "fastapi",
+        "isExtraImport": true,
+        "detail": "fastapi",
+        "documentation": {}
+    },
+    {
+        "label": "status",
+        "importPath": "fastapi",
+        "description": "fastapi",
+        "isExtraImport": true,
+        "detail": "fastapi",
+        "documentation": {}
+    },
+    {
+        "label": "APIRouter",
+        "importPath": "fastapi",
+        "description": "fastapi",
+        "isExtraImport": true,
+        "detail": "fastapi",
+        "documentation": {}
+    },
+    {
+        "label": "Depends",
+        "importPath": "fastapi",
+        "description": "fastapi",
+        "isExtraImport": true,
+        "detail": "fastapi",
+        "documentation": {}
+    },
+    {
+        "label": "HTTPException",
+        "importPath": "fastapi",
+        "description": "fastapi",
+        "isExtraImport": true,
+        "detail": "fastapi",
+        "documentation": {}
+    },
+    {
+        "label": "status",
+        "importPath": "fastapi",
+        "description": "fastapi",
+        "isExtraImport": true,
+        "detail": "fastapi",
+        "documentation": {}
+    },
+    {
+        "label": "APIRouter",
+        "importPath": "fastapi",
+        "description": "fastapi",
+        "isExtraImport": true,
+        "detail": "fastapi",
+        "documentation": {}
+    },
+    {
+        "label": "HTTPException",
+        "importPath": "fastapi",
+        "description": "fastapi",
+        "isExtraImport": true,
+        "detail": "fastapi",
+        "documentation": {}
+    },
+    {
+        "label": "Request",
+        "importPath": "fastapi",
+        "description": "fastapi",
+        "isExtraImport": true,
+        "detail": "fastapi",
+        "documentation": {}
+    },
+    {
+        "label": "Depends",
+        "importPath": "fastapi",
+        "description": "fastapi",
+        "isExtraImport": true,
+        "detail": "fastapi",
+        "documentation": {}
+    },
+    {
+        "label": "APIRouter",
+        "importPath": "fastapi",
+        "description": "fastapi",
+        "isExtraImport": true,
+        "detail": "fastapi",
+        "documentation": {}
+    },
+    {
+        "label": "Depends",
+        "importPath": "fastapi",
+        "description": "fastapi",
+        "isExtraImport": true,
+        "detail": "fastapi",
+        "documentation": {}
+    },
+    {
+        "label": "HTTPException",
+        "importPath": "fastapi",
+        "description": "fastapi",
+        "isExtraImport": true,
+        "detail": "fastapi",
+        "documentation": {}
+    },
+    {
+        "label": "status",
+        "importPath": "fastapi",
+        "description": "fastapi",
+        "isExtraImport": true,
+        "detail": "fastapi",
+        "documentation": {}
+    },
+    {
+        "label": "APIRouter",
+        "importPath": "fastapi",
+        "description": "fastapi",
+        "isExtraImport": true,
+        "detail": "fastapi",
+        "documentation": {}
+    },
+    {
+        "label": "Depends",
+        "importPath": "fastapi",
+        "description": "fastapi",
+        "isExtraImport": true,
+        "detail": "fastapi",
+        "documentation": {}
+    },
+    {
+        "label": "HTTPException",
+        "importPath": "fastapi",
+        "description": "fastapi",
+        "isExtraImport": true,
+        "detail": "fastapi",
+        "documentation": {}
+    },
+    {
+        "label": "status",
+        "importPath": "fastapi",
+        "description": "fastapi",
+        "isExtraImport": true,
+        "detail": "fastapi",
+        "documentation": {}
+    },
+    {
+        "label": "APIRouter",
+        "importPath": "fastapi",
+        "description": "fastapi",
+        "isExtraImport": true,
+        "detail": "fastapi",
+        "documentation": {}
+    },
+    {
+        "label": "Depends",
+        "importPath": "fastapi",
+        "description": "fastapi",
+        "isExtraImport": true,
+        "detail": "fastapi",
+        "documentation": {}
+    },
+    {
+        "label": "HTTPException",
+        "importPath": "fastapi",
+        "description": "fastapi",
+        "isExtraImport": true,
+        "detail": "fastapi",
+        "documentation": {}
+    },
+    {
+        "label": "Response",
+        "importPath": "fastapi",
+        "description": "fastapi",
+        "isExtraImport": true,
+        "detail": "fastapi",
+        "documentation": {}
+    },
+    {
+        "label": "logger",
+        "importPath": "fastapi",
+        "description": "fastapi",
+        "isExtraImport": true,
+        "detail": "fastapi",
+        "documentation": {}
+    },
+    {
+        "label": "status",
+        "importPath": "fastapi",
+        "description": "fastapi",
+        "isExtraImport": true,
+        "detail": "fastapi",
+        "documentation": {}
+    },
+    {
+        "label": "APIRouter",
+        "importPath": "fastapi",
+        "description": "fastapi",
+        "isExtraImport": true,
+        "detail": "fastapi",
+        "documentation": {}
+    },
+    {
+        "label": "Depends",
+        "importPath": "fastapi",
+        "description": "fastapi",
+        "isExtraImport": true,
+        "detail": "fastapi",
+        "documentation": {}
+    },
+    {
+        "label": "HTTPException",
+        "importPath": "fastapi",
+        "description": "fastapi",
+        "isExtraImport": true,
+        "detail": "fastapi",
+        "documentation": {}
+    },
+    {
+        "label": "status",
+        "importPath": "fastapi",
+        "description": "fastapi",
+        "isExtraImport": true,
+        "detail": "fastapi",
+        "documentation": {}
+    },
+    {
+        "label": "HTTPException",
+        "importPath": "fastapi",
+        "description": "fastapi",
+        "isExtraImport": true,
+        "detail": "fastapi",
+        "documentation": {}
+    },
+    {
+        "label": "status",
+        "importPath": "fastapi",
+        "description": "fastapi",
+        "isExtraImport": true,
+        "detail": "fastapi",
+        "documentation": {}
+    },
+    {
+        "label": "FastAPI",
+        "importPath": "fastapi",
+        "description": "fastapi",
+        "isExtraImport": true,
+        "detail": "fastapi",
+        "documentation": {}
+    },
+    {
+        "label": "Course",
+        "importPath": "backend.models.course",
+        "description": "backend.models.course",
+        "isExtraImport": true,
+        "detail": "backend.models.course",
+        "documentation": {}
+    },
+    {
+        "label": "Course",
+        "importPath": "backend.models.course",
+        "description": "backend.models.course",
+        "isExtraImport": true,
+        "detail": "backend.models.course",
+        "documentation": {}
+    },
+    {
+        "label": "Course",
+        "importPath": "backend.models.course",
+        "description": "backend.models.course",
+        "isExtraImport": true,
+        "detail": "backend.models.course",
+        "documentation": {}
+    },
+    {
+        "label": "Course",
+        "importPath": "backend.models.course",
+        "description": "backend.models.course",
+        "isExtraImport": true,
+        "detail": "backend.models.course",
+        "documentation": {}
+    },
+    {
+        "label": "Course",
+        "importPath": "backend.models.course",
+        "description": "backend.models.course",
+        "isExtraImport": true,
+        "detail": "backend.models.course",
+        "documentation": {}
+    },
+    {
+        "label": "CourseCreate",
+        "importPath": "backend.pydanticschemas.course",
+        "description": "backend.pydanticschemas.course",
+        "isExtraImport": true,
+        "detail": "backend.pydanticschemas.course",
+        "documentation": {}
+    },
+    {
+        "label": "CourseSchema",
+        "importPath": "backend.pydanticschemas.course",
+        "description": "backend.pydanticschemas.course",
+        "isExtraImport": true,
+        "detail": "backend.pydanticschemas.course",
+        "documentation": {}
+    },
+    {
+        "label": "CourseSchema",
+        "importPath": "backend.pydanticschemas.course",
+        "description": "backend.pydanticschemas.course",
+        "isExtraImport": true,
+        "detail": "backend.pydanticschemas.course",
+        "documentation": {}
+    },
+    {
+        "label": "CourseCreate",
+        "importPath": "backend.pydanticschemas.course",
+        "description": "backend.pydanticschemas.course",
+        "isExtraImport": true,
+        "detail": "backend.pydanticschemas.course",
+        "documentation": {}
+    },
+    {
+        "label": "CourseSchema",
+        "importPath": "backend.pydanticschemas.course",
+        "description": "backend.pydanticschemas.course",
+        "isExtraImport": true,
+        "detail": "backend.pydanticschemas.course",
+        "documentation": {}
+    },
+    {
+        "label": "logging",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "logging",
+        "description": "logging",
+        "detail": "logging",
+        "documentation": {}
+    },
+    {
+        "label": "Order",
+        "importPath": "backend.models.order",
+        "description": "backend.models.order",
+        "isExtraImport": true,
+        "detail": "backend.models.order",
+        "documentation": {}
+    },
+    {
+        "label": "Order",
+        "importPath": "backend.models.order",
+        "description": "backend.models.order",
+        "isExtraImport": true,
+        "detail": "backend.models.order",
+        "documentation": {}
+    },
+    {
+        "label": "Order",
+        "importPath": "backend.models.order",
+        "description": "backend.models.order",
+        "isExtraImport": true,
+        "detail": "backend.models.order",
+        "documentation": {}
+    },
+    {
+        "label": "Order",
+        "importPath": "backend.models.order",
+        "description": "backend.models.order",
+        "isExtraImport": true,
+        "detail": "backend.models.order",
+        "documentation": {}
+    },
+    {
+        "label": "Order",
+        "importPath": "backend.models.order",
+        "description": "backend.models.order",
+        "isExtraImport": true,
+        "detail": "backend.models.order",
+        "documentation": {}
+    },
+    {
+        "label": "Order",
+        "importPath": "backend.models.order",
+        "description": "backend.models.order",
+        "isExtraImport": true,
+        "detail": "backend.models.order",
+        "documentation": {}
+    },
+    {
+        "label": "Registration",
+        "importPath": "backend.models.registration",
+        "description": "backend.models.registration",
+        "isExtraImport": true,
+        "detail": "backend.models.registration",
+        "documentation": {}
+    },
+    {
+        "label": "Registration",
+        "importPath": "backend.models.registration",
+        "description": "backend.models.registration",
+        "isExtraImport": true,
+        "detail": "backend.models.registration",
+        "documentation": {}
+    },
+    {
+        "label": "Registration",
+        "importPath": "backend.models.registration",
+        "description": "backend.models.registration",
+        "isExtraImport": true,
+        "detail": "backend.models.registration",
+        "documentation": {}
+    },
+    {
+        "label": "Registration",
+        "importPath": "backend.models.registration",
+        "description": "backend.models.registration",
+        "isExtraImport": true,
+        "detail": "backend.models.registration",
+        "documentation": {}
+    },
+    {
+        "label": "OrderCreate",
+        "importPath": "backend.pydanticschemas.order",
+        "description": "backend.pydanticschemas.order",
+        "isExtraImport": true,
+        "detail": "backend.pydanticschemas.order",
+        "documentation": {}
+    },
+    {
+        "label": "OrderResponse",
+        "importPath": "backend.pydanticschemas.order",
+        "description": "backend.pydanticschemas.order",
+        "isExtraImport": true,
+        "detail": "backend.pydanticschemas.order",
+        "documentation": {}
+    },
+    {
+        "label": "RegistrationItem",
+        "importPath": "backend.pydanticschemas.order",
+        "description": "backend.pydanticschemas.order",
+        "isExtraImport": true,
+        "detail": "backend.pydanticschemas.order",
+        "documentation": {}
+    },
+    {
+        "label": "OrderCreate",
+        "importPath": "backend.pydanticschemas.order",
+        "description": "backend.pydanticschemas.order",
+        "isExtraImport": true,
+        "detail": "backend.pydanticschemas.order",
+        "documentation": {}
+    },
+    {
+        "label": "OrderResponse",
+        "importPath": "backend.pydanticschemas.order",
+        "description": "backend.pydanticschemas.order",
+        "isExtraImport": true,
+        "detail": "backend.pydanticschemas.order",
+        "documentation": {}
+    },
+    {
+        "label": "Payment",
+        "importPath": "backend.models.payment",
+        "description": "backend.models.payment",
+        "isExtraImport": true,
+        "detail": "backend.models.payment",
+        "documentation": {}
+    },
+    {
+        "label": "Payment",
+        "importPath": "backend.models.payment",
+        "description": "backend.models.payment",
+        "isExtraImport": true,
+        "detail": "backend.models.payment",
+        "documentation": {}
+    },
+    {
+        "label": "Payment",
+        "importPath": "backend.models.payment",
+        "description": "backend.models.payment",
+        "isExtraImport": true,
+        "detail": "backend.models.payment",
+        "documentation": {}
+    },
+    {
+        "label": "Payment",
+        "importPath": "backend.models.payment",
+        "description": "backend.models.payment",
+        "isExtraImport": true,
+        "detail": "backend.models.payment",
+        "documentation": {}
+    },
+    {
+        "label": "PaymentCreate",
+        "importPath": "backend.pydanticschemas.payment",
+        "description": "backend.pydanticschemas.payment",
+        "isExtraImport": true,
+        "detail": "backend.pydanticschemas.payment",
+        "documentation": {}
+    },
+    {
+        "label": "PaymentResponse",
+        "importPath": "backend.pydanticschemas.payment",
+        "description": "backend.pydanticschemas.payment",
+        "isExtraImport": true,
+        "detail": "backend.pydanticschemas.payment",
+        "documentation": {}
+    },
+    {
+        "label": "PaymentCreate",
+        "importPath": "backend.pydanticschemas.payment",
+        "description": "backend.pydanticschemas.payment",
+        "isExtraImport": true,
+        "detail": "backend.pydanticschemas.payment",
+        "documentation": {}
+    },
+    {
+        "label": "PaymentResponse",
+        "importPath": "backend.pydanticschemas.payment",
+        "description": "backend.pydanticschemas.payment",
+        "isExtraImport": true,
+        "detail": "backend.pydanticschemas.payment",
+        "documentation": {}
+    },
+    {
+        "label": "PaymentInitRequest",
+        "importPath": "backend.pydanticschemas.payment",
+        "description": "backend.pydanticschemas.payment",
+        "isExtraImport": true,
+        "detail": "backend.pydanticschemas.payment",
+        "documentation": {}
+    },
+    {
+        "label": "RegistrationCreate",
+        "importPath": "backend.pydanticschemas.registration",
+        "description": "backend.pydanticschemas.registration",
+        "isExtraImport": true,
+        "detail": "backend.pydanticschemas.registration",
+        "documentation": {}
+    },
+    {
+        "label": "RegistrationResponse",
+        "importPath": "backend.pydanticschemas.registration",
+        "description": "backend.pydanticschemas.registration",
+        "isExtraImport": true,
+        "detail": "backend.pydanticschemas.registration",
+        "documentation": {}
+    },
+    {
+        "label": "RegistrationCreate",
+        "importPath": "backend.pydanticschemas.registration",
+        "description": "backend.pydanticschemas.registration",
+        "isExtraImport": true,
+        "detail": "backend.pydanticschemas.registration",
+        "documentation": {}
+    },
+    {
+        "label": "RegistrationResponse",
+        "importPath": "backend.pydanticschemas.registration",
+        "description": "backend.pydanticschemas.registration",
+        "isExtraImport": true,
+        "detail": "backend.pydanticschemas.registration",
+        "documentation": {}
+    },
+    {
+        "label": "UserRegistrationRequest",
+        "importPath": "backend.pydanticschemas.registration",
+        "description": "backend.pydanticschemas.registration",
+        "isExtraImport": true,
+        "detail": "backend.pydanticschemas.registration",
+        "documentation": {}
+    },
+    {
+        "label": "bcrypt",
+        "importPath": "passlib.hash",
+        "description": "passlib.hash",
+        "isExtraImport": true,
+        "detail": "passlib.hash",
+        "documentation": {}
+    },
+    {
+        "label": "bcrypt",
+        "importPath": "passlib.hash",
+        "description": "passlib.hash",
+        "isExtraImport": true,
+        "detail": "passlib.hash",
+        "documentation": {}
+    },
+    {
+        "label": "bcrypt",
+        "importPath": "passlib.hash",
+        "description": "passlib.hash",
+        "isExtraImport": true,
+        "detail": "passlib.hash",
+        "documentation": {}
+    },
+    {
+        "label": "User",
+        "importPath": "backend.models.user",
+        "description": "backend.models.user",
+        "isExtraImport": true,
+        "detail": "backend.models.user",
+        "documentation": {}
+    },
+    {
+        "label": "User",
+        "importPath": "backend.models.user",
+        "description": "backend.models.user",
+        "isExtraImport": true,
+        "detail": "backend.models.user",
+        "documentation": {}
+    },
+    {
+        "label": "User",
+        "importPath": "backend.models.user",
+        "description": "backend.models.user",
+        "isExtraImport": true,
+        "detail": "backend.models.user",
+        "documentation": {}
+    },
+    {
+        "label": "User",
+        "importPath": "backend.models.user",
+        "description": "backend.models.user",
+        "isExtraImport": true,
+        "detail": "backend.models.user",
+        "documentation": {}
+    },
+    {
+        "label": "User",
+        "importPath": "backend.models.user",
+        "description": "backend.models.user",
+        "isExtraImport": true,
+        "detail": "backend.models.user",
+        "documentation": {}
+    },
+    {
+        "label": "User",
+        "importPath": "backend.models.user",
+        "description": "backend.models.user",
+        "isExtraImport": true,
+        "detail": "backend.models.user",
+        "documentation": {}
+    },
+    {
+        "label": "User",
+        "importPath": "backend.models.user",
+        "description": "backend.models.user",
+        "isExtraImport": true,
+        "detail": "backend.models.user",
+        "documentation": {}
+    },
+    {
+        "label": "User",
+        "importPath": "backend.models.user",
+        "description": "backend.models.user",
+        "isExtraImport": true,
+        "detail": "backend.models.user",
+        "documentation": {}
+    },
+    {
+        "label": "UserCreate",
+        "importPath": "backend.pydanticschemas.user",
+        "description": "backend.pydanticschemas.user",
+        "isExtraImport": true,
+        "detail": "backend.pydanticschemas.user",
+        "documentation": {}
+    },
+    {
+        "label": "UserResponse",
+        "importPath": "backend.pydanticschemas.user",
+        "description": "backend.pydanticschemas.user",
+        "isExtraImport": true,
+        "detail": "backend.pydanticschemas.user",
+        "documentation": {}
+    },
+    {
+        "label": "UserCreate",
+        "importPath": "backend.pydanticschemas.user",
+        "description": "backend.pydanticschemas.user",
+        "isExtraImport": true,
+        "detail": "backend.pydanticschemas.user",
+        "documentation": {}
+    },
+    {
+        "label": "UserResponse",
+        "importPath": "backend.pydanticschemas.user",
+        "description": "backend.pydanticschemas.user",
+        "isExtraImport": true,
+        "detail": "backend.pydanticschemas.user",
+        "documentation": {}
+    },
+    {
+        "label": "UserCreate",
+        "importPath": "backend.pydanticschemas.user",
+        "description": "backend.pydanticschemas.user",
+        "isExtraImport": true,
+        "detail": "backend.pydanticschemas.user",
+        "documentation": {}
+    },
+    {
+        "label": "UserResponse",
+        "importPath": "backend.pydanticschemas.user",
+        "description": "backend.pydanticschemas.user",
+        "isExtraImport": true,
+        "detail": "backend.pydanticschemas.user",
+        "documentation": {}
+    },
+    {
+        "label": "uuid",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "uuid",
+        "description": "uuid",
+        "detail": "uuid",
+        "documentation": {}
+    },
+    {
+        "label": "UUID",
+        "importPath": "uuid",
+        "description": "uuid",
+        "isExtraImport": true,
+        "detail": "uuid",
+        "documentation": {}
+    },
+    {
+        "label": "UUID",
+        "importPath": "uuid",
+        "description": "uuid",
+        "isExtraImport": true,
+        "detail": "uuid",
+        "documentation": {}
+    },
+    {
+        "label": "uuid4",
+        "importPath": "uuid",
+        "description": "uuid",
+        "isExtraImport": true,
+        "detail": "uuid",
+        "documentation": {}
+    },
+    {
+        "label": "secrets",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "secrets",
+        "description": "secrets",
+        "detail": "secrets",
+        "documentation": {}
+    },
+    {
+        "label": "CryptContext",
+        "importPath": "passlib.context",
+        "description": "passlib.context",
+        "isExtraImport": true,
+        "detail": "passlib.context",
+        "documentation": {}
+    },
+    {
+        "label": "CryptContext",
+        "importPath": "passlib.context",
+        "description": "passlib.context",
+        "isExtraImport": true,
+        "detail": "passlib.context",
+        "documentation": {}
+    },
+    {
+        "label": "CryptContext",
+        "importPath": "passlib.context",
+        "description": "passlib.context",
+        "isExtraImport": true,
+        "detail": "passlib.context",
+        "documentation": {}
+    },
+    {
+        "label": "get_current_user",
+        "importPath": "backend.routers.auth",
+        "description": "backend.routers.auth",
+        "isExtraImport": true,
+        "detail": "backend.routers.auth",
+        "documentation": {}
+    },
+    {
+        "label": "create_access_token",
+        "importPath": "backend.routers.auth",
+        "description": "backend.routers.auth",
+        "isExtraImport": true,
+        "detail": "backend.routers.auth",
+        "documentation": {}
+    },
+    {
+        "label": "pwd_context",
+        "importPath": "backend.routers.auth",
+        "description": "backend.routers.auth",
+        "isExtraImport": true,
+        "detail": "backend.routers.auth",
+        "documentation": {}
+    },
+    {
+        "label": "pwd_context",
+        "importPath": "backend.routers.auth",
+        "description": "backend.routers.auth",
+        "isExtraImport": true,
+        "detail": "backend.routers.auth",
+        "documentation": {}
+    },
+    {
+        "label": "create_access_token",
+        "importPath": "backend.routers.auth",
+        "description": "backend.routers.auth",
+        "isExtraImport": true,
+        "detail": "backend.routers.auth",
+        "documentation": {}
+    },
+    {
+        "label": "datetime",
+        "importPath": "datetime",
+        "description": "datetime",
+        "isExtraImport": true,
+        "detail": "datetime",
+        "documentation": {}
+    },
+    {
+        "label": "datetime",
+        "importPath": "datetime",
+        "description": "datetime",
+        "isExtraImport": true,
+        "detail": "datetime",
+        "documentation": {}
+    },
+    {
+        "label": "datetime",
+        "importPath": "datetime",
+        "description": "datetime",
+        "isExtraImport": true,
+        "detail": "datetime",
+        "documentation": {}
+    },
+    {
+        "label": "datetime",
+        "importPath": "datetime",
+        "description": "datetime",
+        "isExtraImport": true,
+        "detail": "datetime",
+        "documentation": {}
+    },
+    {
+        "label": "datetime",
+        "importPath": "datetime",
+        "description": "datetime",
+        "isExtraImport": true,
+        "detail": "datetime",
+        "documentation": {}
+    },
+    {
+        "label": "datetime",
+        "importPath": "datetime",
+        "description": "datetime",
+        "isExtraImport": true,
+        "detail": "datetime",
+        "documentation": {}
+    },
+    {
+        "label": "datetime",
+        "importPath": "datetime",
+        "description": "datetime",
+        "isExtraImport": true,
+        "detail": "datetime",
+        "documentation": {}
+    },
+    {
+        "label": "datetime",
+        "importPath": "datetime",
+        "description": "datetime",
+        "isExtraImport": true,
+        "detail": "datetime",
+        "documentation": {}
+    },
+    {
+        "label": "datetime",
+        "importPath": "datetime",
+        "description": "datetime",
+        "isExtraImport": true,
+        "detail": "datetime",
+        "documentation": {}
+    },
+    {
+        "label": "datetime",
+        "importPath": "datetime",
+        "description": "datetime",
+        "isExtraImport": true,
+        "detail": "datetime",
+        "documentation": {}
+    },
+    {
+        "label": "datetime",
+        "importPath": "datetime",
+        "description": "datetime",
+        "isExtraImport": true,
+        "detail": "datetime",
+        "documentation": {}
+    },
+    {
+        "label": "datetime",
+        "importPath": "datetime",
+        "description": "datetime",
+        "isExtraImport": true,
+        "detail": "datetime",
+        "documentation": {}
+    },
+    {
+        "label": "timedelta",
+        "importPath": "datetime",
+        "description": "datetime",
+        "isExtraImport": true,
+        "detail": "datetime",
+        "documentation": {}
+    },
+    {
+        "label": "datetime",
+        "importPath": "datetime",
+        "description": "datetime",
+        "isExtraImport": true,
+        "detail": "datetime",
+        "documentation": {}
+    },
+    {
+        "label": "datetime",
+        "importPath": "datetime",
+        "description": "datetime",
+        "isExtraImport": true,
+        "detail": "datetime",
+        "documentation": {}
+    },
+    {
+        "label": "datetime",
+        "importPath": "datetime",
+        "description": "datetime",
+        "isExtraImport": true,
+        "detail": "datetime",
+        "documentation": {}
+    },
+    {
+        "label": "datetime",
+        "importPath": "datetime",
+        "description": "datetime",
+        "isExtraImport": true,
+        "detail": "datetime",
+        "documentation": {}
+    },
+    {
+        "label": "AnyHttpUrl",
+        "importPath": "pydantic",
+        "description": "pydantic",
+        "isExtraImport": true,
+        "detail": "pydantic",
+        "documentation": {}
+    },
+    {
+        "label": "BaseModel",
+        "importPath": "pydantic",
+        "description": "pydantic",
+        "isExtraImport": true,
+        "detail": "pydantic",
+        "documentation": {}
+    },
+    {
+        "label": "HttpUrl",
+        "importPath": "pydantic",
+        "description": "pydantic",
+        "isExtraImport": true,
+        "detail": "pydantic",
+        "documentation": {}
+    },
+    {
+        "label": "Field",
+        "importPath": "pydantic",
+        "description": "pydantic",
+        "isExtraImport": true,
+        "detail": "pydantic",
+        "documentation": {}
+    },
+    {
+        "label": "BaseModel",
+        "importPath": "pydantic",
+        "description": "pydantic",
+        "isExtraImport": true,
+        "detail": "pydantic",
+        "documentation": {}
+    },
+    {
+        "label": "BaseModel",
+        "importPath": "pydantic",
+        "description": "pydantic",
+        "isExtraImport": true,
+        "detail": "pydantic",
+        "documentation": {}
+    },
+    {
+        "label": "Field",
+        "importPath": "pydantic",
+        "description": "pydantic",
+        "isExtraImport": true,
+        "detail": "pydantic",
+        "documentation": {}
+    },
+    {
+        "label": "BaseModel",
+        "importPath": "pydantic",
+        "description": "pydantic",
+        "isExtraImport": true,
+        "detail": "pydantic",
+        "documentation": {}
+    },
+    {
+        "label": "BaseModel",
+        "importPath": "pydantic",
+        "description": "pydantic",
+        "isExtraImport": true,
+        "detail": "pydantic",
+        "documentation": {}
+    },
+    {
+        "label": "EmailStr",
+        "importPath": "pydantic",
+        "description": "pydantic",
+        "isExtraImport": true,
+        "detail": "pydantic",
+        "documentation": {}
+    },
+    {
+        "label": "Field",
+        "importPath": "pydantic",
+        "description": "pydantic",
+        "isExtraImport": true,
+        "detail": "pydantic",
+        "documentation": {}
+    },
+    {
+        "label": "model_validator",
+        "importPath": "pydantic",
+        "description": "pydantic",
+        "isExtraImport": true,
+        "detail": "pydantic",
+        "documentation": {}
+    },
+    {
+        "label": "BaseModel",
+        "importPath": "pydantic",
+        "description": "pydantic",
+        "isExtraImport": true,
+        "detail": "pydantic",
+        "documentation": {}
+    },
+    {
+        "label": "EmailStr",
+        "importPath": "pydantic",
+        "description": "pydantic",
+        "isExtraImport": true,
+        "detail": "pydantic",
+        "documentation": {}
+    },
+    {
+        "label": "BaseModel",
+        "importPath": "pydantic",
+        "description": "pydantic",
+        "isExtraImport": true,
+        "detail": "pydantic",
+        "documentation": {}
+    },
+    {
+        "label": "shutil",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "shutil",
+        "description": "shutil",
+        "detail": "shutil",
+        "documentation": {}
+    },
+    {
+        "label": "OAuth2PasswordRequestForm",
+        "importPath": "fastapi.security",
+        "description": "fastapi.security",
+        "isExtraImport": true,
+        "detail": "fastapi.security",
+        "documentation": {}
+    },
+    {
+        "label": "JWTError",
+        "importPath": "jose",
+        "description": "jose",
+        "isExtraImport": true,
+        "detail": "jose",
+        "documentation": {}
+    },
+    {
+        "label": "jwt",
+        "importPath": "jose",
+        "description": "jose",
+        "isExtraImport": true,
+        "detail": "jose",
+        "documentation": {}
+    },
+    {
+        "label": "settings",
+        "importPath": "backend.core.config",
+        "description": "backend.core.config",
+        "isExtraImport": true,
+        "detail": "backend.core.config",
+        "documentation": {}
+    },
+    {
+        "label": "crud_course",
+        "importPath": "backend.crud.course",
+        "description": "backend.crud.course",
+        "isExtraImport": true,
+        "detail": "backend.crud.course",
+        "documentation": {}
+    },
+    {
+        "label": "require_role",
+        "importPath": "backend.dependencies.auth_roles",
+        "description": "backend.dependencies.auth_roles",
+        "isExtraImport": true,
+        "detail": "backend.dependencies.auth_roles",
+        "documentation": {}
+    },
+    {
+        "label": "crud_order",
+        "importPath": "backend.crud.order",
+        "description": "backend.crud.order",
+        "isExtraImport": true,
+        "detail": "backend.crud.order",
+        "documentation": {}
+    },
+    {
+        "label": "crud_order",
+        "importPath": "backend.crud.order",
+        "description": "backend.crud.order",
+        "isExtraImport": true,
+        "detail": "backend.crud.order",
+        "documentation": {}
+    },
+    {
+        "label": "Jinja2Templates",
+        "importPath": "fastapi.templating",
+        "description": "fastapi.templating",
+        "isExtraImport": true,
+        "detail": "fastapi.templating",
+        "documentation": {}
+    },
+    {
+        "label": "crud_course",
+        "importPath": "backend.crud",
+        "description": "backend.crud",
+        "isExtraImport": true,
+        "detail": "backend.crud",
+        "documentation": {}
+    },
+    {
+        "label": "crud_registration",
+        "importPath": "backend.crud",
+        "description": "backend.crud",
+        "isExtraImport": true,
+        "detail": "backend.crud",
+        "documentation": {}
+    },
+    {
+        "label": "crud_order",
+        "importPath": "backend.crud",
+        "description": "backend.crud",
+        "isExtraImport": true,
+        "detail": "backend.crud",
+        "documentation": {}
+    },
+    {
+        "label": "crud_payment",
+        "importPath": "backend.crud.payment",
+        "description": "backend.crud.payment",
+        "isExtraImport": true,
+        "detail": "backend.crud.payment",
+        "documentation": {}
+    },
+    {
+        "label": "RedirectResponse",
+        "importPath": "fastapi.responses",
+        "description": "fastapi.responses",
+        "isExtraImport": true,
+        "detail": "fastapi.responses",
+        "documentation": {}
+    },
+    {
+        "label": "initialize_transaction",
+        "importPath": "backend.services.paystack_service",
+        "description": "backend.services.paystack_service",
+        "isExtraImport": true,
+        "detail": "backend.services.paystack_service",
+        "documentation": {}
+    },
+    {
+        "label": "verify_transaction",
+        "importPath": "backend.services.paystack_service",
+        "description": "backend.services.paystack_service",
+        "isExtraImport": true,
+        "detail": "backend.services.paystack_service",
+        "documentation": {}
+    },
+    {
+        "label": "crud_registration",
+        "importPath": "backend.crud.registration",
+        "description": "backend.crud.registration",
+        "isExtraImport": true,
+        "detail": "backend.crud.registration",
+        "documentation": {}
+    },
+    {
+        "label": "create_or_get_user",
+        "importPath": "backend.utils.auth_utils",
+        "description": "backend.utils.auth_utils",
+        "isExtraImport": true,
+        "detail": "backend.utils.auth_utils",
+        "documentation": {}
+    },
+    {
+        "label": "set_jwt_cookie_for_user",
+        "importPath": "backend.utils.auth_utils",
+        "description": "backend.utils.auth_utils",
+        "isExtraImport": true,
+        "detail": "backend.utils.auth_utils",
+        "documentation": {}
+    },
+    {
+        "label": "requests",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "requests",
+        "description": "requests",
+        "detail": "requests",
+        "documentation": {}
+    },
+    {
+        "label": "dotenv",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "dotenv",
+        "description": "dotenv",
+        "detail": "dotenv",
+        "documentation": {}
+    },
+    {
+        "label": "load_dotenv",
+        "importPath": "dotenv",
+        "description": "dotenv",
+        "isExtraImport": true,
+        "detail": "dotenv",
+        "documentation": {}
+    },
+    {
+        "label": "RequestException",
+        "importPath": "requests.exceptions",
+        "description": "requests.exceptions",
+        "isExtraImport": true,
+        "detail": "requests.exceptions",
+        "documentation": {}
+    },
+    {
+        "label": "Timeout",
+        "importPath": "requests.exceptions",
+        "description": "requests.exceptions",
+        "isExtraImport": true,
+        "detail": "requests.exceptions",
+        "documentation": {}
+    },
+    {
+        "label": "pytest",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "pytest",
+        "description": "pytest",
+        "detail": "pytest",
+        "documentation": {}
+    },
+    {
+        "label": "pytest_asyncio",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "pytest_asyncio",
+        "description": "pytest_asyncio",
+        "detail": "pytest_asyncio",
+        "documentation": {}
+    },
+    {
+        "label": "AsyncClient",
+        "importPath": "httpx",
+        "description": "httpx",
+        "isExtraImport": true,
+        "detail": "httpx",
+        "documentation": {}
+    },
+    {
+        "label": "app",
+        "importPath": "main",
+        "description": "main",
+        "isExtraImport": true,
+        "detail": "main",
+        "documentation": {}
+    },
+    {
+        "label": "TestClient",
+        "importPath": "fastapi.testclient",
+        "description": "fastapi.testclient",
+        "isExtraImport": true,
+        "detail": "fastapi.testclient",
+        "documentation": {}
+    },
+    {
+        "label": "StaticFiles",
+        "importPath": "fastapi.staticfiles",
+        "description": "fastapi.staticfiles",
+        "isExtraImport": true,
+        "detail": "fastapi.staticfiles",
+        "documentation": {}
+    },
+    {
+        "label": "CORSMiddleware",
+        "importPath": "fastapi.middleware.cors",
+        "description": "fastapi.middleware.cors",
+        "isExtraImport": true,
+        "detail": "fastapi.middleware.cors",
+        "documentation": {}
+    },
+    {
+        "label": "uvicorn",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "uvicorn",
+        "description": "uvicorn",
+        "detail": "uvicorn",
+        "documentation": {}
+    },
+    {
+        "label": "api_router",
+        "importPath": "backend.routers",
+        "description": "backend.routers",
+        "isExtraImport": true,
+        "detail": "backend.routers",
+        "documentation": {}
+    },
+    {
+        "label": "pages_router",
+        "importPath": "backend.routers",
+        "description": "backend.routers",
+        "isExtraImport": true,
+        "detail": "backend.routers",
+        "documentation": {}
+    },
+    {
+        "label": "random",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "random",
+        "description": "random",
+        "detail": "random",
+        "documentation": {}
+    },
+    {
+        "label": "Faker",
+        "importPath": "faker",
+        "description": "faker",
+        "isExtraImport": true,
+        "detail": "faker",
+        "documentation": {}
+    },
+    {
+        "label": "upgrade",
+        "kind": 2,
+        "importPath": "alembic.versions.0d45c1d4b399_removed_payment_and_user_relationships",
+        "description": "alembic.versions.0d45c1d4b399_removed_payment_and_user_relationships",
+        "peekOfCode": "def upgrade() -> None:\n    # ### commands auto generated by Alembic - please adjust! ###\n    pass\n    # ### end Alembic commands ###\ndef downgrade() -> None:\n    # ### commands auto generated by Alembic - please adjust! ###\n    pass\n    # ### end Alembic commands ###",
+        "detail": "alembic.versions.0d45c1d4b399_removed_payment_and_user_relationships",
+        "documentation": {}
+    },
+    {
+        "label": "downgrade",
+        "kind": 2,
+        "importPath": "alembic.versions.0d45c1d4b399_removed_payment_and_user_relationships",
+        "description": "alembic.versions.0d45c1d4b399_removed_payment_and_user_relationships",
+        "peekOfCode": "def downgrade() -> None:\n    # ### commands auto generated by Alembic - please adjust! ###\n    pass\n    # ### end Alembic commands ###",
+        "detail": "alembic.versions.0d45c1d4b399_removed_payment_and_user_relationships",
+        "documentation": {}
+    },
+    {
+        "label": "upgrade",
+        "kind": 2,
+        "importPath": "alembic.versions.2cfb616080e5_initial_migration",
+        "description": "alembic.versions.2cfb616080e5_initial_migration",
+        "peekOfCode": "def upgrade() -> None:\n    # ### commands auto generated by Alembic - please adjust! ###\n    op.create_table('courses',\n    sa.Column('id', sa.Integer(), nullable=False),\n    sa.Column('title', sa.String(length=255), nullable=False),\n    sa.Column('image_url', sa.String(length=255), nullable=True),\n    sa.Column('description', sa.Text(), nullable=False),\n    sa.Column('price', sa.Float(), nullable=False),\n    sa.Column('age_group', sa.String(length=50), nullable=False),\n    sa.Column('duration', sa.String(length=100), nullable=False),",
+        "detail": "alembic.versions.2cfb616080e5_initial_migration",
+        "documentation": {}
+    },
+    {
+        "label": "downgrade",
+        "kind": 2,
+        "importPath": "alembic.versions.2cfb616080e5_initial_migration",
+        "description": "alembic.versions.2cfb616080e5_initial_migration",
+        "peekOfCode": "def downgrade() -> None:\n    # ### commands auto generated by Alembic - please adjust! ###\n    with op.batch_alter_table('registrations', schema=None) as batch_op:\n        batch_op.drop_index(batch_op.f('ix_registrations_id'))\n    op.drop_table('registrations')\n    with op.batch_alter_table('payments', schema=None) as batch_op:\n        batch_op.drop_index(batch_op.f('ix_payments_id'))\n    op.drop_table('payments')\n    with op.batch_alter_table('orders', schema=None) as batch_op:\n        batch_op.drop_index(batch_op.f('ix_orders_id'))",
+        "detail": "alembic.versions.2cfb616080e5_initial_migration",
+        "documentation": {}
+    },
+    {
+        "label": "upgrade",
+        "kind": 2,
+        "importPath": "alembic.versions.31fb794355db_fixed_user_and_order_relationships",
+        "description": "alembic.versions.31fb794355db_fixed_user_and_order_relationships",
+        "peekOfCode": "def upgrade() -> None:\n    # ### commands auto generated by Alembic - please adjust! ###\n    pass\n    # ### end Alembic commands ###\ndef downgrade() -> None:\n    # ### commands auto generated by Alembic - please adjust! ###\n    pass\n    # ### end Alembic commands ###",
+        "detail": "alembic.versions.31fb794355db_fixed_user_and_order_relationships",
+        "documentation": {}
+    },
+    {
+        "label": "downgrade",
+        "kind": 2,
+        "importPath": "alembic.versions.31fb794355db_fixed_user_and_order_relationships",
+        "description": "alembic.versions.31fb794355db_fixed_user_and_order_relationships",
+        "peekOfCode": "def downgrade() -> None:\n    # ### commands auto generated by Alembic - please adjust! ###\n    pass\n    # ### end Alembic commands ###",
+        "detail": "alembic.versions.31fb794355db_fixed_user_and_order_relationships",
+        "documentation": {}
+    },
+    {
+        "label": "upgrade",
+        "kind": 2,
+        "importPath": "alembic.versions.7f4228446999_updated_database",
+        "description": "alembic.versions.7f4228446999_updated_database",
+        "peekOfCode": "def upgrade() -> None:\n    pass\ndef downgrade() -> None:\n    pass",
+        "detail": "alembic.versions.7f4228446999_updated_database",
+        "documentation": {}
+    },
+    {
+        "label": "downgrade",
+        "kind": 2,
+        "importPath": "alembic.versions.7f4228446999_updated_database",
+        "description": "alembic.versions.7f4228446999_updated_database",
+        "peekOfCode": "def downgrade() -> None:\n    pass",
+        "detail": "alembic.versions.7f4228446999_updated_database",
+        "documentation": {}
+    },
+    {
+        "label": "upgrade",
+        "kind": 2,
+        "importPath": "alembic.versions.8402217402d8_fixed_user_and_order_relationships",
+        "description": "alembic.versions.8402217402d8_fixed_user_and_order_relationships",
+        "peekOfCode": "def upgrade() -> None:\n    # ### commands auto generated by Alembic - please adjust! ###\n    pass\n    # ### end Alembic commands ###\ndef downgrade() -> None:\n    # ### commands auto generated by Alembic - please adjust! ###\n    pass\n    # ### end Alembic commands ###",
+        "detail": "alembic.versions.8402217402d8_fixed_user_and_order_relationships",
+        "documentation": {}
+    },
+    {
+        "label": "downgrade",
+        "kind": 2,
+        "importPath": "alembic.versions.8402217402d8_fixed_user_and_order_relationships",
+        "description": "alembic.versions.8402217402d8_fixed_user_and_order_relationships",
+        "peekOfCode": "def downgrade() -> None:\n    # ### commands auto generated by Alembic - please adjust! ###\n    pass\n    # ### end Alembic commands ###",
+        "detail": "alembic.versions.8402217402d8_fixed_user_and_order_relationships",
+        "documentation": {}
+    },
+    {
+        "label": "upgrade",
+        "kind": 2,
+        "importPath": "alembic.versions.8f94c9b49577_added_created_at_field_to_course_table",
+        "description": "alembic.versions.8f94c9b49577_added_created_at_field_to_course_table",
+        "peekOfCode": "def upgrade() -> None:\n    pass\ndef downgrade() -> None:\n    pass",
+        "detail": "alembic.versions.8f94c9b49577_added_created_at_field_to_course_table",
+        "documentation": {}
+    },
+    {
+        "label": "downgrade",
+        "kind": 2,
+        "importPath": "alembic.versions.8f94c9b49577_added_created_at_field_to_course_table",
+        "description": "alembic.versions.8f94c9b49577_added_created_at_field_to_course_table",
+        "peekOfCode": "def downgrade() -> None:\n    pass",
+        "detail": "alembic.versions.8f94c9b49577_added_created_at_field_to_course_table",
+        "documentation": {}
+    },
+    {
+        "label": "upgrade",
+        "kind": 2,
+        "importPath": "alembic.versions.b5c9fdcffdfb_added_created_at_field_to_course_table",
+        "description": "alembic.versions.b5c9fdcffdfb_added_created_at_field_to_course_table",
+        "peekOfCode": "def upgrade() -> None:\n    # ### commands auto generated by Alembic - please adjust! ###\n    with op.batch_alter_table('courses', schema=None) as batch_op:\n        batch_op.add_column(sa.Column('created_at', sa.DateTime(), nullable=True))\n    # ### end Alembic commands ###\ndef downgrade() -> None:\n    # ### commands auto generated by Alembic - please adjust! ###\n    with op.batch_alter_table('courses', schema=None) as batch_op:\n        batch_op.drop_column('created_at')\n    # ### end Alembic commands ###",
+        "detail": "alembic.versions.b5c9fdcffdfb_added_created_at_field_to_course_table",
+        "documentation": {}
+    },
+    {
+        "label": "downgrade",
+        "kind": 2,
+        "importPath": "alembic.versions.b5c9fdcffdfb_added_created_at_field_to_course_table",
+        "description": "alembic.versions.b5c9fdcffdfb_added_created_at_field_to_course_table",
+        "peekOfCode": "def downgrade() -> None:\n    # ### commands auto generated by Alembic - please adjust! ###\n    with op.batch_alter_table('courses', schema=None) as batch_op:\n        batch_op.drop_column('created_at')\n    # ### end Alembic commands ###",
+        "detail": "alembic.versions.b5c9fdcffdfb_added_created_at_field_to_course_table",
+        "documentation": {}
+    },
+    {
+        "label": "upgrade",
+        "kind": 2,
+        "importPath": "alembic.versions.cede10c2c754_added_created_at_field_to_course_table",
+        "description": "alembic.versions.cede10c2c754_added_created_at_field_to_course_table",
+        "peekOfCode": "def upgrade() -> None:\n    pass\ndef downgrade() -> None:\n    pass",
+        "detail": "alembic.versions.cede10c2c754_added_created_at_field_to_course_table",
+        "documentation": {}
+    },
+    {
+        "label": "downgrade",
+        "kind": 2,
+        "importPath": "alembic.versions.cede10c2c754_added_created_at_field_to_course_table",
+        "description": "alembic.versions.cede10c2c754_added_created_at_field_to_course_table",
+        "peekOfCode": "def downgrade() -> None:\n    pass",
+        "detail": "alembic.versions.cede10c2c754_added_created_at_field_to_course_table",
+        "documentation": {}
+    },
+    {
+        "label": "upgrade",
+        "kind": 2,
+        "importPath": "alembic.versions.e21cc85e512b_recreate_migrations",
+        "description": "alembic.versions.e21cc85e512b_recreate_migrations",
+        "peekOfCode": "def upgrade() -> None:\n    # ### commands auto generated by Alembic - please adjust! ###\n    with op.batch_alter_table('courses', schema=None) as batch_op:\n        batch_op.alter_column('rating',\n               existing_type=mysql.FLOAT(),\n               nullable=True)\n    # ### end Alembic commands ###\ndef downgrade() -> None:\n    # ### commands auto generated by Alembic - please adjust! ###\n    with op.batch_alter_table('courses', schema=None) as batch_op:",
+        "detail": "alembic.versions.e21cc85e512b_recreate_migrations",
+        "documentation": {}
+    },
+    {
+        "label": "downgrade",
+        "kind": 2,
+        "importPath": "alembic.versions.e21cc85e512b_recreate_migrations",
+        "description": "alembic.versions.e21cc85e512b_recreate_migrations",
+        "peekOfCode": "def downgrade() -> None:\n    # ### commands auto generated by Alembic - please adjust! ###\n    with op.batch_alter_table('courses', schema=None) as batch_op:\n        batch_op.alter_column('rating',\n               existing_type=mysql.FLOAT(),\n               nullable=False)\n    # ### end Alembic commands ###",
+        "detail": "alembic.versions.e21cc85e512b_recreate_migrations",
+        "documentation": {}
+    },
+    {
+        "label": "run_migrations_offline",
+        "kind": 2,
+        "importPath": "alembic.env",
+        "description": "alembic.env",
+        "peekOfCode": "def run_migrations_offline():\n    \"\"\"Run migrations in 'offline' mode.\"\"\"\n    context.configure(\n        url=config.get_main_option(\"sqlalchemy.url\"),\n        target_metadata=Base.metadata,\n        literal_binds=True,\n        dialect_opts={\"paramstyle\": \"named\"},\n    )\ndef run_migrations_online():\n    \"\"\"Run migrations in 'online' mode.\"\"\"",
+        "detail": "alembic.env",
+        "documentation": {}
+    },
+    {
+        "label": "run_migrations_online",
+        "kind": 2,
+        "importPath": "alembic.env",
+        "description": "alembic.env",
+        "peekOfCode": "def run_migrations_online():\n    \"\"\"Run migrations in 'online' mode.\"\"\"\n    connectable = engine_from_config(\n        config.get_section(config.config_ini_section),\n        prefix=\"sqlalchemy.\",\n        poolclass=pool.NullPool,\n    )\n    with connectable.connect() as connection:\n        context.configure(\n            connection=connection,",
+        "detail": "alembic.env",
+        "documentation": {}
+    },
+    {
+        "label": "config",
+        "kind": 5,
+        "importPath": "alembic.env",
+        "description": "alembic.env",
+        "peekOfCode": "config = context.config\n# Interpret the config file for Python logging.\nfileConfig(config.config_file_name)\n# Import your models here\nfrom backend.core.database import Base\nfrom backend.models import * # This imports all models via backend/models/__init__.py\n# set target_metadata to your Base.metadata\ntarget_metadata = Base.metadata\ndef run_migrations_offline():\n    \"\"\"Run migrations in 'offline' mode.\"\"\"",
+        "detail": "alembic.env",
+        "documentation": {}
+    },
+    {
+        "label": "target_metadata",
+        "kind": 5,
+        "importPath": "alembic.env",
+        "description": "alembic.env",
+        "peekOfCode": "target_metadata = Base.metadata\ndef run_migrations_offline():\n    \"\"\"Run migrations in 'offline' mode.\"\"\"\n    context.configure(\n        url=config.get_main_option(\"sqlalchemy.url\"),\n        target_metadata=Base.metadata,\n        literal_binds=True,\n        dialect_opts={\"paramstyle\": \"named\"},\n    )\ndef run_migrations_online():",
+        "detail": "alembic.env",
+        "documentation": {}
+    },
+    {
+        "label": "Settings",
+        "kind": 6,
+        "importPath": "backend.core.config",
+        "description": "backend.core.config",
+        "peekOfCode": "class Settings(BaseSettings):\n    DEBUG: str\n    ENVIRONMENT:str\n    DATABASE_URL:str\n    SECRET_KEY: str\n    ACCESS_TOKEN_EXPIRE_MINUTES: int\n    ALGORITHM: str\n    EMAIL_SENDER: str\n    EMAIL_HOST: str\n    EMAIL_PORT: int",
+        "detail": "backend.core.config",
+        "documentation": {}
+    },
+    {
+        "label": "settings",
+        "kind": 5,
+        "importPath": "backend.core.config",
+        "description": "backend.core.config",
+        "peekOfCode": "settings = Settings()",
+        "detail": "backend.core.config",
+        "documentation": {}
+    },
+    {
+        "label": "get_db",
+        "kind": 2,
+        "importPath": "backend.core.database",
+        "description": "backend.core.database",
+        "peekOfCode": "def get_db():\n    \"\"\"\n    Dependency function that provides a database session.\n    Use 'get_db' in your routers to get a session.\n    \"\"\"\n    db = SessionLocal()\n    try:\n        yield db\n    finally:\n        db.close()",
+        "detail": "backend.core.database",
+        "documentation": {}
+    },
+    {
+        "label": "DB_URL",
+        "kind": 5,
+        "importPath": "backend.core.database",
+        "description": "backend.core.database",
+        "peekOfCode": "DB_URL = os.getenv(\"DATABASE_URL\", \"mysql+pymysql://techkids:ProgressIniks2018@localhost:3306/aitechkidsdb\")\nif DB_URL.startswith(\"sqlite:\"):\n    engine = create_engine(DB_URL, connect_args={\"check_same_thread\": False}, echo=True)\nelse:\n    engine = create_engine(DB_URL, echo=True)\n# engine = create_engine(DB_URL, connect_args={\"check_same_thread\": False}, echo=True)\nSessionLocal = sessionmaker(bind=engine, autoflush=False, autocommit=False)\nBase = declarative_base()\ndef get_db():\n    \"\"\"",
+        "detail": "backend.core.database",
+        "documentation": {}
+    },
+    {
+        "label": "SessionLocal",
+        "kind": 5,
+        "importPath": "backend.core.database",
+        "description": "backend.core.database",
+        "peekOfCode": "SessionLocal = sessionmaker(bind=engine, autoflush=False, autocommit=False)\nBase = declarative_base()\ndef get_db():\n    \"\"\"\n    Dependency function that provides a database session.\n    Use 'get_db' in your routers to get a session.\n    \"\"\"\n    db = SessionLocal()\n    try:\n        yield db",
+        "detail": "backend.core.database",
+        "documentation": {}
+    },
+    {
+        "label": "Base",
+        "kind": 5,
+        "importPath": "backend.core.database",
+        "description": "backend.core.database",
+        "peekOfCode": "Base = declarative_base()\ndef get_db():\n    \"\"\"\n    Dependency function that provides a database session.\n    Use 'get_db' in your routers to get a session.\n    \"\"\"\n    db = SessionLocal()\n    try:\n        yield db\n    finally:",
+        "detail": "backend.core.database",
+        "documentation": {}
+    },
+    {
+        "label": "CRUDCourse",
+        "kind": 6,
+        "importPath": "backend.crud.course",
+        "description": "backend.crud.course",
+        "peekOfCode": "class CRUDCourse:\n    \"\"\"\n    CRUD operations for Course.\n    Methods:\n    - **create**: Adds a new Course record.\n    - **get_by_id**: Retrieves a Course by ID.\n    - **get_all**: Retrieves all Courses.\n    - **update**: Updates a Course record.\n    - **delete**: Deletes a Course record.\n    \"\"\"",
+        "detail": "backend.crud.course",
+        "documentation": {}
+    },
+    {
+        "label": "logger",
+        "kind": 5,
+        "importPath": "backend.crud.course",
+        "description": "backend.crud.course",
+        "peekOfCode": "logger = logging.getLogger(__name__)\nclass CRUDCourse:\n    \"\"\"\n    CRUD operations for Course.\n    Methods:\n    - **create**: Adds a new Course record.\n    - **get_by_id**: Retrieves a Course by ID.\n    - **get_all**: Retrieves all Courses.\n    - **update**: Updates a Course record.\n    - **delete**: Deletes a Course record.",
+        "detail": "backend.crud.course",
+        "documentation": {}
+    },
+    {
+        "label": "crud_course",
+        "kind": 5,
+        "importPath": "backend.crud.course",
+        "description": "backend.crud.course",
+        "peekOfCode": "crud_course = CRUDCourse(Course)",
+        "detail": "backend.crud.course",
+        "documentation": {}
+    },
+    {
+        "label": "CRUDOrder",
+        "kind": 6,
+        "importPath": "backend.crud.order",
+        "description": "backend.crud.order",
+        "peekOfCode": "class CRUDOrder:\n    def __init__(self, model):\n        self.model = model\n    def create(self, db: Session, obj_in: OrderCreate) -> Order:\n        new_order = self.model(**obj_in.dict())\n        db.add(new_order)\n        try:\n            db.commit()\n            logger.info(f\"Created Order for User ID: {obj_in.user_id}\")\n        except Exception as e:",
+        "detail": "backend.crud.order",
+        "documentation": {}
+    },
+    {
+        "label": "logger",
+        "kind": 5,
+        "importPath": "backend.crud.order",
+        "description": "backend.crud.order",
+        "peekOfCode": "logger = logging.getLogger(__name__)\nclass CRUDOrder:\n    def __init__(self, model):\n        self.model = model\n    def create(self, db: Session, obj_in: OrderCreate) -> Order:\n        new_order = self.model(**obj_in.dict())\n        db.add(new_order)\n        try:\n            db.commit()\n            logger.info(f\"Created Order for User ID: {obj_in.user_id}\")",
+        "detail": "backend.crud.order",
+        "documentation": {}
+    },
+    {
+        "label": "crud_order",
+        "kind": 5,
+        "importPath": "backend.crud.order",
+        "description": "backend.crud.order",
+        "peekOfCode": "crud_order = CRUDOrder(Order)",
+        "detail": "backend.crud.order",
+        "documentation": {}
+    },
+    {
+        "label": "CRUDPayment",
+        "kind": 6,
+        "importPath": "backend.crud.payment",
+        "description": "backend.crud.payment",
+        "peekOfCode": "class CRUDPayment:\n    \"\"\"\n    CRUD operations for Payment.\n    Methods:\n    - **create**: Adds a new Payment record.\n    - **get_by_id**: Retrieves a Payment by ID.\n    - **get_all**: Retrieves all Payments.\n    - **update**: Updates a Payment record.\n    - **delete**: Deletes a Payment record.\n    \"\"\"",
+        "detail": "backend.crud.payment",
+        "documentation": {}
+    },
+    {
+        "label": "logger",
+        "kind": 5,
+        "importPath": "backend.crud.payment",
+        "description": "backend.crud.payment",
+        "peekOfCode": "logger = logging.getLogger(__name__)\nclass CRUDPayment:\n    \"\"\"\n    CRUD operations for Payment.\n    Methods:\n    - **create**: Adds a new Payment record.\n    - **get_by_id**: Retrieves a Payment by ID.\n    - **get_all**: Retrieves all Payments.\n    - **update**: Updates a Payment record.\n    - **delete**: Deletes a Payment record.",
+        "detail": "backend.crud.payment",
+        "documentation": {}
+    },
+    {
+        "label": "crud_payment",
+        "kind": 5,
+        "importPath": "backend.crud.payment",
+        "description": "backend.crud.payment",
+        "peekOfCode": "crud_payment = CRUDPayment(Payment)",
+        "detail": "backend.crud.payment",
+        "documentation": {}
+    },
+    {
+        "label": "CRUDRegistration",
+        "kind": 6,
+        "importPath": "backend.crud.registration",
+        "description": "backend.crud.registration",
+        "peekOfCode": "class CRUDRegistration:\n    \"\"\"\n    CRUD operations for Registration.\n    Methods:\n    - **create**: Adds a new Registration record.\n    - **get_by_id**: Retrieves a Registration by ID.\n    - **get_all**: Retrieves all Registrations.\n    - **update**: Updates a Registration record.\n    - **delete**: Deletes a Registration record.\n    \"\"\"",
+        "detail": "backend.crud.registration",
+        "documentation": {}
+    },
+    {
+        "label": "logger",
+        "kind": 5,
+        "importPath": "backend.crud.registration",
+        "description": "backend.crud.registration",
+        "peekOfCode": "logger = logging.getLogger(__name__)\nclass CRUDRegistration:\n    \"\"\"\n    CRUD operations for Registration.\n    Methods:\n    - **create**: Adds a new Registration record.\n    - **get_by_id**: Retrieves a Registration by ID.\n    - **get_all**: Retrieves all Registrations.\n    - **update**: Updates a Registration record.\n    - **delete**: Deletes a Registration record.",
+        "detail": "backend.crud.registration",
+        "documentation": {}
+    },
+    {
+        "label": "crud_registration",
+        "kind": 5,
+        "importPath": "backend.crud.registration",
+        "description": "backend.crud.registration",
+        "peekOfCode": "crud_registration = CRUDRegistration(Registration)",
+        "detail": "backend.crud.registration",
+        "documentation": {}
+    },
+    {
+        "label": "CRUDUser",
+        "kind": 6,
+        "importPath": "backend.crud.user",
+        "description": "backend.crud.user",
+        "peekOfCode": "class CRUDUser:\n    \"\"\"\n    CRUD operations for User.\n    Methods:\n    - **create**: Adds a new User record.\n    - **get_by_id**: Retrieves a User by UUID.\n    - **get_by_email**: Retrieves a User by email.\n    - **get_all**: Retrieves all Users.\n    - **update**: Updates a User record.\n    - **delete**: Deletes a User record.",
+        "detail": "backend.crud.user",
+        "documentation": {}
+    },
+    {
+        "label": "logger",
+        "kind": 5,
+        "importPath": "backend.crud.user",
+        "description": "backend.crud.user",
+        "peekOfCode": "logger = logging.getLogger(__name__)\nclass CRUDUser:\n    \"\"\"\n    CRUD operations for User.\n    Methods:\n    - **create**: Adds a new User record.\n    - **get_by_id**: Retrieves a User by UUID.\n    - **get_by_email**: Retrieves a User by email.\n    - **get_all**: Retrieves all Users.\n    - **update**: Updates a User record.",
+        "detail": "backend.crud.user",
+        "documentation": {}
+    },
+    {
+        "label": "crud_user",
+        "kind": 5,
+        "importPath": "backend.crud.user",
+        "description": "backend.crud.user",
+        "peekOfCode": "crud_user = CRUDUser(User)",
+        "detail": "backend.crud.user",
+        "documentation": {}
+    },
+    {
+        "label": "require_role",
+        "kind": 2,
+        "importPath": "backend.dependencies.auth_roles",
+        "description": "backend.dependencies.auth_roles",
+        "peekOfCode": "def require_role(allowed_roles: list[str]):\n    def role_checker(current_user: User = Depends(get_current_user)):\n        if current_user.role not in allowed_roles:\n            raise HTTPException(\n                status_code=status.HTTP_403_FORBIDDEN,\n                detail=\"Not enough privileges\"\n            )\n        return current_user\n    return role_checker",
+        "detail": "backend.dependencies.auth_roles",
+        "documentation": {}
+    },
+    {
+        "label": "Course",
+        "kind": 6,
+        "importPath": "backend.models.course",
+        "description": "backend.models.course",
+        "peekOfCode": "class Course(Base):\n    \"\"\"\n    Course Model representing different courses available in the system.\n    Relationships:\n    - `registrations`: A one-to-many relationship with `Registration`.\n    \"\"\"\n    __tablename__ = \"courses\"\n    id = Column(Integer, primary_key=True, index=True)\n    title = Column(String(255), nullable=False, unique=True)\n    image_url = Column(String(255), nullable=True)",
+        "detail": "backend.models.course",
+        "documentation": {}
+    },
+    {
+        "label": "Order",
+        "kind": 6,
+        "importPath": "backend.models.order",
+        "description": "backend.models.order",
+        "peekOfCode": "class Order(Base):\n    __tablename__ = \"orders\"\n    id = Column(Integer, primary_key=True, index=True)\n    user_id = Column(Integer, ForeignKey(\"users.id\"), nullable=False)\n    total_amount = Column(Float, default=0.0)\n    status = Column(String(20), default=\"pending\")  # e.g. \"pending\", \"paid\", \"cancelled\"\n    created_at = Column(DateTime, default=datetime.utcnow)\n    # Relationship\n    user = relationship(\"User\", back_populates=\"orders\")  \n    items = relationship(\"Registration\", back_populates=\"order\")",
+        "detail": "backend.models.order",
+        "documentation": {}
+    },
+    {
+        "label": "Payment",
+        "kind": 6,
+        "importPath": "backend.models.payment",
+        "description": "backend.models.payment",
+        "peekOfCode": "class Payment(Base):\n    __tablename__ = \"payments\"\n    id = Column(Integer, primary_key=True, index=True)\n    order_id = Column(Integer, ForeignKey(\"orders.id\"), nullable=False)\n    transaction_id = Column(String(255), unique=True, nullable=False)\n    amount = Column(Float, nullable=False)\n    status = Column(String(20), default=\"pending\")  # e.g., pending, completed\n    payment_date = Column(DateTime, default=datetime.now())\n    # Relationship\n    order = relationship(\"Order\")  # or back_populates=\"payment\"",
+        "detail": "backend.models.payment",
+        "documentation": {}
+    },
+    {
+        "label": "Registration",
+        "kind": 6,
+        "importPath": "backend.models.registration",
+        "description": "backend.models.registration",
+        "peekOfCode": "class Registration(Base):\n    \"\"\"\n    Registration Model to track course registrations.\n    \"\"\"\n    __tablename__ = \"registrations\"\n    id = Column(Integer, primary_key=True, index=True)\n    fullName = Column(String(100), nullable=False)\n    phone = Column(String(20), nullable=False)\n    course_id = Column(Integer, ForeignKey(\"courses.id\"), nullable=False)\n    user_id = Column(Integer, ForeignKey(\"users.id\"), nullable=False)",
+        "detail": "backend.models.registration",
+        "documentation": {}
+    },
+    {
+        "label": "User",
+        "kind": 6,
+        "importPath": "backend.models.user",
+        "description": "backend.models.user",
+        "peekOfCode": "class User(Base):\n    __tablename__ = \"users\"\n    id = Column(Integer, primary_key=True, index=True)\n    email = Column(String(100), nullable=False, unique=True, index=True)\n    password_hash = Column(String(255), nullable=False)\n   # Our role field: (Student, Parent, Teacher, Organisation, Admin)\n    role = Column(String(20), default=\"student\")  \n    is_active = Column(Boolean, default=True)\n    is_verified = Column(Boolean, default=False)  # For account verification\n    verification_token = Column(String(255), nullable=True)  # For account verification",
+        "detail": "backend.models.user",
+        "documentation": {}
+    },
+    {
+        "label": "CourseBase",
+        "kind": 6,
+        "importPath": "backend.pydanticschemas.course",
+        "description": "backend.pydanticschemas.course",
+        "peekOfCode": "class CourseBase(BaseModel):\n    title: str = Field(..., max_length=255, description=\"Title of the course\")\n    image_url: Optional[str] = Field(None, description=\"Image URL of the course\")\n    description: str = Field(..., description=\"Detailed description of the course\")\n    price: float = Field(..., gt=0, description=\"Price of the course in USD\")\n    age_group: str = Field(..., max_length=50, description=\"Age group the course is designed for\")\n    duration: str = Field(..., max_length=100, description=\"Course duration (e.g., '6 weeks')\")\n    rating: Optional[float] = Field(0.0, ge=0.0, le=5.0, description=\"Course rating (0 to 5 stars)\")\n    def model_dump(self, **kwargs):\n        \"\"\"",
+        "detail": "backend.pydanticschemas.course",
+        "documentation": {}
+    },
+    {
+        "label": "CourseCreate",
+        "kind": 6,
+        "importPath": "backend.pydanticschemas.course",
+        "description": "backend.pydanticschemas.course",
+        "peekOfCode": "class CourseCreate(CourseBase):\n    pass\n# Schema for Updating a Course\nclass CourseUpdate(BaseModel):\n    title: Optional[str] = Field(None, max_length=255, description=\"Title of the course\")\n    image_url: Optional[HttpUrl] = Field(None, description=\"Image URL of the course\")\n    description: Optional[str] = Field(None, description=\"Detailed description of the course\")\n    price: Optional[float] = Field(None, gt=0, description=\"Price of the course in USD\")\n    age_group: Optional[str] = Field(None, max_length=50, description=\"Age group the course is designed for\")\n    duration: Optional[str] = Field(None, max_length=100, description=\"Course duration (e.g., '6 weeks')\")",
+        "detail": "backend.pydanticschemas.course",
+        "documentation": {}
+    },
+    {
+        "label": "CourseUpdate",
+        "kind": 6,
+        "importPath": "backend.pydanticschemas.course",
+        "description": "backend.pydanticschemas.course",
+        "peekOfCode": "class CourseUpdate(BaseModel):\n    title: Optional[str] = Field(None, max_length=255, description=\"Title of the course\")\n    image_url: Optional[HttpUrl] = Field(None, description=\"Image URL of the course\")\n    description: Optional[str] = Field(None, description=\"Detailed description of the course\")\n    price: Optional[float] = Field(None, gt=0, description=\"Price of the course in USD\")\n    age_group: Optional[str] = Field(None, max_length=50, description=\"Age group the course is designed for\")\n    duration: Optional[str] = Field(None, max_length=100, description=\"Course duration (e.g., '6 weeks')\")\n    rating: Optional[float] = Field(None, ge=0.0, le=5.0, description=\"Course rating (0 to 5 stars)\")\n# Schema for Reading Course Data (Response Model)\nclass CourseSchema(CourseBase):",
+        "detail": "backend.pydanticschemas.course",
+        "documentation": {}
+    },
+    {
+        "label": "CourseSchema",
+        "kind": 6,
+        "importPath": "backend.pydanticschemas.course",
+        "description": "backend.pydanticschemas.course",
+        "peekOfCode": "class CourseSchema(CourseBase):\n    id: int = Field(..., description=\"Unique ID of the course\")\n    created_at: datetime\n    class Config:\n        from_attributes = True  # This ensures compatibility with SQLAlchemy models",
+        "detail": "backend.pydanticschemas.course",
+        "documentation": {}
+    },
+    {
+        "label": "RegistrationItem",
+        "kind": 6,
+        "importPath": "backend.pydanticschemas.order",
+        "description": "backend.pydanticschemas.order",
+        "peekOfCode": "class RegistrationItem(BaseModel):\n    registration_id: int\n    course_id: int\n    course_title: str\n    price: float\nclass OrderCreate(BaseModel):\n    \"\"\"If you ever want to create an order directly \n       without going through public_register.\"\"\"\n    user_id: int\n    total_amount: float",
+        "detail": "backend.pydanticschemas.order",
+        "documentation": {}
+    },
+    {
+        "label": "OrderCreate",
+        "kind": 6,
+        "importPath": "backend.pydanticschemas.order",
+        "description": "backend.pydanticschemas.order",
+        "peekOfCode": "class OrderCreate(BaseModel):\n    \"\"\"If you ever want to create an order directly \n       without going through public_register.\"\"\"\n    user_id: int\n    total_amount: float\n    status: Optional[str] = \"pending\"\nclass OrderResponse(BaseModel):\n    id: int\n    user_id: int\n    total_amount: float",
+        "detail": "backend.pydanticschemas.order",
+        "documentation": {}
+    },
+    {
+        "label": "OrderResponse",
+        "kind": 6,
+        "importPath": "backend.pydanticschemas.order",
+        "description": "backend.pydanticschemas.order",
+        "peekOfCode": "class OrderResponse(BaseModel):\n    id: int\n    user_id: int\n    total_amount: float\n    status: str\n    created_at: datetime\n    items: List[RegistrationItem] = []\n    class Config:\n        from_attributes = True",
+        "detail": "backend.pydanticschemas.order",
+        "documentation": {}
+    },
+    {
+        "label": "PaymentCreate",
+        "kind": 6,
+        "importPath": "backend.pydanticschemas.payment",
+        "description": "backend.pydanticschemas.payment",
+        "peekOfCode": "class PaymentCreate(BaseModel):\n    order_id: int\n    transaction_id: Optional[str]\n    amount: float\nclass PaymentResponse(BaseModel):\n    id: int\n    order_id: int\n    transaction_id: str\n    amount: float\n    status: str",
+        "detail": "backend.pydanticschemas.payment",
+        "documentation": {}
+    },
+    {
+        "label": "PaymentResponse",
+        "kind": 6,
+        "importPath": "backend.pydanticschemas.payment",
+        "description": "backend.pydanticschemas.payment",
+        "peekOfCode": "class PaymentResponse(BaseModel):\n    id: int\n    order_id: int\n    transaction_id: str\n    amount: float\n    status: str\n    payment_date: datetime\nclass PaymentInitRequest(BaseModel):\n    order_id: int\n    email: str",
+        "detail": "backend.pydanticschemas.payment",
+        "documentation": {}
+    },
+    {
+        "label": "PaymentInitRequest",
+        "kind": 6,
+        "importPath": "backend.pydanticschemas.payment",
+        "description": "backend.pydanticschemas.payment",
+        "peekOfCode": "class PaymentInitRequest(BaseModel):\n    order_id: int\n    email: str\n    class Config:\n        from_attributes = True",
+        "detail": "backend.pydanticschemas.payment",
+        "documentation": {}
+    },
+    {
+        "label": "PaystackInitRequest",
+        "kind": 6,
+        "importPath": "backend.pydanticschemas.paystack",
+        "description": "backend.pydanticschemas.paystack",
+        "peekOfCode": "class PaystackInitRequest(BaseModel):\n    order_id: int\n    email: str",
+        "detail": "backend.pydanticschemas.paystack",
+        "documentation": {}
+    },
+    {
+        "label": "RegistrationCreate",
+        "kind": 6,
+        "importPath": "backend.pydanticschemas.registration",
+        "description": "backend.pydanticschemas.registration",
+        "peekOfCode": "class RegistrationCreate(BaseModel):\n    fullName: str\n    password: str\n    phone: str\n    course_id: int\n    role: Optional[str] = \"student\"  # Student, Parent, Teacher, etc.\nclass UserRegistrationRequest(BaseModel):\n    fullName: str\n    email: EmailStr\n    password: str = Field(..., min_length=6)",
+        "detail": "backend.pydanticschemas.registration",
+        "documentation": {}
+    },
+    {
+        "label": "UserRegistrationRequest",
+        "kind": 6,
+        "importPath": "backend.pydanticschemas.registration",
+        "description": "backend.pydanticschemas.registration",
+        "peekOfCode": "class UserRegistrationRequest(BaseModel):\n    fullName: str\n    email: EmailStr\n    password: str = Field(..., min_length=6)\n    confirm_password: str\n    phone: str\n    course_ids: List[int]\n    role: Optional[str] = \"student\"\n    @model_validator(mode=\"after\")\n    def check_passwords_match(self):",
+        "detail": "backend.pydanticschemas.registration",
+        "documentation": {}
+    },
+    {
+        "label": "RegistrationResponse",
+        "kind": 6,
+        "importPath": "backend.pydanticschemas.registration",
+        "description": "backend.pydanticschemas.registration",
+        "peekOfCode": "class RegistrationResponse(BaseModel):\n    id: int\n    fullName: str\n    phone: str\n    course_ids: List[int]  # a list of course IDs\n    registered_at: datetime\n    status: str = \"pending\"\n    is_verified: bool = False\n    class Config:\n        from_attributes = True",
+        "detail": "backend.pydanticschemas.registration",
+        "documentation": {}
+    },
+    {
+        "label": "UserBase",
+        "kind": 6,
+        "importPath": "backend.pydanticschemas.user",
+        "description": "backend.pydanticschemas.user",
+        "peekOfCode": "class UserBase(BaseModel):\n    email: EmailStr\n    role: Optional[str]=str\n# Schema for Creating a User\nclass UserCreate(UserBase):\n    password: str\n# Schema for Returning User Data\nclass UserResponse(UserBase):\n    id: int\n    role: str",
+        "detail": "backend.pydanticschemas.user",
+        "documentation": {}
+    },
+    {
+        "label": "UserCreate",
+        "kind": 6,
+        "importPath": "backend.pydanticschemas.user",
+        "description": "backend.pydanticschemas.user",
+        "peekOfCode": "class UserCreate(UserBase):\n    password: str\n# Schema for Returning User Data\nclass UserResponse(UserBase):\n    id: int\n    role: str\n    email: EmailStr\n    is_active: bool\n    is_verified: bool\n    created_at: datetime",
+        "detail": "backend.pydanticschemas.user",
+        "documentation": {}
+    },
+    {
+        "label": "UserResponse",
+        "kind": 6,
+        "importPath": "backend.pydanticschemas.user",
+        "description": "backend.pydanticschemas.user",
+        "peekOfCode": "class UserResponse(UserBase):\n    id: int\n    role: str\n    email: EmailStr\n    is_active: bool\n    is_verified: bool\n    created_at: datetime\n    class Config:\n        from_attributes = True",
+        "detail": "backend.pydanticschemas.user",
+        "documentation": {}
+    },
+    {
+        "label": "logger",
+        "kind": 5,
+        "importPath": "backend.routers.admin_courses",
+        "description": "backend.routers.admin_courses",
+        "peekOfCode": "logger = logging.getLogger(__name__)\nrouter = APIRouter(prefix=\"/admin/courses\", tags=[\"Admin Courses\"])\n# Directory to store uploaded images\nUPLOAD_DIR = os.path.join(\"static\", \"uploads\")\nos.makedirs(UPLOAD_DIR, exist_ok=True)\n@router.post(\"/add\", response_model=CourseSchema)\nasync def add_course(\n    title: str = Form(...),\n    description: str = Form(...),\n    price: float = Form(...),",
+        "detail": "backend.routers.admin_courses",
+        "documentation": {}
+    },
+    {
+        "label": "router",
+        "kind": 5,
+        "importPath": "backend.routers.admin_courses",
+        "description": "backend.routers.admin_courses",
+        "peekOfCode": "router = APIRouter(prefix=\"/admin/courses\", tags=[\"Admin Courses\"])\n# Directory to store uploaded images\nUPLOAD_DIR = os.path.join(\"static\", \"uploads\")\nos.makedirs(UPLOAD_DIR, exist_ok=True)\n@router.post(\"/add\", response_model=CourseSchema)\nasync def add_course(\n    title: str = Form(...),\n    description: str = Form(...),\n    price: float = Form(...),\n    age_group: str = Form(...),",
+        "detail": "backend.routers.admin_courses",
+        "documentation": {}
+    },
+    {
+        "label": "UPLOAD_DIR",
+        "kind": 5,
+        "importPath": "backend.routers.admin_courses",
+        "description": "backend.routers.admin_courses",
+        "peekOfCode": "UPLOAD_DIR = os.path.join(\"static\", \"uploads\")\nos.makedirs(UPLOAD_DIR, exist_ok=True)\n@router.post(\"/add\", response_model=CourseSchema)\nasync def add_course(\n    title: str = Form(...),\n    description: str = Form(...),\n    price: float = Form(...),\n    age_group: str = Form(...),\n    duration: str = Form(...),\n    rating: Optional[float] = Form(0.0),",
+        "detail": "backend.routers.admin_courses",
+        "documentation": {}
+    },
+    {
+        "label": "verify_password",
+        "kind": 2,
+        "importPath": "backend.routers.auth",
+        "description": "backend.routers.auth",
+        "peekOfCode": "def verify_password(plain_password: str, hashed_password: str) -> bool:\n    return pwd_context.verify(plain_password, hashed_password)\ndef hash_password(password: str) -> str:\n    return pwd_context.hash(password)\ndef create_access_token(data: dict, expires_delta: int = None):\n    to_encode = data.copy()\n    if expires_delta is None:\n        expires_delta = settings.ACCESS_TOKEN_EXPIRE_MINUTES\n    expire = datetime.utcnow() + timedelta(minutes=expires_delta)\n    to_encode.update({\"exp\": expire})",
+        "detail": "backend.routers.auth",
+        "documentation": {}
+    },
+    {
+        "label": "hash_password",
+        "kind": 2,
+        "importPath": "backend.routers.auth",
+        "description": "backend.routers.auth",
+        "peekOfCode": "def hash_password(password: str) -> str:\n    return pwd_context.hash(password)\ndef create_access_token(data: dict, expires_delta: int = None):\n    to_encode = data.copy()\n    if expires_delta is None:\n        expires_delta = settings.ACCESS_TOKEN_EXPIRE_MINUTES\n    expire = datetime.utcnow() + timedelta(minutes=expires_delta)\n    to_encode.update({\"exp\": expire})\n    return jwt.encode(to_encode, settings.SECRET_KEY, algorithm=settings.ALGORITHM)\nasync def get_current_user(request: Request, db: Session = Depends(get_db)) -> User:",
+        "detail": "backend.routers.auth",
+        "documentation": {}
+    },
+    {
+        "label": "create_access_token",
+        "kind": 2,
+        "importPath": "backend.routers.auth",
+        "description": "backend.routers.auth",
+        "peekOfCode": "def create_access_token(data: dict, expires_delta: int = None):\n    to_encode = data.copy()\n    if expires_delta is None:\n        expires_delta = settings.ACCESS_TOKEN_EXPIRE_MINUTES\n    expire = datetime.utcnow() + timedelta(minutes=expires_delta)\n    to_encode.update({\"exp\": expire})\n    return jwt.encode(to_encode, settings.SECRET_KEY, algorithm=settings.ALGORITHM)\nasync def get_current_user(request: Request, db: Session = Depends(get_db)) -> User:\n    \"\"\"\n    Reads JWT from the HttpOnly cookie named 'access_token'.",
+        "detail": "backend.routers.auth",
+        "documentation": {}
+    },
+    {
+        "label": "login",
+        "kind": 2,
+        "importPath": "backend.routers.auth",
+        "description": "backend.routers.auth",
+        "peekOfCode": "def login(response: Response, form_data: OAuth2PasswordRequestForm = Depends(), db: Session = Depends(get_db)):\n    \"\"\"\n    OAuth2PasswordRequestForm fields => 'username' & 'password'\n    We'll interpret 'username' as the user's email.\n    On success, set an HttpOnly cookie 'access_token'.\n    \"\"\"\n    user = db.query(User).filter(User.email == form_data.username).first()\n    if not user:\n        raise HTTPException(\n            status_code=status.HTTP_400_BAD_REQUEST,",
+        "detail": "backend.routers.auth",
+        "documentation": {}
+    },
+    {
+        "label": "logout",
+        "kind": 2,
+        "importPath": "backend.routers.auth",
+        "description": "backend.routers.auth",
+        "peekOfCode": "def logout(response: Response):\n    \"\"\"\n    Simply overwrite the cookie with an empty token that expires immediately.\n    \"\"\"\n    response.delete_cookie(\"access_token\")\n    return {\"detail\": \"Logged out\"}\n## 3.4 Signup Endpoint (If separate from the combined Registration)\n@router.post(\"/signup\", response_model=UserResponse)\ndef signup(user: UserCreate, db: Session = Depends(get_db)):\n    \"\"\"",
+        "detail": "backend.routers.auth",
+        "documentation": {}
+    },
+    {
+        "label": "signup",
+        "kind": 2,
+        "importPath": "backend.routers.auth",
+        "description": "backend.routers.auth",
+        "peekOfCode": "def signup(user: UserCreate, db: Session = Depends(get_db)):\n    \"\"\"\n    1. Check if email exists\n    2. Create user with hashed password\n    3. Generate a verification token (optional step)\n    4. Return the user\n    \"\"\"\n    existing_user = db.query(User).filter(User.email == user.email).first()\n    if existing_user:\n        raise HTTPException(status_code=400, detail=\"Email is already registered\")",
+        "detail": "backend.routers.auth",
+        "documentation": {}
+    },
+    {
+        "label": "verify_email",
+        "kind": 2,
+        "importPath": "backend.routers.auth",
+        "description": "backend.routers.auth",
+        "peekOfCode": "def verify_email(token: str, db: Session = Depends(get_db)):\n    user = db.query(User).filter(User.verification_token == token).first()\n    if not user:\n        raise HTTPException(status_code=404, detail=\"Invalid verification token\")\n    user.is_verified = True\n    user.verification_token = None\n    db.commit()\n    return {\"detail\": \"Email verified successfully\"}",
+        "detail": "backend.routers.auth",
+        "documentation": {}
+    },
+    {
+        "label": "router",
+        "kind": 5,
+        "importPath": "backend.routers.auth",
+        "description": "backend.routers.auth",
+        "peekOfCode": "router = APIRouter()\npwd_context = CryptContext(schemes=[\"bcrypt\"], deprecated=\"auto\")\n# This is used only by the \"login\" route, since we need to accept user credentials.\ndef verify_password(plain_password: str, hashed_password: str) -> bool:\n    return pwd_context.verify(plain_password, hashed_password)\ndef hash_password(password: str) -> str:\n    return pwd_context.hash(password)\ndef create_access_token(data: dict, expires_delta: int = None):\n    to_encode = data.copy()\n    if expires_delta is None:",
+        "detail": "backend.routers.auth",
+        "documentation": {}
+    },
+    {
+        "label": "pwd_context",
+        "kind": 5,
+        "importPath": "backend.routers.auth",
+        "description": "backend.routers.auth",
+        "peekOfCode": "pwd_context = CryptContext(schemes=[\"bcrypt\"], deprecated=\"auto\")\n# This is used only by the \"login\" route, since we need to accept user credentials.\ndef verify_password(plain_password: str, hashed_password: str) -> bool:\n    return pwd_context.verify(plain_password, hashed_password)\ndef hash_password(password: str) -> str:\n    return pwd_context.hash(password)\ndef create_access_token(data: dict, expires_delta: int = None):\n    to_encode = data.copy()\n    if expires_delta is None:\n        expires_delta = settings.ACCESS_TOKEN_EXPIRE_MINUTES",
+        "detail": "backend.routers.auth",
+        "documentation": {}
+    },
+    {
+        "label": "create_course",
+        "kind": 2,
+        "importPath": "backend.routers.course",
+        "description": "backend.routers.course",
+        "peekOfCode": "def create_course(course: CourseCreate, \n                  db: Session = Depends(get_db),\n                #   current_user: User = Depends(require_role([\"admin\"]))\n                  ):\n    \"\"\"\n    Create a new course.\n    \"\"\"\n    # course_data = course.model_dump()\n    # course_data[\"image_url\"] = str(course_data[\"image_url\"]) if course_data[\"image_url\"] else None  # ✅ Convert HttpUrl to str\n    return crud_course.create(db=db, obj_in=course)",
+        "detail": "backend.routers.course",
+        "documentation": {}
+    },
+    {
+        "label": "get_courses",
+        "kind": 2,
+        "importPath": "backend.routers.course",
+        "description": "backend.routers.course",
+        "peekOfCode": "def get_courses(db: Session = Depends(get_db), skip: int = 0, limit: int = 100):\n    \"\"\"\n    Retrieve all courses.\n    \"\"\"\n    return crud_course.get_all(db=db, skip=skip, limit=limit)\n# Get a Course by ID\n@router.get(\"/{course_id}\", response_model=CourseSchema)\ndef get_course_by_id(course_id: int, db: Session = Depends(get_db)):\n    \"\"\"\n    Retrieve a course by ID.",
+        "detail": "backend.routers.course",
+        "documentation": {}
+    },
+    {
+        "label": "get_course_by_id",
+        "kind": 2,
+        "importPath": "backend.routers.course",
+        "description": "backend.routers.course",
+        "peekOfCode": "def get_course_by_id(course_id: int, db: Session = Depends(get_db)):\n    \"\"\"\n    Retrieve a course by ID.\n    \"\"\"\n    course = crud_course.get_by_id(db=db, course_id=course_id)\n    if not course:\n        raise HTTPException(\n            status_code=status.HTTP_404_NOT_FOUND,\n            detail=f\"Course with ID {course_id} not found.\",\n        )",
+        "detail": "backend.routers.course",
+        "documentation": {}
+    },
+    {
+        "label": "update_course",
+        "kind": 2,
+        "importPath": "backend.routers.course",
+        "description": "backend.routers.course",
+        "peekOfCode": "def update_course(course_id: int, updated_course: CourseCreate, db: Session = Depends(get_db)):\n    \"\"\"\n    Update a course by ID.\n    \"\"\"\n    return crud_course.update(db=db, course_id=course_id, obj_in=updated_course)\n# Delete a Course\n@router.delete(\"/{course_id}\", status_code=status.HTTP_204_NO_CONTENT)\ndef delete_course(course_id: int, db: Session = Depends(get_db)):\n    \"\"\"\n    Delete a course by ID.",
+        "detail": "backend.routers.course",
+        "documentation": {}
+    },
+    {
+        "label": "delete_course",
+        "kind": 2,
+        "importPath": "backend.routers.course",
+        "description": "backend.routers.course",
+        "peekOfCode": "def delete_course(course_id: int, db: Session = Depends(get_db)):\n    \"\"\"\n    Delete a course by ID.\n    \"\"\"\n    crud_course.delete(db=db, course_id=course_id)\n    return {\"message\": f\"Course with ID {course_id} successfully deleted.\"}",
+        "detail": "backend.routers.course",
+        "documentation": {}
+    },
+    {
+        "label": "router",
+        "kind": 5,
+        "importPath": "backend.routers.course",
+        "description": "backend.routers.course",
+        "peekOfCode": "router = APIRouter()\n# Create a Course\n@router.post(\"/add-course\", response_model=CourseSchema, status_code=status.HTTP_201_CREATED)\ndef create_course(course: CourseCreate, \n                  db: Session = Depends(get_db),\n                #   current_user: User = Depends(require_role([\"admin\"]))\n                  ):\n    \"\"\"\n    Create a new course.\n    \"\"\"",
+        "detail": "backend.routers.course",
+        "documentation": {}
+    },
+    {
+        "label": "create_order",
+        "kind": 2,
+        "importPath": "backend.routers.order",
+        "description": "backend.routers.order",
+        "peekOfCode": "def create_order(order_in: OrderCreate, db: Session = Depends(get_db)):\n    \"\"\"\n    Create a new order directly. \n    (In your flow, you often create orders in the public_register endpoint,\n     but this is here if you want a direct create.)\n    \"\"\"\n    order = crud_order.create(db, order_in)\n    return crud_order.get_order_response(db, order.id)\n@router.get(\"/{order_id}\", response_model=OrderResponse)\ndef get_order(order_id: int, db: Session = Depends(get_db)):",
+        "detail": "backend.routers.order",
+        "documentation": {}
+    },
+    {
+        "label": "get_order",
+        "kind": 2,
+        "importPath": "backend.routers.order",
+        "description": "backend.routers.order",
+        "peekOfCode": "def get_order(order_id: int, db: Session = Depends(get_db)):\n    \"\"\"\n    Retrieve an Order by ID, including the courses in that order.\n    \"\"\"\n    return crud_order.get_order_response(db, order_id)\n@router.get(\"/\", response_model=List[OrderResponse])\ndef get_orders(db: Session = Depends(get_db), skip: int = 0, limit: int = 100):\n    \"\"\"\n    List all orders (useful for admin or debugging).\n    \"\"\"",
+        "detail": "backend.routers.order",
+        "documentation": {}
+    },
+    {
+        "label": "get_orders",
+        "kind": 2,
+        "importPath": "backend.routers.order",
+        "description": "backend.routers.order",
+        "peekOfCode": "def get_orders(db: Session = Depends(get_db), skip: int = 0, limit: int = 100):\n    \"\"\"\n    List all orders (useful for admin or debugging).\n    \"\"\"\n    orders = crud_order.get_all(db, skip, limit)\n    # Convert each to an OrderResponse\n    return [crud_order.get_order_response(db, o.id) for o in orders]\n@router.put(\"/{order_id}\", response_model=OrderResponse)\ndef update_order(order_id: int, order_in: OrderCreate, db: Session = Depends(get_db)):\n    \"\"\"",
+        "detail": "backend.routers.order",
+        "documentation": {}
+    },
+    {
+        "label": "update_order",
+        "kind": 2,
+        "importPath": "backend.routers.order",
+        "description": "backend.routers.order",
+        "peekOfCode": "def update_order(order_id: int, order_in: OrderCreate, db: Session = Depends(get_db)):\n    \"\"\"\n    Update an existing order (e.g. status or total_amount).\n    \"\"\"\n    updated = crud_order.update(db, order_id, order_in)\n    return crud_order.get_order_response(db, updated.id)\n@router.delete(\"/{order_id}\", status_code=status.HTTP_204_NO_CONTENT)\ndef delete_order(order_id: int, db: Session = Depends(get_db)):\n    \"\"\"\n    Delete an Order by ID (and presumably all registrations?).",
+        "detail": "backend.routers.order",
+        "documentation": {}
+    },
+    {
+        "label": "delete_order",
+        "kind": 2,
+        "importPath": "backend.routers.order",
+        "description": "backend.routers.order",
+        "peekOfCode": "def delete_order(order_id: int, db: Session = Depends(get_db)):\n    \"\"\"\n    Delete an Order by ID (and presumably all registrations?).\n    \"\"\"\n    # You may want to handle logic for deleting associated registrations.\n    crud_order.delete(db, order_id)\n    return {\"detail\": f\"Order with ID {order_id} deleted.\"}",
+        "detail": "backend.routers.order",
+        "documentation": {}
+    },
+    {
+        "label": "router",
+        "kind": 5,
+        "importPath": "backend.routers.order",
+        "description": "backend.routers.order",
+        "peekOfCode": "router = APIRouter()\n@router.post(\"/\", response_model=OrderResponse)\ndef create_order(order_in: OrderCreate, db: Session = Depends(get_db)):\n    \"\"\"\n    Create a new order directly. \n    (In your flow, you often create orders in the public_register endpoint,\n     but this is here if you want a direct create.)\n    \"\"\"\n    order = crud_order.create(db, order_in)\n    return crud_order.get_order_response(db, order.id)",
+        "detail": "backend.routers.order",
+        "documentation": {}
+    },
+    {
+        "label": "home",
+        "kind": 2,
+        "importPath": "backend.routers.pages",
+        "description": "backend.routers.pages",
+        "peekOfCode": "def home(request: Request, db: Session = Depends(get_db)):\n    \"\"\"Render the home page with courses\"\"\"\n    courses = crud_course.get_all(db=db)\n    return templates.TemplateResponse(\n        \"pages/index.html\", \n        {\"request\": request, \"courses\": courses}\n    )\n@router.get(\"/registration\", name=\"registration\")\ndef registration_page(request: Request, db: Session = Depends(get_db)):\n    \"\"\"Render the registration page with courses\"\"\"",
+        "detail": "backend.routers.pages",
+        "documentation": {}
+    },
+    {
+        "label": "registration_page",
+        "kind": 2,
+        "importPath": "backend.routers.pages",
+        "description": "backend.routers.pages",
+        "peekOfCode": "def registration_page(request: Request, db: Session = Depends(get_db)):\n    \"\"\"Render the registration page with courses\"\"\"\n    courses = crud_course.get_all(db=db)\n    selected_course_id = request.query_params.get('course')\n    return templates.TemplateResponse(\n        \"pages/registration.html\", \n        {\n            \"request\": request, \n            \"courses\": courses,\n            \"selected_course_id\": selected_course_id",
+        "detail": "backend.routers.pages",
+        "documentation": {}
+    },
+    {
+        "label": "payment_page",
+        "kind": 2,
+        "importPath": "backend.routers.pages",
+        "description": "backend.routers.pages",
+        "peekOfCode": "def payment_page(request: Request, order: int, db: Session = Depends(get_db)):\n    \"\"\"\n    Render the payment page for a specific order.\n    Shows total amount, status, and a \"Pay Now\" button.\n    \"\"\"\n    order_obj = crud_order.get_by_id(db, order_id=order)\n    if not order_obj:\n        raise HTTPException(status_code=404, detail=\"Order not found\")\n    # We'll pass the Order info to our template\n    return templates.TemplateResponse(",
+        "detail": "backend.routers.pages",
+        "documentation": {}
+    },
+    {
+        "label": "add_course_page",
+        "kind": 2,
+        "importPath": "backend.routers.pages",
+        "description": "backend.routers.pages",
+        "peekOfCode": "def add_course_page(request: Request):\n    \"\"\"\n    Render the 'Add Course' page.\n    \"\"\"\n    return templates.TemplateResponse(\n        \"admin/add_course.html\",\n        {\"request\": request}\n    )",
+        "detail": "backend.routers.pages",
+        "documentation": {}
+    },
+    {
+        "label": "router",
+        "kind": 5,
+        "importPath": "backend.routers.pages",
+        "description": "backend.routers.pages",
+        "peekOfCode": "router = APIRouter()\n# Setup Jinja2 templates\ntemplates_folder_path = os.path.join(os.path.dirname(__file__), \"..\", \"..\", \"frontend\", \"templates\")\ntemplates = Jinja2Templates(directory=templates_folder_path)\n@router.get(\"/\", name=\"home\")\ndef home(request: Request, db: Session = Depends(get_db)):\n    \"\"\"Render the home page with courses\"\"\"\n    courses = crud_course.get_all(db=db)\n    return templates.TemplateResponse(\n        \"pages/index.html\", ",
+        "detail": "backend.routers.pages",
+        "documentation": {}
+    },
+    {
+        "label": "templates_folder_path",
+        "kind": 5,
+        "importPath": "backend.routers.pages",
+        "description": "backend.routers.pages",
+        "peekOfCode": "templates_folder_path = os.path.join(os.path.dirname(__file__), \"..\", \"..\", \"frontend\", \"templates\")\ntemplates = Jinja2Templates(directory=templates_folder_path)\n@router.get(\"/\", name=\"home\")\ndef home(request: Request, db: Session = Depends(get_db)):\n    \"\"\"Render the home page with courses\"\"\"\n    courses = crud_course.get_all(db=db)\n    return templates.TemplateResponse(\n        \"pages/index.html\", \n        {\"request\": request, \"courses\": courses}\n    )",
+        "detail": "backend.routers.pages",
+        "documentation": {}
+    },
+    {
+        "label": "templates",
+        "kind": 5,
+        "importPath": "backend.routers.pages",
+        "description": "backend.routers.pages",
+        "peekOfCode": "templates = Jinja2Templates(directory=templates_folder_path)\n@router.get(\"/\", name=\"home\")\ndef home(request: Request, db: Session = Depends(get_db)):\n    \"\"\"Render the home page with courses\"\"\"\n    courses = crud_course.get_all(db=db)\n    return templates.TemplateResponse(\n        \"pages/index.html\", \n        {\"request\": request, \"courses\": courses}\n    )\n@router.get(\"/registration\", name=\"registration\")",
+        "detail": "backend.routers.pages",
+        "documentation": {}
+    },
+    {
+        "label": "create_payment",
+        "kind": 2,
+        "importPath": "backend.routers.payment",
+        "description": "backend.routers.payment",
+        "peekOfCode": "def create_payment(payment: PaymentCreate, db: Session = Depends(get_db)):\n    \"\"\"\n    Create a Payment for a given order_id.\n    - Validates the order\n    - Could integrate external payment gateway (Paystack, PayPal, etc.)\n    - On success, sets order.status = \"paid\"\n    \"\"\"\n    order = db.query(Order).filter(Order.id == payment.order_id).first()\n    if not order:\n        raise HTTPException(status_code=400, detail=\"Invalid order ID\")",
+        "detail": "backend.routers.payment",
+        "documentation": {}
+    },
+    {
+        "label": "get_payments",
+        "kind": 2,
+        "importPath": "backend.routers.payment",
+        "description": "backend.routers.payment",
+        "peekOfCode": "def get_payments(db: Session = Depends(get_db), skip: int = 0, limit: int = 100):\n    \"\"\"\n    Retrieve all payments (for admin).\n    \"\"\"\n    return crud_payment.get_all(db=db, skip=skip, limit=limit)\n@router.get(\"/{payment_id}\", response_model=PaymentResponse)\ndef get_payment_by_id(payment_id: int, db: Session = Depends(get_db)):\n    \"\"\"\n    Retrieve a payment by ID.\n    \"\"\"",
+        "detail": "backend.routers.payment",
+        "documentation": {}
+    },
+    {
+        "label": "get_payment_by_id",
+        "kind": 2,
+        "importPath": "backend.routers.payment",
+        "description": "backend.routers.payment",
+        "peekOfCode": "def get_payment_by_id(payment_id: int, db: Session = Depends(get_db)):\n    \"\"\"\n    Retrieve a payment by ID.\n    \"\"\"\n    payment = crud_payment.get_by_id(db=db, payment_id=payment_id)\n    if not payment:\n        raise HTTPException(\n            status_code=status.HTTP_404_NOT_FOUND,\n            detail=f\"Payment with ID {payment_id} not found.\",\n        )",
+        "detail": "backend.routers.payment",
+        "documentation": {}
+    },
+    {
+        "label": "update_payment",
+        "kind": 2,
+        "importPath": "backend.routers.payment",
+        "description": "backend.routers.payment",
+        "peekOfCode": "def update_payment(payment_id: int, updated_payment: PaymentCreate, db: Session = Depends(get_db)):\n    \"\"\"\n    Update a payment by ID.\n    \"\"\"\n    return crud_payment.update(db=db, payment_id=payment_id, obj_in=updated_payment)\n@router.delete(\"/{payment_id}\", status_code=status.HTTP_204_NO_CONTENT)\ndef delete_payment(payment_id: int, db: Session = Depends(get_db)):\n    \"\"\"\n    Delete a payment by ID.\n    \"\"\"",
+        "detail": "backend.routers.payment",
+        "documentation": {}
+    },
+    {
+        "label": "delete_payment",
+        "kind": 2,
+        "importPath": "backend.routers.payment",
+        "description": "backend.routers.payment",
+        "peekOfCode": "def delete_payment(payment_id: int, db: Session = Depends(get_db)):\n    \"\"\"\n    Delete a payment by ID.\n    \"\"\"\n    crud_payment.delete(db=db, payment_id=payment_id)\n    return {\"message\": f\"Payment with ID {payment_id} successfully deleted.\"}",
+        "detail": "backend.routers.payment",
+        "documentation": {}
+    },
+    {
+        "label": "logger",
+        "kind": 5,
+        "importPath": "backend.routers.payment",
+        "description": "backend.routers.payment",
+        "peekOfCode": "logger = logging.getLogger(__name__)\nrouter = APIRouter()\n@router.post(\"/\", response_model=PaymentResponse)\ndef create_payment(payment: PaymentCreate, db: Session = Depends(get_db)):\n    \"\"\"\n    Create a Payment for a given order_id.\n    - Validates the order\n    - Could integrate external payment gateway (Paystack, PayPal, etc.)\n    - On success, sets order.status = \"paid\"\n    \"\"\"",
+        "detail": "backend.routers.payment",
+        "documentation": {}
+    },
+    {
+        "label": "router",
+        "kind": 5,
+        "importPath": "backend.routers.payment",
+        "description": "backend.routers.payment",
+        "peekOfCode": "router = APIRouter()\n@router.post(\"/\", response_model=PaymentResponse)\ndef create_payment(payment: PaymentCreate, db: Session = Depends(get_db)):\n    \"\"\"\n    Create a Payment for a given order_id.\n    - Validates the order\n    - Could integrate external payment gateway (Paystack, PayPal, etc.)\n    - On success, sets order.status = \"paid\"\n    \"\"\"\n    order = db.query(Order).filter(Order.id == payment.order_id).first()",
+        "detail": "backend.routers.payment",
+        "documentation": {}
+    },
+    {
+        "label": "paystack_init_payment",
+        "kind": 2,
+        "importPath": "backend.routers.paystack",
+        "description": "backend.routers.paystack",
+        "peekOfCode": "def paystack_init_payment(\n    payload: PaymentInitRequest,\n    db: Session = Depends(get_db)\n):\n    \"\"\"\n    Initializes a Paystack payment for the given Order.\n    Steps:\n      1. Validate that the Order exists and is not already paid.\n      2. Convert the Order's total_amount to Kobo.\n      3. Generate a unique reference (e.g. \"TX-<order_id>-<uuid>\").",
+        "detail": "backend.routers.paystack",
+        "documentation": {}
+    },
+    {
+        "label": "paystack_verify_payment",
+        "kind": 2,
+        "importPath": "backend.routers.paystack",
+        "description": "backend.routers.paystack",
+        "peekOfCode": "def paystack_verify_payment(\n    reference: str,\n    db: Session = Depends(get_db)\n):\n    \"\"\"\n    Verifies a Paystack payment using the transaction reference.\n    Steps:\n      1. Call verify_transaction(reference) from the paystack_service.\n      2. If verification is successful:\n             - Update Payment.status to \"completed\" and set payment_date.",
+        "detail": "backend.routers.paystack",
+        "documentation": {}
+    },
+    {
+        "label": "logger",
+        "kind": 5,
+        "importPath": "backend.routers.paystack",
+        "description": "backend.routers.paystack",
+        "peekOfCode": "logger = logging.getLogger(__name__)\nrouter = APIRouter(prefix=\"/paystack\", tags=[\"Paystack\"])\n@router.post(\"/init\")\ndef paystack_init_payment(\n    payload: PaymentInitRequest,\n    db: Session = Depends(get_db)\n):\n    \"\"\"\n    Initializes a Paystack payment for the given Order.\n    Steps:",
+        "detail": "backend.routers.paystack",
+        "documentation": {}
+    },
+    {
+        "label": "router",
+        "kind": 5,
+        "importPath": "backend.routers.paystack",
+        "description": "backend.routers.paystack",
+        "peekOfCode": "router = APIRouter(prefix=\"/paystack\", tags=[\"Paystack\"])\n@router.post(\"/init\")\ndef paystack_init_payment(\n    payload: PaymentInitRequest,\n    db: Session = Depends(get_db)\n):\n    \"\"\"\n    Initializes a Paystack payment for the given Order.\n    Steps:\n      1. Validate that the Order exists and is not already paid.",
+        "detail": "backend.routers.paystack",
+        "documentation": {}
+    },
+    {
+        "label": "PublicRegistrationRequest",
+        "kind": 6,
+        "importPath": "backend.routers.registration",
+        "description": "backend.routers.registration",
+        "peekOfCode": "class PublicRegistrationRequest(BaseModel):\n    fullName: str\n    email: str\n    password: str\n    confirm_password: str\n    phone: str\n    course_ids: List[int]\n    role: str = \"student\"\n@router.post(\"/public-register\")\ndef public_register(",
+        "detail": "backend.routers.registration",
+        "documentation": {}
+    },
+    {
+        "label": "public_register",
+        "kind": 2,
+        "importPath": "backend.routers.registration",
+        "description": "backend.routers.registration",
+        "peekOfCode": "def public_register(\n    data: PublicRegistrationRequest,\n    db: Session = Depends(get_db)\n):\n    \"\"\"\n    1. Create & commit the user in DB (no rollback if payment fails).\n    2. Create & commit the order (status=\"pending\").\n    3. Return {order_id, total_cost} to the frontend.\n    \"\"\"\n    if data.password != data.confirm_password:",
+        "detail": "backend.routers.registration",
+        "documentation": {}
+    },
+    {
+        "label": "router",
+        "kind": 5,
+        "importPath": "backend.routers.registration",
+        "description": "backend.routers.registration",
+        "peekOfCode": "router = APIRouter()\nlogger = logging.getLogger(__name__)\nclass PublicRegistrationRequest(BaseModel):\n    fullName: str\n    email: str\n    password: str\n    confirm_password: str\n    phone: str\n    course_ids: List[int]\n    role: str = \"student\"",
+        "detail": "backend.routers.registration",
+        "documentation": {}
+    },
+    {
+        "label": "logger",
+        "kind": 5,
+        "importPath": "backend.routers.registration",
+        "description": "backend.routers.registration",
+        "peekOfCode": "logger = logging.getLogger(__name__)\nclass PublicRegistrationRequest(BaseModel):\n    fullName: str\n    email: str\n    password: str\n    confirm_password: str\n    phone: str\n    course_ids: List[int]\n    role: str = \"student\"\n@router.post(\"/public-register\")",
+        "detail": "backend.routers.registration",
+        "documentation": {}
+    },
+    {
+        "label": "create_user",
+        "kind": 2,
+        "importPath": "backend.routers.user",
+        "description": "backend.routers.user",
+        "peekOfCode": "def create_user(user: UserCreate, db: Session = Depends(get_db)):\n    \"\"\"\n    Create a new user in the database.\n    \"\"\"\n    # Check if the email is already registered\n    existing_user = db.query(User).filter(User.email == user.email).first()\n    if existing_user:\n        raise HTTPException(\n            status_code=status.HTTP_400_BAD_REQUEST,\n            detail=\"Email is already registered.\",",
+        "detail": "backend.routers.user",
+        "documentation": {}
+    },
+    {
+        "label": "signup",
+        "kind": 2,
+        "importPath": "backend.routers.user",
+        "description": "backend.routers.user",
+        "peekOfCode": "def signup(user: UserCreate, db: Session = Depends(get_db)):\n    \"\"\"\n    1. Check if email is already in use\n    2. Hash password\n    3. Insert new user\n    4. Return user data\n    \"\"\"\n    existing_user = db.query(User).filter(User.email == user.email).first()\n    if existing_user:\n        raise HTTPException(",
+        "detail": "backend.routers.user",
+        "documentation": {}
+    },
+    {
+        "label": "get_user",
+        "kind": 2,
+        "importPath": "backend.routers.user",
+        "description": "backend.routers.user",
+        "peekOfCode": "def get_user(user_id: int, db: Session = Depends(get_db)):\n    \"\"\"\n    Retrieve a user by their ID.\n    \"\"\"\n    user = db.query(User).filter(User.id == user_id).first()\n    if not user:\n        raise HTTPException(\n            status_code=status.HTTP_404_NOT_FOUND,\n            detail=f\"User with ID {user_id} not found.\",\n        )",
+        "detail": "backend.routers.user",
+        "documentation": {}
+    },
+    {
+        "label": "send_email",
+        "kind": 2,
+        "importPath": "backend.routers.user",
+        "description": "backend.routers.user",
+        "peekOfCode": "def send_email(to: str, subject: str, body: str):\n    print(f\"Sending email to {to}: {subject}\\n{body}\")\n# 1. Get User by Email\n@router.get(\"/email/{email}\", response_model=UserResponse)\ndef get_user_by_email(email: str, db: Session = Depends(get_db)):\n    \"\"\"\n    Retrieve user details by email.\n    \"\"\"\n    user = db.query(User).filter(User.email == email).first()\n    if not user:",
+        "detail": "backend.routers.user",
+        "documentation": {}
+    },
+    {
+        "label": "get_user_by_email",
+        "kind": 2,
+        "importPath": "backend.routers.user",
+        "description": "backend.routers.user",
+        "peekOfCode": "def get_user_by_email(email: str, db: Session = Depends(get_db)):\n    \"\"\"\n    Retrieve user details by email.\n    \"\"\"\n    user = db.query(User).filter(User.email == email).first()\n    if not user:\n        raise HTTPException(\n            status_code=status.HTTP_404_NOT_FOUND,\n            detail=f\"User with email {email} not found.\",\n        )",
+        "detail": "backend.routers.user",
+        "documentation": {}
+    },
+    {
+        "label": "verify_account",
+        "kind": 2,
+        "importPath": "backend.routers.user",
+        "description": "backend.routers.user",
+        "peekOfCode": "def verify_account(token: str, db: Session = Depends(get_db)):\n    \"\"\"\n    Verify a user's account using a unique token.\n    \"\"\"\n    user = db.query(User).filter(User.verification_token == token).first()\n    if not user:\n        raise HTTPException(\n            status_code=status.HTTP_404_NOT_FOUND,\n            detail=\"Invalid or expired verification token.\",\n        )",
+        "detail": "backend.routers.user",
+        "documentation": {}
+    },
+    {
+        "label": "reset_password",
+        "kind": 2,
+        "importPath": "backend.routers.user",
+        "description": "backend.routers.user",
+        "peekOfCode": "def reset_password(email: str, new_password: str, token: Optional[str] = None, db: Session = Depends(get_db)):\n    \"\"\"\n    Reset a user's password securely.\n    If a token is provided, use it to validate the password reset process.\n    \"\"\"\n    user = db.query(User).filter(User.email == email).first()\n    if not user:\n        raise HTTPException(\n            status_code=status.HTTP_404_NOT_FOUND,\n            detail=f\"User with email {email} not found.\",",
+        "detail": "backend.routers.user",
+        "documentation": {}
+    },
+    {
+        "label": "router",
+        "kind": 5,
+        "importPath": "backend.routers.user",
+        "description": "backend.routers.user",
+        "peekOfCode": "router = APIRouter()\n# Endpoint to create a new user\n@router.post(\"/\", response_model=UserResponse, status_code=status.HTTP_201_CREATED)\ndef create_user(user: UserCreate, db: Session = Depends(get_db)):\n    \"\"\"\n    Create a new user in the database.\n    \"\"\"\n    # Check if the email is already registered\n    existing_user = db.query(User).filter(User.email == user.email).first()\n    if existing_user:",
+        "detail": "backend.routers.user",
+        "documentation": {}
+    },
+    {
+        "label": "initialize_transaction",
+        "kind": 2,
+        "importPath": "backend.services.paystack_service",
+        "description": "backend.services.paystack_service",
+        "peekOfCode": "def initialize_transaction(email: str, amount_kobo: int, callback_url: str, reference: str) -> dict:\n    \"\"\"\n    Initialize a Paystack transaction with up to 2 retries on network/timeout errors.\n    Parameters\n    ----------\n    email : str\n        The customer's email address.\n    amount_kobo : int\n        The amount to be charged, in Kobo (1 NGN = 100 Kobo).\n    callback_url : str",
+        "detail": "backend.services.paystack_service",
+        "documentation": {}
+    },
+    {
+        "label": "verify_transaction",
+        "kind": 2,
+        "importPath": "backend.services.paystack_service",
+        "description": "backend.services.paystack_service",
+        "peekOfCode": "def verify_transaction(reference: str) -> dict:\n    \"\"\"\n    Verify a Paystack transaction with up to 2 retries on network/timeout errors.\n    After the user completes or cancels a payment,\n    Paystack can redirect with a reference, or you\n    can otherwise retrieve the reference. Then you\n    call this endpoint to confirm the final status\n    of the transaction on Paystack's side.\n    Parameters\n    ----------",
+        "detail": "backend.services.paystack_service",
+        "documentation": {}
+    },
+    {
+        "label": "PAYSTACK_SECRET_KEY",
+        "kind": 5,
+        "importPath": "backend.services.paystack_service",
+        "description": "backend.services.paystack_service",
+        "peekOfCode": "PAYSTACK_SECRET_KEY = os.getenv(\"PAYSTACK_SECRET_KEY\", \"\")\nPAYSTACK_BASE_URL = os.getenv(\"PAYSTACK_BASE_URL\", \"https://api.paystack.co\")\ndef initialize_transaction(email: str, amount_kobo: int, callback_url: str, reference: str) -> dict:\n    \"\"\"\n    Initialize a Paystack transaction with up to 2 retries on network/timeout errors.\n    Parameters\n    ----------\n    email : str\n        The customer's email address.\n    amount_kobo : int",
+        "detail": "backend.services.paystack_service",
+        "documentation": {}
+    },
+    {
+        "label": "PAYSTACK_BASE_URL",
+        "kind": 5,
+        "importPath": "backend.services.paystack_service",
+        "description": "backend.services.paystack_service",
+        "peekOfCode": "PAYSTACK_BASE_URL = os.getenv(\"PAYSTACK_BASE_URL\", \"https://api.paystack.co\")\ndef initialize_transaction(email: str, amount_kobo: int, callback_url: str, reference: str) -> dict:\n    \"\"\"\n    Initialize a Paystack transaction with up to 2 retries on network/timeout errors.\n    Parameters\n    ----------\n    email : str\n        The customer's email address.\n    amount_kobo : int\n        The amount to be charged, in Kobo (1 NGN = 100 Kobo).",
+        "detail": "backend.services.paystack_service",
+        "documentation": {}
+    },
+    {
+        "label": "client",
+        "kind": 5,
+        "importPath": "backend.tests.test_api",
+        "description": "backend.tests.test_api",
+        "peekOfCode": "client = TestClient(app)\n@pytest_asyncio.fixture\nasync def async_client():\n    \"\"\"\n    Fixture to provide an async HTTP client for testing.\n    \"\"\"\n    async with AsyncClient(base_url=\"http://test\") as ac:\n        yield ac\n@pytest.mark.asyncio\nasync def test_get_users(async_client):",
+        "detail": "backend.tests.test_api",
+        "documentation": {}
+    },
+    {
+        "label": "create_or_get_user",
+        "kind": 2,
+        "importPath": "backend.utils.auth_utils",
+        "description": "backend.utils.auth_utils",
+        "peekOfCode": "def create_or_get_user(data, db):\n    \"\"\"\n    1. Check if a user with the given email already exists.\n    2. If found, return the existing user.\n    3. Otherwise, create a new user with hashed password, etc.\n    \"\"\"\n    existing_user = db.query(User).filter(User.email == data.email).first()\n    if existing_user:\n        return existing_user\n    # If no user found, create a new one",
+        "detail": "backend.utils.auth_utils",
+        "documentation": {}
+    },
+    {
+        "label": "set_jwt_cookie_for_user",
+        "kind": 2,
+        "importPath": "backend.utils.auth_utils",
+        "description": "backend.utils.auth_utils",
+        "peekOfCode": "def set_jwt_cookie_for_user(user, response):\n    \"\"\"\n    1. Create a JWT access token for the user's email.\n    2. Set it in an HTTP-only cookie on the response object.\n    \"\"\"\n    # Import create_access_token from your auth module if not already.\n    from backend.routers.auth import create_access_token  \n    token_data = {\"sub\": user.email}  # \"sub\" typically identifies the subject (user)\n    access_token = create_access_token(token_data)\n    # Set the cookie",
+        "detail": "backend.utils.auth_utils",
+        "documentation": {}
+    },
+    {
+        "label": "pwd_context",
+        "kind": 5,
+        "importPath": "backend.utils.auth_utils",
+        "description": "backend.utils.auth_utils",
+        "peekOfCode": "pwd_context = CryptContext(schemes=[\"bcrypt\"], deprecated=\"auto\")\ndef create_or_get_user(data, db):\n    \"\"\"\n    1. Check if a user with the given email already exists.\n    2. If found, return the existing user.\n    3. Otherwise, create a new user with hashed password, etc.\n    \"\"\"\n    existing_user = db.query(User).filter(User.email == data.email).first()\n    if existing_user:\n        return existing_user",
+        "detail": "backend.utils.auth_utils",
+        "documentation": {}
+    },
+    {
+        "label": "app",
+        "kind": 5,
+        "importPath": "main",
+        "description": "main",
+        "peekOfCode": "app = FastAPI(\n    title=\"TechKids Website\",\n    description=\"This is an API powering Techkids App\",\n    version=\"1.0.0\",\n    )\n# Example usage of environment variables\nDATABASE_URL = os.getenv(\"DATABASE_URL\")\nSECRET_KEY = os.getenv(\"SECRET_KEY\")\nDEBUG = os.getenv(\"DEBUG\") == \"True\"\n# Load .env only for local development",
+        "detail": "main",
+        "documentation": {}
+    },
+    {
+        "label": "DATABASE_URL",
+        "kind": 5,
+        "importPath": "main",
+        "description": "main",
+        "peekOfCode": "DATABASE_URL = os.getenv(\"DATABASE_URL\")\nSECRET_KEY = os.getenv(\"SECRET_KEY\")\nDEBUG = os.getenv(\"DEBUG\") == \"True\"\n# Load .env only for local development\nENVIRONMENT = os.getenv(\"ENVIRONMENT\", \"development\")\nif ENVIRONMENT == \"development\":\n    dotenv.load_dotenv()\n# Define allowed CORS origins\norigins = [\n    \"https://techkids.ungozu.com\",",
+        "detail": "main",
+        "documentation": {}
+    },
+    {
+        "label": "SECRET_KEY",
+        "kind": 5,
+        "importPath": "main",
+        "description": "main",
+        "peekOfCode": "SECRET_KEY = os.getenv(\"SECRET_KEY\")\nDEBUG = os.getenv(\"DEBUG\") == \"True\"\n# Load .env only for local development\nENVIRONMENT = os.getenv(\"ENVIRONMENT\", \"development\")\nif ENVIRONMENT == \"development\":\n    dotenv.load_dotenv()\n# Define allowed CORS origins\norigins = [\n    \"https://techkids.ungozu.com\",\n    # Add other origins if necessary",
+        "detail": "main",
+        "documentation": {}
+    },
+    {
+        "label": "DEBUG",
+        "kind": 5,
+        "importPath": "main",
+        "description": "main",
+        "peekOfCode": "DEBUG = os.getenv(\"DEBUG\") == \"True\"\n# Load .env only for local development\nENVIRONMENT = os.getenv(\"ENVIRONMENT\", \"development\")\nif ENVIRONMENT == \"development\":\n    dotenv.load_dotenv()\n# Define allowed CORS origins\norigins = [\n    \"https://techkids.ungozu.com\",\n    # Add other origins if necessary\n]",
+        "detail": "main",
+        "documentation": {}
+    },
+    {
+        "label": "ENVIRONMENT",
+        "kind": 5,
+        "importPath": "main",
+        "description": "main",
+        "peekOfCode": "ENVIRONMENT = os.getenv(\"ENVIRONMENT\", \"development\")\nif ENVIRONMENT == \"development\":\n    dotenv.load_dotenv()\n# Define allowed CORS origins\norigins = [\n    \"https://techkids.ungozu.com\",\n    # Add other origins if necessary\n]\n# Add CORS Middleware\napp.add_middleware(",
+        "detail": "main",
+        "documentation": {}
+    },
+    {
+        "label": "origins",
+        "kind": 5,
+        "importPath": "main",
+        "description": "main",
+        "peekOfCode": "origins = [\n    \"https://techkids.ungozu.com\",\n    # Add other origins if necessary\n]\n# Add CORS Middleware\napp.add_middleware(\n    CORSMiddleware,\n    allow_origins=origins if ENVIRONMENT == \"production\" else [\"*\"],  # Allow all in local dev\n    allow_credentials=True,\n    allow_methods=[\"*\"],",
+        "detail": "main",
+        "documentation": {}
+    },
+    {
+        "label": "static_folder_path",
+        "kind": 5,
+        "importPath": "main",
+        "description": "main",
+        "peekOfCode": "static_folder_path = os.path.join(os.path.dirname(__file__), \"frontend\", \"static\")\napp.mount(\"/static\", StaticFiles(directory=static_folder_path), name=\"static\")\n# Include the API router with /api prefix\napp.include_router(api_router, prefix=\"/api\")\n# Include the pages router for frontend routes\napp.include_router(pages_router)\n# Alembic configuration file path\nALEMBIC_CONFIG_PATH = \"./alembic.ini\"\n# for route in app.routes:\n#     print(route.path, route.name)",
+        "detail": "main",
+        "documentation": {}
+    },
+    {
+        "label": "ALEMBIC_CONFIG_PATH",
+        "kind": 5,
+        "importPath": "main",
+        "description": "main",
+        "peekOfCode": "ALEMBIC_CONFIG_PATH = \"./alembic.ini\"\n# for route in app.routes:\n#     print(route.path, route.name)\n# @app.on_event(\"startup\")\n# async def on_startup():\n#     # Run Alembic migrations programmatically\n#     alembic_cfg = Config(ALEMBIC_CONFIG_PATH)\n#     alembic_cfg.set_main_option(\"sqlalchemy.url\", os.getenv(\"DATABASE_URL\"))\n#     print(\"Running Alembic migrations...\")\n#     command.upgrade(alembic_cfg, \"head\")  # Upgrade database schema to latest",
+        "detail": "main",
+        "documentation": {}
+    },
+    {
+        "label": "seed_users",
+        "kind": 2,
+        "importPath": "seed",
+        "description": "seed",
+        "peekOfCode": "def seed_users(db: Session, num_users: int = 50):\n    \"\"\"\n    Populate the 'users' table with fake data.\n    (No 'username' field, just 'email'.)\n    \"\"\"\n    users = []\n    for _ in range(num_users):\n        is_verified = random.choice([True, False])\n        user = User(\n            email=fake.unique.email(),",
+        "detail": "seed",
+        "documentation": {}
+    },
+    {
+        "label": "seed_courses",
+        "kind": 2,
+        "importPath": "seed",
+        "description": "seed",
+        "peekOfCode": "def seed_courses(db: Session, num_courses: int = 20):\n    \"\"\"\n    Populate the 'courses' table with fake data.\n    \"\"\"\n    courses = []\n    for _ in range(num_courses):\n        course = Course(\n            title=fake.unique.catch_phrase(),\n            image_url=fake.image_url() if random.choice([True, False]) else None,\n            description=fake.paragraph(nb_sentences=5),",
+        "detail": "seed",
+        "documentation": {}
+    },
+    {
+        "label": "seed_orders",
+        "kind": 2,
+        "importPath": "seed",
+        "description": "seed",
+        "peekOfCode": "def seed_orders(db: Session, users: list, num_orders: int = 30):\n    \"\"\"\n    Create 'Order' records, each linked to a random user.\n    Set total_amount=0.0; status can be 'pending', 'paid', or 'cancelled'.\n    \"\"\"\n    orders = []\n    possible_statuses = [\"pending\", \"paid\", \"cancelled\"]\n    for _ in range(num_orders):\n        user = random.choice(users)\n        order = Order(",
+        "detail": "seed",
+        "documentation": {}
+    },
+    {
+        "label": "seed_registrations",
+        "kind": 2,
+        "importPath": "seed",
+        "description": "seed",
+        "peekOfCode": "def seed_registrations(db: Session, orders: list, courses: list):\n    \"\"\"\n    For each Order, create between 1 to 4 Registrations, referencing\n    the same user_id as the Order owner and a random course.\n    'Registration' no longer has an 'email' field, so we remove that.\n    \"\"\"\n    total_registrations_created = 0\n    statuses = [\"pending\", \"confirmed\", \"cancelled\"]\n    verification_statuses = [\"pending\", \"verified\", \"failed\"]\n    for order in orders:",
+        "detail": "seed",
+        "documentation": {}
+    },
+    {
+        "label": "seed_payments",
+        "kind": 2,
+        "importPath": "seed",
+        "description": "seed",
+        "peekOfCode": "def seed_payments(db: Session, orders: list, num_payments: int = 20):\n    \"\"\"\n    Populate the 'payments' table with fake data,\n    referencing 'order_id'. If status='completed', set order.status='paid'.\n    \"\"\"\n    payment_statuses = [\"pending\", \"completed\", \"failed\"]\n    created_payments = 0\n    for _ in range(num_payments):\n        order = random.choice(orders)\n        # Skip if it's already paid, with some probability",
+        "detail": "seed",
+        "documentation": {}
+    },
+    {
+        "label": "seed_database",
+        "kind": 2,
+        "importPath": "seed",
+        "description": "seed",
+        "peekOfCode": "def seed_database():\n    \"\"\"\n    Main function to seed the database with sample data in the new schema:\n    - No 'username' in User\n    - No 'email' in Registration\n    - Payment references Order, Registration references Order & User\n    \"\"\"\n    db = SessionLocal()\n    try:\n        print(\"Seeding Users...\")",
+        "detail": "seed",
+        "documentation": {}
+    },
+    {
+        "label": "fake",
+        "kind": 5,
+        "importPath": "seed",
+        "description": "seed",
+        "peekOfCode": "fake = Faker()\ndef seed_users(db: Session, num_users: int = 50):\n    \"\"\"\n    Populate the 'users' table with fake data.\n    (No 'username' field, just 'email'.)\n    \"\"\"\n    users = []\n    for _ in range(num_users):\n        is_verified = random.choice([True, False])\n        user = User(",
+        "detail": "seed",
+        "documentation": {}
+    }
+]

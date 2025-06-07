@@ -1,0 +1,43 @@
+{% extends "layout/base.html" %}
+
+{% block title %}
+    TechKids | Add New Course
+{% endblock %}
+
+{% block extra_head %}
+    <script src="/static/js/pages/course_add.js" defer></script>
+    <!-- Make sure Bootstrap CSS/JS are loaded (usually in your base.html) -->
+{% endblock %}
+
+{% block content %}
+<div class="container py-4">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <h1 class="mb-4">Add a New Course</h1>
+            <div class="card">
+                <div class="card-body">
+                    {% include "partials/course_form.html" %}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Success Modal (Bootstrap 5) -->
+<div class="modal fade" id="successModal" tabindex="-1" aria-labelledby="successModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="successModalLabel">Course Created</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        Your course was successfully created!
+      </div>
+      <div class="modal-footer">
+        <button type="button" id="successCloseBtn" class="btn btn-primary" data-bs-dismiss="modal">OK</button>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

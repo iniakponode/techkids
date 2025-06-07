@@ -1,0 +1,45 @@
+<form id="courseForm">
+  <div class="mb-3">
+    <label for="courseTitle" class="form-label">Course Title</label>
+    <input type="text" class="form-control" id="courseTitle" name="title" required>
+    <span class="text-danger small" id="titleError"></span>
+  </div>
+  
+  <div class="mb-3">
+    <label for="courseImageUrl" class="form-label">Image URL</label>
+    <input type="url" class="form-control" id="courseImageUrl" name="image_url">
+    <span class="text-danger small" id="imageUrlError"></span>
+  </div>
+  
+  <div class="mb-3">
+    <label for="courseDescription" class="form-label">Description</label>
+    <textarea class="form-control" id="courseDescription" name="description" rows="4" required></textarea>
+    <span class="text-danger small" id="descriptionError"></span>
+  </div>
+
+  <div class="mb-3">
+    <label for="coursePrice" class="form-label">Price (USD)</label>
+    <input type="number" class="form-control" step="0.01" id="coursePrice" name="price" required>
+    <span class="text-danger small" id="priceError"></span>
+  </div>
+
+  <div class="mb-3">
+    <label for="courseAgeGroup" class="form-label">Age Group</label>
+    <input type="text" class="form-control" id="courseAgeGroup" name="age_group" required>
+    <span class="text-danger small" id="ageGroupError"></span>
+  </div>
+
+  <div class="mb-3">
+    <label for="courseDuration" class="form-label">Duration</label>
+    <input type="text" class="form-control" id="courseDuration" name="duration" required>
+    <span class="text-danger small" id="durationError"></span>
+  </div>
+
+  <div class="mb-3">
+    <label for="courseRating" class="form-label">Rating (0 to 5)</label>
+    <input type="number" class="form-control" id="courseRating" step="0.1" name="rating" min="0" max="5" value="0">
+    <span class="text-danger small" id="ratingError"></span>
+  </div>
+
+  <button type="submit" class="btn btn-primary">Add Course</button>
+</form>

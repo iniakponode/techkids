@@ -1,0 +1,28 @@
+<!-- frontend/partials/course_card.html -->
+<!-- Inside an already-existing <div class="card"> from index.html -->
+  <img 
+  src="{{ course.image_url }}" 
+  class="card-img-top rounded-top" 
+  alt="{{ course.title }}"
+  style="height: 250px; object-fit: cover;"
+>
+<div class="card-body d-flex flex-column">
+  <h5 class="card-title fw-semibold text-dark">{{ course.title }}</h5>
+  <p class="card-text text-muted flex-grow-1">{{ course.description }}</p>
+
+  <p class="fw-semibold text-secondary mb-1">
+    <i class="bi bi-person-fill"></i> Age Group: {{ course.age_group }}
+  </p>
+  <p class="fw-semibold text-secondary mb-1">
+    <i class="bi bi-clock-fill"></i> Duration: {{ course.duration }}
+  </p>
+  <!--<p class="fw-semibold text-secondary"><i class="bi bi-star-fill"></i> Rating: {{ course.rating }}</p>-->
+
+  <p class="fw-bold text-success fs-5 mt-2">
+    <i class="bi bi-cash-coin"></i> ₦{{ "{:,.0f}".format(course.price) }}
+  </p>
+
+  <a href="/registration?course={{ course.id }}" class="btn btn-primary mt-auto">
+    <i class="bi bi-pencil-square me-1"></i> Register Now
+  </a>
+</div> 

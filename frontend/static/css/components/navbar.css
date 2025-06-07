@@ -1,0 +1,50 @@
+/* frontend/static/css/header.css */
+
+/* .navbar {
+    background: #3e64ff;
+    padding: 10px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.navbar .logo {
+    color: white;
+    font-size: 1.5em;
+    text-decoration: none;
+}
+
+.navbar .nav-links {
+    list-style: none;
+    display: flex;
+    gap: 15px;
+}
+
+.navbar .nav-links a {
+    color: white;
+    text-decoration: none;
+    font-size: 1em;
+} */
+
+/* navbar.css */
+
+/* Default state: Primary Blue */
+.navbar .nav-link,
+.navbar .navbar-brand {
+  color: #007bff !important; /* primary blue */
+}
+
+/* Hover state: Purple */
+.navbar .nav-link:hover,
+.navbar .navbar-brand:hover {
+  color: #800080 !important; /* purple */
+}
+
+/* Active/Focus state: Pink */
+.navbar .nav-link:active,
+.navbar .navbar-brand:active,
+.navbar .nav-link:focus,
+.navbar .navbar-brand:focus {
+  color: #ff69b4 !important; /* pink */
+}
+

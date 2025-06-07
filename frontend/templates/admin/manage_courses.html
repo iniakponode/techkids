@@ -1,0 +1,37 @@
+{% extends "layout/base.html" %}
+
+{% block title %}Manage Courses{% endblock %}
+{% block extra_head %}
+{{ super() }}
+<script src="/static/js/pages/manage_courses.js" defer></script>
+{% endblock %}
+{% block content %}
+<div class="container mt-5">
+    <h1>Manage Courses</h1>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Title</th>
+                <th>Price</th>
+                <th>Duration</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for course in courses %}
+            <tr>
+                <td>{{ course.title }}</td>
+                <td>{{ course.price }}</td>
+                <td>{{ course.duration }}</td>
+                <td>
+                    <a href="/admin/edit-course/{{ course.id }}" class="btn btn-sm btn-primary">Edit</a>
+                    <a href="" class="btn btn-sm btn-danger delete-course" data-course-id="{{ course.id }}">Delete</a>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    <a href="/admin/add-course" class="btn btn-success">Add Course</a>
+</div>
+{% endblock %}
+

@@ -1,0 +1,70 @@
+<!-- <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="/admin/dashboard">Admin Panel</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link" href="/admin/manage-courses">Courses</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/admin/coming_soon">Users</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/admin/coming_soon">Registrations</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/admin/add-course">Create Course</a>
+                </li>
+            </ul>
+        </div>
+        <div class="collapse navbar-collapse">
+            <ul class="navbar-nav ms-auto">
+               Depending on the authentication state, show login or logout 
+              {% if request.cookies.access_token %}
+              <li class="nav-item">
+                <button id="logoutBtn" class="btn btn-link nav-link">Logout</button>
+              </li>
+              {% else %}
+              <li class="nav-item">
+                <a class="nav-link" href="/login">Login</a>
+              </li>
+              {% endif %}
+            </ul>
+          </div>
+    </div>
+</nav>
+-->
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="/admin/dashboard">Admin Panel</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+  
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav me-auto">
+          <li class="nav-item"><a class="nav-link" href="/admin/manage-courses">Courses</a></li>
+          <li class="nav-item"><a class="nav-link" href="/admin/coming_soon">Users</a></li>
+          <li class="nav-item"><a class="nav-link" href="/admin/coming_soon">Registrations</a></li>
+          <li class="nav-item"><a class="nav-link" href="/admin/add-course">Create Course</a></li>
+        </ul>
+  
+        <ul class="navbar-nav ms-auto">
+          {% if request.cookies.access_token %}
+          <li class="nav-item">
+            <button id="logoutBtn" class="btn btn-link nav-link" style="cursor:pointer;">Logout</button>
+          </li>
+          {% else %}
+          <li class="nav-item">
+            <a class="nav-link" href="/login">Login</a>
+          </li>
+          {% endif %}
+        </ul>
+      </div>
+    </div>
+  </nav>  
+  
