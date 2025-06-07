@@ -10,6 +10,7 @@ from backend.routers.admin_courses import router as admin_router
 from backend.routers.admin_customers import router as admin_customers_router
 from backend.routers.admin_registrations import router as admin_registrations_router
 from backend.routers.admin_payments import router as admin_payments_router
+from backend.routers.social_media import router as social_media_router
 
 # API Router for backend endpoints
 api_router = APIRouter()
@@ -24,6 +25,8 @@ api_router.include_router(admin_router)
 api_router.include_router(admin_customers_router)
 api_router.include_router(admin_registrations_router)
 api_router.include_router(admin_payments_router)
+api_router.include_router(social_media_router)
 
 # Export both routers
 __all__ = ["api_router","pages_router"]
+
