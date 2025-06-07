@@ -1,13 +1,56 @@
 {% extends "layout/base.html" %}
 
 {% block title %}Social Media Management{% endblock %}
+{% block extra_head %}
+{{ super() }}
+<script src="/static/js/pages/social_media.js" defer></script>
+{% endblock %}
 
 {% block content %}
 <div class="container mt-5">
     <h1>Social Media Management</h1>
-    <p>This feature will allow administrators to post updates, view comments and messages,
-        and track likes and followers from a single dashboard. Integration with external
-        social media platforms is currently under development.</p>
+    <form id="post-form" class="mb-4">
+        <div class="mb-3">
+            <label class="form-label">Platform</label>
+            <input type="text" name="platform" class="form-control" required>
+        </div>
+        <div class="mb-3">
+            <label class="form-label">Content</label>
+            <textarea name="content" class="form-control" rows="3" required></textarea>
+        </div>
+        <div class="mb-3">
+            <label class="form-label">Schedule Time</label>
+            <input type="datetime-local" name="scheduled_at" class="form-control">
+        </div>
+        <button type="submit" class="btn btn-success">Create Post</button>
+    </form>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Platform</th>
+                <th>Content</th>
+                <th>Scheduled</th>
+                <th>Status</th>
+                <th>Created</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for p in posts %}
+            <tr>
+                <td>{{ p.platform }}</td>
+                <td>{{ p.content }}</td>
+                <td>{{ p.scheduled_at.strftime('%Y-%m-%d %H:%M') if p.scheduled_at else '-' }}</td>
+                <td>{{ p.status }}</td>
+                <td>{{ p.created_at.strftime('%Y-%m-%d') }}</td>
+                <td>
+                    <a href="" class="btn btn-sm btn-danger delete-post" data-post-id="{{ p.id }}">Delete</a>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
     <a class="btn btn-primary" href="/admin/dashboard">Back to Dashboard</a>
 </div>
 {% endblock %}

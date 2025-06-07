@@ -11,6 +11,7 @@ from backend.models.payment import Payment
 from backend.models.registration import Registration
 from backend.models.order import Order
 from backend.models.course import Course
+from backend.crud.social_post import crud_social_post
 from backend.routers.auth import get_current_user
 
 router = APIRouter()
@@ -405,13 +406,15 @@ async def edit_customer_page(
 async def social_media_page(
     request: Request,
     user: User = Depends(get_current_user),
+    db: Session = Depends(get_db),
 ):
     """Render the Social Media Management page."""
     if user.role != "admin":
         raise HTTPException(status_code=403, detail="Admin access required")
+    posts = crud_social_post.get_all(db)
     return templates.TemplateResponse(
         "admin/social_media.html",
-        {"request": request, "current_user": user},
+        {"request": request, "current_user": user, "posts": posts},
     )
 
 @router.get("/admin/coming_soon", response_class=HTMLResponse)

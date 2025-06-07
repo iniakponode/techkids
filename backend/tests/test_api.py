@@ -53,3 +53,28 @@ def test_create_course():
     assert response.status_code == 201
     assert response.json()["title"] == "AI for Kids"
 
+
+def test_social_media_posts():
+    """Test listing social media posts."""
+    response = client.get("/admin/social-posts/")
+    assert response.status_code in (200, 403, 401)
+
+
+def test_create_social_media_post():
+    """Test creating a social media post."""
+    data = {"platform": "twitter", "content": "Hello"}
+    response = client.post("/admin/social-posts/", json=data)
+    assert response.status_code in (201, 403, 401)
+
+
+def test_create_scheduled_post():
+    """Test creating a scheduled post."""
+    data = {
+        "platform": "facebook",
+        "content": "Scheduled",
+        "scheduled_at": "2030-01-01T10:00:00",
+    }
+    response = client.post("/admin/social-posts/", json=data)
+    assert response.status_code in (201, 403, 401)
+
+
