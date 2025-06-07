@@ -1,0 +1,33 @@
+{% extends "layout/base.html" %}
+
+{% block title %}Manage Customers{% endblock %}
+{% block extra_head %}
+{{ super() }}
+<script src="/static/js/pages/manage_customers.js" defer></script>
+{% endblock %}
+
+{% block content %}
+<div class="container mt-5">
+    <h1>Manage Customers</h1>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Email</th>
+                <th>Role</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for customer in customers %}
+            <tr>
+                <td>{{ customer.email }}</td>
+                <td>{{ customer.role }}</td>
+                <td>
+                    <a href="" class="btn btn-sm btn-danger delete-customer" data-customer-id="{{ customer.id }}">Delete</a>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endblock %}
