@@ -1,0 +1,37 @@
+{% extends "layout/base.html" %}
+
+{% block title %}Manage Registrations{% endblock %}
+{% block extra_head %}
+{{ super() }}
+<script src="/static/js/pages/manage_registrations.js" defer></script>
+{% endblock %}
+
+{% block content %}
+<div class="container mt-5">
+    <h1>Manage Registrations</h1>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Phone</th>
+                <th>Course ID</th>
+                <th>Payment Status</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for reg in registrations %}
+            <tr>
+                <td>{{ reg.fullName }}</td>
+                <td>{{ reg.phone }}</td>
+                <td>{{ reg.course_id }}</td>
+                <td>{{ reg.payment_status }}</td>
+                <td>
+                    <a href="" class="btn btn-sm btn-danger delete-registration" data-reg-id="{{ reg.id }}">Delete</a>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endblock %}

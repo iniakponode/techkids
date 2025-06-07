@@ -3,9 +3,10 @@ from fastapi import APIRouter, HTTPException, Request, Depends
 from fastapi.responses import HTMLResponse
 from fastapi.templating import Jinja2Templates
 from sqlalchemy.orm import Session
-from backend.crud import crud_course, crud_registration, crud_order, crud_user
+from backend.crud import crud_course, crud_registration, crud_order, crud_user, crud_payment
 from backend.core.database import get_db
 from backend.models.user import User
+from backend.models.payment import Payment
 from backend.routers.auth import get_current_user
 
 router = APIRouter()
@@ -109,6 +110,34 @@ async def manage_courses_page(request: Request, user: User = Depends(get_current
         raise HTTPException(status_code=403, detail="Admin access required")
     courses = crud_course.get_all(db=db)
     return templates.TemplateResponse("admin/manage_courses.html", {"request": request, "courses": courses, "current_user": user})
+
+
+@router.get("/admin/manage-registrations", name="manage_registrations")
+async def manage_registrations_page(request: Request, user: User = Depends(get_current_user), db: Session = Depends(get_db)):
+    """Render the 'Manage Registrations' page for admin."""
+    if user.role != "admin":
+        raise HTTPException(status_code=403, detail="Admin access required")
+    regs = crud_registration.get_all(db=db)
+    registrations = []
+    for reg in regs:
+        payment = db.query(Payment).filter(Payment.order_id == reg.order_id).first()
+        registrations.append({
+            "id": reg.id,
+            "fullName": reg.fullName,
+            "phone": reg.phone,
+            "course_id": reg.course_id,
+            "payment_status": payment.status if payment else "pending",
+        })
+    return templates.TemplateResponse("admin/manage_registrations.html", {"request": request, "registrations": registrations, "current_user": user})
+
+
+@router.get("/admin/manage-payments", name="manage_payments")
+async def manage_payments_page(request: Request, user: User = Depends(get_current_user), db: Session = Depends(get_db)):
+    """Render the 'Manage Payments' page for admin."""
+    if user.role != "admin":
+        raise HTTPException(status_code=403, detail="Admin access required")
+    payments = crud_payment.get_all(db=db)
+    return templates.TemplateResponse("admin/manage_payments.html", {"request": request, "payments": payments, "current_user": user})
 
 
 @router.get("/admin/manage-customers", name="manage_customers")
