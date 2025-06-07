@@ -99,6 +99,11 @@ async def login_page(request: Request):
 async def logout_page(request: Request):
     return templates.TemplateResponse("logout.html", {"request": request})
 
+@router.get("/contact", name="contact")
+async def contact_page(request: Request):
+    """Render the contact page."""
+    return templates.TemplateResponse("pages/contact.html", {"request": request})
+
 ## 3.6 Admin Dashboard Route
 @router.get("/admin/dashboard")
 async def admin_dashboard(request: Request, user: User = Depends(get_current_user)):

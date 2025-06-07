@@ -16,10 +16,17 @@
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link {{ 'active' if request.url.path == '/registration' }}" 
+                        <a class="nav-link {{ 'active' if request.url.path == '/registration' }}"
                            href="/registration"
                            aria-current="{{ 'page' if request.url.path == '/registration' }}">
                             Register
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link {{ 'active' if request.url.path == '/contact' }}"
+                           href="/contact"
+                           aria-current="{{ 'page' if request.url.path == '/contact' }}">
+                            Contact
                         </a>
                     </li>
                     {% if request.cookies.access_token %}

@@ -1,0 +1,47 @@
+{% extends 'layout/base.html' %}
+{% block title %}TechKids | Contact{% endblock %}
+{% block content %}
+<section class="py-5">
+  <div class="container">
+    <h2 class="text-center mb-4">Get in Touch</h2>
+    <div class="row">
+      <div class="col-md-6 mb-4">
+        <h5>WhatsApp / Telegram</h5>
+        <p class="mb-2">
+          <a href="https://wa.me/2347075778307" target="_blank" class="d-block">Chat on WhatsApp</a>
+          <a href="https://t.me/ungozu" target="_blank" class="d-block">Connect on Telegram</a>
+        </p>
+        <h5>Email Us</h5>
+        <form action="mailto:techkids@ungozu.com" method="post" enctype="text/plain">
+          <div class="mb-3">
+            <label for="name" class="form-label">Name</label>
+            <input type="text" class="form-control" id="name" name="name" required>
+          </div>
+          <div class="mb-3">
+            <label for="email" class="form-label">Email</label>
+            <input type="email" class="form-control" id="email" name="email" required>
+          </div>
+          <div class="mb-3">
+            <label for="message" class="form-label">Message</label>
+            <textarea class="form-control" id="message" name="message" rows="4" required></textarea>
+          </div>
+          <button type="submit" class="btn btn-primary">Send</button>
+        </form>
+      </div>
+      <div class="col-md-6">
+        <h5>Social Media</h5>
+        <p class="mb-2">
+          <a href="https://facebook.com" target="_blank" class="me-2"><i class="bi bi-facebook"></i> Facebook</a><br>
+          <a href="https://twitter.com" target="_blank" class="me-2"><i class="bi bi-twitter"></i> Twitter</a><br>
+          <a href="https://instagram.com" target="_blank"><i class="bi bi-instagram"></i> Instagram</a>
+        </p>
+        <h5>Office Address</h5>
+        <address>
+          1 Ungozu Avenue,<br>
+          Lagos, Nigeria
+        </address>
+      </div>
+    </div>
+  </div>
+</section>
+{% endblock %}
