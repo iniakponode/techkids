@@ -3,6 +3,7 @@ from fastapi import APIRouter, HTTPException, Request, Depends
 from fastapi.responses import HTMLResponse
 from fastapi.templating import Jinja2Templates
 from sqlalchemy.orm import Session
+import math
 from backend.crud import crud_course, crud_registration, crud_order, crud_user, crud_payment
 from backend.core.database import get_db
 from backend.models.user import User
@@ -118,13 +119,24 @@ async def manage_courses_page(
     db: Session = Depends(get_db),
     page: int = 1,
     limit: int = 10,
+    search: str | None = None,
 ):
     """Render the 'Manage Courses' page for admin."""
     if user.role != "admin":
         raise HTTPException(status_code=403, detail="Admin access required")
     skip = (page - 1) * limit
-    courses = crud_course.get_all(db=db, skip=skip, limit=limit)
-    has_next = len(courses) == limit
+    query = db.query(Course)
+    if search:
+        query = query.filter(Course.title.ilike(f"%{search}%"))
+    total_count = query.count()
+    courses = query.offset(skip).limit(limit).all()
+    total_pages = math.ceil(total_count / limit) if limit else 1
+    has_next = page < total_pages
+    start_page = max(1, page - 2)
+    end_page = min(total_pages, start_page + 3)
+    if end_page - start_page < 3:
+        start_page = max(1, end_page - 3)
+    pages = list(range(start_page, end_page + 1))
     return templates.TemplateResponse(
         "admin/manage_courses.html",
         {
@@ -134,6 +146,8 @@ async def manage_courses_page(
             "page": page,
             "limit": limit,
             "has_next": has_next,
+            "pages": pages,
+            "search": search,
         },
     )
 
@@ -145,12 +159,17 @@ async def manage_registrations_page(
     db: Session = Depends(get_db),
     page: int = 1,
     limit: int = 10,
+    search: str | None = None,
 ):
     """Render the 'Manage Registrations' page for admin."""
     if user.role != "admin":
         raise HTTPException(status_code=403, detail="Admin access required")
     skip = (page - 1) * limit
-    regs = crud_registration.get_all(db=db, skip=skip, limit=limit)
+    query = db.query(Registration)
+    if search:
+        query = query.filter(Registration.fullName.ilike(f"%{search}%"))
+    total_count = query.count()
+    regs = query.offset(skip).limit(limit).all()
     registrations = []
     for reg in regs:
         payment = db.query(Payment).filter(Payment.order_id == reg.order_id).first()
@@ -171,7 +190,13 @@ async def manage_registrations_page(
                 "payment_status": payment.status if payment else "pending",
             }
         )
-    has_next = len(registrations) == limit
+    total_pages = math.ceil(total_count / limit) if limit else 1
+    has_next = page < total_pages
+    start_page = max(1, page - 2)
+    end_page = min(total_pages, start_page + 3)
+    if end_page - start_page < 3:
+        start_page = max(1, end_page - 3)
+    pages = list(range(start_page, end_page + 1))
     return templates.TemplateResponse(
         "admin/manage_registrations.html",
         {
@@ -181,6 +206,8 @@ async def manage_registrations_page(
             "page": page,
             "limit": limit,
             "has_next": has_next,
+            "pages": pages,
+            "search": search,
         },
     )
 
@@ -236,6 +263,7 @@ async def manage_payments_page(
     order: int | None = None,
     page: int = 1,
     limit: int = 10,
+    search: str | None = None,
 ):
     """Render the 'Manage Payments' page for admin."""
     if user.role != "admin":
@@ -245,6 +273,12 @@ async def manage_payments_page(
     query = db.query(Payment)
     if order:
         query = query.filter(Payment.order_id == order)
+    if search:
+        like = f"%{search}%"
+        query = query.filter(
+            Payment.transaction_id.ilike(like)
+        )
+    total_count = query.count()
     payments_db = query.offset(skip).limit(limit).all()
 
     payments = []
@@ -270,7 +304,13 @@ async def manage_payments_page(
             }
         )
 
-    has_next = len(payments) == limit
+    total_pages = math.ceil(total_count / limit) if limit else 1
+    has_next = page < total_pages
+    start_page = max(1, page - 2)
+    end_page = min(total_pages, start_page + 3)
+    if end_page - start_page < 3:
+        start_page = max(1, end_page - 3)
+    pages = list(range(start_page, end_page + 1))
     return templates.TemplateResponse(
         "admin/manage_payments.html",
         {
@@ -280,6 +320,9 @@ async def manage_payments_page(
             "page": page,
             "limit": limit,
             "has_next": has_next,
+            "pages": pages,
+            "search": search,
+            "order": order,
         },
     )
 
@@ -291,13 +334,24 @@ async def manage_customers_page(
     db: Session = Depends(get_db),
     page: int = 1,
     limit: int = 10,
+    search: str | None = None,
 ):
     """Render the 'Manage Customers' page for admin."""
     if user.role != "admin":
         raise HTTPException(status_code=403, detail="Admin access required")
     skip = (page - 1) * limit
-    customers = crud_user.get_all(db=db, skip=skip, limit=limit)
-    has_next = len(customers) == limit
+    query = db.query(User)
+    if search:
+        query = query.filter(User.email.ilike(f"%{search}%"))
+    total_count = query.count()
+    customers = query.offset(skip).limit(limit).all()
+    total_pages = math.ceil(total_count / limit) if limit else 1
+    has_next = page < total_pages
+    start_page = max(1, page - 2)
+    end_page = min(total_pages, start_page + 3)
+    if end_page - start_page < 3:
+        start_page = max(1, end_page - 3)
+    pages = list(range(start_page, end_page + 1))
     return templates.TemplateResponse(
         "admin/manage_customers.html",
         {
@@ -307,6 +361,8 @@ async def manage_customers_page(
             "page": page,
             "limit": limit,
             "has_next": has_next,
+            "pages": pages,
+            "search": search,
         },
     )
 

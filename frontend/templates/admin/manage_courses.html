@@ -8,6 +8,11 @@
 {% block content %}
 <div class="container mt-5">
     <h1>Manage Courses</h1>
+    <form method="get" class="d-flex mb-3">
+        <input type="text" name="search" class="form-control me-2" placeholder="Search" value="{{ search or '' }}">
+        <input type="hidden" name="limit" value="{{ limit }}">
+        <button class="btn btn-outline-secondary" type="submit">Search</button>
+    </form>
     <table class="table">
         <thead>
             <tr>
@@ -35,13 +40,17 @@
         <ul class="pagination">
             {% if page > 1 %}
             <li class="page-item">
-                <a class="page-link" href="?page={{ page - 1 }}&limit={{ limit }}">Previous</a>
+                <a class="page-link" href="?page={{ page - 1 }}&limit={{ limit }}{% if search %}&search={{ search }}{% endif %}">Previous</a>
             </li>
             {% endif %}
-            <li class="page-item disabled"><span class="page-link">{{ page }}</span></li>
+            {% for p in pages %}
+            <li class="page-item {% if p == page %}active{% endif %}">
+                <a class="page-link" href="?page={{ p }}&limit={{ limit }}{% if search %}&search={{ search }}{% endif %}">{{ p }}</a>
+            </li>
+            {% endfor %}
             {% if has_next %}
             <li class="page-item">
-                <a class="page-link" href="?page={{ page + 1 }}&limit={{ limit }}">Next</a>
+                <a class="page-link" href="?page={{ page + 1 }}&limit={{ limit }}{% if search %}&search={{ search }}{% endif %}">Next</a>
             </li>
             {% endif %}
         </ul>
