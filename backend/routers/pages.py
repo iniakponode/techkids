@@ -7,6 +7,8 @@ from backend.crud import crud_course, crud_registration, crud_order, crud_user, 
 from backend.core.database import get_db
 from backend.models.user import User
 from backend.models.payment import Payment
+from backend.models.registration import Registration
+from backend.models.order import Order
 from backend.routers.auth import get_current_user
 
 router = APIRouter()
@@ -121,23 +123,68 @@ async def manage_registrations_page(request: Request, user: User = Depends(get_c
     registrations = []
     for reg in regs:
         payment = db.query(Payment).filter(Payment.order_id == reg.order_id).first()
-        registrations.append({
-            "id": reg.id,
-            "fullName": reg.fullName,
-            "phone": reg.phone,
-            "course_id": reg.course_id,
-            "payment_status": payment.status if payment else "pending",
-        })
+        courses_count = (
+            db.query(Registration)
+            .filter(Registration.user_id == reg.user_id)
+            .count()
+        )
+        registrations.append(
+            {
+                "id": reg.id,
+                "fullName": reg.fullName,
+                "phone": reg.phone,
+                "course_id": reg.course_id,
+                "order_id": reg.order_id,
+                "courses_count": courses_count,
+                "payment_status": payment.status if payment else "pending",
+            }
+        )
     return templates.TemplateResponse("admin/manage_registrations.html", {"request": request, "registrations": registrations, "current_user": user})
 
 
 @router.get("/admin/manage-payments", name="manage_payments")
-async def manage_payments_page(request: Request, user: User = Depends(get_current_user), db: Session = Depends(get_db)):
+async def manage_payments_page(
+    request: Request,
+    user: User = Depends(get_current_user),
+    db: Session = Depends(get_db),
+    order: int | None = None,
+):
     """Render the 'Manage Payments' page for admin."""
     if user.role != "admin":
         raise HTTPException(status_code=403, detail="Admin access required")
-    payments = crud_payment.get_all(db=db)
-    return templates.TemplateResponse("admin/manage_payments.html", {"request": request, "payments": payments, "current_user": user})
+
+    query = db.query(Payment)
+    if order:
+        query = query.filter(Payment.order_id == order)
+    payments_db = query.all()
+
+    payments = []
+    for p in payments_db:
+        order_obj = db.query(Order).filter(Order.id == p.order_id).first()
+        user_obj = db.query(User).filter(User.id == order_obj.user_id).first() if order_obj else None
+        courses_count = db.query(Registration).filter(Registration.order_id == p.order_id).count()
+        first_reg = (
+            db.query(Registration)
+            .filter(Registration.order_id == p.order_id)
+            .first()
+        )
+        payments.append(
+            {
+                "id": p.id,
+                "transaction_id": p.transaction_id,
+                "amount": p.amount,
+                "status": p.status,
+                "payment_date": p.payment_date,
+                "customer_name": first_reg.fullName if first_reg else "",
+                "customer_email": user_obj.email if user_obj else "",
+                "courses_count": courses_count,
+            }
+        )
+
+    return templates.TemplateResponse(
+        "admin/manage_payments.html",
+        {"request": request, "payments": payments, "current_user": user},
+    )
 
 
 @router.get("/admin/manage-customers", name="manage_customers")
@@ -164,6 +211,24 @@ async def edit_course_page(request: Request, course_id: int, user: User = Depend
     if not course:
         raise HTTPException(status_code=404, detail="Course not found")
     return templates.TemplateResponse("admin/admin_edit_course.html", {"request": request, "course": course, "current_user": user})
+
+
+@router.get("/admin/edit-customer/{user_id}", name="edit_customer_form")
+async def edit_customer_page(
+    request: Request,
+    user_id: int,
+    user: User = Depends(get_current_user),
+    db: Session = Depends(get_db),
+):
+    if user.role != "admin":
+        raise HTTPException(status_code=403, detail="Admin access required")
+    customer = crud_user.get_by_id(db, user_id)
+    if not customer:
+        raise HTTPException(status_code=404, detail="Customer not found")
+    return templates.TemplateResponse(
+        "admin/admin_edit_customer.html",
+        {"request": request, "customer": customer, "current_user": user},
+    )
 
 @router.get("/admin/coming_soon", response_class=HTMLResponse)
 async def admin_coming_soon(request: Request, user: User = Depends(get_current_user)):
