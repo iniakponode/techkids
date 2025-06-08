@@ -15,4 +15,8 @@ document.addEventListener('DOMContentLoaded', () => {
     }, { threshold: 0.1 });
 
     document.querySelectorAll('.fade-section').forEach(sec => observer.observe(sec));
+
+    if (window.twemoji) {
+        twemoji.parse(document.body);
+    }
 });
