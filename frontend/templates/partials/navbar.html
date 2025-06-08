@@ -1,5 +1,5 @@
 <header>
-    <nav class="navbar navbar-expand-lg navbar-light bg-light" aria-label="Main navigation">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light sticky-top py-3" aria-label="Main navigation">
         <div class="container-fluid">
             <a class="navbar-brand" href="/">TechKids</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
@@ -9,36 +9,19 @@
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto">
                     <li class="nav-item">
-                        <a class="nav-link {{ 'active' if request.url.path == '/' }}" 
-                           href="/"
-                           aria-current="{{ 'page' if request.url.path == '/' }}">
-                            Home
-                        </a>
+                        <a class="nav-link {{ 'active' if request.url.path == '/' }}" href="/" aria-current="{{ 'page' if request.url.path == '/' }}">Home</a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link {{ 'active' if request.url.path == '/registration' }}"
-                           href="/registration"
-                           aria-current="{{ 'page' if request.url.path == '/registration' }}">
-                            Register
-                        </a>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="accountDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">Account</a>
+                        <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="accountDropdown">
+                            {% if request.cookies.access_token %}
+                            <li><button id="logoutBtn" class="dropdown-item" style="cursor:pointer;">Logout</button></li>
+                            {% else %}
+                            <li><a class="dropdown-item" href="/registration">Register</a></li>
+                            <li><a class="dropdown-item" href="/login">Login</a></li>
+                            {% endif %}
+                        </ul>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link {{ 'active' if request.url.path == '/contact-us' }}"
-                           href="/contact-us"
-                           aria-current="{{ 'page' if request.url.path == '/contact-us' }}">
-                            Contact Us
-                        </a>
-                    </li>
-                    {% if request.cookies.access_token %}
-                    <li class="nav-item">
-                        <button id="logoutBtn" class="btn btn-link nav-link" style="cursor:pointer;">Logout</button>
-                    </li>
-                    {% else %}
-                    <li class="nav-item">
-                        <a class="nav-link" href="/login">Login</a>
-                    </li>
-                    {% endif %}
-                    
                 </ul>
             </div>
         </div>
