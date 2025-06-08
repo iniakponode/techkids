@@ -27,3 +27,11 @@ def update_testimonial(testimonial_id: int, data: TestimonialUpdate, db: Session
     if user.role != "admin":
         raise HTTPException(status_code=403, detail="Admin access required")
     return crud_testimonial.update(db, testimonial_id, data)
+
+
+@router.delete("/admin/testimonials/{testimonial_id}", status_code=status.HTTP_204_NO_CONTENT)
+def delete_testimonial(testimonial_id: int, db: Session = Depends(get_db), user: User = Depends(get_current_user)):
+    if user.role != "admin":
+        raise HTTPException(status_code=403, detail="Admin access required")
+    crud_testimonial.delete(db, testimonial_id)
+    return {"detail": f"Testimonial {testimonial_id} deleted"}
