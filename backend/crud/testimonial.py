@@ -31,4 +31,16 @@ class CRUDTestimonial:
         db.refresh(record)
         return record
 
+    def delete(self, db: Session, testimonial_id: int) -> Testimonial:
+        record = db.query(self.model).filter(self.model.id == testimonial_id).first()
+        if not record:
+            raise HTTPException(status_code=404, detail="Testimonial not found")
+        db.delete(record)
+        try:
+            db.commit()
+        except Exception as e:
+            db.rollback()
+            raise HTTPException(status_code=500, detail=str(e))
+        return record
+
 crud_testimonial = CRUDTestimonial(Testimonial)
