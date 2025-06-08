@@ -1,8 +1,10 @@
 from sqlalchemy.orm import Session
+from sqlalchemy import or_, func
 from fastapi import HTTPException
 from typing import List, Optional
 from backend.models.course import Course
 from backend.pydanticschemas.course import CourseCreate, CourseSchema
+from backend.models.registration import Registration
 import logging
 
 logger = logging.getLogger(__name__)
@@ -57,6 +59,45 @@ class CRUDCourse:
         courses = db.query(self.model).offset(skip).limit(limit).all()
         logger.info(f"Retrieved {len(courses)} courses.")
         return courses
+
+    def get_filtered(
+        self,
+        db: Session,
+        search: str | None = None,
+        category: str | None = None,
+        age: str | None = None,
+        price_min: float | None = None,
+        price_max: float | None = None,
+    ) -> List[Course]:
+        query = db.query(self.model)
+        if search:
+            like = f"%{search}%"
+            query = query.filter(
+                or_(
+                    self.model.title.ilike(like),
+                    self.model.category.ilike(like),
+                    self.model.age_group.ilike(like),
+                )
+            )
+        if category:
+            query = query.filter(self.model.category == category)
+        if age:
+            query = query.filter(self.model.age_group == age)
+        if price_min is not None:
+            query = query.filter(self.model.price >= price_min)
+        if price_max is not None:
+            query = query.filter(self.model.price <= price_max)
+        return query.all()
+
+    def get_hero_course(self, db: Session) -> Optional[Course]:
+        result = (
+            db.query(self.model, func.count(Registration.id).label("c"))
+            .outerjoin(Registration, Registration.course_id == self.model.id)
+            .group_by(self.model.id)
+            .order_by(func.count(Registration.id).desc())
+            .first()
+        )
+        return result[0] if result else None
 
     def update(self, db: Session, course_id: int, obj_in: CourseCreate) -> Course:
         """

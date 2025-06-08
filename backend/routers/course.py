@@ -32,10 +32,26 @@ def create_course(course: CourseCreate,
 
 # Get all Courses
 @router.get("/", response_model=List[CourseSchema])
-def get_courses(db: Session = Depends(get_db), skip: int = 0, limit: int = 100):
-    """
-    Retrieve all courses.
-    """
+def get_courses(
+    db: Session = Depends(get_db),
+    skip: int = 0,
+    limit: int = 100,
+    search: str | None = None,
+    category: str | None = None,
+    age: str | None = None,
+    price_min: float | None = None,
+    price_max: float | None = None,
+):
+    """Retrieve courses with optional filtering."""
+    if search or category or age or price_min is not None or price_max is not None:
+        return crud_course.get_filtered(
+            db=db,
+            search=search,
+            category=category,
+            age=age,
+            price_min=price_min,
+            price_max=price_max,
+        )
     return crud_course.get_all(db=db, skip=skip, limit=limit)
 
 

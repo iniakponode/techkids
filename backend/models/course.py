@@ -13,6 +13,7 @@ class Course(Base):
     image_url = Column(String(255), nullable=True)
     description = Column(Text, nullable=False)
     price = Column(Float, nullable=False)
+    category = Column(String(100), nullable=True)
     age_group = Column(String(100), nullable=False)
     duration = Column(String(100), nullable=False)
     rating = Column(Float, default=0.0, nullable=True)

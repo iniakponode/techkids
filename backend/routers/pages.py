@@ -22,13 +22,38 @@ templates_folder_path = os.path.join(os.path.dirname(__file__), "..", "..", "fro
 templates = Jinja2Templates(directory=templates_folder_path)
 
 @router.get("/", name="home")
-def home(request: Request, db: Session = Depends(get_db)):
-    """Render the home page with courses"""
-    courses = crud_course.get_all(db=db)
+def home(
+    request: Request,
+    db: Session = Depends(get_db),
+    search: str | None = None,
+    category: str | None = None,
+    age: str | None = None,
+    price_min: float | None = None,
+    price_max: float | None = None,
+):
+    """Render the home page with optional course filtering."""
+    hero_course = crud_course.get_hero_course(db=db)
+    if search or category or age or price_min is not None or price_max is not None:
+        courses = crud_course.get_filtered(
+            db=db,
+            search=search,
+            category=category,
+            age=age,
+            price_min=price_min,
+            price_max=price_max,
+        )
+    else:
+        all_courses = crud_course.get_all(db=db)
+        courses = [c for c in all_courses if hero_course is None or c.id != hero_course.id][:3]
     testimonials = crud_testimonial.get_approved(db=db)
     return templates.TemplateResponse(
         "pages/index.html",
-        {"request": request, "courses": courses, "testimonials": testimonials}
+        {
+            "request": request,
+            "courses": courses,
+            "hero_course": hero_course,
+            "testimonials": testimonials,
+        },
     )
 
 @router.get("/registration", name="registration")
