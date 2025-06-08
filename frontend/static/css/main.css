@@ -100,6 +100,25 @@ h2 {
     font-size: 1rem;
   }
 
+/* Mobile adjustments for hero carousel */
+@media (max-width: 576px) {
+  .carousel-caption h2 {
+    font-size: 1.5rem !important;
+    margin-top: 0 !important;
+  }
+  .carousel-caption p {
+    font-size: 1rem;
+  }
+  .carousel-caption a.btn {
+    font-size: 0.875rem;
+    padding: 0.4rem 0.75rem;
+  }
+  .carousel-caption .overlay {
+    padding: 0.75rem 1rem;
+    width: 100%;
+  }
+}
+
   /* Copied */
 
   /* .carousel-caption h2 {
