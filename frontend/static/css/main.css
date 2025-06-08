@@ -124,3 +124,10 @@ body {
   border-top: 1px solid #ccc;
   display: none;
 }
+
+/* Sticky filter sidebar */
+#courseFilter {
+  position: sticky;
+  top: 20px;
+  z-index: 100;
+}
