@@ -83,3 +83,13 @@ def test_create_scheduled_post():
     assert response.status_code in (201, 403, 401)
 
 
+def test_teacher_application():
+    data = {
+        "full_name": "Jane Doe",
+        "email": "jane@example.com",
+        "phone": "08000000000",
+        "message": "I would like to teach."}
+    response = client.post("/teacher-applications", json=data)
+    assert response.status_code in (201, 422)
+
+
