@@ -11,6 +11,7 @@ class Course(Base):
     id = Column(Integer, primary_key=True, index=True)
     title = Column(String(255), nullable=False)
     image_url = Column(String(255), nullable=True)
+    summary = Column(Text, nullable=True)
     description = Column(Text, nullable=False)
     price = Column(Float, nullable=False)
     category = Column(String(100), nullable=True)

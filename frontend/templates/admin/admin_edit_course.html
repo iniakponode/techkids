@@ -21,6 +21,10 @@
                     <input type="text" class="form-control" id="title" name="title" value="{{ course.title }}" required>
                 </div>
                 <div class="mb-3">
+                    <label for="summary" class="form-label">Summary</label>
+                    <textarea class="form-control" id="summary" name="summary" rows="2">{{ course.summary }}</textarea>
+                </div>
+                <div class="mb-3">
                     <label for="image" class="form-label">Course Image</label>
                     {% if course.image_url %}
                     <img src="{{ course.image_url }}" alt="Current Course Image" style="max-width: 200px; margin-bottom: 10px;">

@@ -48,6 +48,7 @@ os.makedirs(UPLOAD_DIR, exist_ok=True)
 async def add_course(
     title: str = Form(...),
     description: str = Form(...),
+    summary: str | None = Form(None),
     price: float = Form(...),
     category: str | None = Form(None),
     age_group: str = Form(...),
@@ -66,6 +67,7 @@ async def add_course(
     Parameters:
       - title (str): Title of the course.
       - description (str): Detailed description.
+      - summary (str, optional): Short summary for previews.
       - price (float): Price of the course.
       - age_group (str): Target age group.
       - duration (str): Course duration.
@@ -96,6 +98,7 @@ async def add_course(
     course_data = {
         "title": title,
         "description": description,
+        "summary": summary,
         "price": price,
         "category": category,
         "age_group": age_group,
@@ -131,6 +134,7 @@ async def update_course(
     course_id: int,
     title: str = Form(None),
     description: str = Form(None),
+    summary: str = Form(None),
     price: float = Form(None),
     category: str = Form(None),
     age_group: str = Form(None),
@@ -151,6 +155,9 @@ async def update_course(
         
     if description:
         db_course.description = description
+
+    if summary is not None:
+        db_course.summary = summary
         
     if price:
         db_course.price = price

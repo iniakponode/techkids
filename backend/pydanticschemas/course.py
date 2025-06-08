@@ -8,6 +8,7 @@ from uuid import UUID
 class CourseBase(BaseModel):
     title: str = Field(..., max_length=255, description="Title of the course")
     image_url: Optional[str] = Field(None, description="Image URL of the course")
+    summary: Optional[str] = Field(None, description="Short summary for previews")
     description: str = Field(..., description="Detailed description of the course")
     price: float = Field(..., gt=0, description="Price of the course in USD")
     category: str | None = Field(None, max_length=100, description="Course category")
@@ -36,6 +37,7 @@ class CourseUpdate(BaseModel):
     title: Optional[str] = Field(None, max_length=255, description="Title of the course")
     image_url: Optional[str] = Field(None, description="Image URL of the course")
     description: Optional[str] = Field(None, description="Detailed description of the course")
+    summary: Optional[str] = Field(None, description="Short summary for previews")
     price: Optional[float] = Field(None, gt=0, description="Price of the course in USD")
     category: Optional[str] = Field(None, max_length=100, description="Course category")
     age_group: Optional[str] = Field(None, max_length=100, description="Age group the course is designed for")
