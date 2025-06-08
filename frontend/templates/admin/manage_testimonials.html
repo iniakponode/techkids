@@ -1,0 +1,35 @@
+{% extends "layout/base.html" %}
+
+{% block title %}Manage Testimonials{% endblock %}
+{% block extra_head %}
+{{ super() }}
+<script src="/static/js/pages/manage_testimonials.js" defer></script>
+{% endblock %}
+
+{% block content %}
+<div class="container mt-5">
+    <h1>Manage Testimonials</h1>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Content</th>
+                <th>Approved</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for t in testimonials %}
+            <tr>
+                <td>{{ t.name }}</td>
+                <td>{{ t.content }}</td>
+                <td>{{ 'Yes' if t.is_approved else 'No' }}</td>
+                <td>
+                    <button class="btn btn-sm btn-primary approve-btn" data-id="{{ t.id }}" data-approved="{{ t.is_approved }}">Toggle Approval</button>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endblock %}
