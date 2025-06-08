@@ -6,7 +6,7 @@ document.addEventListener('DOMContentLoaded', () => {
     if (navbarToggler && navbarCollapse) {
         // Close navbar when clicking outside
         document.addEventListener('click', (event) => {
-            const isClickInside = navbarToggler.contains(event.target) || 
+            const isClickInside = navbarToggler.contains(event.target) ||
                                 navbarCollapse.contains(event.target);
             
             if (!isClickInside && navbarCollapse.classList.contains('show')) {
@@ -21,5 +21,19 @@ document.addEventListener('DOMContentLoaded', () => {
                 bootstrap.Collapse.getInstance(navbarCollapse).hide();
             }
         });
+    }
+
+    // Shrink header on scroll
+    const navbar = document.querySelector('.navbar');
+    if (navbar) {
+        const checkShrink = () => {
+            if (window.scrollY > 50) {
+                navbar.classList.add('navbar-shrink');
+            } else {
+                navbar.classList.remove('navbar-shrink');
+            }
+        };
+        checkShrink();
+        document.addEventListener('scroll', checkShrink);
     }
 });

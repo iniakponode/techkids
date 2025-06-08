@@ -29,15 +29,20 @@
 /* navbar.css */
 
 /* Default state: Primary Blue */
+
+.navbar {
+  transition: padding 0.2s ease;
+}
+
 .navbar .nav-link,
 .navbar .navbar-brand {
-  color: #007bff !important; /* primary blue */
+  color: var(--primary-color) !important;
 }
 
 /* Hover state: Purple */
 .navbar .nav-link:hover,
 .navbar .navbar-brand:hover {
-  color: #800080 !important; /* purple */
+  color: var(--accent-color) !important;
 }
 
 /* Active/Focus state: Pink */
@@ -45,6 +50,6 @@
 .navbar .navbar-brand:active,
 .navbar .nav-link:focus,
 .navbar .navbar-brand:focus {
-  color: #ff69b4 !important; /* pink */
+  color: var(--accent-color) !important;
 }
 
