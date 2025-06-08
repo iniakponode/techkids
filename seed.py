@@ -48,6 +48,7 @@ def seed_courses(db: Session, num_courses: int = 20):
         course = Course(
             title=fake.unique.catch_phrase(),
             image_url=fake.image_url() if random.choice([True, False]) else None,
+            summary=fake.sentence(nb_words=12),
             description=fake.paragraph(nb_sentences=5),
             price=round(random.uniform(50, 500), 2),
             age_group=random.choice(["Kids", "Teens", "Adults", "Seniors"]),

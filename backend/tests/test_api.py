@@ -43,6 +43,7 @@ def test_create_course():
     course_data = {
         "title": "AI for Kids",
         "image_url": "https://example.com/image.jpg",
+        "summary": "A short course summary",
         "description": "Learn AI with fun exercises!",
         "price": 99.99,
         "category": "Coding",
