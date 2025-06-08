@@ -45,6 +45,7 @@ def test_create_course():
         "image_url": "https://example.com/image.jpg",
         "description": "Learn AI with fun exercises!",
         "price": 99.99,
+        "category": "Coding",
         "age_group": "8-12",
         "duration": "6 weeks",
         "rating": 4.5

@@ -93,6 +93,24 @@
   </div>
 </section>
 
+<!-- =======================
+     HERO COURSE
+======================= -->
+{% if hero_course %}
+<section class="container py-5" id="hero-course">
+  <div class="row align-items-center">
+    <div class="col-md-6 mb-3 mb-md-0">
+      <img src="{{ hero_course.image_url }}" class="img-fluid rounded" alt="{{ hero_course.title }}">
+    </div>
+    <div class="col-md-6">
+      <h2 class="mb-3">{{ hero_course.title }}</h2>
+      <p class="mb-3">{{ hero_course.description }}</p>
+      <a href="/registration?course={{ hero_course.id }}" class="btn btn-primary">Register Now</a>
+    </div>
+  </div>
+</section>
+{% endif %}
+
 
 <!-- =======================
      OUR COURSES
@@ -105,14 +123,27 @@
     </div>
   </div>
 
-  <div class="row">
-    {% for course in courses %}
-      <div class="col-md-4 d-flex align-items-stretch mb-4">
-        <div class="card h-100 d-flex flex-column shadow course-card">
-          {% include 'partials/course_card.html' %}
-        </div>
+  <div class="row mb-4">
+    <div class="col-md-3">
+      <form method="get">
+        <input type="text" class="form-control mb-2" name="search" placeholder="Search" value="{{ request.query_params.get('search','') }}">
+        <input type="text" class="form-control mb-2" name="category" placeholder="Category" value="{{ request.query_params.get('category','') }}">
+        <input type="text" class="form-control mb-2" name="age" placeholder="Age Group" value="{{ request.query_params.get('age','') }}">
+        <input type="number" step="0.01" class="form-control mb-2" name="price_max" placeholder="Max Price" value="{{ request.query_params.get('price_max','') }}">
+        <button class="btn btn-primary w-100" type="submit">Apply</button>
+      </form>
+    </div>
+    <div class="col-md-9">
+      <div class="row">
+        {% for course in courses %}
+          <div class="col-md-4 d-flex align-items-stretch mb-4">
+            <div class="card h-100 d-flex flex-column shadow course-card">
+              {% include 'partials/course_card.html' %}
+            </div>
+          </div>
+        {% endfor %}
       </div>
-    {% endfor %}
+    </div>
   </div>
 </section>
 
