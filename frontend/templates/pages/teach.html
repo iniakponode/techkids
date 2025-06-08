@@ -1,0 +1,29 @@
+{% extends 'layout/base.html' %}
+{% block title %}TechKids | Teach With Us{% endblock %}
+{% block content %}
+<section class="py-5">
+  <div class="container">
+    <h2 class="text-center mb-4">Teach With Us</h2>
+    <p class="text-center mb-4">Fill the form below to apply as an instructor.</p>
+    <form action="/api/teacher-applications" method="post" class="mx-auto" style="max-width:600px;">
+      <div class="mb-3">
+        <label for="full_name" class="form-label">Full Name</label>
+        <input type="text" class="form-control" id="full_name" name="full_name" required>
+      </div>
+      <div class="mb-3">
+        <label for="email" class="form-label">Email</label>
+        <input type="email" class="form-control" id="email" name="email" required>
+      </div>
+      <div class="mb-3">
+        <label for="phone" class="form-label">Phone</label>
+        <input type="text" class="form-control" id="phone" name="phone">
+      </div>
+      <div class="mb-3">
+        <label for="message" class="form-label">Message</label>
+        <textarea class="form-control" id="message" name="message" rows="4"></textarea>
+      </div>
+      <button type="submit" class="btn btn-primary">Submit Application</button>
+    </form>
+  </div>
+</section>
+{% endblock %}

@@ -101,10 +101,23 @@ async def login_page(request: Request):
 async def logout_page(request: Request):
     return templates.TemplateResponse("logout.html", {"request": request})
 
-@router.get("/contact", name="contact")
+@router.get("/contact-us", name="contact-us")
 async def contact_page(request: Request):
-    """Render the contact page."""
-    return templates.TemplateResponse("pages/contact.html", {"request": request})
+    """Render the contact us page."""
+    return templates.TemplateResponse("pages/contact_us.html", {"request": request})
+
+@router.get("/teach", name="teach")
+async def teach_page(request: Request):
+    """Render the teach with us page."""
+    return templates.TemplateResponse("pages/teach.html", {"request": request})
+
+@router.get("/privacy-policy", name="privacy")
+async def privacy_page(request: Request):
+    return templates.TemplateResponse("pages/privacy_policy.html", {"request": request})
+
+@router.get("/terms", name="terms")
+async def terms_page(request: Request):
+    return templates.TemplateResponse("pages/terms.html", {"request": request})
 
 ## 3.6 Admin Dashboard Route
 @router.get("/admin/dashboard")
