@@ -5,6 +5,7 @@ from fastapi.templating import Jinja2Templates
 from sqlalchemy.orm import Session
 import math
 from backend.crud import crud_course, crud_registration, crud_order, crud_user, crud_payment
+from backend.crud.testimonial import crud_testimonial
 from backend.core.database import get_db
 from backend.models.user import User
 from backend.models.payment import Payment
@@ -24,9 +25,10 @@ templates = Jinja2Templates(directory=templates_folder_path)
 def home(request: Request, db: Session = Depends(get_db)):
     """Render the home page with courses"""
     courses = crud_course.get_all(db=db)
+    testimonials = crud_testimonial.get_approved(db=db)
     return templates.TemplateResponse(
-        "pages/index.html", 
-        {"request": request, "courses": courses}
+        "pages/index.html",
+        {"request": request, "courses": courses, "testimonials": testimonials}
     )
 
 @router.get("/registration", name="registration")
@@ -106,6 +108,11 @@ async def contact_page(request: Request):
     """Render the contact us page."""
     return templates.TemplateResponse("pages/contact_us.html", {"request": request})
 
+@router.get("/testimonial", name="testimonial-form")
+async def testimonial_form_page(request: Request):
+    """Render testimonial submission form."""
+    return templates.TemplateResponse("pages/testimonial_form.html", {"request": request})
+
 @router.get("/teach", name="teach")
 async def teach_page(request: Request):
     """Render the teach with us page."""
@@ -118,6 +125,16 @@ async def privacy_page(request: Request):
 @router.get("/terms", name="terms")
 async def terms_page(request: Request):
     return templates.TemplateResponse("pages/terms.html", {"request": request})
+
+@router.get("/admin/manage-testimonials", name="manage_testimonials")
+async def manage_testimonials_page(request: Request, user: User = Depends(get_current_user), db: Session = Depends(get_db)):
+    if user.role != "admin":
+        raise HTTPException(status_code=403, detail="Admin access required")
+    testimonials = crud_testimonial.get_all(db=db)
+    return templates.TemplateResponse(
+        "admin/manage_testimonials.html",
+        {"request": request, "testimonials": testimonials, "current_user": user}
+    )
 
 ## 3.6 Admin Dashboard Route
 @router.get("/admin/dashboard")
