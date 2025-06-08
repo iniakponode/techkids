@@ -4,6 +4,7 @@
 
 {% block extra_head %}
 <script src="/static/js/pages/admin_edit_course.js" defer></script>
+<script src="/static/js/pages/course_categories.js" defer></script>
 {% endblock %}
 
 {% block content %}
@@ -45,11 +46,15 @@
                 </div>
                 <div class="mb-3">
                     <label for="category" class="form-label">Category</label>
-                    <input type="text" class="form-control" id="category" name="category" value="{{ course.category }}">
+                    <select class="form-select" id="category" name="category" data-selected="{{ course.category }}"></select>
                 </div>
                 <div class="mb-3">
                     <label for="duration" class="form-label">Duration</label>
                     <input type="text" class="form-control" id="duration" name="duration" value="{{ course.duration }}" required>
+                </div>
+                <div class="mb-3">
+                    <label for="preview_link" class="form-label">Class Preview Link</label>
+                    <input type="url" class="form-control" id="preview_link" name="preview_link" value="{{ course.preview_link }}">
                 </div>
                 <button type="submit" class="btn btn-primary" id="editCourse" data-loading-text="Updating Course Details...">Update Course</button>
             </form>

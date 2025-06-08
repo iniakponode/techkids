@@ -441,6 +441,16 @@ async def add_course_page(request: Request, user: User = Depends(get_current_use
         raise HTTPException(status_code=403, detail="Admin access required")
     return templates.TemplateResponse("admin/add_course.html", {"request": request, "current_user": user})
 
+@router.get("/admin/add-category", name="add_category_form")
+async def add_category_page(request: Request, user: User = Depends(get_current_user)):
+    if user.role != "admin":
+        raise HTTPException(status_code=403, detail="Admin access required")
+    return templates.TemplateResponse("admin/add_category.html", {"request": request, "current_user": user})
+
+@router.get("/instructor-profile", name="instructor_profile")
+def instructor_profile_page(request: Request):
+    return templates.TemplateResponse("pages/instructor_profile.html", {"request": request})
+
 @router.get("/admin/edit-course/{course_id}", name="edit_course_form")
 async def edit_course_page(request: Request, course_id: int, user: User = Depends(get_current_user), db: Session = Depends(get_db)):
     """Render the 'Edit Course' page."""

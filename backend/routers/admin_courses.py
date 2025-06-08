@@ -49,8 +49,10 @@ async def add_course(
     title: str = Form(...),
     description: str = Form(...),
     price: float = Form(...),
+    category: str | None = Form(None),
     age_group: str = Form(...),
     duration: str = Form(...),
+    preview_link: str | None = Form(None),
     rating: Optional[float] = Form(0.0),
     image_url: Optional[str] = Form(None),
     image_file: Optional[UploadFile] = File(None),
@@ -95,8 +97,10 @@ async def add_course(
         "title": title,
         "description": description,
         "price": price,
+        "category": category,
         "age_group": age_group,
         "duration": duration,
+        "preview_link": preview_link,
         "rating": rating,
         "image_url": image_url,
     }
@@ -128,8 +132,10 @@ async def update_course(
     title: str = Form(None),
     description: str = Form(None),
     price: float = Form(None),
+    category: str = Form(None),
     age_group: str = Form(None),
     duration: str = Form(None),
+    preview_link: str = Form(None),
     image: UploadFile = File(None),
     db: Session = Depends(get_db),
     user: User = Depends(get_current_user),
@@ -148,12 +154,18 @@ async def update_course(
         
     if price:
         db_course.price = price
-        
+
+    if category is not None:
+        db_course.category = category
+
     if age_group:
         db_course.age_group = age_group
         
     if duration:
         db_course.duration = duration
+
+    if preview_link is not None:
+        db_course.preview_link = preview_link
 
     if image:
         upload_dir = os.path.join("frontend/static", "uploads")

@@ -13,6 +13,7 @@ class CourseBase(BaseModel):
     category: str | None = Field(None, max_length=100, description="Course category")
     age_group: str = Field(..., max_length=50, description="Age group the course is designed for")
     duration: str = Field(..., max_length=100, description="Course duration (e.g., '6 weeks')")
+    preview_link: str | None = Field(None, max_length=255, description="Link to preview class")
     rating: Optional[float] = Field(0.0, ge=0.0, le=5.0, description="Course rating (0 to 5 stars)")
 
     def model_dump(self, **kwargs):
@@ -39,6 +40,7 @@ class CourseUpdate(BaseModel):
     category: Optional[str] = Field(None, max_length=100, description="Course category")
     age_group: Optional[str] = Field(None, max_length=100, description="Age group the course is designed for")
     duration: Optional[str] = Field(None, max_length=100, description="Course duration (e.g., '6 weeks')")
+    preview_link: Optional[str] = Field(None, max_length=255, description="Link to preview class")
     rating: Optional[float] = Field(None, ge=0.0, le=5.0, description="Course rating (0 to 5 stars)")
     # = Field(None, max_length=50, description="Age group the course is designed for")
 
