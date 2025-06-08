@@ -13,6 +13,7 @@ import uvicorn
 from backend.middleware import blacklist_middleware
 from backend.routers import api_router, pages_router
 from backend.services.social_scheduler import start_scheduler
+from backend.core.database import init_db
 
 logging.basicConfig(
     level=logging.INFO,
@@ -70,6 +71,7 @@ app.include_router(pages_router)
 @app.on_event("startup")
 def start_background_tasks() -> None:
     """Start recurring schedulers."""
+    init_db()
     start_scheduler()
 
 
