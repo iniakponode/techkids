@@ -99,6 +99,20 @@ class CRUDCourse:
         )
         return result[0] if result else None
 
+    def get_top_courses(
+        self, db: Session, limit: int = 3, exclude_course_id: int | None = None
+    ) -> List[Course]:
+        query = (
+            db.query(self.model, func.count(Registration.id).label("c"))
+            .outerjoin(Registration, Registration.course_id == self.model.id)
+            .group_by(self.model.id)
+            .order_by(func.count(Registration.id).desc())
+        )
+        if exclude_course_id is not None:
+            query = query.filter(self.model.id != exclude_course_id)
+        results = query.limit(limit).all()
+        return [r[0] for r in results]
+
     def update(self, db: Session, course_id: int, obj_in: CourseCreate) -> Course:
         """
         Update a Course by ID.

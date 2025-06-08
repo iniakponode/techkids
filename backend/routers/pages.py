@@ -28,23 +28,24 @@ def home(
     search: str | None = None,
     category: str | None = None,
     age: str | None = None,
-    price_min: float | None = None,
-    price_max: float | None = None,
+    price_min: str | None = None,
+    price_max: str | None = None,
 ):
     """Render the home page with optional course filtering."""
     hero_course = crud_course.get_hero_course(db=db)
-    if search or category or age or price_min is not None or price_max is not None:
+    price_min_val = float(price_min) if price_min not in (None, "") else None
+    price_max_val = float(price_max) if price_max not in (None, "") else None
+    if search or category or age or price_min_val is not None or price_max_val is not None:
         courses = crud_course.get_filtered(
             db=db,
             search=search,
             category=category,
             age=age,
-            price_min=price_min,
-            price_max=price_max,
+            price_min=price_min_val,
+            price_max=price_max_val,
         )
     else:
-        all_courses = crud_course.get_all(db=db)
-        courses = [c for c in all_courses if hero_course is None or c.id != hero_course.id][:3]
+        courses = crud_course.get_top_courses(db=db, exclude_course_id=hero_course.id if hero_course else None)
     testimonials = crud_testimonial.get_approved(db=db)
     return templates.TemplateResponse(
         "pages/index.html",
@@ -66,8 +67,20 @@ def registration_page(request: Request, db: Session = Depends(get_db)):
         {
             "request": request, 
             "courses": courses,
-            "selected_course_id": selected_course_id
+        "selected_course_id": selected_course_id
         }
+    )
+
+
+@router.get("/courses/{course_id}", name="course-detail")
+def course_detail_page(request: Request, course_id: int, db: Session = Depends(get_db)):
+    """Render a detailed course page."""
+    course = crud_course.get_by_id(db=db, course_id=course_id)
+    if not course:
+        raise HTTPException(status_code=404, detail="Course not found")
+    return templates.TemplateResponse(
+        "pages/course_detail.html",
+        {"request": request, "course": course},
     )
 
 # @router.get("/payment", name="payment")

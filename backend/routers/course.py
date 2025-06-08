@@ -39,18 +39,20 @@ def get_courses(
     search: str | None = None,
     category: str | None = None,
     age: str | None = None,
-    price_min: float | None = None,
-    price_max: float | None = None,
+    price_min: str | None = None,
+    price_max: str | None = None,
 ):
     """Retrieve courses with optional filtering."""
-    if search or category or age or price_min is not None or price_max is not None:
+    price_min_val = float(price_min) if price_min not in (None, "") else None
+    price_max_val = float(price_max) if price_max not in (None, "") else None
+    if search or category or age or price_min_val is not None or price_max_val is not None:
         return crud_course.get_filtered(
             db=db,
             search=search,
             category=category,
             age=age,
-            price_min=price_min,
-            price_max=price_max,
+            price_min=price_min_val,
+            price_max=price_max_val,
         )
     return crud_course.get_all(db=db, skip=skip, limit=limit)
 
