@@ -1,11 +1,15 @@
 {% extends 'layout/base.html' %}
 {% block title %}TechKids | Teach With Us{% endblock %}
+{% block extra_head %}
+{{ super() }}
+<script src="/static/js/pages/teacher_application.js" defer></script>
+{% endblock %}
 {% block content %}
 <section class="py-5">
   <div class="container">
     <h2 class="text-center mb-4">Teach With Us</h2>
     <p class="text-center mb-4">Fill the form below to apply as an instructor.</p>
-    <form action="/api/teacher-applications" method="post" class="mx-auto" style="max-width:600px;">
+    <form id="teacherApplicationForm" class="mx-auto" style="max-width:600px;">
       <div class="mb-3">
         <label for="full_name" class="form-label">Full Name</label>
         <input type="text" class="form-control" id="full_name" name="full_name" required>
@@ -24,6 +28,8 @@
       </div>
       <button type="submit" class="btn btn-primary">Submit Application</button>
     </form>
+    <div id="teachSuccess" class="alert alert-success mt-3 d-none">Your application has been submitted successfully!</div>
+    <div id="teachError" class="alert alert-danger mt-3 d-none"></div>
   </div>
 </section>
 {% endblock %}

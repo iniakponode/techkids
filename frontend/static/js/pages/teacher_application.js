@@ -1,7 +1,8 @@
 document.addEventListener('DOMContentLoaded', () => {
-    const form = document.getElementById('testimonialForm');
-    const successBox = document.getElementById('testimonialSuccess');
-    const errorBox = document.getElementById('testimonialError');
+    const form = document.getElementById('teacherApplicationForm');
+    if (!form) return;
+    const successBox = document.getElementById('teachSuccess');
+    const errorBox = document.getElementById('teachError');
 
     form.addEventListener('submit', async (e) => {
         e.preventDefault();
@@ -12,7 +13,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const data = Object.fromEntries(formData.entries());
 
         try {
-            const res = await fetch('/api/testimonials', {
+            const res = await fetch('/api/teacher-applications', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify(data)
@@ -21,7 +22,8 @@ document.addEventListener('DOMContentLoaded', () => {
                 form.reset();
                 successBox.classList.remove('d-none');
             } else {
-                throw new Error('Failed to submit testimonial.');
+                const err = await res.json().catch(() => ({}));
+                throw new Error(err.detail || 'Failed to submit application.');
             }
         } catch (err) {
             errorBox.textContent = err.message || 'Submission failed. Please try again later.';
