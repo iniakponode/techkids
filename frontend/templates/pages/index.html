@@ -61,6 +61,7 @@
 <!-- =======================
      ABOUT US
 ======================= -->
+{% if not (request.query_params.get('search') or request.query_params.get('category') or request.query_params.get('age') or request.query_params.get('price_min') or request.query_params.get('price_max')) %}
 <section id="about" class="py-5 about-section">
   <div class="container">
     <div class="row align-items-center">
@@ -92,6 +93,7 @@
     </div>
   </div>
 </section>
+{% endif %}
 
 <!-- =======================
      HERO COURSE
