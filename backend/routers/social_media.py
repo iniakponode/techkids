@@ -40,7 +40,7 @@ async def create_post(
     image_url = None
     video_url = None
 
-    if image:
+    if image and image.filename:
         file_ext = os.path.splitext(image.filename)[1]
         unique_name = f"{uuid.uuid4()}{file_ext}"
         file_path = os.path.join(UPLOAD_DIR, unique_name)
@@ -48,7 +48,7 @@ async def create_post(
             shutil.copyfileobj(image.file, buffer)
         image_url = f"/static/uploads/{unique_name}"
 
-    if video:
+    if video and video.filename:
         file_ext = os.path.splitext(video.filename)[1]
         unique_name = f"{uuid.uuid4()}{file_ext}"
         file_path = os.path.join(UPLOAD_DIR, unique_name)

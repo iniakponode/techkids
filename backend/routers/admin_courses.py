@@ -82,7 +82,7 @@ async def add_course(
       HTTPException: 500 if an error occurs during file saving or DB commit.
     """
     # If an image file is provided, save it and generate its URL.
-    if image_file:
+    if image_file and image_file.filename:
         try:
             file_extension = os.path.splitext(image_file.filename)[1]
             unique_filename = f"{uuid.uuid4()}{file_extension}"
@@ -174,7 +174,7 @@ async def update_course(
     if preview_link is not None:
         db_course.preview_link = preview_link
 
-    if image:
+    if image and image.filename:
         upload_dir = os.path.join("frontend/static", "uploads")
         if not os.path.exists(upload_dir):
             os.makedirs(upload_dir)
