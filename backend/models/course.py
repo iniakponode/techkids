@@ -16,6 +16,7 @@ class Course(Base):
     category = Column(String(100), nullable=True)
     age_group = Column(String(100), nullable=False)
     duration = Column(String(100), nullable=False)
+    preview_link = Column(String(255), nullable=True)
     rating = Column(Float, default=0.0, nullable=True)
     created_at = Column(DateTime, default=datetime.utcnow)
 

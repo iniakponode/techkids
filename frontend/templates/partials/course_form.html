@@ -25,7 +25,7 @@
 
   <div class="mb-3">
     <label for="courseCategory" class="form-label">Category</label>
-    <input type="text" class="form-control" id="courseCategory" name="category">
+    <select class="form-select" id="courseCategory" name="category"></select>
     <span class="text-danger small" id="categoryError"></span>
   </div>
 
@@ -39,6 +39,10 @@
     <label for="courseDuration" class="form-label">Duration</label>
     <input type="text" class="form-control" id="courseDuration" name="duration" required>
     <span class="text-danger small" id="durationError"></span>
+  </div>
+  <div class="mb-3">
+    <label for="previewLink" class="form-label">Class Preview Link</label>
+    <input type="url" class="form-control" id="previewLink" name="preview_link">
   </div>
 
   <div class="mb-3">
