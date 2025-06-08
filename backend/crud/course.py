@@ -82,7 +82,8 @@ class CRUDCourse:
         if category:
             query = query.filter(self.model.category == category)
         if age:
-            query = query.filter(self.model.age_group == age)
+            like_age = f"%{age}%"
+            query = query.filter(self.model.age_group.ilike(like_age))
         if price_min is not None:
             query = query.filter(self.model.price >= price_min)
         if price_max is not None:
