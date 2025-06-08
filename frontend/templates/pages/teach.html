@@ -9,6 +9,8 @@
   <div class="container">
     <h2 class="text-center mb-4">Teach With Us</h2>
     <p class="text-center mb-4">Fill the form below to apply as an instructor.</p>
+    <div id="teachSuccess" class="alert alert-success d-none">Your application has been submitted successfully!</div>
+    <div id="teachError" class="alert alert-danger d-none"></div>
     <form id="teacherApplicationForm" class="mx-auto" style="max-width:600px;">
       <div class="mb-3">
         <label for="full_name" class="form-label">Full Name</label>
@@ -28,8 +30,6 @@
       </div>
       <button type="submit" class="btn btn-primary">Submit Application</button>
     </form>
-    <div id="teachSuccess" class="alert alert-success mt-3 d-none">Your application has been submitted successfully!</div>
-    <div id="teachError" class="alert alert-danger mt-3 d-none"></div>
   </div>
 </section>
 {% endblock %}
