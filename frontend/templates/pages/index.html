@@ -120,13 +120,23 @@
 <section class="course-list container py-5" id="courses">
   <div class="row">
     <div class="col-12 text-center mb-4">
-      <h2 class="text-dark">Our Courses</h2>
-      <p class="text-secondary">Pick a course that sparks your interest!</p>
+      {% set filtering = request.query_params.get('search') or request.query_params.get('category') or request.query_params.get('age') or request.query_params.get('price_min') or request.query_params.get('price_max') %}
+      {% if filtering %}
+        <h2 class="text-dark">Available Courses Based on Your Filter</h2>
+        {% if courses %}
+          <p class="text-secondary">Great to see courses matching your selection. Please pick the one that caught your curiosity.</p>
+        {% else %}
+          <p class="text-secondary">Sorry, there were no courses matching your selection conditions. Try again using another condition through the filter.</p>
+        {% endif %}
+      {% else %}
+        <h2 class="text-dark">Our Courses</h2>
+        <p class="text-secondary">Pick a course that sparks your interest!</p>
+      {% endif %}
     </div>
   </div>
 
   <div class="row mb-4">
-    <div class="col-md-3">
+    <div class="col-md-3" id="courseFilter">
       <form method="get">
         <input type="text" class="form-control mb-2" name="search" placeholder="Search" value="{{ request.query_params.get('search','') }}">
         <input type="text" class="form-control mb-2" name="category" placeholder="Category" value="{{ request.query_params.get('category','') }}">
@@ -228,4 +238,17 @@
   </div>
 </section>
 
+{% endblock %}
+{% block extra_scripts %}
+  {{ super() }}
+  {% if filtering %}
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      const resultsSection = document.getElementById('courses');
+      if (resultsSection) {
+        resultsSection.scrollIntoView({ behavior: 'smooth' });
+      }
+    });
+  </script>
+  {% endif %}
 {% endblock %}
