@@ -156,6 +156,11 @@ async def teach_page(request: Request):
     """Render the teach with us page."""
     return templates.TemplateResponse("pages/teach.html", {"request": request})
 
+@router.get("/faq", name="faq")
+async def faq_page(request: Request):
+    """Render the frequently asked questions page."""
+    return templates.TemplateResponse("pages/faq.html", {"request": request})
+
 @router.get("/privacy-policy", name="privacy")
 async def privacy_page(request: Request):
     return templates.TemplateResponse("pages/privacy_policy.html", {"request": request})
