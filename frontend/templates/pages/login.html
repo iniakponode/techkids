@@ -2,16 +2,32 @@
 
 {% block title %}Login{% endblock %}
 {% block extra_head %}
+{{ super() }}
 <script src="/static/js/pages/login.js" defer></script>
 {% endblock %}
+
 {% block content %}
-<div class="container mt-5">
+<section class="auth-hero py-5 py-lg-5">
+  <div class="container">
     <div class="row justify-content-center">
-        <div class="col-md-6">
-            <h2 class="text-center">Login</h2>
-            <div id="loginMessage"></div>
-            {% include 'partials/login_form.html' %}
+      <div class="col-xl-5 col-lg-6">
+        <div class="glass-card p-4 p-md-5 shadow-lg border-0">
+          <div class="text-center mb-4">
+            <h1 class="display-6 fw-bold text-gradient">Welcome back!</h1>
+            <p class="text-muted mb-0">
+              Sign in to continue your TechKids adventure.
+            </p>
+          </div>
+          <div id="loginMessage" class="mb-3" role="alert"></div>
+          {% include 'partials/login_form.html' %}
+          <p class="small text-center mt-4 mb-0">
+            New to TechKids?
+            <a class="fw-semibold" href="/registration">Create an account</a>
+            to get started.
+          </p>
         </div>
+      </div>
     </div>
-</div>
+  </div>
+</section>
 {% endblock %}

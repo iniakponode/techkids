@@ -37,35 +37,62 @@
     </div>
 </nav>
 -->
-  <nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <div class="container-fluid">
-      <a class="navbar-brand" href="/admin/dashboard">Admin Panel</a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
-        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-  
-      <div class="collapse navbar-collapse" id="navbarNav">
-        <ul class="navbar-nav me-auto">
-          <li class="nav-item"><a class="nav-link" href="/admin/manage-courses">Courses</a></li>
-          <li class="nav-item"><a class="nav-link" href="/admin/coming_soon">Users</a></li>
-          <li class="nav-item"><a class="nav-link" href="/admin/coming_soon">Registrations</a></li>
-          <li class="nav-item"><a class="nav-link" href="/admin/add-course">Create Course</a></li>
-          <li class="nav-item"><a class="nav-link" href="/admin/social-media">Social Media</a></li>
-        </ul>
-  
-        <ul class="navbar-nav ms-auto">
-          {% if request.cookies.access_token %}
-          <li class="nav-item">
-            <button id="logoutBtn" class="btn btn-link nav-link" style="cursor:pointer;">Logout</button>
-          </li>
-          {% else %}
-          <li class="nav-item">
-            <a class="nav-link" href="/login">Login</a>
-          </li>
-          {% endif %}
-        </ul>
-      </div>
+<nav class="navbar navbar-expand-lg navbar-dark navbar-theme py-3">
+  <div class="container">
+    <a class="navbar-brand d-flex align-items-center gap-2" href="/admin/dashboard">
+      <span class="brand-badge d-inline-flex align-items-center justify-content-center rounded-circle shadow-sm">
+        <i class="bi bi-gear-fill"></i>
+      </span>
+      <span class="fw-bold">Admin Panel</span>
+    </a>
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-bs-toggle="collapse"
+      data-bs-target="#adminNavbar"
+      aria-controls="adminNavbar"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+    >
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="adminNavbar">
+      <ul class="navbar-nav me-auto mb-3 mb-lg-0 align-items-lg-center gap-lg-2">
+        <li class="nav-item"><a class="nav-link" href="/admin/manage-courses">Courses</a></li>
+        <li class="nav-item"><a class="nav-link" href="/admin/manage-customers">Families</a></li>
+        <li class="nav-item"><a class="nav-link" href="/admin/manage-testimonials">Testimonials</a></li>
+        <li class="nav-item"><a class="nav-link" href="/admin/add-course">Create Course</a></li>
+        <li class="nav-item"><a class="nav-link" href="/admin/social-media">Social Media</a></li>
+      </ul>
+
+      <ul class="navbar-nav ms-lg-3">
+        {% if current_user %}
+        <li class="nav-item dropdown">
+          <a
+            class="nav-link dropdown-toggle d-flex align-items-center gap-2"
+            href="#"
+            id="adminAccountDropdown"
+            role="button"
+            data-bs-toggle="dropdown"
+            aria-expanded="false"
+          >
+            <i class="bi bi-person-badge-fill"></i>
+            <span class="fw-semibold">{{ current_user.email }}</span>
+          </a>
+          <ul class="dropdown-menu dropdown-menu-end shadow" aria-labelledby="adminAccountDropdown">
+            <li><a class="dropdown-item" href="/">View website</a></li>
+            <li><hr class="dropdown-divider"></li>
+            <li><button id="logoutBtn" class="dropdown-item text-danger" type="button">Log out</button></li>
+          </ul>
+        </li>
+        {% else %}
+        <li class="nav-item">
+          <a class="btn btn-sm btn-gradient" href="/login">Sign in</a>
+        </li>
+        {% endif %}
+      </ul>
     </div>
-  </nav>  
+  </div>
+</nav>
   
