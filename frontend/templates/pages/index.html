@@ -111,7 +111,7 @@
         <span class="badge bg-primary">{{ hero_course.duration }}</span>
         <span class="badge bg-primary">Live Projects</span>
       </div>
-      <p class="mb-3">{{ hero_course.summary }}</p>
+      <div class="mb-3 hero-course-summary">{{ hero_course.summary | safe }}</div>
       <div class="d-grid gap-2 d-md-flex">
         <a href="/registration?course={{ hero_course.id }}" class="btn btn-primary me-md-2 flex-fill">Register Now</a>
         <a href="/courses/{{ hero_course.id }}" class="btn btn-outline-primary flex-fill">View Details</a>
