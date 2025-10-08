@@ -1,55 +1,76 @@
-/* frontend/static/css/header.css */
+/* Theme navigation styling */
 
-/* .navbar {
-    background: #3e64ff;
-    padding: 10px 20px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 1030;
 }
 
-.navbar .logo {
-    color: white;
-    font-size: 1.5em;
-    text-decoration: none;
+.navbar-theme {
+  background: linear-gradient(135deg, rgba(255, 111, 97, 0.95), rgba(77, 157, 224, 0.95));
+  border-bottom: 3px solid rgba(255, 209, 102, 0.45);
+  transition: box-shadow 0.2s ease;
 }
 
-.navbar .nav-links {
-    list-style: none;
-    display: flex;
-    gap: 15px;
+.navbar-theme .navbar-brand,
+.navbar-theme .nav-link {
+  color: #fff !important;
+  font-weight: 600;
+  letter-spacing: 0.02em;
 }
 
-.navbar .nav-links a {
-    color: white;
-    text-decoration: none;
-    font-size: 1em;
-} */
-
-/* navbar.css */
-
-/* Default state: Primary Blue */
-
-.navbar {
-  transition: padding 0.2s ease;
-}
-
-.navbar .nav-link,
-.navbar .navbar-brand {
-  color: var(--primary-color) !important;
-}
-
-/* Hover state: Purple */
-.navbar .nav-link:hover,
-.navbar .navbar-brand:hover {
+.navbar-theme .nav-link:hover,
+.navbar-theme .nav-link:focus,
+.navbar-theme .navbar-brand:hover {
   color: var(--accent-color) !important;
 }
 
-/* Active/Focus state: Pink */
-.navbar .nav-link:active,
-.navbar .navbar-brand:active,
-.navbar .nav-link:focus,
-.navbar .navbar-brand:focus {
-  color: var(--accent-color) !important;
+.navbar-theme .nav-link.active {
+  color: #fff;
+  position: relative;
+}
+
+.navbar-theme .nav-link.active::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -0.25rem;
+  width: 100%;
+  height: 3px;
+  background: var(--accent-color);
+  border-radius: 999px;
+}
+
+.navbar-theme .dropdown-menu {
+  border-radius: 1rem;
+  border: 1px solid rgba(233, 224, 255, 0.7);
+  box-shadow: 0 16px 35px rgba(26, 28, 45, 0.18);
+  padding: 0.75rem 0;
+}
+
+.navbar-theme .dropdown-item {
+  font-weight: 500;
+  color: var(--neutral-900);
+  padding: 0.5rem 1.5rem;
+}
+
+.navbar-theme .dropdown-item:hover,
+.navbar-theme .dropdown-item:focus {
+  background: rgba(255, 111, 97, 0.1);
+  color: var(--primary-dark);
+}
+
+.navbar-theme .navbar-toggler {
+  border-color: rgba(255, 255, 255, 0.6);
+}
+
+.navbar-theme .navbar-toggler-icon {
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba(255,255,255,0.85)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+}
+
+@media (max-width: 991.98px) {
+  .navbar-theme .navbar-nav .btn {
+    margin-bottom: 0.75rem;
+  }
 }
 
