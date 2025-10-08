@@ -15,7 +15,6 @@ from fastapi import (
 from jose import JWTError, jwt
 from jose.exceptions import ExpiredSignatureError
 from passlib.context import CryptContext
-from sqlalchemy.exc import IntegrityError
 from sqlalchemy.orm import Session
 import secrets
 
@@ -254,10 +253,7 @@ async def logout(
     if not existing_token:
         blacklisted_token = BlacklistedToken(token=access_token)
         db.add(blacklisted_token)
-        try:
-            db.commit()
-        except IntegrityError:
-            db.rollback()
+        db.commit()
 
     logout_response = JSONResponse({"detail": "Logged out successfully"})
     logout_response.delete_cookie(key="access_token", path="/")
