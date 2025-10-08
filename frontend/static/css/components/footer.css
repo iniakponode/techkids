@@ -1,11 +1,18 @@
+footer {
+  background: linear-gradient(180deg, rgba(26, 28, 45, 0.95) 0%, rgba(26, 28, 45, 0.85) 100%);
+  color: #fff;
+}
+
 footer a {
-    color: var(--primary-color);
+  color: var(--accent-color);
+  font-weight: 500;
 }
 footer a:hover {
-    text-decoration: underline;
+  text-decoration: none;
+  color: #fff;
 }
 
 footer .attribution {
-    font-size: 0.85rem;
-    color: #666;
+  font-size: 0.85rem;
+  color: rgba(255, 255, 255, 0.7);
 }

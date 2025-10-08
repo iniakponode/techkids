@@ -1,57 +1,67 @@
-document.addEventListener('DOMContentLoaded', () => {
-    const loginForm = document.getElementById('login-form');
+document.addEventListener("DOMContentLoaded", () => {
+  const loginForm = document.getElementById("login-form");
+  if (!loginForm) return;
 
-    loginForm.addEventListener('submit', async (event) => {
-        event.preventDefault(); // Prevent default form submission
+  const usernameField = document.getElementById("username");
+  const passwordField = document.getElementById("password");
+  const nextField = document.getElementById("next");
+  const messageDiv = document.getElementById("loginMessage");
 
-        const username = document.getElementById('username').value;
-        const password = document.getElementById('password').value;
-        const messageDiv = document.getElementById('loginMessage');
+  const params = new URLSearchParams(window.location.search);
+  if (nextField && !nextField.value) {
+    const nextParam = params.get("next");
+    if (nextParam) {
+      nextField.value = nextParam;
+    }
+  }
 
-        try {
-            const response = await fetch('/api/auth/login', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify({ // Stringify the data
-                    username: username,
-                    password: password,
-                }),
-            });
+  loginForm.addEventListener("submit", async (event) => {
+    event.preventDefault();
+    if (messageDiv) {
+      messageDiv.innerHTML = "";
+    }
 
-            const data = await response.json();
+    const payload = {
+      username: usernameField.value.trim(),
+      password: passwordField.value,
+    };
 
-            if (response.ok) {
-                // Successful login
-                if (data.role === 'admin') {
-                    // Redirect admin to dashboard
-                    messageDiv.innerHTML = `<div class="alert alert-success">${data.detail}</div>`;
-                    setTimeout(
-                        ()=>{
-                            window.location.href='admin/dashboard'
-                        }
-                    )
-                    // window.location.href = '/admin/dashboard';
-                } else {
-                    // Student, parent, organisation
-                    // If there's a pending order, redirect to payment
-                    if (pending_order_id) {
-                        window.location.href = `/payment?order=${pending_order_id}`;
-                    } else {
-                        // Redirect other users (e.g., to home page)
-                        window.location.href = '/'; // Or wherever you want to redirect
-                    }
-                    
-                }
-            } else {
-                messageDiv.innerHTML = `<div class="alert alert-danger">${data.detail}</div>`;
-                // Login failed
-                // alert(data.detail || 'Login failed. Please try again.');
-            }
-        } catch (error) {
-            console.error('Login error:', error);
-            alert('An unexpected error occurred.');
+    if (nextField && nextField.value) {
+      payload.next = nextField.value;
+    }
+
+    try {
+      const response = await fetch("/api/auth/login", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        credentials: "include",
+        body: JSON.stringify(payload),
+      });
+
+      const data = await response.json().catch(() => ({}));
+
+      if (response.ok) {
+        if (messageDiv) {
+          messageDiv.innerHTML = `<div class="alert alert-success" role="status">${data.detail || "Login successful"}</div>`;
         }
-    });
+
+        const redirectTarget = data.redirect_url || "/";
+        setTimeout(() => {
+          window.location.assign(redirectTarget);
+        }, 400);
+      } else {
+        const errorMessage = data.detail || "Login failed. Please try again.";
+        if (messageDiv) {
+          messageDiv.innerHTML = `<div class="alert alert-danger" role="alert">${errorMessage}</div>`;
+        }
+      }
+    } catch (error) {
+      console.error("Login error:", error);
+      if (messageDiv) {
+        messageDiv.innerHTML = `<div class="alert alert-danger" role="alert">An unexpected error occurred. Please try again.</div>`;
+      }
+    }
+  });
 });
