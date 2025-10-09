@@ -1,0 +1,121 @@
+{% extends "layout/base.html" %}
+
+{% block title %}My Learning | TechKids{% endblock %}
+
+{% block extra_head %}
+  <link rel="stylesheet" href="/static/css/pages/student_dashboard.css">
+  <script src="/static/js/pages/student_dashboard.js" defer></script>
+{% endblock %}
+
+{% block content %}
+<section class="dashboard-hero py-5 text-white">
+  <div class="container">
+    <div class="d-flex flex-column flex-md-row align-items-md-end justify-content-between gap-4">
+      <div>
+        <p class="text-uppercase small fw-semibold tracking-wide mb-2">Welcome back</p>
+        <h1 class="display-5 fw-bold mb-1" id="dashboardGreeting">Student dashboard</h1>
+        <p class="mb-0" id="dashboardSubtext">Track your enrolments, lesson progress and payments in one place.</p>
+      </div>
+      <div class="text-md-end">
+        <span class="badge rounded-pill bg-light text-dark px-3 py-2">
+          <i class="bi bi-lightning-charge-fill me-2 text-warning"></i>
+          Last active <span id="lastActiveText">—</span>
+        </span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="py-5">
+  <div class="container">
+    <div class="row g-4" id="dashboardSummary">
+      <div class="col-md-4">
+        <div class="summary-card h-100">
+          <p class="summary-label">Total courses</p>
+          <p class="summary-value" id="totalCourses">0</p>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="summary-card h-100">
+          <p class="summary-label">In progress</p>
+          <p class="summary-value" id="activeCourses">0</p>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="summary-card h-100">
+          <p class="summary-label">Completed</p>
+          <p class="summary-value" id="completedCourses">0</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="pb-5">
+  <div class="container">
+    <div class="d-flex flex-column flex-md-row justify-content-between align-items-start align-items-md-center mb-4 gap-3">
+      <div>
+        <h2 class="h3 mb-1">Your courses</h2>
+        <p class="text-muted mb-0">Stay on track by completing lessons and checking outstanding balances.</p>
+      </div>
+      <div>
+        <a href="/registration" class="btn btn-gradient">Register for another course</a>
+      </div>
+    </div>
+    <div id="coursesContainer" class="d-grid gap-4">
+      <div class="text-center py-5 text-muted" id="coursesEmptyState">
+        <i class="bi bi-journal-text display-5 d-block mb-3"></i>
+        <p class="lead mb-2">You have not registered for any courses yet.</p>
+        <a href="/registration" class="btn btn-primary">Browse courses</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="pb-5 bg-light">
+  <div class="container">
+    <div class="d-flex flex-column flex-md-row justify-content-between align-items-start align-items-md-center mb-4 gap-3">
+      <div>
+        <h2 class="h3 mb-1">Payment receipts</h2>
+        <p class="text-muted mb-0">Download confirmations for completed payments at any time.</p>
+      </div>
+    </div>
+    <div class="table-responsive" id="receiptsWrapper">
+      <table class="table table-hover align-middle" id="receiptsTable">
+        <thead class="table-light">
+          <tr>
+            <th scope="col">Receipt</th>
+            <th scope="col">Date</th>
+            <th scope="col">Courses</th>
+            <th scope="col">Amount</th>
+            <th scope="col" class="text-end">Action</th>
+          </tr>
+        </thead>
+        <tbody id="receiptsBody">
+        </tbody>
+      </table>
+    </div>
+    <div class="text-center py-4 text-muted d-none" id="receiptsEmptyState">
+      <i class="bi bi-receipt-cutoff display-5 d-block mb-3"></i>
+      <p class="lead mb-0">No payment receipts yet. Your completed payments will appear here.</p>
+    </div>
+  </div>
+</section>
+
+<div class="modal fade" id="lessonContentModal" tabindex="-1" aria-labelledby="lessonContentLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg modal-dialog-scrollable">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="lessonContentLabel">Lesson content</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body" id="lessonContentBody">
+        <p class="text-muted mb-0">Select a lesson to preview its description and resources.</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

@@ -38,6 +38,7 @@ from backend.models.order import Order
 from backend.models.payment import Payment
 from backend.models.registration import Registration
 from backend.services.paystack_service import initialize_transaction, verify_transaction
+from backend.crud.payment_receipt import crud_payment_receipt
 from backend.pydanticschemas.payment import PaymentInitRequest
 
 logger = logging.getLogger(__name__)
@@ -173,7 +174,29 @@ def paystack_verify_payment(
         logger.info(f"Payment {payment.id} verified. Order {order_obj.id} marked paid.")
         paid_at_str = payment.payment_date.strftime("%Y-%m-%d %H:%M:%S")
         registrations = db.query(Registration).filter(Registration.order_id == order_obj.id).all()
-        courses = [{"title": reg.course.title, "price": float(reg.course.price)} for reg in registrations]
+        receipt_line_items = []
+        courses = []
+        for reg in registrations:
+            course = reg.course
+            title = course.title if course else "Course"
+            price = float(course.price) if course and course.price is not None else None
+            line_item = {"title": title}
+            if price is not None:
+                line_item["price"] = price
+            receipt_line_items.append(line_item)
+            courses.append({"title": title, "price": price})
+
+        if not crud_payment_receipt.get_by_payment(db, payment.id):
+            crud_payment_receipt.create(
+                db,
+                user_id=order_obj.user_id,
+                order_id=order_obj.id,
+                payment_id=payment.id,
+                amount=float(payment.amount),
+                currency="NGN",
+                payment_date=payment.payment_date,
+                line_items=receipt_line_items,
+            )
 
         # Generate a unique token for accessing payment details
         token = str(uuid.uuid4())

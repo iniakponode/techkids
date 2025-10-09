@@ -12,4 +12,5 @@ from backend.models.learning_progress import LearningProgress
 from backend.models.course_module import CourseModule
 from backend.models.course_lesson import CourseLesson
 from backend.models.lesson_progress import LessonProgress
+from backend.models.payment_receipt import PaymentReceipt
 
