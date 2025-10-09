@@ -1,0 +1,154 @@
+{% extends "layout/base.html" %}
+
+{% block title %}Manage Learning Paths{% endblock %}
+
+{% block extra_head %}
+{{ super() }}
+<script src="/static/js/pages/manage_learning_paths.js" defer></script>
+{% endblock %}
+
+{% block content %}
+<div class="container py-5">
+  <div class="d-flex flex-column flex-lg-row justify-content-between align-items-lg-center gap-3 mb-4">
+    <div>
+      <h1 class="h3 mb-1">Manage Learning Paths</h1>
+      <p class="text-muted mb-0">Curate the modules and lessons that make up each course.</p>
+    </div>
+    <a class="btn btn-outline-primary" href="/admin/manage-courses">
+      <i class="bi bi-journal-text me-2"></i>Manage courses
+    </a>
+  </div>
+
+  <div id="learningPathAlerts" class="mb-4"></div>
+
+  <div class="row g-4">
+    <div class="col-lg-8">
+      <div class="card shadow-sm h-100">
+        <div class="card-body">
+          <div class="row g-3 align-items-end mb-4">
+            <div class="col-lg-8">
+              <label for="courseSelect" class="form-label">Course</label>
+              <select
+                id="courseSelect"
+                class="form-select"
+                {% if not courses %}disabled{% endif %}
+                aria-label="Select course to manage learning path"
+              >
+                {% for course in courses %}
+                <option value="{{ course.id }}" {% if course.id == selected_course_id %}selected{% endif %}>
+                  {{ course.title }}
+                </option>
+                {% endfor %}
+              </select>
+              <div class="form-text">
+                {% if courses %}
+                Choose a course to review and update its curriculum structure.
+                {% else %}
+                Add a course first to begin organising its learning path.
+                {% endif %}
+              </div>
+            </div>
+            <div class="col-lg-4 text-lg-end">
+              <span class="badge text-bg-secondary" id="moduleCountBadge">0 modules</span>
+            </div>
+          </div>
+
+          <div id="modulesContainer" class="d-flex flex-column gap-3" data-course-id="{{ selected_course_id or '' }}">
+            <div class="text-center text-muted py-5">
+              {% if selected_course_id %}
+              Loading learning path…
+              {% elif courses %}
+              Choose a course to view its learning path.
+              {% else %}
+              Create a course to start building its learning path.
+              {% endif %}
+            </div>
+          </div>
+          <div id="modulesEmptyState" class="alert alert-info d-none mt-4" role="status">
+            This course doesn't have any modules yet. Use the form on the right to add the first module.
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-lg-4">
+      <div class="card shadow-sm h-100">
+        <div class="card-body">
+          <div class="d-flex justify-content-between align-items-center mb-3">
+            <h2 class="h5 mb-0" id="moduleFormHeading">Add module</h2>
+            <i class="bi bi-layers"></i>
+          </div>
+          <p class="text-muted small">Modules help you group lessons into themed segments. Set the order using the position field (starting at 0).</p>
+          <div id="moduleFormAlert" class="alert d-none" role="alert"></div>
+          <form id="moduleForm" class="needs-validation" novalidate>
+            <input type="hidden" id="moduleId" />
+            <div class="mb-3">
+              <label for="moduleTitle" class="form-label">Module title</label>
+              <input type="text" class="form-control" id="moduleTitle" name="title" required placeholder="e.g. Introduction to Robotics" />
+              <div class="invalid-feedback">Please provide a module title.</div>
+            </div>
+            <div class="mb-3">
+              <label for="moduleDescription" class="form-label">Description <span class="text-muted">(optional)</span></label>
+              <textarea class="form-control" id="moduleDescription" name="description" rows="4" placeholder="Outline what this module covers."></textarea>
+            </div>
+            <div class="mb-4">
+              <label for="modulePosition" class="form-label">Position</label>
+              <input type="number" class="form-control" id="modulePosition" name="position" min="0" value="0" />
+              <div class="form-text">Lower numbers appear first in the learning path.</div>
+            </div>
+            <div class="d-grid gap-2">
+              <button type="submit" class="btn btn-primary" id="moduleFormSubmit">Add module</button>
+              <button type="button" class="btn btn-outline-secondary d-none" id="moduleFormCancel">Cancel edit</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="lessonModal" tabindex="-1" aria-labelledby="lessonModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg modal-dialog-scrollable">
+    <div class="modal-content">
+      <form id="lessonForm" novalidate>
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="lessonModalLabel">Add lesson</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <div id="lessonFormAlert" class="alert d-none" role="alert"></div>
+          <input type="hidden" id="lessonId" />
+          <input type="hidden" id="lessonModuleId" />
+          <div class="mb-3">
+            <label for="lessonTitle" class="form-label">Lesson title</label>
+            <input type="text" class="form-control" id="lessonTitle" required placeholder="e.g. Building with sensors" />
+            <div class="invalid-feedback">Please provide a lesson title.</div>
+          </div>
+          <div class="mb-3">
+            <label for="lessonContent" class="form-label">Content summary <span class="text-muted">(optional)</span></label>
+            <textarea class="form-control" id="lessonContent" rows="4" placeholder="Short overview, resources or teaching notes."></textarea>
+          </div>
+          <div class="row g-3">
+            <div class="col-md-4">
+              <label for="lessonPosition" class="form-label">Position</label>
+              <input type="number" class="form-control" id="lessonPosition" min="0" value="0" />
+            </div>
+            <div class="col-md-4">
+              <label for="lessonDuration" class="form-label">Duration (minutes)</label>
+              <input type="number" class="form-control" id="lessonDuration" min="0" />
+            </div>
+            <div class="col-md-4">
+              <label for="lessonResource" class="form-label">Resource link <span class="text-muted">(optional)</span></label>
+              <input type="url" class="form-control" id="lessonResource" placeholder="https://" />
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">Close</button>
+          <button type="submit" class="btn btn-primary" id="lessonFormSubmit">Save lesson</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+{% endblock %}

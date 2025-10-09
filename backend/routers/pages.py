@@ -295,6 +295,38 @@ async def manage_courses_page(
     )
 
 
+@router.get("/admin/manage-learning-paths", name="manage_learning_paths")
+async def manage_learning_paths_page(
+    request: Request,
+    user: User = Depends(get_current_user),
+    db: Session = Depends(get_db),
+    course_id: int | None = None,
+):
+    """Render the learning path management workspace for admins."""
+
+    if user.role != "admin":
+        raise HTTPException(status_code=403, detail="Admin access required")
+
+    courses = db.query(Course).order_by(Course.title.asc()).all()
+    selected_course_id: int | None = None
+
+    if courses:
+        if course_id and any(course.id == course_id for course in courses):
+            selected_course_id = course_id
+        else:
+            selected_course_id = courses[0].id
+
+    return templates.TemplateResponse(
+        "admin/manage_learning_paths.html",
+        {
+            "request": request,
+            "current_user": user,
+            "courses": courses,
+            "selected_course_id": selected_course_id,
+        },
+    )
+
+
 @router.get("/admin/manage-registrations", name="manage_registrations")
 async def manage_registrations_page(
     request: Request,
