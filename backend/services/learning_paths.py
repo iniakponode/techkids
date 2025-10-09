@@ -43,10 +43,13 @@ def ensure_registration_progress(
     """Guarantee that a ``LearningProgress`` row exists for ``registration``."""
 
     progress = registration.progress
-    if not progress:
-        progress = LearningProgress(registration_id=registration.id)
+    if progress is None:
+        progress = LearningProgress(registration=registration)
         db.add(progress)
         db.flush()
+        # Ensure the in-memory registration relationship is updated so repeated
+        # calls during the same session reuse the freshly created object.
+        registration.progress = progress
     return progress
 
 
