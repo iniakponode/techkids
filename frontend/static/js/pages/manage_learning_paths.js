@@ -40,6 +40,7 @@
       modules: [],
       editingModuleId: null,
       editingLessonId: null,
+      modulesRequestToken: null,
     };
 
     const bootstrapModal = window.bootstrap && window.bootstrap.Modal ? window.bootstrap.Modal : null;
@@ -490,6 +491,9 @@
         return;
       }
 
+      const requestToken = Symbol('modulesFetch');
+      state.modulesRequestToken = requestToken;
+
       modulesContainer.innerHTML = '<div class="text-center text-muted py-5">Loading learning path…</div>';
       if (modulesEmptyState) {
         modulesEmptyState.classList.add('d-none');
@@ -501,9 +505,15 @@
           throw new Error('Unable to load the learning path right now.');
         }
         const data = await response.json();
+        if (state.modulesRequestToken !== requestToken || state.activeCourseId !== courseId) {
+          return;
+        }
         state.modules = Array.isArray(data) ? data : [];
         renderModules();
       } catch (error) {
+        if (state.modulesRequestToken !== requestToken || state.activeCourseId !== courseId) {
+          return;
+        }
         state.modules = [];
         modulesContainer.innerHTML = `<div class="alert alert-danger" role="alert">${
           error && error.message ? error.message : 'Unable to load the learning path right now.'
@@ -513,8 +523,10 @@
           modulesEmptyState.classList.add('d-none');
         }
       } finally {
-        updateModuleFormState();
-        updateModuleDefaultPosition();
+        if (state.modulesRequestToken === requestToken && state.activeCourseId === courseId) {
+          updateModuleFormState();
+          updateModuleDefaultPosition();
+        }
       }
     };
 
