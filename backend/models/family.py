@@ -3,7 +3,7 @@
 from datetime import datetime
 
 from sqlalchemy import Column, DateTime, ForeignKey, Integer, String, UniqueConstraint
-from sqlalchemy.orm import relationship
+from sqlalchemy.orm import relationship as orm_relationship
 
 from backend.core.database import Base
 
@@ -34,12 +34,12 @@ class FamilyLink(Base):
     relationship_label = Column(String(50), nullable=True)
     created_at = Column(DateTime, default=datetime.utcnow)
 
-    parent = relationship(
+    parent = orm_relationship(
         "User",
         foreign_keys=[parent_id],
         back_populates="children_links",
     )
-    child = relationship(
+    child = orm_relationship(
         "User",
         foreign_keys=[child_id],
         back_populates="guardian_links",
