@@ -197,6 +197,8 @@ def login(request: Request, form_data: LoginForm, db: Session = Depends(get_db))
         response_payload["redirect_url"] = "/admin/dashboard"
     elif pending_order_id:
         response_payload["redirect_url"] = f"/payment?order={pending_order_id}"
+    elif user.role in {"student", "child", "parent"}:
+        response_payload["redirect_url"] = "/student/dashboard"
     else:
         response_payload["redirect_url"] = "/"
 

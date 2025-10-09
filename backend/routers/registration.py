@@ -30,36 +30,38 @@ def public_register(
     if data.password != data.confirm_password:
         raise HTTPException(status_code=400, detail="Passwords do not match.")
 
-    # Check if the email is already registered
     existing_user = db.query(User).filter(User.email == data.email).first()
+
     if existing_user:
-        raise HTTPException(status_code=400, detail="Email is already registered.")
+        if not pwd_context.verify(data.password, existing_user.password_hash):
+            raise HTTPException(status_code=400, detail="Incorrect password for existing account.")
+        user = existing_user
+    else:
+        hashed_pw = pwd_context.hash(data.password)
+        user = User(
+            email=data.email,
+            password_hash=hashed_pw,
+            role=data.role,
+            is_active=True,
+            is_verified=False,
+        )
+        db.add(user)
+        db.commit()
+        db.refresh(user)
 
-    # Create new user
-    hashed_pw = pwd_context.hash(data.password)
-    new_user = User(
-        email=data.email,
-        password_hash=hashed_pw,
-        role=data.role,
-        is_active=True,
-        is_verified=False
-    )
-    db.add(new_user)
-    db.commit()
-    db.refresh(new_user)
-
-    # Compute total cost for the courses the user selected
     total_cost = 0.0
-    courses = []
+    courses: List[Course] = []
     for course_id in data.course_ids:
-        course = db.query(Course).get(course_id)
+        course = db.query(Course).filter(Course.id == course_id).first()
         if course:
             total_cost += course.price
             courses.append(course)
 
-    # Create a new order for the user
+    if not courses:
+        raise HTTPException(status_code=400, detail="Please select at least one course to continue.")
+
     new_order = Order(
-        user_id=new_user.id,
+        user_id=user.id,
         total_amount=total_cost,
         status="pending"
     )
@@ -67,21 +69,25 @@ def public_register(
     db.commit()
     db.refresh(new_order)
 
-    # Create registrations for the selected courses
     for course in courses:
         registration = Registration(
-            user_id=new_user.id,
+            user_id=user.id,
             course_id=course.id,
-            order_id=new_order.id,  # Link registration to the order
-            fullName=data.fullName,  # Make sure this field is set
-            phone=data.phone,        # Make sure this field is set
+            order_id=new_order.id,
+            fullName=data.fullName,
+            phone=data.phone,
             status="pending",
         )
         db.add(registration)
 
-    db.commit()  # Commit the registrations
+    db.commit()
 
-    logger.info(f"User {new_user.email} registered. Order {new_order.id} created with {len(courses)} courses.")
+    logger.info(
+        "User %s registered. Order %s created with %s courses.",
+        user.email,
+        new_order.id,
+        len(courses),
+    )
 
     return {
         "order_id": new_order.id,

@@ -2,7 +2,7 @@
 
 from __future__ import annotations
 
-from typing import Optional
+from typing import List, Optional
 
 from fastapi import APIRouter, Depends, HTTPException, status
 from sqlalchemy.orm import Session
@@ -10,6 +10,8 @@ from sqlalchemy.orm import Session
 from backend.core.database import get_db
 from backend.dependencies.auth_roles import require_role
 from backend.models.user import User
+from backend.crud.payment_receipt import crud_payment_receipt
+from backend.pydanticschemas.payment_receipt import PaymentReceiptResponse
 from backend.pydanticschemas.student_dashboard import StudentDashboardResponse
 from backend.services.student_dashboard import build_student_dashboard
 
@@ -21,7 +23,7 @@ router = APIRouter(prefix="/students", tags=["students"])
 def get_student_dashboard(
     student_id: Optional[int] = None,
     db: Session = Depends(get_db),
-    current_user: User = Depends(require_role(["student", "child", "admin"])),
+    current_user: User = Depends(require_role(["student", "child", "parent", "admin"])),
 ) -> StudentDashboardResponse:
     """Return the authenticated learner's dashboard, or a specified learner for admins."""
 
@@ -47,3 +49,13 @@ def get_student_dashboard(
         student = current_user
 
     return build_student_dashboard(db, student)
+
+
+@router.get("/receipts", response_model=List[PaymentReceiptResponse])
+def list_student_receipts(
+    db: Session = Depends(get_db),
+    current_user: User = Depends(require_role(["student", "child", "parent", "admin"])),
+) -> List[PaymentReceiptResponse]:
+    """Return all payment receipts for the authenticated learner."""
+
+    return crud_payment_receipt.list_for_user(db, current_user.id)

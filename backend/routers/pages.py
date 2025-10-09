@@ -79,6 +79,22 @@ def registration_page(
     )
 
 
+@router.get("/student/dashboard", name="student-dashboard")
+async def student_dashboard_page(
+    request: Request,
+    current_user: User = Depends(get_current_user),
+):
+    """Render the authenticated learner dashboard."""
+
+    if current_user.role not in {"student", "child", "parent", "admin"}:
+        raise HTTPException(status_code=403, detail="You do not have access to the student dashboard.")
+
+    return templates.TemplateResponse(
+        "pages/student_dashboard.html",
+        {"request": request, "current_user": current_user},
+    )
+
+
 @router.get("/courses/{course_id}", name="course-detail")
 def course_detail_page(
     request: Request,
