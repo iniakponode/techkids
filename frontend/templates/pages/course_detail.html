@@ -6,7 +6,7 @@
     <div class="col-lg-10 col-xl-8">
       <img src="{{ course.image_url }}" alt="{{ course.title }}" class="img-fluid rounded mb-4 w-100">
       <h2 class="mb-3">{{ course.title }}</h2>
-      <div class="mb-3 course-description" >{{ course.description | safe }}</div>
+      <div class="mb-3 course-description">{{ course.description | safe }}</div>
       <p class="fw-semibold text-secondary mb-1"><i class="bi bi-tag-fill"></i> Category: {{ course.category }}</p>
       <p class="fw-semibold text-secondary mb-1"><i class="bi bi-person-fill"></i> Age Group: {{ course.age_group }}</p>
       <p class="fw-semibold text-secondary mb-1"><i class="bi bi-clock-fill"></i> Duration: {{ course.duration }}</p>

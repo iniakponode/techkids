@@ -15,6 +15,8 @@ from fastapi import (
 from jose import JWTError, jwt
 from jose.exceptions import ExpiredSignatureError
 from passlib.context import CryptContext
+from sqlalchemy.exc import IntegrityError
+from sqlalchemy import text
 from sqlalchemy.orm import Session
 import secrets
 
@@ -251,9 +253,22 @@ async def logout(
         db.query(BlacklistedToken).filter(BlacklistedToken.token == access_token).first()
     )
     if not existing_token:
-        blacklisted_token = BlacklistedToken(token=access_token)
-        db.add(blacklisted_token)
-        db.commit()
+        try:
+            bind = db.get_bind()
+            if bind and bind.dialect.name == "mysql":
+                db.execute(
+                    text(
+                        "INSERT IGNORE INTO blacklisted_tokens (token) VALUES (:token)"
+                    ),
+                    {"token": access_token},
+                )
+            else:
+                blacklisted_token = BlacklistedToken(token=access_token)
+                db.add(blacklisted_token)
+
+            db.commit()
+        except IntegrityError:
+            db.rollback()
 
     logout_response = JSONResponse({"detail": "Logged out successfully"})
     logout_response.delete_cookie(key="access_token", path="/")
