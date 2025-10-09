@@ -47,8 +47,14 @@ def build_child_response(db: Session, link: FamilyLink) -> LinkedChildResponse:
         course_price = reg.course.price if reg.course else None
         order_status = reg.order.status if reg.order else None
         payment_status = None
-        if reg.order and reg.order.payment:
-            payment_status = reg.order.payment.status
+        payment_status_value = None
+        payment_obj = reg.order.payment if reg.order else None
+        if isinstance(payment_obj, list):
+            payment_obj = payment_obj[0] if payment_obj else None
+
+        if payment_obj:
+            payment_status = payment_obj.status
+            payment_status_value = (payment_status or "").lower()
 
         if not display_name and reg.fullName:
             display_name = reg.fullName
@@ -77,8 +83,7 @@ def build_child_response(db: Session, link: FamilyLink) -> LinkedChildResponse:
             if not reg.order:
                 should_count_outstanding = reg_status_value not in {"cancelled", "completed"}
             else:
-                if reg.order.payment:
-                    payment_status_value = (reg.order.payment.status or "").lower()
+                if payment_status_value is not None:
                     if payment_status_value not in {"successful", "paid", "completed"}:
                         should_count_outstanding = True
                 else:

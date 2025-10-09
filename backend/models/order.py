@@ -21,8 +21,14 @@ class Order(Base):
     # Deleting this order => remove referencing Registrations
     items = relationship("Registration", back_populates="order", cascade="all, delete-orphan", passive_deletes=True)
 
-    # 1-to-1 or 1-to-many Payment Relationship, typically 1-to-1
-    payment = relationship("Payment", back_populates="order", cascade="all, delete-orphan", passive_deletes=True)
+    # Treat payments as a one-to-one relationship so ``order.payment`` returns a single row
+    payment = relationship(
+        "Payment",
+        back_populates="order",
+        cascade="all, delete-orphan",
+        passive_deletes=True,
+        uselist=False,
+    )
 
     def __repr__(self):
         return (f"<Order(id={self.id}, user_id={self.user_id}, "
