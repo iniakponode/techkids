@@ -22,3 +22,16 @@ class User(Base):
     registrations = relationship("Registration", back_populates="user", cascade="all, delete-orphan")
     orders = relationship("Order", back_populates="user", cascade="all, delete-orphan")
     # payment = relationship("Payment", back_populates="user")
+
+    children_links = relationship(
+        "FamilyLink",
+        foreign_keys="FamilyLink.parent_id",
+        back_populates="parent",
+        cascade="all, delete-orphan",
+    )
+    guardian_links = relationship(
+        "FamilyLink",
+        foreign_keys="FamilyLink.child_id",
+        back_populates="child",
+        cascade="all, delete-orphan",
+    )
