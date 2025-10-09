@@ -47,6 +47,7 @@ def ensure_registration_progress(
         progress = LearningProgress(registration_id=registration.id)
         db.add(progress)
         db.flush()
+        registration.progress = progress
     return progress
 
 
