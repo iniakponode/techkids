@@ -31,41 +31,50 @@
 //   });
   
 
-  document.addEventListener("DOMContentLoaded", () => {
-    const logoutBtn = document.getElementById("logoutBtn");
-    if (!logoutBtn) return;
-    // Retrieve CSRF token from the meta tag
-    const csrfTokenMeta = document.querySelector('meta[name="csrf-token"]');
-    const csrfToken = csrfTokenMeta ? csrfTokenMeta.getAttribute("content") : null;
-  
-    logoutBtn.addEventListener("click", async (e) => {
-      e.preventDefault();
-  
-      try {
-          const response = await fetch("/api/auth/logout", {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-            "X-CSRF-Token": csrfToken,
-          },
-        });
-  
-        if (!response.ok) {
-          const data = await response.json();
-          throw new Error(data.detail || "Logout failed");
+document.addEventListener("DOMContentLoaded", () => {
+  const logoutBtn = document.getElementById("logoutBtn");
+  if (!logoutBtn) return;
+
+  const csrfTokenMeta = document.querySelector('meta[name="csrf-token"]');
+
+  logoutBtn.addEventListener("click", async (event) => {
+    event.preventDefault();
+
+    const csrfToken =
+      (csrfTokenMeta && csrfTokenMeta.getAttribute("content")) ||
+      getCookie("csrf_token");
+
+    try {
+      const response = await fetch("/api/auth/logout", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          "X-CSRF-Token": csrfToken || "",
+        },
+        credentials: "include",
+      });
+
+      if (!response.ok) {
+        if (response.status === 401) {
+          window.location.assign("/login");
+          return;
         }
-  
-        window.location.href = "/login";
-      } catch (err) {
-        alert("Logout error: " + err.message);
-        console.error("Logout error:", err);
+
+        const data = await response.json().catch(() => ({}));
+        throw new Error(data.detail || "Logout failed");
       }
-    });
-  
-    function getCookie(name) {
-      const value = `; ${document.cookie}`;
-      const parts = value.split(`; ${name}=`);
-      if (parts.length === 2) return parts.pop().split(";").shift();
+
+      window.location.assign("/login");
+    } catch (error) {
+      console.error("Logout error:", error);
+      alert(`Logout error: ${error.message}`);
     }
   });
-  
+});
+
+function getCookie(name) {
+  const value = `; ${document.cookie}`;
+  const parts = value.split(`; ${name}=`);
+  if (parts.length === 2) return parts.pop().split(";").shift();
+  return undefined;
+}
