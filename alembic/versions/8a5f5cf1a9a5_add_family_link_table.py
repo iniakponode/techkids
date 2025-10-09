@@ -40,7 +40,11 @@ def upgrade() -> None:
             name="uq_family_link_parent_child",
         ),
     )
+    op.create_index("ix_family_links_parent_id", "family_links", ["parent_id"])
+    op.create_index("ix_family_links_child_id", "family_links", ["child_id"])
 
 
 def downgrade() -> None:
+    op.drop_index("ix_family_links_child_id", table_name="family_links")
+    op.drop_index("ix_family_links_parent_id", table_name="family_links")
     op.drop_table("family_links")
