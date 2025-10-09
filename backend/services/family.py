@@ -2,6 +2,7 @@
 
 from __future__ import annotations
 
+from collections.abc import Iterable
 from typing import Optional
 
 from sqlalchemy.orm import Session
@@ -48,9 +49,15 @@ def build_child_response(db: Session, link: FamilyLink) -> LinkedChildResponse:
         order_status = reg.order.status if reg.order else None
         payment_status = None
         payment_status_value = None
-        payment_obj = reg.order.payment if reg.order else None
-        if isinstance(payment_obj, list):
-            payment_obj = payment_obj[0] if payment_obj else None
+        payment_obj = None
+        if reg.order:
+            raw_payment = getattr(reg.order, "payment", None)
+            if isinstance(raw_payment, Iterable) and not isinstance(raw_payment, (str, bytes)):
+                for candidate in raw_payment:
+                    if candidate is not None:
+                        payment_obj = candidate
+            else:
+                payment_obj = raw_payment
 
         if payment_obj:
             payment_status = payment_obj.status
