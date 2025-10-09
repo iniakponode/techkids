@@ -31,7 +31,7 @@ class FamilyLink(Base):
         ForeignKey("users.id", ondelete="CASCADE"),
         nullable=False,
     )
-    relationship = Column(String(50), nullable=True)
+    relationship_label = Column(String(50), nullable=True)
     created_at = Column(DateTime, default=datetime.utcnow)
 
     parent = relationship(

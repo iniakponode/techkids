@@ -98,7 +98,7 @@ def link_child(
     link = FamilyLink(
         parent_id=parent.id,
         child_id=child.id,
-        relationship=payload.relationship,
+        relationship_label=payload.relationship_label,
     )
     db.add(link)
     db.commit()

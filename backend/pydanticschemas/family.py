@@ -10,7 +10,7 @@ class LinkChildRequest(BaseModel):
     """Request payload for linking an existing child account to a guardian."""
 
     child_email: EmailStr
-    relationship: Optional[str] = None
+    relationship_label: Optional[str] = None
 
 
 class ChildRegistrationSummary(BaseModel):
@@ -28,7 +28,7 @@ class LinkedChildResponse(BaseModel):
     id: int
     email: EmailStr
     role: str
-    relationship: Optional[str]
+    relationship_label: Optional[str]
     linked_at: datetime
     display_name: Optional[str]
     registrations: List[ChildRegistrationSummary]

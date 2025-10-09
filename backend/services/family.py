@@ -89,7 +89,7 @@ def build_child_response(db: Session, link: FamilyLink) -> LinkedChildResponse:
         id=child.id,
         email=child.email,
         role=child.role,
-        relationship=link.relationship,
+        relationship_label=link.relationship_label,
         linked_at=link.created_at,
         display_name=display_name,
         registrations=reg_summaries,
