@@ -14,6 +14,8 @@ from backend.routers.social_media import router as social_media_router
 from backend.routers.teacher_application import router as teacher_app_router
 from backend.routers.testimonial import router as testimonial_router
 from backend.routers.category import router as category_router
+from backend.routers.family import router as family_router
+from backend.routers.learning_paths import router as learning_paths_router
 
 # API Router for backend endpoints
 api_router = APIRouter()
@@ -32,6 +34,8 @@ api_router.include_router(social_media_router)
 api_router.include_router(teacher_app_router, tags=["teacher_applications"])
 api_router.include_router(testimonial_router, tags=["testimonials"])
 api_router.include_router(category_router)
+api_router.include_router(family_router)
+api_router.include_router(learning_paths_router)
 
 # Export both routers
 __all__ = ["api_router","pages_router"]
