@@ -1,6 +1,8 @@
-from sqlalchemy import Column, Integer, ForeignKey, DateTime, String
-from sqlalchemy.orm import relationship
 from datetime import datetime
+
+from sqlalchemy import Column, DateTime, ForeignKey, Integer, String
+from sqlalchemy.orm import relationship
+
 from backend.core.database import Base
 
 class Registration(Base):
@@ -33,6 +35,13 @@ class Registration(Base):
 
     # The order relationship can cascade if we want order deletion => remove these
     order = relationship("Order", back_populates="items", passive_deletes=True)
+
+    progress = relationship(
+        "LearningProgress",
+        back_populates="registration",
+        cascade="all, delete-orphan",
+        uselist=False,
+    )
 
     def __repr__(self):
         return (f"<Registration(id={self.id}, fullName={self.fullName}, "
