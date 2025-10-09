@@ -30,6 +30,12 @@ class LearningProgress(Base):
     registration = relationship(
         "Registration", back_populates="progress", passive_deletes=True
     )
+    lesson_progress = relationship(
+        "LessonProgress",
+        back_populates="progress",
+        cascade="all, delete-orphan",
+        passive_deletes=True,
+    )
 
     def __repr__(self) -> str:  # pragma: no cover - debugging convenience
         return (
