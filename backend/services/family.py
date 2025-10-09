@@ -10,6 +10,7 @@ from backend.models.family import FamilyLink
 from backend.models.registration import Registration
 from backend.pydanticschemas.family import (
     ChildRegistrationSummary,
+    LearningProgressSummary,
     LinkedChildResponse,
 )
 
@@ -46,11 +47,35 @@ def build_child_response(db: Session, link: FamilyLink) -> LinkedChildResponse:
         course_price = reg.course.price if reg.course else None
         order_status = reg.order.status if reg.order else None
         payment_status = None
-        if reg.order and reg.order.payment:
-            payment_status = reg.order.payment.status
+        payment_status_value = None
+        payment_obj = reg.order.payment if reg.order else None
+        if isinstance(payment_obj, list):
+            payment_obj = payment_obj[0] if payment_obj else None
+
+        if payment_obj:
+            payment_status = payment_obj.status
+            payment_status_value = (payment_status or "").lower()
 
         if not display_name and reg.fullName:
             display_name = reg.fullName
+
+        progress_summary: Optional[LearningProgressSummary] = None
+        if reg.progress:
+            raw_percentage = reg.progress.completion_percentage or 0.0
+            calculated_percentage = raw_percentage
+            if reg.progress.total_lessons:
+                calculated_percentage = (
+                    reg.progress.completed_lessons / reg.progress.total_lessons
+                ) * 100
+
+            progress_summary = LearningProgressSummary(
+                completed_lessons=reg.progress.completed_lessons,
+                total_lessons=reg.progress.total_lessons,
+                completion_percentage=round(calculated_percentage, 2),
+                current_module=reg.progress.current_module,
+                current_lesson=reg.progress.current_lesson,
+                last_activity_at=reg.progress.last_activity_at,
+            )
 
         reg_status_value = (reg.status or "").lower()
         should_count_outstanding = False
@@ -58,8 +83,7 @@ def build_child_response(db: Session, link: FamilyLink) -> LinkedChildResponse:
             if not reg.order:
                 should_count_outstanding = reg_status_value not in {"cancelled", "completed"}
             else:
-                if reg.order.payment:
-                    payment_status_value = (reg.order.payment.status or "").lower()
+                if payment_status_value is not None:
                     if payment_status_value not in {"successful", "paid", "completed"}:
                         should_count_outstanding = True
                 else:
@@ -80,6 +104,7 @@ def build_child_response(db: Session, link: FamilyLink) -> LinkedChildResponse:
                 order_id=reg.order_id,
                 order_status=order_status,
                 payment_status=payment_status,
+                progress=progress_summary,
             )
         )
 

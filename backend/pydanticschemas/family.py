@@ -13,6 +13,15 @@ class LinkChildRequest(BaseModel):
     relationship_label: Optional[str] = None
 
 
+class LearningProgressSummary(BaseModel):
+    completed_lessons: int
+    total_lessons: int
+    completion_percentage: float
+    current_module: Optional[str]
+    current_lesson: Optional[str]
+    last_activity_at: Optional[datetime]
+
+
 class ChildRegistrationSummary(BaseModel):
     registration_id: int
     course_id: Optional[int]
@@ -22,6 +31,7 @@ class ChildRegistrationSummary(BaseModel):
     order_id: Optional[int]
     order_status: Optional[str]
     payment_status: Optional[str]
+    progress: Optional[LearningProgressSummary]
 
 
 class LinkedChildResponse(BaseModel):
