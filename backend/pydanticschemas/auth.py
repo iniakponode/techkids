@@ -1,6 +1,7 @@
-from pydantic import BaseModel
+from pydantic import BaseModel, EmailStr
 
 
 class LoginForm(BaseModel):
-    username: str
+    username: EmailStr
     password: str
+    next: str | None = None

@@ -13,7 +13,7 @@ from backend.models.registration import Registration
 from backend.models.order import Order
 from backend.models.course import Course
 from backend.crud.social_post import crud_social_post
-from backend.routers.auth import get_current_user
+from backend.routers.auth import get_current_user, get_optional_user
 
 router = APIRouter()
 
@@ -30,6 +30,7 @@ def home(
     age: str | None = None,
     price_min: str | None = None,
     price_max: str | None = None,
+    current_user: User | None = Depends(get_optional_user),
 ):
     """Render the home page with optional course filtering."""
     hero_course = crud_course.get_hero_course(db=db)
@@ -54,33 +55,44 @@ def home(
             "courses": courses,
             "hero_course": hero_course,
             "testimonials": testimonials,
+            "current_user": current_user,
         },
     )
 
 @router.get("/registration", name="registration")
-def registration_page(request: Request, db: Session = Depends(get_db)):
+def registration_page(
+    request: Request,
+    db: Session = Depends(get_db),
+    current_user: User | None = Depends(get_optional_user),
+):
     """Render the registration page with courses"""
     courses = crud_course.get_all(db=db)
     selected_course_id = request.query_params.get('course')
     return templates.TemplateResponse(
         "pages/registration.html", 
         {
-            "request": request, 
+            "request": request,
             "courses": courses,
-        "selected_course_id": selected_course_id
+            "selected_course_id": selected_course_id,
+            "current_user": current_user,
         }
     )
 
 
 @router.get("/courses/{course_id}", name="course-detail")
-def course_detail_page(request: Request, course_id: int, db: Session = Depends(get_db)):
+def course_detail_page(
+    request: Request,
+    course_id: int,
+    db: Session = Depends(get_db),
+    current_user: User | None = Depends(get_optional_user),
+):
     """Render a detailed course page."""
     course = crud_course.get_by_id(db=db, course_id=course_id)
     if not course:
         raise HTTPException(status_code=404, detail="Course not found")
     return templates.TemplateResponse(
         "pages/course_detail.html",
-        {"request": request, "course": course},
+        {"request": request, "course": course, "current_user": current_user},
     )
 
 # @router.get("/payment", name="payment")
@@ -100,7 +112,12 @@ def course_detail_page(request: Request, course_id: int, db: Session = Depends(g
 #     )
     
 @router.get("/payment", name="payment")
-def payment_page(request: Request, order: int, db: Session = Depends(get_db)):
+def payment_page(
+    request: Request,
+    order: int,
+    db: Session = Depends(get_db),
+    current_user: User | None = Depends(get_optional_user),
+):
     """
     Render the payment page for a specific order.
     Shows total amount, status, and a "Pay Now" button.
@@ -112,7 +129,7 @@ def payment_page(request: Request, order: int, db: Session = Depends(get_db)):
     # We'll pass the Order info to our template
     return templates.TemplateResponse(
         "pages/payment.html",
-        {"request": request, "order": order_obj}
+        {"request": request, "order": order_obj, "current_user": current_user}
     )
     
 # @router.get("/admin/add-course", name="add_course_form")
@@ -126,48 +143,84 @@ def payment_page(request: Request, order: int, db: Session = Depends(get_db)):
 #     )
 
 @router.get("/admin/register", name="admin-register-form")
-async def admin_register_page(request: Request, 
-                              user: User = Depends(get_current_user)
-                              ):
-    return templates.TemplateResponse("admin/admin_register.html", {"request": request, 
-                                                                    "current_user": user
-                                                                    })
+async def admin_register_page(
+    request: Request, user: User = Depends(get_current_user)
+):
+    return templates.TemplateResponse(
+        "admin/admin_register.html",
+        {"request": request, "current_user": user},
+    )
 
 @router.get("/login", name="login-form")
-async def login_page(request: Request):
-    return templates.TemplateResponse("pages/login.html", {"request": request})
+async def login_page(
+    request: Request, current_user: User | None = Depends(get_optional_user)
+):
+    return templates.TemplateResponse(
+        "pages/login.html", {"request": request, "current_user": current_user}
+    )
 
 @router.get("/logout", name="logout-form")
-async def logout_page(request: Request):
-    return templates.TemplateResponse("logout.html", {"request": request})
+async def logout_page(
+    request: Request, current_user: User | None = Depends(get_optional_user)
+):
+    return templates.TemplateResponse(
+        "logout.html", {"request": request, "current_user": current_user}
+    )
 
 @router.get("/contact-us", name="contact-us")
-async def contact_page(request: Request):
+async def contact_page(
+    request: Request, current_user: User | None = Depends(get_optional_user)
+):
     """Render the contact us page."""
-    return templates.TemplateResponse("pages/contact_us.html", {"request": request})
+    return templates.TemplateResponse(
+        "pages/contact_us.html",
+        {"request": request, "current_user": current_user},
+    )
 
 @router.get("/testimonial", name="testimonial-form")
-async def testimonial_form_page(request: Request):
+async def testimonial_form_page(
+    request: Request, current_user: User | None = Depends(get_optional_user)
+):
     """Render testimonial submission form."""
-    return templates.TemplateResponse("pages/testimonial_form.html", {"request": request})
+    return templates.TemplateResponse(
+        "pages/testimonial_form.html",
+        {"request": request, "current_user": current_user},
+    )
 
 @router.get("/teach", name="teach")
-async def teach_page(request: Request):
+async def teach_page(
+    request: Request, current_user: User | None = Depends(get_optional_user)
+):
     """Render the teach with us page."""
-    return templates.TemplateResponse("pages/teach.html", {"request": request})
+    return templates.TemplateResponse(
+        "pages/teach.html", {"request": request, "current_user": current_user}
+    )
 
 @router.get("/faq", name="faq")
-async def faq_page(request: Request):
+async def faq_page(
+    request: Request, current_user: User | None = Depends(get_optional_user)
+):
     """Render the frequently asked questions page."""
-    return templates.TemplateResponse("pages/faq.html", {"request": request})
+    return templates.TemplateResponse(
+        "pages/faq.html", {"request": request, "current_user": current_user}
+    )
 
 @router.get("/privacy-policy", name="privacy")
-async def privacy_page(request: Request):
-    return templates.TemplateResponse("pages/privacy_policy.html", {"request": request})
+async def privacy_page(
+    request: Request, current_user: User | None = Depends(get_optional_user)
+):
+    return templates.TemplateResponse(
+        "pages/privacy_policy.html",
+        {"request": request, "current_user": current_user},
+    )
 
 @router.get("/terms", name="terms")
-async def terms_page(request: Request):
-    return templates.TemplateResponse("pages/terms.html", {"request": request})
+async def terms_page(
+    request: Request, current_user: User | None = Depends(get_optional_user)
+):
+    return templates.TemplateResponse(
+        "pages/terms.html", {"request": request, "current_user": current_user}
+    )
 
 @router.get("/admin/manage-testimonials", name="manage_testimonials")
 async def manage_testimonials_page(request: Request, user: User = Depends(get_current_user), db: Session = Depends(get_db)):
