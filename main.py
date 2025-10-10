@@ -2,6 +2,7 @@ from __future__ import annotations
 
 import logging
 import os
+from contextlib import asynccontextmanager
 from pathlib import Path
 
 import dotenv
@@ -35,11 +36,24 @@ DATABASE_URL = os.getenv("DATABASE_URL")
 SECRET_KEY = os.getenv("SECRET_KEY", "techkids-development-secret")
 DEBUG = os.getenv("DEBUG") == "True"
 
+@asynccontextmanager
+async def lifespan(app: FastAPI):
+    """Ensure database tables exist and start background jobs."""
+    init_db()
+    start_scheduler()
+    yield
+
+
 app = FastAPI(
     title="TechKids Website",
     description="This is an API powering Techkids App",
     version="1.0.0",
+    lifespan=lifespan,
 )
+
+# Ensure tables exist when running scripts or tests that import the app without
+# going through the ASGI lifespan hooks.
+init_db()
 
 # Define allowed CORS origins
 default_origins = [
@@ -76,16 +90,10 @@ app.include_router(course_router, prefix="/courses", tags=["courses"])
 app.include_router(social_media_router, tags=["Social Media"])
 app.include_router(teacher_application_router, tags=["teacher_applications"])
 
-# Ensure database tables exist when the application starts up.
-init_db()
-
-
-@app.on_event("startup")
-def start_background_tasks() -> None:
-    """Start recurring schedulers."""
-    init_db()
-    start_scheduler()
-
+@app.get("/")
+def read_root() -> dict[str, str]:
+    """Simple health-check endpoint for monitoring."""
+    return {"message": "Welcome to Tech Kids App!"}
 
 # Alembic configuration file path
 ALEMBIC_CONFIG_PATH = "./alembic.ini"
@@ -93,16 +101,6 @@ ALEMBIC_CONFIG_PATH = "./alembic.ini"
 
 # Run the app using uvicorn when executed directly
 if __name__ == "__main__":
-
-    @app.get("/")
-    def read_root():
-        return {"message": "Welcome to Tech Kids App!"}
-
-    logging.basicConfig(
-        level=logging.INFO,
-        format="%(asctime)s [%(levelname)s] %(name)s: %(message)s",
-        handlers=[logging.StreamHandler()],
-    )
 
     # Set host and port based on environment
     host = "0.0.0.0" if ENVIRONMENT == "production" else "127.0.0.1"
