@@ -3,6 +3,8 @@ from __future__ import annotations
 from datetime import datetime
 from typing import Callable, Dict, Optional
 
+from sqlalchemy import or_
+
 from apscheduler.schedulers.background import BackgroundScheduler
 from apscheduler.triggers.interval import IntervalTrigger
 
@@ -119,8 +121,12 @@ def dispatch_due_posts() -> None:
             .filter(
                 SocialMediaPost.status.in_(["draft", "queued", "failed"]),
             )
-            .filter(SocialMediaPost.scheduled_at.isnot(None))
-            .filter(SocialMediaPost.scheduled_at <= now)
+            .filter(
+                or_(
+                    SocialMediaPost.scheduled_at.is_(None),
+                    SocialMediaPost.scheduled_at <= now,
+                )
+            )
             .filter(SocialMediaPost.attempt_count < max_attempts)
             .all()
         )

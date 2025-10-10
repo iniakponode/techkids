@@ -95,7 +95,6 @@ def read_root() -> dict[str, str]:
     """Simple health-check endpoint for monitoring."""
     return {"message": "Welcome to Tech Kids App!"}
 
-
 # Alembic configuration file path
 ALEMBIC_CONFIG_PATH = "./alembic.ini"
 
