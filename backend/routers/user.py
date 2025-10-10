@@ -1,13 +1,21 @@
-from typing import Optional
+from typing import List, Optional
+
 from fastapi import APIRouter, Depends, HTTPException, status
 from sqlalchemy.orm import Session
-from backend.pydanticschemas.user import UserCreate, UserResponse
-from backend.models.user import User
+
 from backend.core.database import get_db
-from passlib.hash import bcrypt
+from backend.models.user import User
+from backend.pydanticschemas.user import UserCreate, UserResponse
 from backend.routers.auth import pwd_context
 
 router = APIRouter()
+
+
+@router.get("/", response_model=List[UserResponse])
+def list_users(db: Session = Depends(get_db)) -> List[User]:
+    """Return all registered users."""
+
+    return db.query(User).all()
 
 # Endpoint to create a new user
 @router.post("/", response_model=UserResponse, status_code=status.HTTP_201_CREATED)
@@ -25,10 +33,9 @@ def create_user(user: UserCreate, db: Session = Depends(get_db)):
 
     # Create new user
     new_user = User(
-        username=user.username,
         email=user.email,
-        password_hash=bcrypt.hash(user.password),  # Hash the password
-        role="student",  # Default role
+        password_hash=pwd_context.hash(user.password),
+        role=user.role or "student",
     )
     db.add(new_user)
     db.commit()

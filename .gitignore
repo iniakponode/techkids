@@ -1,5 +1,6 @@
 .env
-teckkids.db
+techkids.db
+techkids_test.db
 venv
 frontend/static/uploads/
 __pycache__/

@@ -1,7 +1,7 @@
 from datetime import datetime
 from typing import List
 
-from pydantic import BaseModel, Field
+from pydantic import AliasChoices, BaseModel, Field
 
 
 class SocialMediaPostBase(BaseModel):
@@ -74,7 +74,15 @@ class SocialPlatformCredentialBase(BaseModel):
     platform: str = Field(..., max_length=50)
     access_token: str
     refresh_token: str | None = None
-    metadata: str | None = None
+    metadata: str | None = Field(
+        default=None,
+        alias="metadata_json",
+        validation_alias=AliasChoices("metadata", "metadata_json"),
+        serialization_alias="metadata",
+    )
+
+    class Config:
+        populate_by_name = True
 
 
 class SocialPlatformCredentialCreate(SocialPlatformCredentialBase):
@@ -88,3 +96,4 @@ class SocialPlatformCredentialSchema(SocialPlatformCredentialBase):
 
     class Config:
         from_attributes = True
+        populate_by_name = True

@@ -17,6 +17,7 @@ from backend.routers.category import router as category_router
 from backend.routers.family import router as family_router
 from backend.routers.student_dashboard import router as student_dashboard_router
 from backend.routers.learning_paths import router as learning_paths_router
+from backend.routers.user import router as user_router
 
 # API Router for backend endpoints
 api_router = APIRouter()
@@ -38,6 +39,7 @@ api_router.include_router(category_router)
 api_router.include_router(family_router)
 api_router.include_router(student_dashboard_router)
 api_router.include_router(learning_paths_router)
+api_router.include_router(user_router, prefix="/users", tags=["users"])
 
 # Export both routers
 __all__ = ["api_router","pages_router"]
