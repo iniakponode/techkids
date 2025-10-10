@@ -2,3 +2,4 @@
 teckkids.db
 venv
 frontend/static/uploads/
+__pycache__/

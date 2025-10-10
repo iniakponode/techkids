@@ -1,6 +1,5 @@
 from datetime import datetime
-from sqlalchemy import Boolean, Column, DateTime, Integer, String, Float, Text
-from sqlalchemy import Column, Integer, String, Float, Text
+from sqlalchemy import Column, DateTime, Float, Integer, String, Text
 from sqlalchemy.orm import relationship
 from backend.core.database import Base
 
@@ -24,6 +23,12 @@ class Course(Base):
     # We specifically do NOT want to auto-delete registrations for the course
     # => remove cascade / ondelete='CASCADE'
     registrations = relationship("Registration", back_populates="course", passive_deletes=True)
+    modules = relationship(
+        "CourseModule",
+        back_populates="course",
+        cascade="all, delete-orphan",
+        order_by="CourseModule.position",
+    )
 
     def __repr__(self):
         return (f"<Course(id={self.id}, title={self.title}, price={self.price}, "

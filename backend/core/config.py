@@ -16,6 +16,8 @@ class Settings(BaseSettings):
     FACEBOOK_API_TOKEN: str | None = None
     X_API_TOKEN: str | None = None
     INSTAGRAM_API_TOKEN: str | None = None
+    POST_DISPATCH_MAX_ATTEMPTS: int = 3
+    POST_DISPATCH_RETRY_BACKOFF: int = 300
     # If you have more config variables, add them here.
 
     # Pydantic 2.x style config
