@@ -1,5 +1,10 @@
 {% extends 'layout/base.html' %}
 {% block title %}TechKids | {{ course.title }}{% endblock %}
+
+{% block extra_head %}
+  <script defer src="/static/js/pages/course_learning_path.js"></script>
+{% endblock %}
+
 {% block content %}
 <div class="container py-5">
   <div class="row justify-content-center">
@@ -15,6 +20,27 @@
       <p class="fw-semibold text-secondary mb-3"><i class="bi bi-person-video3"></i> <a href="/instructor-profile">Instructor Profile</a></p>
       <p class="fw-bold text-success fs-5 mt-2"><i class="bi bi-cash-coin"></i> ₦{{ "{:,.0f}".format(course.price) }}</p>
       <a href="/registration?course={{ course.id }}" class="btn btn-primary">Register Now</a>
+    </div>
+  </div>
+
+  <div class="row justify-content-center mt-5">
+    <div class="col-lg-10 col-xl-8">
+      <div class="d-flex justify-content-between align-items-center mb-3">
+        <div>
+          <h3 class="h4 mb-1">Course curriculum</h3>
+          <p class="text-muted mb-0">Preview the lessons included in this learning path.</p>
+        </div>
+        <span class="badge text-bg-light">Updated learning path</span>
+      </div>
+      <div id="learningPathContainer" data-course-id="{{ course.id }}" class="d-grid gap-4">
+        <div class="placeholder-glow">
+          <div class="placeholder col-12 placeholder-lg mb-2"></div>
+          <div class="placeholder col-10"></div>
+        </div>
+      </div>
+      <div id="learningPathEmpty" class="alert alert-info d-none" role="alert">
+        Lesson content for this course is coming soon. Check back shortly!
+      </div>
     </div>
   </div>
 </div>

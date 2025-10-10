@@ -79,6 +79,22 @@ def registration_page(
     )
 
 
+@router.get("/student/dashboard", name="student-dashboard")
+async def student_dashboard_page(
+    request: Request,
+    current_user: User = Depends(get_current_user),
+):
+    """Render the authenticated learner dashboard."""
+
+    if current_user.role not in {"student", "child", "parent", "admin"}:
+        raise HTTPException(status_code=403, detail="You do not have access to the student dashboard.")
+
+    return templates.TemplateResponse(
+        "pages/student_dashboard.html",
+        {"request": request, "current_user": current_user},
+    )
+
+
 @router.get("/courses/{course_id}", name="course-detail")
 def course_detail_page(
     request: Request,
@@ -275,6 +291,38 @@ async def manage_courses_page(
             "has_next": has_next,
             "pages": pages,
             "search": search,
+        },
+    )
+
+
+@router.get("/admin/manage-learning-paths", name="manage_learning_paths")
+async def manage_learning_paths_page(
+    request: Request,
+    user: User = Depends(get_current_user),
+    db: Session = Depends(get_db),
+    course_id: int | None = None,
+):
+    """Render the learning path management workspace for admins."""
+
+    if user.role != "admin":
+        raise HTTPException(status_code=403, detail="Admin access required")
+
+    courses = db.query(Course).order_by(Course.title.asc()).all()
+    selected_course_id: int | None = None
+
+    if courses:
+        if course_id and any(course.id == course_id for course in courses):
+            selected_course_id = course_id
+        else:
+            selected_course_id = courses[0].id
+
+    return templates.TemplateResponse(
+        "admin/manage_learning_paths.html",
+        {
+            "request": request,
+            "current_user": user,
+            "courses": courses,
+            "selected_course_id": selected_course_id,
         },
     )
 
