@@ -49,7 +49,7 @@ class SocialPlatformCredential(Base):
     platform = Column(String(50), nullable=False, unique=True)
     access_token = Column(String(255), nullable=False)
     refresh_token = Column(String(255), nullable=True)
-    metadata = Column(Text, nullable=True)
+    metadata_json = Column("metadata", Text, nullable=True)
     created_at = Column(DateTime, default=datetime.utcnow, nullable=False)
     updated_at = Column(
         DateTime,
@@ -57,6 +57,7 @@ class SocialPlatformCredential(Base):
         onupdate=datetime.utcnow,
         nullable=False,
     )
+
 
 
 class SocialPostDispatchLog(Base):

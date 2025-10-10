@@ -5,7 +5,7 @@ from __future__ import annotations
 from datetime import datetime
 from typing import List
 
-from fastapi import APIRouter, Depends, HTTPException, status
+from fastapi import APIRouter, Depends, HTTPException, Response, status
 from sqlalchemy.orm import Session
 
 from backend.core.database import get_db
@@ -180,7 +180,10 @@ def update_module(
     return _serialize_module(module)
 
 
-@router.delete("/modules/{module_id}", status_code=status.HTTP_204_NO_CONTENT)
+@router.delete(
+    "/modules/{module_id}",
+    response_class=Response,
+)
 def delete_module(
     module_id: int,
     db: Session = Depends(get_db),
@@ -197,6 +200,8 @@ def delete_module(
     db.commit()
 
     sync_course_progress_records(db, course_id)
+
+    return Response(status_code=status.HTTP_204_NO_CONTENT)
 
 
 @router.post(
@@ -287,7 +292,10 @@ def update_lesson(
     )
 
 
-@router.delete("/lessons/{lesson_id}", status_code=status.HTTP_204_NO_CONTENT)
+@router.delete(
+    "/lessons/{lesson_id}",
+    response_class=Response,
+)
 def delete_lesson(
     lesson_id: int,
     db: Session = Depends(get_db),
@@ -304,6 +312,8 @@ def delete_lesson(
     db.commit()
 
     sync_course_progress_records(db, course_id)
+
+    return Response(status_code=status.HTTP_204_NO_CONTENT)
 
 
 @router.get(

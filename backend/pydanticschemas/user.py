@@ -1,20 +1,18 @@
-from typing import Optional
-from pydantic import BaseModel, EmailStr
 from datetime import datetime
+from typing import Optional
+
+from pydantic import BaseModel, EmailStr
 
 
-# Base Schema for User (shared fields)
 class UserBase(BaseModel):
     email: EmailStr
-    role: Optional[str]=str
+    role: Optional[str] = None
 
 
-# Schema for Creating a User
 class UserCreate(UserBase):
     password: str
 
 
-# Schema for Returning User Data
 class UserResponse(UserBase):
     id: int
     role: str

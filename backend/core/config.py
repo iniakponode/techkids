@@ -1,17 +1,16 @@
-import os
 from pydantic_settings import BaseSettings, SettingsConfigDict
 
 
 class Settings(BaseSettings):
-    DEBUG: str
-    ENVIRONMENT:str
-    DATABASE_URL:str
-    SECRET_KEY: str
-    ACCESS_TOKEN_EXPIRE_MINUTES: int
-    ALGORITHM: str
-    EMAIL_SENDER: str
-    EMAIL_HOST: str
-    EMAIL_PORT: int
+    DEBUG: bool = False
+    ENVIRONMENT: str = "development"
+    DATABASE_URL: str = "sqlite:///./techkids.db"
+    SECRET_KEY: str = "techkids-development-secret"
+    ACCESS_TOKEN_EXPIRE_MINUTES: int = 60
+    ALGORITHM: str = "HS256"
+    EMAIL_SENDER: str = "no-reply@techkids.local"
+    EMAIL_HOST: str = "localhost"
+    EMAIL_PORT: int = 587
     POST_SCHEDULER_INTERVAL: int = 60
     FACEBOOK_API_TOKEN: str | None = None
     X_API_TOKEN: str | None = None
