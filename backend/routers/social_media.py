@@ -6,6 +6,7 @@ import os
 import uuid
 import shutil
 from sqlalchemy.orm import Session
+from pydantic import ValidationError
 
 from backend.core.database import get_db
 from backend.crud.social_post import crud_social_post
@@ -72,21 +73,17 @@ async def create_post(
             shutil.copyfileobj(video.file, buffer)
         video_url = f"/static/uploads/{unique_name}"
 
-    scheduled_dt = None
-    if scheduled_at:
-        try:
-            scheduled_dt = datetime.fromisoformat(scheduled_at)
-        except ValueError:
-            raise HTTPException(status_code=400, detail="scheduled_at must be ISO format")
-
-    post_data = SocialMediaPostCreate(
-        platform=platform,
-        content=content,
-        content_type=content_type,
-        image_url=image_url,
-        video_url=video_url,
-        scheduled_at=scheduled_dt,
-    )
+    try:
+        post_data = SocialMediaPostCreate(
+            platform=platform,
+            content=content,
+            content_type=content_type,
+            image_url=image_url,
+            video_url=video_url,
+            scheduled_at=scheduled_at,
+        )
+    except ValidationError as exc:
+        raise HTTPException(status_code=422, detail=exc.errors())
     return crud_social_post.create(db, post_data)
 
 @router.delete("/{post_id}", status_code=status.HTTP_204_NO_CONTENT)
