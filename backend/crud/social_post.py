@@ -3,6 +3,7 @@ from fastapi import HTTPException
 from typing import List, Optional
 
 from backend.models.social_post import SocialMediaPost
+from backend.services.social_media import ensure_preview_values
 from backend.pydanticschemas.social_post import SocialMediaPostCreate
 
 class CRUDSocialPost:
@@ -11,6 +12,7 @@ class CRUDSocialPost:
 
     def create(self, db: Session, obj_in: SocialMediaPostCreate) -> SocialMediaPost:
         post = self.model(**obj_in.model_dump())
+        ensure_preview_values(post)
         db.add(post)
         try:
             db.commit()
@@ -24,6 +26,9 @@ class CRUDSocialPost:
         query = db.query(self.model)
         query = query.order_by(self.model.scheduled_at.is_(None), self.model.scheduled_at, self.model.created_at.desc())
         return query.offset(skip).limit(limit).all()
+
+    def get(self, db: Session, post_id: int) -> Optional[SocialMediaPost]:
+        return db.query(self.model).filter(self.model.id == post_id).first()
 
     def delete(self, db: Session, post_id: int) -> Optional[SocialMediaPost]:
         post = db.query(self.model).filter(self.model.id == post_id).first()
