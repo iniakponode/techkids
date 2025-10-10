@@ -7,79 +7,290 @@
 {% endblock %}
 
 {% block content %}
-<div class="container mt-5">
-    <h1>Social Media Management</h1>
-    <form id="post-form" class="mb-4" enctype="multipart/form-data">
-        <div class="mb-3">
-            <label class="form-label">Platform</label>
-            <select id="platform" name="platform" class="form-select" required>
-                <option value="facebook">Facebook</option>
-                <option value="instagram">Instagram</option>
-                <option value="whatsapp">Whatsapp</option>
-                <option value="x">X</option>
-                <option value="threads">Threads</option>
-                <option value="telegram">Telegram</option>
-            </select>
-        </div>
-        <div class="mb-3">
-            <label class="form-label">Content Type</label>
-            <select id="content_type" name="content_type" class="form-select" required></select>
-        </div>
-        <div class="mb-3">
-            <label class="form-label">Content</label>
-            <textarea name="content" class="form-control" rows="3" required></textarea>
-        </div>
-        <div id="image-field" class="mb-3">
-            <label class="form-label">Image</label>
-            <input type="file" name="image" accept="image/*" class="form-control">
-        </div>
-        <div id="video-field" class="mb-3">
-            <label class="form-label">Video</label>
-            <input type="file" name="video" accept="video/*" class="form-control">
-        </div>
-        <div class="mb-3">
-            <label class="form-label">Schedule Time</label>
-            <input type="datetime-local" name="scheduled_at" class="form-control">
-        </div>
-        <button type="submit" class="btn btn-success">Create Post</button>
-    </form>
+<div class="container my-5">
+    <div class="d-flex flex-column flex-md-row align-items-md-center justify-content-between mb-4 gap-2">
+        <h1 class="mb-0">Social Media Control Center</h1>
+        <a class="btn btn-outline-secondary" href="/admin/dashboard">Back to Dashboard</a>
+    </div>
 
-    <table class="table">
-        <thead>
-            <tr>
-                <th>Platform</th>
-                <th>Type</th>
-                <th>Content</th>
-                <th>Media</th>
-                <th>Scheduled</th>
-                <th>Status</th>
-                <th>Created</th>
-                <th>Actions</th>
-            </tr>
-        </thead>
-        <tbody>
-            {% for p in posts %}
-            <tr>
-                <td>{{ p.platform }}</td>
-                <td>{{ p.content_type }}</td>
-                <td>{{ p.content }}</td>
-                <td>
-                    {% if p.image_url %}
-                        <img src="{{ p.image_url }}" alt="image" style="max-height:40px;">
-                    {% elif p.video_url %}
-                        <a href="{{ p.video_url }}" target="_blank">Video</a>
-                    {% else %}-{% endif %}
-                </td>
-                <td>{{ p.scheduled_at.strftime('%Y-%m-%d %H:%M') if p.scheduled_at else '-' }}</td>
-                <td>{{ p.status }}</td>
-                <td>{{ p.created_at.strftime('%Y-%m-%d') }}</td>
-                <td>
-                    <a href="" class="btn btn-sm btn-danger delete-post" data-post-id="{{ p.id }}">Delete</a>
-                </td>
-            </tr>
-            {% endfor %}
-        </tbody>
-    </table>
-    <a class="btn btn-primary" href="/admin/dashboard">Back to Dashboard</a>
+    <div class="row g-4">
+        <div class="col-12 col-lg-8">
+            <div class="card h-100">
+                <div class="card-header bg-success text-white">
+                    <h2 class="h5 mb-0">Create or Schedule a Post</h2>
+                </div>
+                <div class="card-body">
+                    <form id="post-form" class="row g-3" enctype="multipart/form-data">
+                        <div class="col-md-6">
+                            <label class="form-label" for="platform">Platform</label>
+                            <select id="platform" name="platform" class="form-select" required>
+                                <option value="facebook">Facebook</option>
+                                <option value="instagram">Instagram</option>
+                                <option value="whatsapp">Whatsapp</option>
+                                <option value="x">X</option>
+                                <option value="threads">Threads</option>
+                                <option value="telegram">Telegram</option>
+                            </select>
+                        </div>
+                        <div class="col-md-6">
+                            <label class="form-label" for="content_type">Content Type</label>
+                            <select id="content_type" name="content_type" class="form-select" required></select>
+                        </div>
+                        <div class="col-12">
+                            <label class="form-label" for="content">Content</label>
+                            <textarea id="content" name="content" class="form-control" rows="4" placeholder="Write the copy for this post" required></textarea>
+                        </div>
+                        <div class="col-md-6" id="image-field">
+                            <label class="form-label" for="image">Image</label>
+                            <input type="file" id="image" name="image" accept="image/*" class="form-control">
+                        </div>
+                        <div class="col-md-6" id="video-field">
+                            <label class="form-label" for="video">Video</label>
+                            <input type="file" id="video" name="video" accept="video/*" class="form-control">
+                        </div>
+                        <div class="col-md-6">
+                            <label class="form-label" for="scheduled_at">Schedule Time</label>
+                            <input type="datetime-local" id="scheduled_at" name="scheduled_at" class="form-control">
+                            <div class="form-text">Leave empty to publish immediately.</div>
+                        </div>
+                        <div class="col-12 d-flex gap-2">
+                            <button type="submit" class="btn btn-success">Save Post</button>
+                            <button type="reset" class="btn btn-outline-secondary">Reset</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="col-12 col-lg-4">
+            <div class="card h-100">
+                <div class="card-header bg-primary text-white">
+                    <h2 class="h5 mb-0">Platform Credentials</h2>
+                </div>
+                <div class="card-body">
+                    <p class="text-muted">Store or rotate tokens for automated publishing. Credentials are encrypted at rest.</p>
+                    <form id="credential-form" class="row g-3">
+                        <div class="col-12">
+                            <label class="form-label" for="credential-platform">Platform</label>
+                            <select id="credential-platform" name="platform" class="form-select" required>
+                                <option value="facebook">Facebook</option>
+                                <option value="instagram">Instagram</option>
+                                <option value="whatsapp">Whatsapp</option>
+                                <option value="x">X</option>
+                                <option value="threads">Threads</option>
+                                <option value="telegram">Telegram</option>
+                            </select>
+                        </div>
+                        <div class="col-12">
+                            <label class="form-label" for="access_token">Access Token</label>
+                            <input type="text" id="access_token" name="access_token" class="form-control" placeholder="Paste the API access token" required>
+                        </div>
+                        <div class="col-12">
+                            <label class="form-label" for="refresh_token">Refresh Token (optional)</label>
+                            <input type="text" id="refresh_token" name="refresh_token" class="form-control" placeholder="If supported by the platform">
+                        </div>
+                        <div class="col-12">
+                            <label class="form-label" for="metadata">Metadata</label>
+                            <textarea id="metadata" name="metadata" class="form-control" rows="2" placeholder="Notes or JSON metadata"></textarea>
+                        </div>
+                        <div class="col-12 d-grid">
+                            <button type="submit" class="btn btn-primary">Save Credentials</button>
+                        </div>
+                    </form>
+                </div>
+                <div class="table-responsive border-top">
+                    <table class="table mb-0">
+                        <thead class="table-light">
+                            <tr>
+                                <th scope="col">Platform</th>
+                                <th scope="col">Updated</th>
+                            </tr>
+                        </thead>
+                        <tbody id="credentials-table-body">
+                            <tr>
+                                <td colspan="2" class="text-center text-muted">Loading credentials…</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="card mt-5">
+        <div class="card-header bg-dark text-white d-flex flex-column flex-md-row justify-content-between align-items-md-center gap-2">
+            <h2 class="h5 mb-0">Scheduled &amp; Published Posts</h2>
+            <span class="small text-white-50">Monitor previews, dispatch attempts, and engagement.</span>
+        </div>
+        <div class="card-body p-0">
+            <div class="table-responsive">
+                <table class="table table-hover align-middle mb-0" id="posts-table">
+                    <thead class="table-light">
+                        <tr>
+                            <th scope="col">Platform</th>
+                            <th scope="col">Type</th>
+                            <th scope="col" style="min-width: 180px;">Content</th>
+                            <th scope="col">Preview</th>
+                            <th scope="col">Status</th>
+                            <th scope="col">Schedule</th>
+                            <th scope="col">Attempts</th>
+                            <th scope="col">Last Attempt</th>
+                            <th scope="col">Last Error</th>
+                            <th scope="col" class="text-end">Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody id="posts-table-body">
+                        {% if posts %}
+                            {% for p in posts %}
+                            <tr data-post-id="{{ p.id }}">
+                                <td class="text-capitalize">{{ p.platform }}</td>
+                                <td>{{ p.content_type }}</td>
+                                <td class="text-break" style="max-width: 240px;">
+                                    <span class="d-block text-truncate" title="{{ p.content }}">{{ p.content }}</span>
+                                </td>
+                                <td>
+                                    {% if p.preview_image_url %}
+                                        <img src="{{ p.preview_image_url }}" alt="Preview" class="img-thumbnail" style="max-height:40px;">
+                                    {% elif p.image_url %}
+                                        <img src="{{ p.image_url }}" alt="Image" class="img-thumbnail" style="max-height:40px;">
+                                    {% else %}
+                                        <span class="text-muted">No media</span>
+                                    {% endif %}
+                                    {% if p.preview_title %}
+                                        <div class="small text-muted">{{ p.preview_title }}</div>
+                                    {% endif %}
+                                </td>
+                                <td>
+                                    <span class="badge {% if p.status == 'failed' %}bg-danger{% elif p.status == 'posted' %}bg-success{% elif p.status == 'queued' %}bg-info text-dark{% else %}bg-secondary{% endif %}">{{ p.status|capitalize }}</span>
+                                </td>
+                                <td>
+                                    {{ p.scheduled_at.strftime('%Y-%m-%d %H:%M') if p.scheduled_at else 'Immediate' }}
+                                </td>
+                                <td>
+                                    <span class="fw-semibold">{{ p.attempt_count }}</span>
+                                </td>
+                                <td>
+                                    {{ p.last_attempt_at.strftime('%Y-%m-%d %H:%M') if p.last_attempt_at else '-' }}
+                                </td>
+                                <td>
+                                    {% if p.last_error %}
+                                        <span class="text-danger" title="{{ p.last_error }}">{{ p.last_error|truncate(30, True, '…') }}</span>
+                                    {% else %}
+                                        <span class="text-muted">None</span>
+                                    {% endif %}
+                                </td>
+                                <td class="text-end">
+                                    <div class="btn-group" role="group">
+                                        <button type="button" class="btn btn-outline-primary btn-sm preview-post" data-post-id="{{ p.id }}">Preview</button>
+                                        <button type="button" class="btn btn-outline-info btn-sm analytics-post" data-post-id="{{ p.id }}">Analytics</button>
+                                        <button type="button" class="btn btn-outline-warning btn-sm retry-post" data-post-id="{{ p.id }}">Retry</button>
+                                    </div>
+                                    <button type="button" class="btn btn-sm btn-danger ms-2 delete-post" data-post-id="{{ p.id }}">Delete</button>
+                                </td>
+                            </tr>
+                            {% endfor %}
+                        {% else %}
+                            <tr>
+                                <td colspan="10" class="text-center text-muted py-4">No posts created yet. Draft something above to get started.</td>
+                            </tr>
+                        {% endif %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Preview Modal -->
+<div class="modal fade" id="previewModal" tabindex="-1" aria-labelledby="previewModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="previewModalLabel">Post Preview</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <div class="d-flex flex-column flex-md-row gap-3">
+                    <div class="flex-shrink-0 text-center">
+                        <img id="previewThumbnail" src="" alt="Preview thumbnail" class="img-fluid rounded shadow-sm" style="max-width: 220px; display: none;">
+                    </div>
+                    <div>
+                        <div class="d-flex align-items-center gap-2 mb-2">
+                            <span class="badge bg-primary" id="previewPlatform"></span>
+                            <span class="badge bg-secondary" id="previewContentType"></span>
+                        </div>
+                        <h3 class="h5" id="previewTitle"></h3>
+                        <p id="previewDescription" class="mb-0"></p>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Analytics Modal -->
+<div class="modal fade" id="analyticsModal" tabindex="-1" aria-labelledby="analyticsModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg modal-dialog-scrollable">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="analyticsModalLabel">Post Analytics</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <div class="row g-3 mb-3">
+                    <div class="col-md-4">
+                        <div class="border rounded p-3 h-100">
+                            <h6>Status</h6>
+                            <p class="mb-1" id="analyticsStatus">-</p>
+                            <small class="text-muted">Last error: <span id="analyticsLastError">None</span></small>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="border rounded p-3 h-100">
+                            <h6>Attempts</h6>
+                            <p class="mb-1"><span id="analyticsAttempts">0</span> total</p>
+                            <small class="text-muted">Last attempt: <span id="analyticsLastAttempt">-</span></small>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="border rounded p-3 h-100">
+                            <h6>Published</h6>
+                            <p class="mb-1" id="analyticsPostedAt">Not yet</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="mb-4">
+                    <h6>Engagement Totals</h6>
+                    <div id="analyticsTotals" class="row g-2"></div>
+                </div>
+                <div class="table-responsive">
+                    <table class="table table-striped">
+                        <thead class="table-light">
+                            <tr>
+                                <th scope="col">Attempted</th>
+                                <th scope="col">Result</th>
+                                <th scope="col">Platform ID</th>
+                                <th scope="col">Diagnostics</th>
+                                <th scope="col">Impr.</th>
+                                <th scope="col">Clicks</th>
+                                <th scope="col">Comments</th>
+                                <th scope="col">Shares</th>
+                            </tr>
+                        </thead>
+                        <tbody id="analyticsLogs">
+                            <tr>
+                                <td colspan="8" class="text-center text-muted">No dispatch attempts yet.</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
 </div>
 {% endblock %}
