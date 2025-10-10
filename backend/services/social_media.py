@@ -160,13 +160,13 @@ def upsert_platform_credential(
     if credential:
         credential.access_token = access_token
         credential.refresh_token = refresh_token
-        credential.metadata = metadata
+        credential.metadata_json = metadata
     else:
         credential = SocialPlatformCredential(
             platform=platform.lower(),
             access_token=access_token,
             refresh_token=refresh_token,
-            metadata=metadata,
+            metadata_json=metadata,
         )
         db.add(credential)
     db.commit()
@@ -207,7 +207,7 @@ def resolve_platform_credentials(db: Session, platform: str) -> Optional[Platfor
             platform=credential.platform,
             access_token=credential.access_token,
             refresh_token=credential.refresh_token,
-            metadata=credential.metadata,
+            metadata=credential.metadata_json,
         )
     normalized = platform.lower()
     fallback_attr = f"{normalized.upper()}_API_TOKEN"

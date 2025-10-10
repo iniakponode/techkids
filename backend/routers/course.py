@@ -15,8 +15,9 @@ router = APIRouter()
 
 
 # Create a Course
+@router.post("/", response_model=CourseSchema, status_code=status.HTTP_201_CREATED)
 @router.post("/add-course", response_model=CourseSchema, status_code=status.HTTP_201_CREATED)
-def create_course(course: CourseCreate, 
+def create_course(course: CourseCreate,
                   db: Session = Depends(get_db),
                 #   current_user: User = Depends(require_role(["admin"]))
                   ):
