@@ -62,9 +62,15 @@ cd "$PRODUCTION_PATH"
 
 # Create backup
 print_step "1️⃣ Creating backup..."
+# Create deployments directory as root first, then change ownership
 mkdir -p "deployments"
-sudo -u www-data mkdir -p "$BACKUP_DIR"
-sudo -u www-data cp -r backend frontend main.py requirements.txt "$BACKUP_DIR/" 2>/dev/null || print_warning "Some files were not found for backup"
+chown -R www-data:www-data "deployments"
+# Create backup directory
+mkdir -p "$BACKUP_DIR"
+chown -R www-data:www-data "$BACKUP_DIR"
+# Copy files to backup
+cp -r backend frontend main.py requirements.txt "$BACKUP_DIR/" 2>/dev/null || print_warning "Some files were not found for backup"
+chown -R www-data:www-data "$BACKUP_DIR"
 print_status "✅ Backup created: $BACKUP_DIR"
 
 # Clone repository to temporary location
@@ -188,9 +194,11 @@ fi
 print_step "🔟 Cleaning up..."
 rm -rf "$TEMP_REPO"
 # Cleanup old backups (keep last 5)
-cd deployments
-ls -t | tail -n +6 | xargs -r rm -rf
-cd "$PRODUCTION_PATH"
+if [ -d "deployments" ]; then
+    cd deployments
+    ls -t | tail -n +6 | xargs -r rm -rf
+    cd "$PRODUCTION_PATH"
+fi
 print_status "✅ Cleanup completed"
 
 # Final status
