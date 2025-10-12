@@ -41,12 +41,52 @@ class ModalManager {
         this.initialized = true;
     }
 
+    fixModalStructure(modalElement) {
+        // Ensure proper modal structure and attributes
+        modalElement.setAttribute('tabindex', '-1');
+        modalElement.setAttribute('aria-hidden', 'true');
+        
+        // Ensure modal-dialog exists
+        let modalDialog = modalElement.querySelector('.modal-dialog');
+        if (!modalDialog) {
+            modalDialog = document.createElement('div');
+            modalDialog.className = 'modal-dialog';
+            while (modalElement.firstChild) {
+                modalDialog.appendChild(modalElement.firstChild);
+            }
+            modalElement.appendChild(modalDialog);
+        }
+        
+        // Ensure modal-content exists
+        let modalContent = modalDialog.querySelector('.modal-content');
+        if (!modalContent) {
+            modalContent = document.createElement('div');
+            modalContent.className = 'modal-content';
+            while (modalDialog.firstChild && !modalDialog.firstChild.classList?.contains('modal-content')) {
+                modalContent.appendChild(modalDialog.firstChild);
+            }
+            modalDialog.appendChild(modalContent);
+        }
+        
+        // Fix any pointer-events issues
+        modalElement.style.pointerEvents = 'none';
+        modalDialog.style.pointerEvents = 'none';
+        modalContent.style.pointerEvents = 'auto';
+        
+        // Ensure proper z-index stacking
+        modalElement.style.zIndex = '1050';
+        modalContent.style.zIndex = '1052';
+    }
+
     initializeModals() {
         // Find all modal elements and initialize them
         document.querySelectorAll('.modal').forEach(modalElement => {
             const modalId = modalElement.id;
             if (modalId && window.bootstrap) {
                 try {
+                    // Force proper modal structure
+                    this.fixModalStructure(modalElement);
+                    
                     const modal = new window.bootstrap.Modal(modalElement, {
                         backdrop: true,
                         keyboard: true,
@@ -61,25 +101,31 @@ class ModalManager {
     }
 
     setupGlobalEventListeners() {
-        // Close button handlers
+        // Enhanced close button handlers
         document.addEventListener('click', (e) => {
+            // Handle close buttons
             if (e.target.matches('[data-bs-dismiss="modal"]') || 
                 e.target.closest('[data-bs-dismiss="modal"]')) {
                 e.preventDefault();
+                e.stopPropagation();
                 const modal = e.target.closest('.modal');
                 if (modal) {
                     this.hide(modal.id);
                 }
             }
-        });
+        }, true); // Use capture phase
 
-        // Backdrop click handler
+        // Enhanced backdrop click handler
         document.addEventListener('click', (e) => {
+            // Only close if clicking directly on the modal backdrop (not content)
             if (e.target.classList.contains('modal') && 
-                e.target.classList.contains('show')) {
+                e.target.classList.contains('show') &&
+                !e.target.closest('.modal-content')) {
+                e.preventDefault();
+                e.stopPropagation();
                 this.hide(e.target.id);
             }
-        });
+        }, true);
 
         // Escape key handler
         document.addEventListener('keydown', (e) => {

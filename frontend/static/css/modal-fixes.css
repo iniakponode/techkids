@@ -1,69 +1,99 @@
-/* Modal Fallback Styles */
-/* Additional CSS to ensure modals work properly across all browsers */
+/* Modal Comprehensive Fix - Ultimate Solution */
+/* This file ensures modals work perfectly across all browsers and scenarios */
 
-/* Force modal overlay to be above all other elements */
+/* CRITICAL: Reset Bootstrap modal z-index hierarchy */
 .modal-backdrop {
   position: fixed !important;
   top: 0 !important;
   left: 0 !important;
-  z-index: 1050 !important;
+  z-index: 1040 !important; /* Lowered to ensure proper stacking */
   width: 100vw !important;
   height: 100vh !important;
   background-color: rgba(0, 0, 0, 0.5) !important;
+  pointer-events: auto !important; /* Allow backdrop clicks */
 }
 
-/* Ensure modal dialog is properly positioned */
+/* Modal container - highest priority */
 .modal {
   position: fixed !important;
   top: 0 !important;
   left: 0 !important;
-  z-index: 1055 !important;
+  z-index: 1050 !important; /* Higher than backdrop */
   width: 100% !important;
   height: 100% !important;
   overflow-x: hidden !important;
   overflow-y: auto !important;
   outline: 0 !important;
+  pointer-events: none !important; /* Let clicks pass through to backdrop */
 }
 
 .modal.show {
   display: block !important;
 }
 
+/* Modal dialog wrapper */
 .modal-dialog {
   position: relative !important;
   width: auto !important;
-  margin: 0.5rem !important;
-  pointer-events: none !important;
+  margin: 1.75rem auto !important;
+  pointer-events: none !important; /* Pass clicks through */
+  max-width: 500px !important;
+  z-index: 1051 !important;
 }
 
+/* Modal content - THIS is where interactions happen */
 .modal-content {
   position: relative !important;
   display: flex !important;
   flex-direction: column !important;
   width: 100% !important;
-  pointer-events: auto !important;
+  pointer-events: auto !important; /* CRITICAL: Enable all interactions */
   background-color: #fff !important;
   background-clip: padding-box !important;
   border: 1px solid rgba(0, 0, 0, 0.2) !important;
   border-radius: 0.375rem !important;
   outline: 0 !important;
   box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15) !important;
+  z-index: 1052 !important;
 }
 
-/* Ensure all interactive elements in modals are clickable */
-.modal * {
+/* CRITICAL: Ensure ALL interactive elements work */
+.modal-header,
+.modal-body,
+.modal-footer {
   pointer-events: auto !important;
+  position: relative !important;
+  z-index: 1053 !important;
 }
 
+/* Specific interactive elements */
 .modal .btn,
 .modal .btn-close,
 .modal input,
 .modal textarea,
 .modal select,
-.modal button {
+.modal button,
+.modal a,
+.modal label,
+.modal .form-control,
+.modal .form-check,
+.modal .form-check-input,
+.modal [role="button"],
+.modal [tabindex] {
   pointer-events: auto !important;
-  z-index: 1060 !important;
+  z-index: 1054 !important;
   position: relative !important;
+  cursor: pointer !important;
+}
+
+/* Fix for form elements specifically */
+.modal input:focus,
+.modal textarea:focus,
+.modal select:focus,
+.modal button:focus {
+  outline: 2px solid #0d6efd !important;
+  outline-offset: 2px !important;
+  z-index: 1055 !important;
 }
 
 /* Prevent body scrolling when modal is open */
