@@ -43,11 +43,15 @@ document.addEventListener("DOMContentLoaded", () => {
         const createdCourse = await response.json();
         console.log("Course created:", createdCourse);
   
-        // Show the Bootstrap modal using modal manager
-        if (window.modalManager) {
+        // Show the Bootstrap modal using emergency fix
+        if (window.emergencyModalFix) {
+            window.emergencyModalFix.showModal('successModal');
+        } else if (window.showModal) {
+            window.showModal('successModal');
+        } else if (window.modalManager) {
             window.modalManager.show('successModal');
         } else {
-            // Fallback to direct Bootstrap
+            // Final fallback to direct Bootstrap
             const successModal = new bootstrap.Modal(document.getElementById("successModal"));
             successModal.show();
         }

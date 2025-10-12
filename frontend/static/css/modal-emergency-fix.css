@@ -1,0 +1,160 @@
+/* EMERGENCY MODAL FIX - Ultra-aggressive approach */
+/* This overrides everything to force modals to work */
+
+/* NUCLEAR OPTION: Force all modal elements to be interactive */
+.modal,
+.modal *,
+.modal .modal-dialog,
+.modal .modal-content,
+.modal .modal-header,
+.modal .modal-body,
+.modal .modal-footer,
+.modal button,
+.modal .btn,
+.modal .btn-close,
+.modal input,
+.modal textarea,
+.modal select,
+.modal form,
+.modal a,
+.modal label,
+.modal .form-control,
+.modal .form-check,
+.modal .form-check-input,
+.modal [onclick],
+.modal [role="button"] {
+    pointer-events: auto !important;
+    position: relative !important;
+    z-index: 9999 !important;
+}
+
+/* Remove ALL pointer-events restrictions on modals */
+.modal-dialog {
+    pointer-events: auto !important;
+}
+
+/* Force modal positioning */
+.modal {
+    position: fixed !important;
+    top: 0 !important;
+    left: 0 !important;
+    z-index: 2000 !important;
+    width: 100% !important;
+    height: 100% !important;
+    pointer-events: auto !important;
+}
+
+.modal.show {
+    display: block !important;
+}
+
+/* Force backdrop behind everything */
+.modal-backdrop {
+    position: fixed !important;
+    top: 0 !important;
+    left: 0 !important;
+    z-index: 1999 !important;
+    width: 100% !important;
+    height: 100% !important;
+    background-color: rgba(0, 0, 0, 0.5) !important;
+    pointer-events: auto !important;
+}
+
+/* Center the modal */
+.modal-dialog {
+    position: relative !important;
+    width: auto !important;
+    margin: 1.75rem auto !important;
+    max-width: 500px !important;
+    pointer-events: auto !important;
+    z-index: 2001 !important;
+}
+
+/* Make content fully interactive */
+.modal-content {
+    position: relative !important;
+    background-color: #fff !important;
+    border: 1px solid rgba(0, 0, 0, 0.2) !important;
+    border-radius: 0.375rem !important;
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15) !important;
+    pointer-events: auto !important;
+    z-index: 2002 !important;
+}
+
+/* Ensure buttons work */
+.modal .btn {
+    cursor: pointer !important;
+    user-select: none !important;
+    pointer-events: auto !important;
+    z-index: 2003 !important;
+}
+
+.modal .btn:hover {
+    opacity: 0.9 !important;
+}
+
+/* Close button specifically */
+.modal .btn-close {
+    cursor: pointer !important;
+    pointer-events: auto !important;
+    z-index: 2003 !important;
+    position: relative !important;
+}
+
+/* Form elements */
+.modal input,
+.modal textarea,
+.modal select {
+    pointer-events: auto !important;
+    z-index: 2003 !important;
+    cursor: text !important;
+}
+
+/* Links */
+.modal a {
+    pointer-events: auto !important;
+    z-index: 2003 !important;
+    cursor: pointer !important;
+}
+
+/* Override any global styles that might interfere */
+* {
+    position: static !important;
+}
+
+.modal,
+.modal-backdrop {
+    position: fixed !important;
+}
+
+.modal-dialog,
+.modal-content {
+    position: relative !important;
+}
+
+/* Debug helper - add red border to clickable elements in modals */
+.modal-debug .modal * {
+    border: 1px solid red !important;
+}
+
+/* Force focus styles */
+.modal input:focus,
+.modal textarea:focus,
+.modal select:focus,
+.modal button:focus {
+    outline: 2px solid #0d6efd !important;
+    outline-offset: 2px !important;
+}
+
+/* Prevent body scroll */
+body.modal-open {
+    overflow: hidden !important;
+}
+
+/* Mobile fixes */
+@media (max-width: 576px) {
+    .modal-dialog {
+        margin: 0.5rem !important;
+        max-width: calc(100% - 1rem) !important;
+    }
+}
