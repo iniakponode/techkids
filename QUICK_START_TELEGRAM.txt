@@ -1,0 +1,47 @@
+╔══════════════════════════════════════════════════════════════╗
+║           TELEGRAM BOT QUICK START GUIDE                     ║
+╚══════════════════════════════════════════════════════════════╝
+
+STEP 1: CREATE BOT
+------------------
+1. Open Telegram
+2. Search: @BotFather
+3. Send: /newbot
+4. Name: "TechKids Test Bot"
+5. Username: "techkids_YOUR_NAME_bot"
+6. COPY YOUR TOKEN! (looks like: 123456789:ABC-DEF...)
+
+STEP 2: CREATE CHANNEL
+----------------------
+1. Click: New Channel
+2. Name: "TechKids Test"
+3. Type: Public
+4. Username: "techkids_test_YOUR_NAME"
+5. Click: Create
+
+STEP 3: ADD BOT TO CHANNEL
+--------------------------
+1. Open your channel
+2. Click: Administrators
+3. Add Administrator
+4. Search: @techkids_YOUR_NAME_bot
+5. Give: "Post Messages" permission
+6. Click: Done
+
+STEP 4: RUN TEST
+----------------
+In your terminal:
+
+export TELEGRAM_BOT_TOKEN="PASTE_YOUR_TOKEN_HERE"
+export TELEGRAM_CHANNEL_ID="@techkids_test_YOUR_NAME"
+cd /workspaces/techkids
+python -m backend.services.dispatchers.test_telegram
+
+NEED HELP FINDING CHANNEL ID?
+-----------------------------
+export TELEGRAM_BOT_TOKEN="PASTE_YOUR_TOKEN_HERE"
+python -m backend.services.dispatchers.get_channel_id
+
+╔══════════════════════════════════════════════════════════════╗
+║  READY? Open Telegram and let's start! 🚀                    ║
+╚══════════════════════════════════════════════════════════════╝
