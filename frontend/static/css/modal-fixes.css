@@ -6,11 +6,11 @@
   position: fixed !important;
   top: 0 !important;
   left: 0 !important;
-  z-index: 1040 !important; /* Lowered to ensure proper stacking */
+  z-index: 1040 !important; /* Backdrop behind modal */
   width: 100vw !important;
   height: 100vh !important;
   background-color: rgba(0, 0, 0, 0.5) !important;
-  pointer-events: auto !important; /* Allow backdrop clicks */
+  pointer-events: auto !important; /* Allow backdrop clicks to close modal */
 }
 
 /* Modal container - highest priority */
@@ -18,13 +18,13 @@
   position: fixed !important;
   top: 0 !important;
   left: 0 !important;
-  z-index: 1050 !important; /* Higher than backdrop */
+  z-index: 1055 !important; /* Higher than backdrop - CRITICAL! */
   width: 100% !important;
   height: 100% !important;
   overflow-x: hidden !important;
   overflow-y: auto !important;
   outline: 0 !important;
-  pointer-events: none !important; /* Let clicks pass through to backdrop */
+  pointer-events: none !important; /* Let clicks pass through empty space to backdrop */
 }
 
 .modal.show {
@@ -36,9 +36,9 @@
   position: relative !important;
   width: auto !important;
   margin: 1.75rem auto !important;
-  pointer-events: none !important; /* Pass clicks through */
+  pointer-events: none !important; /* Pass clicks through empty space */
   max-width: 500px !important;
-  z-index: 1051 !important;
+  z-index: 1056 !important; /* Higher than modal container */
 }
 
 /* Modal content - THIS is where interactions happen */
@@ -47,14 +47,14 @@
   display: flex !important;
   flex-direction: column !important;
   width: 100% !important;
-  pointer-events: auto !important; /* CRITICAL: Enable all interactions */
+  pointer-events: auto !important; /* CRITICAL: Enable all interactions HERE */
   background-color: #fff !important;
   background-clip: padding-box !important;
   border: 1px solid rgba(0, 0, 0, 0.2) !important;
   border-radius: 0.375rem !important;
   outline: 0 !important;
   box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15) !important;
-  z-index: 1052 !important;
+  z-index: 1057 !important; /* Highest - content is always on top */
 }
 
 /* CRITICAL: Ensure ALL interactive elements work */
@@ -63,7 +63,7 @@
 .modal-footer {
   pointer-events: auto !important;
   position: relative !important;
-  z-index: 1053 !important;
+  z-index: 1058 !important; /* Above modal-content */
 }
 
 /* Make sure all direct descendants of modal content areas are interactive */
@@ -72,6 +72,7 @@
 .modal-body *,
 .modal-footer * {
   pointer-events: auto !important;
+  position: relative !important; /* Ensure proper stacking context */
 }
 
 /* Specific interactive elements */
@@ -90,7 +91,7 @@
 .modal [tabindex],
 .modal [onclick] {
   pointer-events: auto !important;
-  z-index: 1054 !important;
+  z-index: 1059 !important; /* Highest - interactive elements always on top */
   position: relative !important;
   cursor: pointer !important;
 }
