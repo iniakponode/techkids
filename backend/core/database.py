@@ -11,7 +11,14 @@ from sqlalchemy.orm import declarative_base, sessionmaker
 # For now, let's use SQLite by default for local development and testing.
 _default_db_url = "sqlite:///./aitechkids.db"
 _running_tests = "pytest" in sys.modules or os.getenv("PYTEST_CURRENT_TEST")
+
+# Debug: Print environment info for production debugging
+_environment = os.getenv("ENVIRONMENT", "development")
+print(f"[DATABASE] Environment: {_environment}")
+print(f"[DATABASE] Working directory: {os.getcwd()}")
+
 _raw_db_url = os.getenv("DATABASE_URL", _default_db_url)
+print(f"[DATABASE] Raw DATABASE_URL: {_raw_db_url[:50]}..." if _raw_db_url and len(_raw_db_url) > 50 else f"[DATABASE] Raw DATABASE_URL: {_raw_db_url}")
 if _running_tests:
     # When running the test suite default to an isolated SQLite database to
     # avoid relying on external services such as MySQL. Drop any existing file
@@ -28,6 +35,9 @@ if _running_tests:
 # Some hosting environments wrap environment variables in quotes. Strip them out so
 # SQLAlchemy can parse the URL correctly.
 DB_URL = _raw_db_url.strip().strip('"\'')
+
+print(f"[DATABASE] Final DB_URL: {DB_URL[:50]}..." if DB_URL and len(DB_URL) > 50 else f"[DATABASE] Final DB_URL: {DB_URL}")
+print(f"[DATABASE] Database type: {'MySQL' if 'mysql' in DB_URL.lower() else 'SQLite'}")
 
 if DB_URL.startswith("sqlite:"):
     engine = create_engine(

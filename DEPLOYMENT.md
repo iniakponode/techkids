@@ -125,7 +125,32 @@ ls -la /var/www/vhosts/ungozu.com/techkids.ungozu.com/
 
 ## Common Issues & Solutions
 
-### 1. Service Won't Start
+### 1. Database Connection Issues (SQLite error in production)
+
+**Symptoms**: 
+- `sqlite3.OperationalError: unable to open database file`
+- Service fails to start
+- Application tries to use SQLite instead of MySQL
+
+**Cause**: DATABASE_URL environment variable is not properly set or truncated
+
+**Solution**:
+```bash
+# 1. Check systemd service file
+sudo nano /etc/systemd/system/fastapi-techkids.service
+
+# 2. Ensure DATABASE_URL line is complete:
+Environment="DATABASE_URL=mysql+pymysql://techkids:ProgressIniks2018@localhost:3306/aitechkids"
+
+# 3. Reload and restart
+sudo systemctl daemon-reload
+sudo systemctl restart fastapi-techkids
+
+# 4. Verify it's working
+sudo journalctl -u fastapi-techkids -f
+```
+
+### 2. Service Won't Start
 - Check logs: `sudo journalctl -u fastapi-techkids -f`
 - Verify file permissions: `sudo chown -R www-data:www-data /var/www/vhosts/ungozu.com/techkids.ungozu.com`
 - Test manual start: `sudo -u www-data bash -c "cd /var/www/vhosts/ungozu.com/techkids.ungozu.com && source venv/bin/activate && python main.py"`
