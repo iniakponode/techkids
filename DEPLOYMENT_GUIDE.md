@@ -8,7 +8,30 @@ This guide covers the automated deployment system for TechKids production server
 
 - `deploy-production.sh` - Main deployment script
 - `rollback-production.sh` - Emergency rollback script
-- `DEPLOYMENT.md` - Detailed deployment documentation
+- `monitor-production.sh` - Health monitoring and system status
+- `DEPLOYMENT.md` - Detailed deployment documentation## Initial Setup
+
+### First Time Setup
+
+```bash
+# 1. Copy all deployment scripts to production server
+scp deploy-production.sh rollback-production.sh monitor-production.sh DEPLOYMENT_GUIDE.md user@techkids.ungozu.com:/var/www/vhosts/ungozu.com/techkids.ungozu.com/
+
+# 2. SSH to production server
+ssh user@techkids.ungozu.com
+
+# 3. Navigate to project directory
+cd /var/www/vhosts/ungozu.com/techkids.ungozu.com
+
+# 4. Make scripts executable (if not already)
+chmod +x deploy-production.sh rollback-production.sh monitor-production.sh
+
+# 5. Test the monitoring system
+./monitor-production.sh
+
+# 6. Run your first automated deployment
+sudo ./deploy-production.sh
+```
 
 ## Quick Start
 
@@ -16,7 +39,7 @@ This guide covers the automated deployment system for TechKids production server
 
 ```bash
 # Copy scripts to production server
-scp deploy-production.sh rollback-production.sh user@techkids.ungozu.com:/var/www/vhosts/ungozu.com/techkids.ungozu.com/
+scp deploy-production.sh rollback-production.sh monitor-production.sh user@techkids.ungozu.com:/var/www/vhosts/ungozu.com/techkids.ungozu.com/
 
 # SSH to production server
 ssh user@techkids.ungozu.com
@@ -104,7 +127,24 @@ ls -la deployments/
 
 ## Monitoring and Troubleshooting
 
-### Check Service Status
+### Automated Health Monitoring
+
+```bash
+# One-time health check
+./monitor-production.sh
+
+# Continuous monitoring (Ctrl+C to stop)
+./monitor-production.sh --watch
+
+# The monitor checks:
+# - Service status (FastAPI, MySQL, Nginx)
+# - Application responsiveness 
+# - Resource usage (disk, memory)
+# - Recent error logs
+# - Current version info
+```
+
+### Manual Service Checks
 
 ```bash
 # Service status
@@ -314,21 +354,78 @@ sudo systemctl status fastapi-techkids
 - Security updates
 - Performance monitoring
 
-## Support Commands
+## Command Reference
+
+### Essential Commands Table
+
+| Task | Command | Description |
+|------|---------|-------------|
+| **Deployment** |
+| Full deployment | `sudo ./deploy-production.sh` | Complete deployment with migrations |
+| Quick deployment | `sudo ./deploy-production.sh --quick` | Frontend-only changes |
+| Force deployment | `sudo ./deploy-production.sh --force` | Deploy with uncommitted changes |
+| Emergency rollback | `sudo ./rollback-production.sh` | Rollback to last backup |
+| Specific rollback | `sudo ./rollback-production.sh deployments/backup-DATE` | Rollback to specific backup |
+| **Monitoring** |
+| Health check | `./monitor-production.sh` | One-time system health report |
+| Live monitoring | `./monitor-production.sh --watch` | Continuous monitoring |
+| Site check | `curl -f https://techkids.ungozu.com` | Test website response |
+| **Service Management** |
+| Service status | `sudo systemctl status fastapi-techkids` | Check service status |
+| Restart service | `sudo systemctl restart fastapi-techkids` | Restart application |
+| Stop service | `sudo systemctl stop fastapi-techkids` | Stop application |
+| Start service | `sudo systemctl start fastapi-techkids` | Start application |
+| **Logs** |
+| Live logs | `sudo journalctl -u fastapi-techkids -f` | Watch logs in real-time |
+| Recent logs | `sudo journalctl -u fastapi-techkids --since "1 hour ago"` | View recent logs |
+| Deployment logs | `sudo tail -f /var/log/techkids-deployment.log` | View deployment logs |
+| Error logs only | `sudo journalctl -u fastapi-techkids --since "1 hour ago" \| grep -i error` | Filter error messages |
+| **Database** |
+| Connect to DB | `mysql -u techkids -p aitechkids` | MySQL console |
+| Test connection | `echo "SELECT 1;" \| mysql -u techkids -p aitechkids` | Test DB connectivity |
+| User count | `echo "SELECT COUNT(*) FROM users;" \| mysql -u techkids -p aitechkids` | Check user count |
+| **System Resources** |
+| Disk usage | `du -sh /var/www/vhosts/ungozu.com/techkids.ungozu.com` | Project disk usage |
+| Disk space | `df -h` | System disk space |
+| Memory usage | `free -h` | System memory |
+| Process monitor | `htop` | Interactive process viewer |
+| **Backups** |
+| List backups | `ls -la deployments/` | Show available backups |
+| Backup size | `du -sh deployments/*` | Size of each backup |
+
+### Detailed Support Commands
 
 ```bash
+# Automated health monitoring
+./monitor-production.sh                    # One-time check
+./monitor-production.sh --watch           # Continuous monitoring
+
 # Quick health check
 curl -f https://techkids.ungozu.com && echo "✅ Site is up"
 
-# Service restart
-sudo systemctl restart fastapi-techkids
+# Deployment operations  
+sudo ./deploy-production.sh               # Full deployment
+sudo ./deploy-production.sh --quick       # Quick frontend deployment
+sudo ./deploy-production.sh --force       # Force deployment
+sudo ./rollback-production.sh             # Emergency rollback
 
-# View all logs
-sudo journalctl -u fastapi-techkids --since "1 hour ago"
+# Service management
+sudo systemctl restart fastapi-techkids   # Restart service
+sudo systemctl status fastapi-techkids    # Check service status
+sudo systemctl reload fastapi-techkids    # Reload service
 
-# Check database
+# Log viewing
+sudo journalctl -u fastapi-techkids -f                    # Live logs
+sudo journalctl -u fastapi-techkids --since "1 hour ago" # Recent logs
+sudo tail -f /var/log/techkids-deployment.log            # Deployment logs
+
+# Database operations
 echo "SELECT COUNT(*) FROM users;" | mysql -u techkids -p aitechkids
+mysql -u techkids -p aitechkids           # Connect to database
 
-# Disk usage
-du -sh /var/www/vhosts/ungozu.com/techkids.ungozu.com
+# System resources
+du -sh /var/www/vhosts/ungozu.com/techkids.ungozu.com    # Disk usage
+free -h                                   # Memory usage
+df -h                                     # Disk space
+htop                                      # Process monitor
 ```
