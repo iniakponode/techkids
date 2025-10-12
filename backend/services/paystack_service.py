@@ -25,16 +25,14 @@ References:
 - Paystack API Docs: https://paystack.com/docs/api
 """
 
-import os
 import requests
-from dotenv import load_dotenv
 from requests.exceptions import RequestException, Timeout
 from fastapi import HTTPException, status
 
-load_dotenv()
+from backend.core.config import settings
 
-PAYSTACK_SECRET_KEY = os.getenv("PAYSTACK_SECRET_KEY", "")
-PAYSTACK_BASE_URL = os.getenv("PAYSTACK_BASE_URL", "https://api.paystack.co")
+PAYSTACK_SECRET_KEY = settings.PAYSTACK_SECRET_KEY
+PAYSTACK_BASE_URL = settings.PAYSTACK_BASE_URL
 
 
 def initialize_transaction(email: str, amount_kobo: int, callback_url: str, reference: str) -> dict:

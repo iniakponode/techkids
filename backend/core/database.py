@@ -33,10 +33,19 @@ if DB_URL.startswith("sqlite:"):
     engine = create_engine(
         DB_URL,
         connect_args={"check_same_thread": False},
-        echo=True,
+        echo=os.getenv("ENVIRONMENT") != "production",  # Disable SQL logging in production
     )
 else:
-    engine = create_engine(DB_URL, echo=True)
+    # MySQL/PostgreSQL configuration with connection pooling
+    engine = create_engine(
+        DB_URL, 
+        echo=os.getenv("ENVIRONMENT") != "production",  # Disable SQL logging in production
+        pool_size=10,  # Number of connections to maintain in the pool
+        max_overflow=20,  # Maximum number of connections that can overflow the pool
+        pool_timeout=30,  # Timeout for getting connection from pool
+        pool_recycle=3600,  # Recycle connections after 1 hour
+        pool_pre_ping=True,  # Validate connections before use
+    )
 
 # engine = create_engine(DB_URL, connect_args={"check_same_thread": False}, echo=True)
 SessionLocal = sessionmaker(bind=engine, autoflush=False, autocommit=False)
