@@ -117,9 +117,9 @@
     cursor: pointer !important;
 }
 
-/* Override any global styles that might interfere */
-* {
-    position: static !important;
+/* Override any global styles that might interfere - ONLY for modals */
+.modal * {
+    position: static;
 }
 
 .modal,
@@ -130,6 +130,15 @@
 .modal-dialog,
 .modal-content {
     position: relative !important;
+}
+
+/* Preserve important positioning for non-modal elements */
+.carousel-caption,
+.position-absolute,
+.position-relative,
+.position-fixed,
+.position-sticky {
+    position: revert !important;
 }
 
 /* Debug helper - add red border to clickable elements in modals */

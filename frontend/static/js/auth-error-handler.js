@@ -14,8 +14,10 @@ class AuthErrorHandler {
         // Set up global error event listeners
         this.setupGlobalErrorHandlers();
         
-        // Check session validity on page load
-        this.checkSessionValidity();
+        // Check session validity on page load (only for protected pages)
+        if (this.isProtectedPage()) {
+            this.checkSessionValidity();
+        }
     }
 
     setupFetchInterceptor() {
@@ -44,7 +46,8 @@ class AuthErrorHandler {
     setupGlobalErrorHandlers() {
         // Handle unhandled promise rejections that might be auth-related
         window.addEventListener('unhandledrejection', (event) => {
-            if (this.isAuthenticationError(event.reason)) {
+            // Only handle auth errors on protected pages or user-initiated actions
+            if (this.isAuthenticationError(event.reason) && this.isProtectedPage()) {
                 event.preventDefault();
                 this.handleAuthenticationError(null, null, event.reason);
             }
@@ -53,6 +56,17 @@ class AuthErrorHandler {
 
     async handleAuthenticationError(response = null, requestUrl = null, error = null) {
         if (this.isRedirecting) return;
+        
+        // Don't handle auth errors on public pages unless it's a user-initiated action
+        const currentPath = window.location.pathname;
+        const isPublicPage = ['/', '/login', '/registration', '/courses', '/testimonial'].includes(currentPath) || 
+                           currentPath.startsWith('/courses/');
+        
+        // If it's a public page and not a user-initiated API call, ignore
+        if (isPublicPage && (!requestUrl || !this.isUserInitiatedRequest(requestUrl))) {
+            console.debug('Ignoring auth error on public page for automatic request');
+            return;
+        }
         
         let errorData = {};
         let errorMessage = "Your session has expired. Please log in again.";
@@ -204,6 +218,17 @@ class AuthErrorHandler {
     }
 
     async checkSessionValidity() {
+        // Don't auto-check session on login page or public pages to prevent unwanted redirects
+        const currentPath = window.location.pathname;
+        const isLoginPage = currentPath === '/login';
+        const isPublicPage = ['/', '/courses', '/testimonial', '/registration'].includes(currentPath) || 
+                           currentPath.startsWith('/courses/');
+        
+        if (isLoginPage || isPublicPage) {
+            console.debug('Skipping automatic session check on public/login page');
+            return;
+        }
+        
         try {
             const response = await fetch('/api/auth/check-session', {
                 method: 'GET',
@@ -218,7 +243,7 @@ class AuthErrorHandler {
                 // unless user is trying to access a protected page
                 const isProtectedPage = this.isProtectedPage();
                 if (isProtectedPage) {
-                    this.handleAuthenticationError(response);
+                    this.handleAuthenticationError(response, '/api/auth/check-session');
                 }
             }
         } catch (error) {
@@ -238,6 +263,34 @@ class AuthErrorHandler {
         
         const currentPath = window.location.pathname;
         return protectedPaths.some(path => currentPath.startsWith(path));
+    }
+
+    isUserInitiatedRequest(requestUrl) {
+        if (!requestUrl) return false;
+        
+        // Consider these as user-initiated requests
+        const userInitiatedPatterns = [
+            '/api/auth/login',
+            '/api/auth/logout',
+            '/api/courses',
+            '/api/registrations',
+            '/api/payments',
+            '/api/testimonials',
+            '/api/teacher-applications'
+        ];
+        
+        // Automatic/background requests to ignore
+        const automaticPatterns = [
+            '/api/auth/check-session'
+        ];
+        
+        // If it's an automatic pattern, it's not user-initiated
+        if (automaticPatterns.some(pattern => requestUrl.includes(pattern))) {
+            return false;
+        }
+        
+        // If it matches user-initiated patterns, it is user-initiated
+        return userInitiatedPatterns.some(pattern => requestUrl.includes(pattern));
     }
 
     // Utility method for making authenticated API calls
