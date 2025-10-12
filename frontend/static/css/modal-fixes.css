@@ -66,6 +66,14 @@
   z-index: 1053 !important;
 }
 
+/* Make sure all direct descendants of modal content areas are interactive */
+.modal-content *,
+.modal-header *,
+.modal-body *,
+.modal-footer * {
+  pointer-events: auto !important;
+}
+
 /* Specific interactive elements */
 .modal .btn,
 .modal .btn-close,
@@ -79,11 +87,21 @@
 .modal .form-check,
 .modal .form-check-input,
 .modal [role="button"],
-.modal [tabindex] {
+.modal [tabindex],
+.modal [onclick] {
   pointer-events: auto !important;
   z-index: 1054 !important;
   position: relative !important;
   cursor: pointer !important;
+}
+
+/* Ensure text inputs have text cursor */
+.modal input[type="text"],
+.modal input[type="email"],
+.modal input[type="password"],
+.modal input[type="number"],
+.modal textarea {
+  cursor: text !important;
 }
 
 /* Fix for form elements specifically */

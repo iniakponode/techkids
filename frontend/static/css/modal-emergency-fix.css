@@ -117,9 +117,16 @@
     cursor: pointer !important;
 }
 
-/* Override any global styles that might interfere - ONLY for modals */
-.modal * {
-    position: static;
+/* Override any global styles that might interfere - ONLY for specific modal children */
+.modal .form-control,
+.modal .form-select,
+.modal .form-check,
+.modal .form-label,
+.modal .input-group,
+.modal p,
+.modal span:not(.modal-dialog):not(.modal-content),
+.modal div:not(.modal):not(.modal-dialog):not(.modal-content):not(.modal-header):not(.modal-body):not(.modal-footer) {
+    position: static !important;
 }
 
 .modal,
@@ -128,16 +135,25 @@
 }
 
 .modal-dialog,
-.modal-content {
+.modal-content,
+.modal-header,
+.modal-body,
+.modal-footer {
     position: relative !important;
 }
 
-/* Preserve important positioning for non-modal elements */
+/* CRITICAL: Protect carousel and other positioned elements from modal fixes */
+.carousel,
+.carousel *,
+.carousel-item,
 .carousel-caption,
-.position-absolute,
-.position-relative,
-.position-fixed,
-.position-sticky {
+.carousel-control-prev,
+.carousel-control-next,
+.carousel-indicators,
+.position-absolute:not(.modal *),
+.position-relative:not(.modal *),
+.position-fixed:not(.modal *),
+.position-sticky:not(.modal *) {
     position: revert !important;
 }
 
