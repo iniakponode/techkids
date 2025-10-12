@@ -27,6 +27,7 @@ from backend.models.order import Order
 from backend.models.user import User
 from backend.pydanticschemas.auth import LoginForm
 from backend.pydanticschemas.user import UserCreate, UserResponse
+from backend.utils.auth_responses import AuthError, AuthResponse
 from fastapi.responses import JSONResponse
 
 auth_router = APIRouter()
@@ -78,31 +79,22 @@ def _get_user_from_token(
         payload = jwt.decode(token, settings.SECRET_KEY, algorithms=[settings.ALGORITHM])
     except ExpiredSignatureError:
         if raise_errors:
-            raise HTTPException(
-                status_code=status.HTTP_401_UNAUTHORIZED,
-                detail="Session expired, please log in again",
-            )
+            raise AuthError.session_expired()
         return None
     except JWTError:
         if raise_errors:
-            raise HTTPException(
-                status_code=status.HTTP_401_UNAUTHORIZED,
-                detail="Could not validate token",
-            )
+            raise AuthError.invalid_token()
         return None
 
     email: Optional[str] = payload.get("sub")
     if not email:
         if raise_errors:
-            raise HTTPException(
-                status_code=status.HTTP_401_UNAUTHORIZED,
-                detail="Invalid token data",
-            )
+            raise AuthError.invalid_token("Invalid token data")
         return None
 
     user = db.query(User).filter(User.email == email).first()
     if not user and raise_errors:
-        raise HTTPException(status_code=status.HTTP_401_UNAUTHORIZED, detail="User not found")
+        raise AuthError.user_not_found()
 
     return user
 
@@ -379,3 +371,15 @@ def admin_register(user: UserCreate, db: Session = Depends(get_db)):
 #         return RedirectResponse(url=next_url, status_code=status.HTTP_303_SEE_OTHER)
 
 #     return {"detail": "Login successful", "user_id": user.id, "role": user.role}
+
+
+@auth_router.get("/check-session")
+async def check_session(user: User = Depends(get_optional_user)):
+    """
+    Check if the current session is valid.
+    Returns user info if authenticated, 401 if not.
+    """
+    if not user:
+        raise AuthError.session_expired()
+    
+    return AuthResponse.session_check_success(user)

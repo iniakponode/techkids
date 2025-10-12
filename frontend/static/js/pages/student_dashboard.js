@@ -5,28 +5,19 @@ const lessonStatusLabels = {
 };
 
 async function fetchJson(url, options = {}) {
-  const response = await fetch(url, {
-    credentials: 'include',
-    headers: {
-      'Content-Type': 'application/json',
-      ...options.headers
-    },
-    ...options
-  });
-
-  if (!response.ok) {
-    if (response.status === 401) {
-      window.location.assign(`/login?next=${encodeURIComponent(window.location.pathname)}`);
-      return null;
-    }
-    const error = await response.json().catch(() => ({}));
-    const detail = error.detail || 'Unable to complete the request.';
-    throw new Error(typeof detail === 'string' ? detail : JSON.stringify(detail));
-  }
+  // Use the global API helper which handles auth errors automatically
+  const response = await window.apiCall(url, options);
 
   if (response.status === 204) {
     return null;
   }
+  
+  if (!response.ok) {
+    const error = await response.json().catch(() => ({}));
+    const detail = error.detail || 'Unable to complete the request.';
+    throw new Error(typeof detail === 'string' ? detail : JSON.stringify(detail));
+  }
+  
   return response.json();
 }
 

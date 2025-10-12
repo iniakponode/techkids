@@ -1,0 +1,183 @@
+/* Authentication Error Notification Styles */
+
+.auth-error-notification {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    max-width: 400px;
+    min-width: 320px;
+    background: linear-gradient(135deg, #dc3545 0%, #c82333 100%);
+    color: white;
+    border-radius: 12px;
+    box-shadow: 0 8px 32px rgba(220, 53, 69, 0.3);
+    z-index: 10000;
+    transform: translateX(420px);
+    transition: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    opacity: 0;
+    overflow: hidden;
+}
+
+.auth-error-notification.show {
+    transform: translateX(0);
+    opacity: 1;
+}
+
+.auth-error-content {
+    display: flex;
+    align-items: flex-start;
+    padding: 16px 20px;
+    gap: 12px;
+    position: relative;
+}
+
+.auth-error-icon {
+    flex-shrink: 0;
+    width: 24px;
+    height: 24px;
+    color: rgba(255, 255, 255, 0.9);
+    margin-top: 2px;
+}
+
+.auth-error-text {
+    flex: 1;
+    min-width: 0;
+}
+
+.auth-error-text strong {
+    display: block;
+    font-size: 15px;
+    font-weight: 600;
+    margin-bottom: 4px;
+    color: white;
+}
+
+.auth-error-text p {
+    margin: 0;
+    font-size: 14px;
+    line-height: 1.4;
+    color: rgba(255, 255, 255, 0.9);
+}
+
+.auth-error-close {
+    flex-shrink: 0;
+    background: none;
+    border: none;
+    color: rgba(255, 255, 255, 0.8);
+    cursor: pointer;
+    padding: 0;
+    width: 20px;
+    height: 20px;
+    border-radius: 4px;
+    transition: all 0.2s ease;
+    margin-top: 2px;
+}
+
+.auth-error-close:hover {
+    background: rgba(255, 255, 255, 0.1);
+    color: white;
+}
+
+.auth-error-progress {
+    height: 3px;
+    background: rgba(255, 255, 255, 0.3);
+    position: relative;
+    overflow: hidden;
+}
+
+.auth-error-progress::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background: rgba(255, 255, 255, 0.8);
+    animation: auth-error-progress 5s linear forwards;
+}
+
+@keyframes auth-error-progress {
+    from {
+        transform: translateX(-100%);
+    }
+    to {
+        transform: translateX(0);
+    }
+}
+
+/* Mobile responsive */
+@media (max-width: 480px) {
+    .auth-error-notification {
+        top: 10px;
+        right: 10px;
+        left: 10px;
+        max-width: none;
+        min-width: auto;
+        transform: translateY(-100px);
+    }
+    
+    .auth-error-notification.show {
+        transform: translateY(0);
+    }
+    
+    .auth-error-content {
+        padding: 14px 16px;
+    }
+}
+
+/* Dark theme support */
+@media (prefers-color-scheme: dark) {
+    .auth-error-notification {
+        background: linear-gradient(135deg, #dc3545 0%, #b02a37 100%);
+        box-shadow: 0 8px 32px rgba(220, 53, 69, 0.4);
+    }
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+    .auth-error-notification {
+        background: #dc3545;
+        border: 2px solid white;
+    }
+    
+    .auth-error-text strong,
+    .auth-error-text p {
+        color: white;
+    }
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+    .auth-error-notification {
+        transition: opacity 0.2s ease;
+    }
+    
+    .auth-error-progress::after {
+        animation: none;
+        transform: translateX(0);
+    }
+}
+
+/* Focus styles for accessibility */
+.auth-error-close:focus {
+    outline: 2px solid rgba(255, 255, 255, 0.8);
+    outline-offset: 2px;
+}
+
+/* Multiple notifications stacking */
+.auth-error-notification:nth-child(n+2) {
+    top: calc(20px + 120px);
+}
+
+.auth-error-notification:nth-child(n+3) {
+    top: calc(20px + 240px);
+}
+
+@media (max-width: 480px) {
+    .auth-error-notification:nth-child(n+2) {
+        top: calc(10px + 100px);
+    }
+    
+    .auth-error-notification:nth-child(n+3) {
+        top: calc(10px + 200px);
+    }
+}

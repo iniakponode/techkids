@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Auth Error Handler Demo</title>
+    <link rel="stylesheet" href="/static/css/auth-error-notification.css">
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            line-height: 1.6;
+        }
+        .demo-section {
+            margin: 30px 0;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+        }
+        button {
+            background: #007bff;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            margin: 5px;
+        }
+        button:hover {
+            background: #0056b3;
+        }
+        .danger {
+            background: #dc3545;
+        }
+        .danger:hover {
+            background: #c82333;
+        }
+    </style>
+</head>
+<body>
+    <h1>Authentication Error Handler Demo</h1>
+    
+    <div class="demo-section">
+        <h2>Test Authentication Errors</h2>
+        <p>These buttons simulate different authentication scenarios:</p>
+        
+        <button onclick="testSessionExpired()">Test Session Expired</button>
+        <button onclick="testInvalidToken()">Test Invalid Token</button>
+        <button onclick="testUserNotFound()">Test User Not Found</button>
+        <button onclick="testCustomMessage()">Test Custom Message</button>
+        <button class="danger" onclick="testManualNotification()">Show Manual Notification</button>
+    </div>
+    
+    <div class="demo-section">
+        <h2>Test API Calls</h2>
+        <p>These simulate actual API calls that might fail with authentication errors:</p>
+        
+        <button onclick="testProtectedAPI()">Test Protected API Call</button>
+        <button onclick="testMultipleErrors()">Test Multiple Errors</button>
+    </div>
+    
+    <div class="demo-section">
+        <h2>Session Management</h2>
+        <button onclick="checkSessionStatus()">Check Session Status</button>
+        <button onclick="refreshSession()">Refresh Session</button>
+    </div>
+
+    <script src="/static/js/auth-error-handler.js"></script>
+    <script>
+        // Demo functions
+        function testSessionExpired() {
+            const mockResponse = {
+                status: 401,
+                json: () => Promise.resolve({
+                    detail: "Session expired, please log in again"
+                })
+            };
+            window.authErrorHandler.handleAuthenticationError(mockResponse, '/api/test');
+        }
+        
+        function testInvalidToken() {
+            const mockResponse = {
+                status: 401,
+                json: () => Promise.resolve({
+                    detail: "Could not validate token"
+                })
+            };
+            window.authErrorHandler.handleAuthenticationError(mockResponse, '/api/test');
+        }
+        
+        function testUserNotFound() {
+            const mockResponse = {
+                status: 401,
+                json: () => Promise.resolve({
+                    detail: "User not found"
+                })
+            };
+            window.authErrorHandler.handleAuthenticationError(mockResponse, '/api/test');
+        }
+        
+        function testCustomMessage() {
+            const mockResponse = {
+                status: 401,
+                json: () => Promise.resolve({
+                    detail: "Your account has been deactivated. Please contact support."
+                })
+            };
+            window.authErrorHandler.handleAuthenticationError(mockResponse, '/api/test');
+        }
+        
+        function testManualNotification() {
+            window.authErrorHandler.showAuthErrorNotification(
+                "This is a manual test notification to check the styling and behavior."
+            );
+        }
+        
+        async function testProtectedAPI() {
+            try {
+                // This should trigger the global fetch interceptor
+                const response = await fetch('/api/admin/users', {
+                    method: 'GET',
+                    credentials: 'include'
+                });
+                
+                if (response.status === 401) {
+                    console.log('Auth error detected by interceptor');
+                } else {
+                    console.log('API call successful or different error');
+                }
+            } catch (error) {
+                console.error('API call error:', error);
+            }
+        }
+        
+        function testMultipleErrors() {
+            // Test multiple notifications
+            setTimeout(() => testSessionExpired(), 100);
+            setTimeout(() => testInvalidToken(), 300);
+            setTimeout(() => testUserNotFound(), 500);
+        }
+        
+        async function checkSessionStatus() {
+            try {
+                const response = await fetch('/api/auth/check-session', {
+                    credentials: 'include'
+                });
+                
+                if (response.ok) {
+                    const data = await response.json();
+                    alert(`Session valid! User: ${data.email} (${data.role})`);
+                } else {
+                    alert('Session invalid or expired');
+                }
+            } catch (error) {
+                alert('Error checking session: ' + error.message);
+            }
+        }
+        
+        async function refreshSession() {
+            try {
+                await window.authErrorHandler.refreshSession();
+                alert('Session refresh completed');
+            } catch (error) {
+                alert('Error refreshing session: ' + error.message);
+            }
+        }
+        
+        // Add some info about the current state
+        document.addEventListener('DOMContentLoaded', () => {
+            console.log('Auth Error Handler Demo loaded');
+            console.log('Handler instance:', window.authErrorHandler);
+            
+            // Add a note about redirect behavior
+            const note = document.createElement('div');
+            note.style.cssText = 'background: #f8f9fa; padding: 15px; border-radius: 5px; margin: 20px 0; border-left: 4px solid #007bff;';
+            note.innerHTML = `
+                <strong>Note:</strong> In demo mode, login redirects are disabled for testing purposes. 
+                In production, authentication errors will automatically redirect to the login page after showing the notification.
+            `;
+            document.body.appendChild(note);
+            
+            // Disable redirects for demo
+            window.authErrorHandler.redirectToLogin = function(url) {
+                console.log('Redirect disabled for demo. Would redirect to:', url || '/login');
+            };
+        });
+    </script>
+</body>
+</html>

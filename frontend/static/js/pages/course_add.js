@@ -28,13 +28,8 @@ document.addEventListener("DOMContentLoaded", () => {
               const errorData = await response.json();
               handleValidationErrors(errorData);
             } else if (response.status === 401 || response.status === 403) {
-              // Auth error (e.g. "Could not validate token")
-              const errorData = await response.json();
-              if (errorData.detail === "Could not validate token") {
-                alert("Your session token is invalid or expired. Please log in again.");
-              } else {
-                alert(`Error: ${errorData.detail || "Unauthorized"}`);
-              }
+              // Auth error - let the global handler take care of it
+              return;
             } else {
               // Other server errors (400, 500, etc.)
               const errorData = await response.json();
