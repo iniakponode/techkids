@@ -4,7 +4,7 @@ from pydantic_settings import BaseSettings, SettingsConfigDict
 class Settings(BaseSettings):
     DEBUG: bool = False
     ENVIRONMENT: str = "development"
-    DATABASE_URL: str = "sqlite:///./techkids.db"
+    DATABASE_URL: str = "sqlite:///./aitechkids.db"
     SECRET_KEY: str = "techkids-development-secret"
     ACCESS_TOKEN_EXPIRE_MINUTES: int = 60
     ALGORITHM: str = "HS256"

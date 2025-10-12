@@ -4,7 +4,7 @@
 
 ### 1. Environment Variables (✓ Already configured in systemd service)
 - [x] `ENVIRONMENT=production`
-- [x] `DATABASE_URL=mysql+pymysql://techkids:ProgressIniks2018@localhost:3306/techkids`
+- [x] `DATABASE_URL=mysql+pymysql://techkids:ProgressIniks2018@localhost:3306/aitechkids`
 - [x] `PAYSTACK_SECRET_KEY` (live key)
 - [x] `PAYSTACK_PUBLIC_KEY` (live key)
 - [x] `PAYSTACK_BASE_URL=https://api.paystack.co`
@@ -14,9 +14,9 @@
 - [x] `ALGORITHM=HS256`
 
 ### 2. Database Setup
-- [ ] Ensure MySQL database `techkids` exists
+- [ ] Ensure MySQL database `aitechkids` exists
 - [ ] Verify database user `techkids` has proper permissions
-- [ ] Test database connection: `mysql -u techkids -p -h localhost techkids`
+- [ ] Test database connection: `mysql -u techkids -p -h localhost aitechkids`
 - [ ] Run migrations: `alembic upgrade head`
 
 ### 3. File Permissions & Ownership
@@ -110,7 +110,7 @@ sudo journalctl -u fastapi-techkids -f
 sudo journalctl -u fastapi-techkids --since "10 minutes ago"
 
 # Test database connection
-mysql -u techkids -p -h localhost techkids
+mysql -u techkids -p -h localhost aitechkids
 
 # Test application directly
 cd /var/www/vhosts/ungozu.com/techkids.ungozu.com
@@ -132,7 +132,7 @@ ls -la /var/www/vhosts/ungozu.com/techkids.ungozu.com/
 
 ### 2. Database Connection Issues
 - Verify MySQL is running: `sudo systemctl status mysql`
-- Test connection: `mysql -u techkids -p -h localhost techkids`
+- Test connection: `mysql -u techkids -p -h localhost aitechkids`
 - Check database URL format in environment variables
 
 ### 3. Import Errors

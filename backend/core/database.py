@@ -9,14 +9,14 @@ from sqlalchemy.engine import make_url
 from sqlalchemy.orm import declarative_base, sessionmaker
 
 # For now, let's use SQLite by default for local development and testing.
-_default_db_url = "sqlite:///./techkids.db"
+_default_db_url = "sqlite:///./aitechkids.db"
 _running_tests = "pytest" in sys.modules or os.getenv("PYTEST_CURRENT_TEST")
 _raw_db_url = os.getenv("DATABASE_URL", _default_db_url)
 if _running_tests:
     # When running the test suite default to an isolated SQLite database to
     # avoid relying on external services such as MySQL. Drop any existing file
     # to ensure a clean slate between test runs.
-    _raw_db_url = os.getenv("TEST_DATABASE_URL", "sqlite:///./techkids_test.db")
+    _raw_db_url = os.getenv("TEST_DATABASE_URL", "sqlite:///./aitechkids_test.db")
     url_obj = make_url(_raw_db_url)
     if url_obj.drivername.startswith("sqlite") and url_obj.database:
         db_path = Path(url_obj.database)
