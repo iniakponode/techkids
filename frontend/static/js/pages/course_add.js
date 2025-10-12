@@ -48,9 +48,14 @@ document.addEventListener("DOMContentLoaded", () => {
         const createdCourse = await response.json();
         console.log("Course created:", createdCourse);
   
-        // Show the Bootstrap modal
-        const successModal = new bootstrap.Modal(document.getElementById("successModal"));
-        successModal.show();
+        // Show the Bootstrap modal using modal manager
+        if (window.modalManager) {
+            window.modalManager.show('successModal');
+        } else {
+            // Fallback to direct Bootstrap
+            const successModal = new bootstrap.Modal(document.getElementById("successModal"));
+            successModal.show();
+        }
   
         // 5. Optionally redirect after user closes the modal
         const successCloseBtn = document.getElementById("successCloseBtn");

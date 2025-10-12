@@ -8,11 +8,52 @@ document.addEventListener('DOMContentLoaded', () => {
     const credentialsTableBody = document.getElementById('credentials-table-body');
     const credentialForm = document.getElementById('credential-form');
 
-    const previewModalElement = document.getElementById('previewModal');
-    const analyticsModalElement = document.getElementById('analyticsModal');
-    const bootstrapLib = window.bootstrap || null;
-    const previewModal = bootstrapLib && previewModalElement ? new bootstrapLib.Modal(previewModalElement) : null;
-    const analyticsModal = bootstrapLib && analyticsModalElement ? new bootstrapLib.Modal(analyticsModalElement) : null;
+    // Modal initialization with proper error handling
+    let previewModal = null;
+    let analyticsModal = null;
+    
+    // Initialize modals after Bootstrap is loaded
+    const initializeModals = () => {
+        const previewModalElement = document.getElementById('previewModal');
+        const analyticsModalElement = document.getElementById('analyticsModal');
+        
+        if (window.bootstrap && previewModalElement) {
+            previewModal = new window.bootstrap.Modal(previewModalElement, {
+                backdrop: true,
+                keyboard: true,
+                focus: true
+            });
+        }
+        
+        if (window.bootstrap && analyticsModalElement) {
+            analyticsModal = new window.bootstrap.Modal(analyticsModalElement, {
+                backdrop: true,
+                keyboard: true,
+                focus: true
+            });
+        }
+    };
+    
+    // Initialize modals immediately or wait for Bootstrap
+    if (window.bootstrap) {
+        initializeModals();
+    } else {
+        // Wait for Bootstrap to load
+        const bootstrapLoadInterval = setInterval(() => {
+            if (window.bootstrap) {
+                clearInterval(bootstrapLoadInterval);
+                initializeModals();
+            }
+        }, 100);
+        
+        // Fallback timeout after 5 seconds
+        setTimeout(() => {
+            clearInterval(bootstrapLoadInterval);
+            if (!window.bootstrap) {
+                console.warn('Bootstrap not loaded, modals may not work properly');
+            }
+        }, 5000);
+    }
 
     const previewPlatform = document.getElementById('previewPlatform');
     const previewContentType = document.getElementById('previewContentType');
@@ -136,8 +177,17 @@ document.addEventListener('DOMContentLoaded', () => {
         } else {
             previewThumbnail.style.display = 'none';
         }
-        if (previewModal) {
-            previewModal.show();
+        // Use modal manager for reliable modal display
+        if (window.modalManager) {
+            window.modalManager.show('previewModal');
+        } else if (previewModal) {
+            try {
+                previewModal.show();
+            } catch (error) {
+                console.error('Error showing preview modal:', error);
+            }
+        } else {
+            console.warn('Modal system not available');
         }
     }
 
@@ -199,8 +249,17 @@ document.addEventListener('DOMContentLoaded', () => {
         analyticsPostedAt.textContent = analytics.posted_at ? formatDate(analytics.posted_at) : 'Not yet';
         renderTotals(analytics.totals || {});
         renderLogs(analytics.logs || []);
-        if (analyticsModal) {
-            analyticsModal.show();
+        // Use modal manager for reliable modal display
+        if (window.modalManager) {
+            window.modalManager.show('analyticsModal');
+        } else if (analyticsModal) {
+            try {
+                analyticsModal.show();
+            } catch (error) {
+                console.error('Error showing analytics modal:', error);
+            }
+        } else {
+            console.warn('Modal system not available');
         }
     }
 
@@ -266,12 +325,21 @@ document.addEventListener('DOMContentLoaded', () => {
             handleAnalytics(postId);
         }
     }
+    
+    // Setup modal event listeners (modal manager handles most of this now)
+    function setupModalEventListeners() {
+        // Additional custom modal event handlers can go here if needed
+        console.log('Modal event listeners setup - using global modal manager');
+    }
 
     platformSelect.addEventListener('change', updateContentTypes);
     contentTypeSelect.addEventListener('change', updateMediaFields);
     form.addEventListener('submit', handleCreatePost);
     credentialForm.addEventListener('submit', handleCredentialSubmit);
     postsTableBody?.addEventListener('click', delegateTableClicks);
+
+    // Setup modal event listeners
+    setupModalEventListeners();
 
     updateContentTypes();
     loadCredentials();
