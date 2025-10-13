@@ -1,7 +1,7 @@
 from datetime import datetime
-from typing import List
+from typing import List, Any
 
-from pydantic import AliasChoices, BaseModel, Field
+from pydantic import AliasChoices, BaseModel, Field, field_serializer, model_validator
 
 
 class SocialMediaPostBase(BaseModel):
@@ -93,6 +93,22 @@ class SocialPlatformCredentialSchema(SocialPlatformCredentialBase):
     id: int
     created_at: datetime
     updated_at: datetime
+
+    @model_validator(mode='before')
+    @classmethod
+    def extract_metadata(cls, data: Any) -> Any:
+        """Convert metadata_json attribute to metadata for serialization"""
+        if hasattr(data, '__dict__'):
+            # It's a SQLAlchemy model object
+            obj_dict = {}
+            for key in ['id', 'platform', 'access_token', 'refresh_token', 'created_at', 'updated_at']:
+                if hasattr(data, key):
+                    obj_dict[key] = getattr(data, key)
+            # Handle the metadata_json -> metadata conversion
+            if hasattr(data, 'metadata_json'):
+                obj_dict['metadata'] = getattr(data, 'metadata_json')
+            return obj_dict
+        return data
 
     class Config:
         from_attributes = True
