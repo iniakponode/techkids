@@ -224,11 +224,11 @@ PLATFORM_HANDLERS: Dict[
 ] = {
     # Real dispatchers (these will actually post to the platform)
     "telegram": post_with_real_dispatcher,
+    "twitter": post_with_real_dispatcher,
+    "x": post_with_real_dispatcher,
     
     # Simulated dispatchers (for platforms not yet implemented)
     "facebook": post_to_facebook,
-    "x": post_to_x,
-    "twitter": post_to_x,
     "instagram": post_to_instagram,
     "whatsapp": post_to_facebook,  # Use facebook sim for now
     "threads": post_to_x,  # Use x sim for now

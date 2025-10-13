@@ -12,18 +12,18 @@ from backend.services.dispatchers.base import BasePlatformDispatcher
 
 # Import platform-specific dispatchers as they're implemented
 from backend.services.dispatchers.telegram_dispatcher import TelegramDispatcher
+from backend.services.dispatchers.twitter_dispatcher import TwitterDispatcher
 # from backend.services.dispatchers.facebook_dispatcher import FacebookDispatcher
 # from backend.services.dispatchers.instagram_dispatcher import InstagramDispatcher
-# from backend.services.dispatchers.x_dispatcher import XDispatcher
 # from backend.services.dispatchers.whatsapp_dispatcher import WhatsAppDispatcher
 
 # Registry of available dispatchers
 PLATFORM_DISPATCHERS: Dict[str, Type[BasePlatformDispatcher]] = {
     "telegram": TelegramDispatcher,
+    "twitter": TwitterDispatcher,
+    "x": TwitterDispatcher,  # X is the new name for Twitter
     # "facebook": FacebookDispatcher,
     # "instagram": InstagramDispatcher,
-    # "x": XDispatcher,
-    # "twitter": XDispatcher,  # Alias
     # "whatsapp": WhatsAppDispatcher,
 }
 
