@@ -120,12 +120,26 @@ document.addEventListener('DOMContentLoaded', () => {
     async function handleCreatePost(event) {
         event.preventDefault();
         const formData = new FormData(form);
+        const scheduledAt = formData.get('scheduled_at');
+        
         const response = await fetch('/api/admin/social-posts/', {
             method: 'POST',
             body: formData,
         });
         if (response.ok) {
-            window.location.reload();
+            const post = await response.json();
+            
+            // Show appropriate message based on whether it's instant or scheduled
+            if (!scheduledAt) {
+                showAlert('✅ Post created and published immediately!');
+            } else {
+                showAlert('✅ Post scheduled successfully!');
+            }
+            
+            // Reload after a short delay to show the message
+            setTimeout(() => {
+                window.location.reload();
+            }, 1500);
         } else {
             const error = await response.json().catch(() => ({}));
             showAlert(error.detail || 'Failed to create post');

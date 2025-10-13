@@ -87,7 +87,23 @@ async def create_post(
         video_url=video_url,
         scheduled_at=scheduled_dt,
     )
-    return crud_social_post.create(db, post_data)
+    post = crud_social_post.create(db, post_data)
+    
+    # If no scheduled time, post immediately instead of waiting for scheduler
+    if not scheduled_dt:
+        from backend.services.social_scheduler import _send_post
+        try:
+            _send_post(db, post)
+            db.commit()
+            db.refresh(post)
+        except Exception as e:
+            # If immediate posting fails, it will be retried by scheduler
+            post.status = "queued"
+            post.last_error = str(e)
+            db.commit()
+            db.refresh(post)
+    
+    return post
 
 @router.delete("/{post_id}", status_code=status.HTTP_204_NO_CONTENT)
 async def delete_post(post_id: int, db: Session = Depends(get_db), current_user: User = Depends(get_current_user)):

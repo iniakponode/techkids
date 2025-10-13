@@ -11,7 +11,7 @@ class Settings(BaseSettings):
     EMAIL_SENDER: str = "no-reply@techkids.local"
     EMAIL_HOST: str = "localhost"
     EMAIL_PORT: int = 587
-    POST_SCHEDULER_INTERVAL: int = 60
+    POST_SCHEDULER_INTERVAL: int = 15  # Check for posts every 15 seconds
     FACEBOOK_API_TOKEN: str | None = None
     X_API_TOKEN: str | None = None
     INSTAGRAM_API_TOKEN: str | None = None

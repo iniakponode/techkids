@@ -269,6 +269,8 @@ def dispatch_due_posts() -> None:
     try:
         now = datetime.utcnow()
         max_attempts = determine_max_attempts()
+        
+        # Find posts that are due and not already being processed
         due_posts = (
             db.query(SocialMediaPost)
             .filter(
@@ -283,12 +285,28 @@ def dispatch_due_posts() -> None:
             .filter(SocialMediaPost.attempt_count < max_attempts)
             .all()
         )
-        processed = False
+        
+        if not due_posts:
+            return
+            
+        # Mark all due posts as processing to prevent duplicate dispatches
         for post in due_posts:
-            _send_post(db, post)
-            processed = True
-        if processed:
-            db.commit()
+            post.status = "processing"
+            db.add(post)
+        db.commit()
+        
+        # Now dispatch each post
+        for post in due_posts:
+            try:
+                _send_post(db, post)
+            except Exception as e:
+                logger.error(f"Error dispatching post {post.id}: {e}", exc_info=True)
+                # Error handling is done in _send_post, but catch any unexpected issues
+        
+        db.commit()
+    except Exception as e:
+        logger.error(f"Error in dispatch_due_posts: {e}", exc_info=True)
+        db.rollback()
     finally:
         db.close()
 

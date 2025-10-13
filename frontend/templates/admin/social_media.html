@@ -51,9 +51,12 @@
                             <div class="form-text">Upload a video to accompany your post</div>
                         </div>
                         <div class="col-md-6">
-                            <label class="form-label" for="scheduled_at">Schedule Time</label>
+                            <label class="form-label" for="scheduled_at">Schedule Time (optional)</label>
                             <input type="datetime-local" id="scheduled_at" name="scheduled_at" class="form-control">
-                            <div class="form-text">Leave empty to publish immediately.</div>
+                            <div class="form-text">
+                                <strong>Leave empty</strong> to post immediately.<br>
+                                <strong>Select a time</strong> to schedule for later.
+                            </div>
                         </div>
                         <div class="col-12 d-flex gap-2">
                             <button type="submit" class="btn btn-success">Save Post</button>
