@@ -112,19 +112,26 @@ class TelegramDispatcher(BasePlatformDispatcher):
         - Messages with videos
         """
         try:
+            logger.info(f"Telegram publish_post called with content_type={content.content_type}, text_length={len(content.text)}, has_image={bool(content.image_path or content.image_url)}, has_video={bool(content.video_path or content.video_url)}")
+            
             # Validate content
             is_valid, error_msg = self.validate_content(content)
             if not is_valid:
+                logger.error(f"Telegram content validation failed: {error_msg}")
                 return PostResult(
                     success=False,
                     error_message=error_msg,
                     diagnostics=f"Content validation failed"
                 )
             
+            logger.info("Telegram content validation passed")
+            
             # Get channel ID
             try:
                 channel_id = self._get_channel_id(credentials)
+                logger.info(f"Telegram channel ID resolved: {channel_id}")
             except ValueError as e:
+                logger.error(f"Telegram channel ID extraction failed: {e}")
                 return PostResult(
                     success=False,
                     error_message=str(e),
@@ -133,10 +140,13 @@ class TelegramDispatcher(BasePlatformDispatcher):
             
             # Determine which API method to use based on content
             if content.image_path or content.image_url:
+                logger.info("Telegram: sending photo")
                 return self._send_photo(content, credentials, channel_id)
             elif content.video_path or content.video_url:
+                logger.info("Telegram: sending video")
                 return self._send_video(content, credentials, channel_id)
             else:
+                logger.info("Telegram: sending text message")
                 return self._send_message(content, credentials, channel_id)
         
         except Exception as e:

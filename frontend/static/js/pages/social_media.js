@@ -100,16 +100,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
     function updateMediaFields() {
         const type = (contentTypeSelect.value || '').toLowerCase();
-        if (type === 'reel' || type === 'story') {
-            imageField.style.display = 'none';
-            videoField.style.display = 'block';
-        } else if (type === 'feed' || type === 'post') {
-            imageField.style.display = 'block';
-            videoField.style.display = 'none';
-        } else {
-            imageField.style.display = 'block';
-            videoField.style.display = 'block';
-        }
+        // Always show both image and video fields
+        // Users can upload either one, both, or neither
+        imageField.style.display = 'block';
+        videoField.style.display = 'block';
     }
 
     function formatDate(value) {

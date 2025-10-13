@@ -41,12 +41,14 @@
                             <textarea id="content" name="content" class="form-control" rows="4" placeholder="Write the copy for this post" required></textarea>
                         </div>
                         <div class="col-md-6" id="image-field">
-                            <label class="form-label" for="image">Image</label>
+                            <label class="form-label" for="image">Image (optional)</label>
                             <input type="file" id="image" name="image" accept="image/*" class="form-control">
+                            <div class="form-text">Upload an image to accompany your post</div>
                         </div>
                         <div class="col-md-6" id="video-field">
-                            <label class="form-label" for="video">Video</label>
+                            <label class="form-label" for="video">Video (optional)</label>
                             <input type="file" id="video" name="video" accept="video/*" class="form-control">
+                            <div class="form-text">Upload a video to accompany your post</div>
                         </div>
                         <div class="col-md-6">
                             <label class="form-label" for="scheduled_at">Schedule Time</label>
@@ -90,7 +92,11 @@
                         </div>
                         <div class="col-12">
                             <label class="form-label" for="metadata">Metadata</label>
-                            <textarea id="metadata" name="metadata" class="form-control" rows="2" placeholder="Notes or JSON metadata"></textarea>
+                            <textarea id="metadata" name="metadata" class="form-control" rows="2" placeholder='For Telegram: {"channel_id": "@your_channel"}'></textarea>
+                            <div class="form-text">
+                                <strong>Telegram:</strong> Enter <code>{"channel_id": "@your_channel"}</code><br>
+                                <strong>Other platforms:</strong> Optional JSON metadata or notes
+                            </div>
                         </div>
                         <div class="col-12 d-grid">
                             <button type="submit" class="btn btn-primary">Save Credentials</button>

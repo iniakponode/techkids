@@ -181,6 +181,7 @@ def post_with_real_dispatcher(
         # Publish the post
         logger.info(f"Publishing post {post.id} to {platform}")  # type: ignore
         result = dispatcher.publish_post(content, disp_creds)
+        logger.info(f"Telegram publish result: success={result.success}, post_id={result.platform_post_id}, error={result.error_message}")
         
         # Convert PostResult to DispatchResult
         return _convert_post_result_to_dispatch_result(result)
