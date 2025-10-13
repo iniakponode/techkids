@@ -334,6 +334,53 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
     
+    function updateCredentialPlaceholders() {
+        const platform = document.getElementById('credential-platform')?.value;
+        const accessTokenInput = document.getElementById('access_token');
+        const refreshTokenInput = document.getElementById('refresh_token');
+        const metadataInput = document.getElementById('metadata');
+        
+        if (!platform || !accessTokenInput || !refreshTokenInput || !metadataInput) return;
+        
+        const platformConfig = {
+            telegram: {
+                accessToken: 'Bot Token from @BotFather',
+                refreshToken: 'Leave empty for Telegram',
+                metadata: '{"channel_id": "@your_channel"}'
+            },
+            x: {
+                accessToken: 'API Key (Consumer Key)',
+                refreshToken: 'API Secret (Consumer Secret)',
+                metadata: '{"access_token": "1234567890-AbCd...", "access_token_secret": "xyz123..."}'
+            },
+            twitter: {
+                accessToken: 'API Key (Consumer Key)',
+                refreshToken: 'API Secret (Consumer Secret)',
+                metadata: '{"access_token": "1234567890-AbCd...", "access_token_secret": "xyz123..."}'
+            },
+            facebook: {
+                accessToken: 'Facebook Page Access Token',
+                refreshToken: 'Optional - for long-lived token',
+                metadata: '{"page_id": "123456789"}'
+            },
+            instagram: {
+                accessToken: 'Instagram Business Account Token',
+                refreshToken: 'Optional - for long-lived token',
+                metadata: '{"account_id": "123456789"}'
+            }
+        };
+        
+        const config = platformConfig[platform] || {
+            accessToken: 'Platform API access token',
+            refreshToken: 'Platform refresh token (if supported)',
+            metadata: 'Platform-specific JSON configuration'
+        };
+        
+        accessTokenInput.placeholder = config.accessToken;
+        refreshTokenInput.placeholder = config.refreshToken;
+        metadataInput.placeholder = config.metadata;
+    }
+    
     // Setup modal event listeners (modal manager handles most of this now)
     function setupModalEventListeners() {
         // Additional custom modal event handlers can go here if needed
@@ -345,10 +392,17 @@ document.addEventListener('DOMContentLoaded', () => {
     form.addEventListener('submit', handleCreatePost);
     credentialForm.addEventListener('submit', handleCredentialSubmit);
     postsTableBody?.addEventListener('click', delegateTableClicks);
+    
+    // Add platform change handler for credentials form
+    const credentialPlatformSelect = document.getElementById('credential-platform');
+    if (credentialPlatformSelect) {
+        credentialPlatformSelect.addEventListener('change', updateCredentialPlaceholders);
+    }
 
     // Setup modal event listeners
     setupModalEventListeners();
 
     updateContentTypes();
     loadCredentials();
+    updateCredentialPlaceholders(); // Initialize placeholders
 });

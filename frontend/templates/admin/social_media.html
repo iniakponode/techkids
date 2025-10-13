@@ -88,17 +88,26 @@
                         <div class="col-12">
                             <label class="form-label" for="access_token">Access Token</label>
                             <input type="text" id="access_token" name="access_token" class="form-control" placeholder="Paste the API access token" required>
+                            <div class="form-text">
+                                <strong>Telegram:</strong> Bot Token from @BotFather<br>
+                                <strong>Twitter/X:</strong> API Key (Consumer Key)
+                            </div>
                         </div>
                         <div class="col-12">
                             <label class="form-label" for="refresh_token">Refresh Token (optional)</label>
                             <input type="text" id="refresh_token" name="refresh_token" class="form-control" placeholder="If supported by the platform">
+                            <div class="form-text">
+                                <strong>Telegram:</strong> Leave empty<br>
+                                <strong>Twitter/X:</strong> API Secret (Consumer Secret)
+                            </div>
                         </div>
                         <div class="col-12">
-                            <label class="form-label" for="metadata">Metadata</label>
-                            <textarea id="metadata" name="metadata" class="form-control" rows="2" placeholder='For Telegram: {"channel_id": "@your_channel"}'></textarea>
+                            <label class="form-label" for="metadata">Metadata (JSON format)</label>
+                            <textarea id="metadata" name="metadata" class="form-control" rows="3" placeholder='Platform-specific configuration'></textarea>
                             <div class="form-text">
-                                <strong>Telegram:</strong> Enter <code>{"channel_id": "@your_channel"}</code><br>
-                                <strong>Other platforms:</strong> Optional JSON metadata or notes
+                                <strong>Telegram:</strong> <code>{"channel_id": "@your_channel"}</code><br>
+                                <strong>Twitter/X:</strong> <code>{"access_token": "1234567890-AbCd...", "access_token_secret": "xyz123..."}</code><br>
+                                <strong>Others:</strong> Optional JSON or notes
                             </div>
                         </div>
                         <div class="col-12 d-grid">
