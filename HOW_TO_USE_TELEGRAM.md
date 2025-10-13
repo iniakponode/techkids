@@ -44,27 +44,29 @@ On the right side of the page, you'll see a card titled **"Platform Credentials"
 ### Step 3: Fill in the Form
 
 ```
-┌─────────────────────────────────────┐
-│  Platform Credentials               │
-├─────────────────────────────────────┤
-│                                     │
-│  Platform:                          │
-│  [Select: Telegram ▼]               │
-│                                     │
-│  Access Token:                      │
-│  [7845123456:AABbCcDd...]          │  ← Paste your bot token here
-│                                     │
-│  Refresh Token (optional):          │
-│  [                          ]       │  ← Leave empty for Telegram
-│                                     │
-│  Metadata:                          │
-│  ┌─────────────────────────┐       │
-│  │ {"channel_id": "@tech"} │       │  ← Enter your channel ID here
-│  └─────────────────────────┘       │
-│                                     │
-│  [Save Credentials]                 │
-│                                     │
-└─────────────────────────────────────┘
+┌─────────────────────────────────────────────────┐
+│  Platform Credentials                           │
+├─────────────────────────────────────────────────┤
+│                                                 │
+│  Platform:                                      │
+│  [Select: Telegram ▼]                           │
+│                                                 │
+│  Access Token:                                  │
+│  [8173820735:AAHz_zD85e...]                    │  ← Paste your bot token here
+│                                                 │
+│  Refresh Token (optional):                      │
+│  [                                    ]         │  ← Leave empty for Telegram
+│                                                 │
+│  Metadata:                                      │
+│  ┌───────────────────────────────────┐         │
+│  │ {"channel_id": "@techkids_test"}  │         │  ← Enter your channel ID here
+│  └───────────────────────────────────┘         │
+│  💡 Telegram: Enter {"channel_id": "@channel"} │
+│     Other platforms: Optional JSON or notes    │
+│                                                 │
+│  [Save Credentials]                             │
+│                                                 │
+└─────────────────────────────────────────────────┘
 ```
 
 ### Step 4: Fill in each field
@@ -102,12 +104,18 @@ Now you can **create and schedule posts** to Telegram!
    Platform:      [Select: Telegram]
    Content Type:  [Post]
    Content:       [Your message text here...]
-   Image:         [Optional - upload an image]
-   Video:         [Optional - upload a video]
+   Image:         [Optional - upload an image] ← Now visible!
+   Video:         [Optional - upload a video] ← Now visible!
    Schedule Time: [Optional - leave empty for immediate post]
    ```
 3. Click **"Save Post"**
 4. The post will be sent to your Telegram channel!
+
+**Note:** Both image and video fields are now always visible. You can upload:
+- Text only (no media)
+- Text + Image
+- Text + Video
+- Just choose which media you want to include!
 
 ---
 
