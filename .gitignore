@@ -4,3 +4,7 @@ techkids_test.db
 venv
 frontend/static/uploads/
 __pycache__/
+*.pyc
+aitechkids.db
+.vscode/
+.well-known/

@@ -1,0 +1,111 @@
+{% extends "layout/base.html" %}
+
+{% block title %}{% if kit %}Edit Kit{% else %}Create Kit{% endif %}{% endblock %}
+{% block extra_head %}
+{{ super() }}
+<script src="/static/js/pages/kit_form.js" defer></script>
+{% endblock %}
+
+{% block content %}
+<div class="container mt-5">
+    <div class="d-flex flex-wrap justify-content-between align-items-center mb-4">
+        <div>
+            <h1>{% if kit %}Edit Kit{% else %}Create New Kit{% endif %}</h1>
+            <p class="text-muted">Bundle and organize paid toolkit assets for your learners.</p>
+        </div>
+        <a href="/admin/manage-kits" class="btn btn-outline-primary">Back to Kits</a>
+    </div>
+
+    <form id="kitForm" data-kit-id="{{ kit.id if kit }}" class="card shadow-sm" enctype="multipart/form-data">
+        <div class="card-body">
+            <div class="row g-4">
+                <div class="col-lg-8">
+                    <div class="mb-3">
+                        <label class="form-label">Kit Title</label>
+                        <input type="text" name="title" class="form-control" value="{{ kit.title if kit }}" required>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Description</label>
+                        <textarea name="description" class="form-control" rows="5" required>{{ kit.description if kit }}</textarea>
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <div class="mb-3">
+                        <label class="form-label">Price (USD)</label>
+                        <input type="number" name="price" class="form-control" step="0.01" min="0" value="{{ kit.price if kit }}" required>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Thumbnail Image</label>
+                        <input type="file" name="thumbnail_image" class="form-control" accept=".png,.jpg,.jpeg">
+                        {% if kit and kit.thumbnail_url %}
+                        <small class="text-muted d-block mt-2">Current: <a href="{{ kit.thumbnail_url }}" target="_blank">View thumbnail</a></small>
+                        {% endif %}
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Status</label>
+                        <select name="status" class="form-select">
+                            <option value="draft" {% if not kit or kit.status == 'draft' %}selected{% endif %}>Draft</option>
+                            <option value="active" {% if kit and kit.status == 'active' %}selected{% endif %}>Active</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+
+            <hr class="my-4">
+
+            <div class="d-flex flex-wrap justify-content-between align-items-center mb-3">
+                <div>
+                    <h4 class="mb-1">Content Assets</h4>
+                    <p class="text-muted mb-0">Organize files into named sections like UI Graphics or Starter Code.</p>
+                </div>
+                <button type="button" class="btn btn-outline-primary" id="addSectionBtn">Add Section</button>
+            </div>
+
+            <input type="hidden" name="section_count" id="sectionCount" value="{{ kit.sections|length if kit else 0 }}">
+            <div id="sectionsContainer">
+                {% if kit and kit.sections %}
+                    {% for section in kit.sections %}
+                        {% set section_index = loop.index0 %}
+                        <div class="border rounded-3 p-3 mb-4 kit-section" data-section-index="{{ section_index }}">
+                            <div class="d-flex flex-wrap justify-content-between align-items-center mb-3">
+                                <div class="flex-grow-1 me-2">
+                                    <label class="form-label">Section Name</label>
+                                    <input type="text" name="section_{{ section_index }}_name" class="form-control" value="{{ section.name }}" required>
+                                </div>
+                                <button type="button" class="btn btn-outline-danger mt-4 remove-section">Remove Section</button>
+                            </div>
+
+                            <input type="hidden" name="section_{{ section_index }}_asset_count" class="asset-count" value="{{ section.assets|length }}">
+                            <div class="asset-rows">
+                                {% for asset in section.assets %}
+                                    {% set asset_index = loop.index0 %}
+                                    <div class="row g-3 align-items-end mb-3 asset-row" data-asset-index="{{ asset_index }}">
+                                        <div class="col-lg-5">
+                                            <label class="form-label">Asset File</label>
+                                            <input type="file" name="section_{{ section_index }}_file_{{ asset_index }}" class="form-control" accept=".png,.jpg,.jpeg,.mp3,.aia,.aix,.pdf">
+                                            <input type="hidden" name="section_{{ section_index }}_existing_url_{{ asset_index }}" value="{{ asset.file_url }}">
+                                            <small class="text-muted d-block mt-1">Existing: <a href="{{ asset.file_url }}" target="_blank">View file</a></small>
+                                        </div>
+                                        <div class="col-lg-5">
+                                            <label class="form-label">File Label</label>
+                                            <input type="text" name="section_{{ section_index }}_label_{{ asset_index }}" class="form-control" value="{{ asset.label or '' }}">
+                                        </div>
+                                        <div class="col-lg-2">
+                                            <button type="button" class="btn btn-outline-danger w-100 remove-asset">Remove</button>
+                                        </div>
+                                    </div>
+                                {% endfor %}
+                            </div>
+                            <button type="button" class="btn btn-outline-secondary add-asset">Add Asset</button>
+                        </div>
+                    {% endfor %}
+                {% endif %}
+            </div>
+
+            <div class="d-flex justify-content-end">
+                <button type="submit" class="btn btn-primary btn-lg">Save Kit</button>
+            </div>
+        </div>
+    </form>
+</div>
+{% endblock %}
