@@ -12,6 +12,7 @@ from backend.models.payment import Payment
 from backend.models.registration import Registration
 from backend.models.order import Order
 from backend.models.course import Course
+from backend.models.kit import Kit
 from backend.crud.social_post import crud_social_post
 from backend.routers.auth import get_current_user, get_optional_user
 
@@ -383,6 +384,51 @@ async def manage_registrations_page(
             "pages": pages,
             "search": search,
         },
+    )
+
+
+@router.get("/admin/manage-kits", name="manage_kits")
+async def manage_kits_page(
+    request: Request,
+    user: User = Depends(get_current_user),
+    db: Session = Depends(get_db),
+):
+    if user.role != "admin":
+        raise HTTPException(status_code=403, detail="Admin access required")
+    kits = db.query(Kit).order_by(Kit.created_at.desc()).all()
+    return templates.TemplateResponse(
+        "admin/manage_kits.html",
+        {"request": request, "kits": kits, "current_user": user},
+    )
+
+
+@router.get("/admin/kits/new", name="create_kit_form")
+async def create_kit_page(
+    request: Request, user: User = Depends(get_current_user)
+):
+    if user.role != "admin":
+        raise HTTPException(status_code=403, detail="Admin access required")
+    return templates.TemplateResponse(
+        "admin/kit_form.html",
+        {"request": request, "current_user": user, "kit": None},
+    )
+
+
+@router.get("/admin/kits/edit/{kit_id}", name="edit_kit_form")
+async def edit_kit_page(
+    request: Request,
+    kit_id: int,
+    user: User = Depends(get_current_user),
+    db: Session = Depends(get_db),
+):
+    if user.role != "admin":
+        raise HTTPException(status_code=403, detail="Admin access required")
+    kit = db.query(Kit).filter(Kit.id == kit_id).first()
+    if not kit:
+        raise HTTPException(status_code=404, detail="Kit not found")
+    return templates.TemplateResponse(
+        "admin/kit_form.html",
+        {"request": request, "current_user": user, "kit": kit},
     )
 
 

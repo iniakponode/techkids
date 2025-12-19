@@ -1,0 +1,59 @@
+{% extends "layout/base.html" %}
+
+{% block title %}Manage Kits{% endblock %}
+{% block extra_head %}
+{{ super() }}
+<script src="/static/js/pages/manage_kits.js" defer></script>
+{% endblock %}
+
+{% block content %}
+<div class="container mt-5">
+    <div class="d-flex flex-wrap justify-content-between align-items-center mb-4">
+        <div>
+            <h1>Manage Kits</h1>
+            <p class="text-muted">Create and update downloadable toolkits for your customers.</p>
+        </div>
+        <a href="/admin/kits/new" class="btn btn-primary">Create New Kit</a>
+    </div>
+
+    <div class="card shadow-sm">
+        <div class="card-body">
+            <div class="table-responsive">
+                <table class="table align-middle">
+                    <thead>
+                        <tr>
+                            <th>Title</th>
+                            <th>Price</th>
+                            <th>Status</th>
+                            <th>Created</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for kit in kits %}
+                        <tr>
+                            <td class="fw-semibold">{{ kit.title }}</td>
+                            <td>${{ "%.2f"|format(kit.price) }}</td>
+                            <td>
+                                <span class="badge bg-{% if kit.status == 'active' %}success{% else %}secondary{% endif %}">
+                                    {{ kit.status|title }}
+                                </span>
+                            </td>
+                            <td>{{ kit.created_at.strftime('%b %d, %Y') if kit.created_at else '-' }}</td>
+                            <td>
+                                <a href="/admin/kits/edit/{{ kit.id }}" class="btn btn-sm btn-primary">Edit</a>
+                                <button class="btn btn-sm btn-danger delete-kit" data-kit-id="{{ kit.id }}">Delete</button>
+                            </td>
+                        </tr>
+                        {% else %}
+                        <tr>
+                            <td colspan="5" class="text-center text-muted py-4">No kits created yet.</td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
